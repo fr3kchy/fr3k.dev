@@ -97,6 +97,17 @@ strong{color:#fff;font-weight:700}
 .nav__cta{font-weight:700;color:var(--neon);border:1px solid var(--glass-brd);padding:.35rem .8rem;border-radius:10px;transition:.2s}
 .nav__cta:hover{background:rgba(0,240,255,.1);box-shadow:0 0 16px rgba(0,240,255,.35)}
 
+/* ---------- Live status bar ---------- */
+.statusbar{display:flex;align-items:center;justify-content:center;gap:1.4rem;flex-wrap:wrap;margin:2.2rem auto 0;padding:1rem 1.6rem;max-width:760px}
+.statusbar__item{display:flex;align-items:center;gap:.55rem}
+.statusbar__n{font-family:var(--font-head);font-weight:700;font-size:1.5rem;color:var(--neon);text-shadow:0 0 12px rgba(0,240,255,.5)}
+.statusbar__n--sm{font-size:1.05rem;color:var(--neon-2);text-shadow:0 0 10px var(--neon-2)}
+.statusbar__l{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.statusbar__sep{width:1px;height:34px;background:var(--glass-brd)}
+.status-dot{width:10px;height:10px;border-radius:50%;background:var(--neon);box-shadow:0 0 10px var(--neon);animation:pulse 1.8s infinite}
+.status-dot--ok{background:#36f9a0;box-shadow:0 0 10px #36f9a0;animation:pulse 1.8s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
 /* ---------- Hero ---------- */
 .hero{min-height:78vh;display:flex;align-items:center;justify-content:center;padding:4rem 1.4rem 2rem}
 .hero__inner{text-align:center;max-width:880px}
@@ -162,11 +173,48 @@ strong{color:#fff;font-weight:700}
 .section,.tile,.card{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
 .section.in,.tile.in,.card.in{opacity:1;transform:none}
 
+/* ---------- Section lead ---------- */
+.section__lead{max-width:680px;color:var(--muted);font-size:1.12rem;margin:-.8rem 0 1.8rem}
+.muted{color:var(--muted)}
+
+/* ---------- Compare / The Gap ---------- */
+.compare{display:grid;grid-template-columns:1fr 1.4fr;gap:1.2rem}
+.compare__col{padding:1.8rem}
+.compare__h{font-family:var(--font-head);font-weight:700;letter-spacing:.04em;margin-bottom:1.1rem;font-size:1.15rem}
+.compare__h--bad{color:#ff5d6c}
+.compare__h--good{color:var(--neon)}
+.compare__list{list-style:none;display:grid;gap:.9rem}
+.compare__list li{display:flex;gap:.7rem;align-items:flex-start;color:var(--muted)}
+.compare__list b{color:#fff}
+.x{color:#ff5d6c;font-weight:700}
+.solution-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+.solution{padding:.9rem;background:rgba(0,240,255,.04);border:1px solid var(--glass-brd);border-radius:12px}
+.solution__k{color:var(--neon);font-size:1.3rem;text-shadow:0 0 10px var(--neon)}
+.solution h4{font-family:var(--font-head);color:#fff;font-size:1rem;letter-spacing:.04em;margin:.3rem 0 .4rem}
+.solution p{color:var(--muted);font-size:.95rem;margin:0}
+
+/* ---------- Grid 3-col ---------- */
+.grid--3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+
+/* ---------- File / method cards ---------- */
+.card .file{font-family:var(--font-head);color:var(--neon);font-size:1.2rem;letter-spacing:.05em;margin-bottom:.8rem;text-shadow:0 0 10px rgba(0,240,255,.4)}
+.card h3{font-family:var(--font-head);font-weight:700;color:#fff;font-size:1.15rem;letter-spacing:.03em;margin-bottom:.8rem}
+.card p{margin:0;color:var(--muted);font-size:1.02rem}
+
+/* ---------- CTA banner ---------- */
+.cta-banner{padding:2.2rem}
+.cta-banner__h{font-family:var(--font-head);color:#fff;font-size:clamp(1.2rem,3vw,1.7rem);letter-spacing:.03em;margin-bottom:1rem;text-shadow:0 0 16px rgba(255,43,214,.4)}
+.cta-banner p{color:var(--muted);font-size:1.08rem;margin-bottom:1.4rem;max-width:680px}
+.oss__note{margin-top:1.3rem;font-size:.92rem}
+.oss__note code{background:rgba(0,240,255,.1);color:var(--neon);padding:.05rem .4rem;border-radius:6px;font-family:var(--font-head);font-size:.85em}
+
 /* ---------- Responsive ---------- */
 @media(max-width:680px){
   .nav__links{display:none}
   .hero__stats{gap:1.4rem}
   .card{padding:1.4rem}
+  .compare{grid-template-columns:1fr}
+  .solution-grid{grid-template-columns:1fr}
 }
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important}
