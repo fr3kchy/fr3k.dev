@@ -173,6 +173,11 @@ strong{color:#fff;font-weight:700}
 .section,.tile,.card{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
 .section.in,.tile.in,.card.in{opacity:1;transform:none}
 
+/* ---------- Work groups ---------- */
+.workgroup{margin-bottom:2rem}
+.workgroup__h{font-family:var(--font-head);font-weight:700;letter-spacing:.05em;color:var(--neon-2);font-size:1.05rem;text-shadow:0 0 10px rgba(255,43,214,.35);margin-bottom:1rem;display:flex;align-items:center;gap:.6rem}
+.workgroup__h::before{content:"";width:6px;height:18px;background:var(--neon-2);box-shadow:0 0 10px var(--neon-2);border-radius:2px;display:inline-block}
+
 /* ---------- Section lead ---------- */
 .section__lead{max-width:680px;color:var(--muted);font-size:1.12rem;margin:-.8rem 0 1.8rem}
 .muted{color:var(--muted)}
