@@ -22,6 +22,19 @@ if (y) y.textContent = new Date().getFullYear();
   }, 2400);
 })();
 
+// Reel: force autoplay (covers browsers that ignore autoplay attr) + never leave hidden
+(function(){
+  const v = document.querySelector('.reel__video');
+  const sec = document.getElementById('reel');
+  if (sec) sec.classList.add('in'); // reel always visible
+  if (!v) return;
+  const tryPlay = () => { const p = v.play(); if (p && p.catch) p.catch(() => {}); };
+  tryPlay();
+  // retry after preload
+  v.addEventListener('canplay', tryPlay, { once: true });
+  document.addEventListener('click', tryPlay, { once: true });
+})();
+
 // Scroll reveal
 const io = new IntersectionObserver((entries) => {
   entries.forEach((e) => {
