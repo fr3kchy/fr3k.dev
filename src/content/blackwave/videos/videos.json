@@ -1,0 +1,11 @@
+{
+  "categories": ["OVERVIEW","ARCHITECTURE","SYSTEMS","DEVICES","VALIDATION"],
+  "videos": [
+    { "title": "BLACKWAVE — WHAT IT IS", "category": "OVERVIEW", "status": "PLANNED" },
+    { "title": "ONE FLEET, MANY MACHINES", "category": "OVERVIEW", "status": "PLANNED" },
+    { "title": "HOW BLACKWAVE COMMUNICATES", "category": "ARCHITECTURE", "status": "PLANNED" },
+    { "title": "EVIDENCE BEFORE CLAIMS", "category": "SYSTEMS", "status": "PLANNED" },
+    { "title": "THE FR3K VISION", "category": "OVERVIEW", "status": "PLANNED" }
+  ],
+  "note": "Synthetic HyperFrames imagery is marked ILLUSTRATION where evidence context could be ambiguous — never as physical proof."
+}

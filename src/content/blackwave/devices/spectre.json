@@ -1,0 +1,13 @@
+{
+  "id": "spectre",
+  "name": "SPECTRE",
+  "hardware": "LilyGO T-Display K230",
+  "role": "Edge AI, media and high-rate analysis",
+  "contract": "v2",
+  "evidence": "BLOCKED",
+  "capabilities": ["camera","display","kpu","fft","media","radio"],
+  "status": { "build": "BLOCKED", "probe": "NOT_TESTED", "flash": "NOT_TESTED", "boot": "NOT_TESTED", "integration": "BLOCKED" },
+  "blockers": ["dirty/untrusted external vendor SDK baseline — host tests PASS, full image BLOCKED"],
+  "latestUpdate": "2026-08-29",
+  "sourceCommit": "2c423c6"
+}

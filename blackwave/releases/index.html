@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Releases — BLACKWAVE | fR3K</title>
+  <meta name="description" content="BLACKWAVE releases — version, commit, artifact count, test count, validation state, blockers, manifest and checksums." />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <style>:root{--mono:'JetBrains Mono',monospace}
+    .page{max-width:1100px;margin:2rem auto;padding:0 1.4rem}
+    .mono{font-family:var(--mono)}
+    .badge{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;padding:.2rem .5rem;border-radius:6px;border:1px solid var(--glass-brd)}
+    .badge--built{background:rgba(56,189,248,.14);color:#38bdf8;border-color:rgba(56,189,248,.3)}
+    .badge--blocked{background:rgba(255,93,108,.14);color:#ff5d6c;border-color:rgba(255,93,108,.35)}
+  </style>
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div><div class="bg-glow" aria-hidden="true"></div><div class="scanlines" aria-hidden="true"></div>
+  <nav class="nav glass">
+    <a href="../../" class="nav__brand">fR3K<span class="nav__dot">.</span>DEV</a>
+    <ul class="nav__links"><li><a href="../">BLACKWAVE</a></li><li><a href="../#releases" style="color:var(--neon)">Releases</a></li></ul>
+    <a href="https://github.com/fr3kchy/fr3k-blackwave" target="_blank" rel="noopener" class="nav__cta">GitHub ↗</a>
+  </nav>
+  <div class="page">
+    <p class="mono" style="font-size:.68rem;letter-spacing:.18em;color:var(--neon-3);margin:1rem 0 .3rem"><a href="../" style="color:var(--neon-3)">BLACKWAVE</a> / RELEASES</p>
+    <h1 style="font-family:var(--font-head);font-weight:900;color:#fff;letter-spacing:.06em;font-size:clamp(1.6rem,4vw,2.4rem)">15 — RELEASES</h1>
+    <p style="color:var(--muted);max-width:680px;margin:.6rem 0 1.6rem">Each release: version/date · commit · artifact count · test count · hardware validation state · known blockers · manifest · checksums · notes.</p>
+    <div class="card glass" style="border-color:rgba(0,240,255,.2)">
+      <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem;align-items:center">
+        <span class="mono" style="color:var(--neon);letter-spacing:.1em;font-weight:700">2026-08-29 FULL BUILD — 2c423c6</span>
+        <span class="badge badge--built">46 artifacts · SHA-256 verified</span>
+      </div>
+      <p class="mono" style="font-size:.72rem;color:var(--muted);margin-top:.6rem">fr3k/research-reconciliation@2c423c6 · 82 pytest passes · worktree not clean · packaging-only flash layouts</p>
+      <ul style="margin:.8rem 0 0 1.2rem;color:var(--muted);font-size:.92rem;display:grid;gap:.2rem">
+        <li>Android debug APK signed · release APK unsigned (deliberate)</li>
+        <li>ESP32 merged factory images assembled locally — no device written</li>
+        <li>PATHFINDER reproducible upstream-derived candidates; physical flash records unresolved</li>
+        <li>K230 full vendor media/IPC baseline absent — dirty external SDK</li>
+        <li>Host-side SPECTRE tests passed — not a K230 image build</li>
+      </ul>
+      <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1rem">
+        <span class="badge badge--blocked">BLOCKED: SPECTRE full image</span>
+        <span class="badge badge--blocked">BLOCKED: PATHFINDER acceptance</span>
+        <span class="badge">hardware validation not yet performed</span>
+      </div>
+      <p class="mono" style="font-size:.62rem;color:var(--muted);margin-top:1rem">Manifest: <code>releases/2026-08-29-full-build/BUILD-MANIFEST.json</code> · <code>SHA256SUMS</code> · <code>docs/research/snapshot-manifest.json</code></p>
+    </div>
+    <p class="mono" style="font-size:.62rem;color:var(--muted);margin-top:1rem">Source: <code>src/content/blackwave/releases/releases.json</code> · future releases append here via <code>scripts/sync-blackwave-status.mjs</code></p>
+  </div>
+  <footer class="footer"><span>© <span id="y"></span> fR3k · BLACKWAVE Releases</span><a href="../" style="color:var(--neon)">← BLACKWAVE</a></footer>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>

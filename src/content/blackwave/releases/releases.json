@@ -1,0 +1,15 @@
+{
+  "releases": [
+    {
+      "version": "2026-08-29 FULL BUILD",
+      "date": "2026-08-29",
+      "commit": "2c423c6ec1081948afef3516139c700b9b8fa2f1",
+      "artifacts": 46,
+      "tests": 82,
+      "status": "BUILT — hardware validation not yet performed",
+      "blockers": ["SPECTRE full image blocked (K230 SDK provenance)", "PATHFINDER RNode acceptance blocked"],
+      "notes": "SHA-256 verified. Android debug signed, release unsigned. ESP32 factory images packaging-only — no device written.",
+      "dir": "releases/2026-08-29-full-build"
+    }
+  ]
+}

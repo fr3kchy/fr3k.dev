@@ -1,0 +1,29 @@
+{
+  "layers": [
+    {
+      "id": "intelligence",
+      "label": "FR3K INTELLIGENCE",
+      "items": ["Hermes", "Android", "Operators", "Automation"],
+      "desc": "Human and agent operators coordinate the fleet through authenticated control-plane interfaces."
+    },
+    {
+      "id": "core",
+      "label": "BLACKWAVE CORE",
+      "items": ["Identity", "Capability Registry", "Authorization", "Sessions", "Transport / QoS", "Evidence", "Telemetry", "OTA", "Recovery", "Contracts"],
+      "desc": "Contracts, identity, capability discovery, authorization, sessions, QoS, evidence, telemetry, OTA and recovery."
+    },
+    {
+      "id": "comms",
+      "label": "COMMUNICATIONS",
+      "items": ["Reticulum", "LXMF", "MeshCore", "Meshtastic", "LoRa", "FLRC", "Wi-Fi", "BLE", "ESP-NOW", "Cellular", "Ethernet", "USB"],
+      "desc": "Transport abstraction — applications specify the behaviour they need, BLACKWAVE chooses the path."
+    },
+    {
+      "id": "physical",
+      "label": "PHYSICAL SYSTEMS",
+      "items": ["ABYSS", "RELAY", "NEXUS", "SPECTRE", "SCOUT", "SIGNAL", "VIGIL", "CHRONOS", "PULSE", "PATHFINDER"],
+      "desc": "Ten fleet roles spanning field terminals, radios, wearables, perception, edge AI, displays and infrastructure.",
+      "tagline": "THE NETWORK IS NOT THE SYSTEM."
+    }
+  ]
+}

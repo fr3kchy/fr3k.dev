@@ -1,0 +1,20 @@
+{
+  "research": [
+    { "topic": "LR2021 FLRC", "status": "MONITOR", "desc": "Semtech LR2021 FLRC high-rate PHY as candidate transport." },
+    { "topic": "LR2021 ranging", "status": "MONITOR", "desc": "RF ranging via LR2021 for RF Atlas RangeObservation." },
+    { "topic": "LR2021 multi-SF", "status": "MONITOR", "desc": "Multi spreading-factor operation for parallel channels." },
+    { "topic": "K230 Linux + RT-Smart IPC", "status": "BLOCKED", "desc": "K230 Linux/RT-Smart IPCMSG + DATAFIFO — blocked on vendor SDK provenance." },
+    { "topic": "Reticulum / RNode", "status": "ADOPT", "desc": "Reticulum network stack + RNode firmware — adopted transport." },
+    { "topic": "MeshCore", "status": "MONITOR", "desc": "Complementary mesh protocol alongside Reticulum." },
+    { "topic": "embedded MCP", "status": "PORT", "desc": "MCP control plane on ESP32-S3 voice-agent endpoints." },
+    { "topic": "embedded WASM", "status": "MONITOR", "desc": "WASM sandbox for on-device policy / extensions." },
+    { "topic": "MCU vector maps", "status": "MONITOR", "desc": "On-device vector map tiling for field terminals." },
+    { "topic": "CRDT sync", "status": "MONITOR", "desc": "Conflict-free replicated state for distributed fleet." },
+    { "topic": "ESP-NOW swarm", "status": "MONITOR", "desc": "ESP-NOW for local swarm coordination." },
+    { "topic": "local voice", "status": "PORT", "desc": "Offline voice agent via xiaozhi + Kokoro." },
+    { "topic": "hardware probing", "status": "ADOPT", "desc": "Hardware probe layer — PROBED evidence state." },
+    { "topic": "secure OTA", "status": "ADOPT", "desc": "Signed A/B OTA with rollback + revocation." },
+    { "topic": "RF Atlas", "status": "ADOPT", "desc": "Transmission → Observation model; RTL-SDR + embedded radios." },
+    { "topic": "SDR fusion", "status": "ADOPT", "desc": "GPD/RPi SDR workstation fusing SpectrumObservation / RangeObservation / AircraftObservation / BLEObservation." }
+  ]
+}

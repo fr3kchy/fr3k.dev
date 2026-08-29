@@ -1,0 +1,32 @@
+{
+  "timeline": [
+    {
+      "date": "2026-08-29",
+      "title": "FULL SOFTWARE BUILD",
+      "summary": "Nine-device Contract v2 — reproducible software build with 82 pytest passes and 46 verified artifacts.",
+      "evidence": "BUILT",
+      "devices": ["ABYSS","RELAY","NEXUS","SCOUT","SIGNAL","VIGIL","CHRONOS","PULSE","PATHFINDER","SPECTRE*"],
+      "commit": "2c423c6",
+      "bullets": [
+        "82 pytest passes",
+        "46 payload artifacts — SHA-256 verified",
+        "nine-device Contract v2 preserved",
+        "Android debug APK signature verified",
+        "Android release unsigned (deliberate)",
+        "K230 full image remains BLOCKED",
+        "physical validation not yet performed"
+      ],
+      "release": "2026-08-29-full-build"
+    }
+  ],
+  "nextPhase": [
+    "isolate K230 SDK provenance",
+    "create hardware probe layer",
+    "back up devices",
+    "staged flashing",
+    "physical subsystem validation",
+    "receive-only RF validation",
+    "controlled RF validation",
+    "first physical Reticulum network"
+  ]
+}

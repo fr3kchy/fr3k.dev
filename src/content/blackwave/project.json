@@ -1,0 +1,36 @@
+{
+  "name": "BLACKWAVE",
+  "tagline": "A DISTRIBUTED PHYSICAL OPERATING MODEL FOR HETEROGENEOUS EDGE HARDWARE",
+  "subtitle": "DISTRIBUTED PHYSICAL SYSTEMS // EVIDENCE-GATED EDGE FLEET",
+  "description": "A heterogeneous fleet of radios, field terminals, wearables, perception nodes, edge compute and Linux infrastructure — coordinated through common capability, transport, identity and evidence contracts.",
+  "contractVersion": "v2",
+  "contractDevices": 9,
+  "releaseArtifacts": 46,
+  "pytestPasses": 82,
+  "slogans": [
+    "CAPABILITY EARNED BY EVIDENCE.",
+    "DISCOVERY IS NOT AUTHORITY.",
+    "THE NETWORK IS NOT THE SYSTEM.",
+    "BLACKWAVE IS THE NERVOUS SYSTEM. FR3K IS WHAT GROWS ON TOP OF IT."
+  ],
+  "heroCtas": [
+    { "label": "VIEW CURRENT STATUS", "href": "#status" },
+    { "label": "EXPLORE ARCHITECTURE", "href": "#architecture" },
+    { "label": "FOLLOW DEVELOPMENT", "href": "#timeline" }
+  ],
+  "liveStatus": {
+    "contract": "CONTRACT V2",
+    "devices": "9 ACTIVE CONTRACT DEVICES",
+    "artifacts": "46 RELEASE ARTIFACTS",
+    "tests": "82 PYTEST PASSES",
+    "k230": "K230 FULL IMAGE BLOCKED",
+    "validation": "PHYSICAL VALIDATION NEXT"
+  },
+  "source": {
+    "repo": "https://github.com/fr3kchy/fr3k-blackwave",
+    "branch": "fr3k/research-reconciliation",
+    "commit": "2c423c6ec1081948afef3516139c700b9b8fa2f1",
+    "buildDate": "2026-08-29",
+    "manifest": "releases/2026-08-29-full-build/BUILD-MANIFEST.json"
+  }
+}

@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BLACKWAVE — Distributed Physical Systems | fR3K</title>
+  <meta name="description" content="BLACKWAVE is fR3K's evidence-gated distributed edge platform connecting resilient communications, RF observation, edge AI, physical devices and autonomous agents." />
+  <meta name="author" content="fr3k" />
+  <meta property="og:title" content="BLACKWAVE — Distributed Physical Systems | fR3K" />
+  <meta property="og:description" content="BLACKWAVE is fR3K's evidence-gated distributed edge platform — resilient comms, RF observation, edge AI, and evidence before claims." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fr3k.dev/blackwave" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <style>
+    :root{--mono:'JetBrains Mono',monospace}
+    .bw-nav__links a.active{color:var(--neon);text-shadow:0 0 10px var(--neon)}
+    /* hero */
+    .bw-hero{min-height:62vh;display:flex;align-items:center;justify-content:center;padding:3.5rem 1.4rem 1.2rem;text-align:center}
+    .bw-hero__inner{max-width:900px}
+    .bw-hero__kicker{font-family:var(--font-head);font-size:.68rem;letter-spacing:.42em;color:var(--neon-3);margin-bottom:1rem}
+    .bw-hero__title{font-family:var(--font-head);font-weight:900;font-size:clamp(3rem,12vw,7.2rem);letter-spacing:.08em;color:#fff;text-shadow:0 0 28px rgba(0,240,255,.45),0 0 60px rgba(157,75,255,.28);line-height:.9}
+    .bw-hero__sub{font-family:var(--font-head);font-weight:600;letter-spacing:.18em;font-size:.82rem;color:var(--neon);margin-top:.6rem}
+    .bw-hero__body{margin:1.4rem auto 0;max-width:640px;color:var(--muted);font-size:1.08rem;line-height:1.6}
+    .bw-hero__ctas{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin-top:1.6rem}
+    .btn--sm{padding:.55rem 1.1rem;font-size:.82rem;letter-spacing:.08em}
+    /* live strip */
+    .live-strip{display:flex;flex-wrap:wrap;gap:.45rem;justify-content:center;margin:1.6rem auto 0;max-width:900px}
+    .live-strip__item{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;padding:.4rem .7rem;border-radius:8px;background:rgba(0,240,255,.07);border:1px solid var(--glass-brd);color:var(--muted)}
+    .live-strip__item b{color:var(--neon)}
+    .live-strip__item--blocked{border-color:rgba(255,93,108,.35);background:rgba(255,93,108,.08)}
+    .live-strip__item--blocked b{color:#ff5d6c}
+    /* section tweaks */
+    .bw-section{max-width:1100px;margin:4.5rem auto;padding:0 1.4rem}
+    .bw-section__num{color:var(--neon-2);font-family:var(--font-head)}
+    .bw-lead{color:var(--muted);font-size:1.06rem;max-width:720px;margin:-.6rem 0 1.4rem;line-height:1.6}
+    .mono{font-family:var(--mono)}
+    .tagline{font-family:var(--font-head);letter-spacing:.22em;font-size:.72rem;color:var(--neon-3);margin-top:.8rem}
+    /* principle cards */
+    .principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+    .principle{padding:1.3rem 1.4rem}
+    .principle h3{font-family:var(--font-head);font-size:.95rem;letter-spacing:.06em;color:#fff;margin-bottom:.5rem}
+    .principle p{color:var(--muted);font-size:.96rem;line-height:1.5;margin:0}
+    .principle__icon{font-size:1.3rem;margin-bottom:.4rem}
+    /* arch diagram */
+    .arch{display:flex;flex-direction:column;gap:.5rem;max-width:760px;margin:0 auto}
+    .arch__layer{padding:1.1rem 1.4rem;position:relative;cursor:default;transition:.2s}
+    .arch__layer:hover{border-color:rgba(0,240,255,.4);box-shadow:0 0 22px rgba(0,240,255,.18)}
+    .arch__layer h3{font-family:var(--font-head);font-size:.95rem;letter-spacing:.12em;color:#fff}
+    .arch__layer p{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--muted);margin-top:.45rem;line-height:1.6}
+    .arch__arrow{text-align:center;color:var(--neon);font-size:1.1rem;letter-spacing:.2em;opacity:.7}
+    .arch__desc{font-size:.82rem;color:var(--muted);margin-top:.5rem;display:none;line-height:1.5}
+    .arch__layer:hover .arch__desc{display:block}
+    /* fleet */
+    .fleet{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem}
+    .fleet__card{padding:1.3rem 1.4rem;display:flex;flex-direction:column;gap:.5rem;position:relative;overflow:hidden}
+    .fleet__card::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,240,255,.06),transparent 45%);opacity:0;transition:.2s}
+    .fleet__card:hover::before{opacity:1}
+    .fleet__head{display:flex;align-items:baseline;justify-content:space-between;gap:.6rem;flex-wrap:wrap}
+    .fleet__name{font-family:var(--font-head);font-weight:800;letter-spacing:.08em;color:#fff;font-size:1.05rem}
+    .fleet__hw{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;color:var(--neon);border:1px solid var(--glass-brd);padding:.15rem .5rem;border-radius:20px}
+    .fleet__role{color:var(--muted);font-size:.92rem}
+    .fleet__meta{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;color:var(--muted);display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.2rem}
+    .badge{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;padding:.2rem .5rem;border-radius:6px;border:1px solid var(--glass-brd)}
+    .badge--pass{background:rgba(54,249,160,.12);color:#36f9a0;border-color:rgba(54,249,160,.3)}
+    .badge--blocked{background:rgba(255,93,108,.14);color:#ff5d6c;border-color:rgba(255,93,108,.35)}
+    .badge--built{background:rgba(56,189,248,.14);color:#38bdf8;border-color:rgba(56,189,248,.3)}
+    .badge--contract{color:var(--neon-3);border-color:rgba(157,75,255,.3)}
+    /* evidence */
+    .evidence-track{display:flex;flex-wrap:wrap;gap:.35rem;align-items:center;justify-content:center;margin:1rem 0}
+    .evidence-step{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;padding:.35rem .55rem;border-radius:7px;border:1px solid var(--glass-brd);color:var(--muted);background:rgba(255,255,255,.02)}
+    .evidence-step--blocked{border-color:#ff5d6c;color:#ff5d6c;background:rgba(255,93,108,.12);box-shadow:0 0 12px rgba(255,93,108,.25)}
+    .evidence-step--pass{border-color:rgba(54,249,160,.3);color:#36f9a0}
+    .evidence-arrow{color:var(--muted);opacity:.5;font-size:.7rem}
+    .evidence-legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.7rem;margin-top:1.2rem}
+    .evidence-legend__item{padding:.7rem .9rem;background:rgba(255,255,255,.02);border:1px solid var(--glass-brd);border-radius:10px}
+    .evidence-legend__item b{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;color:#fff}
+    .evidence-legend__item p{font-size:.82rem;color:var(--muted);margin:.25rem 0 0;line-height:1.5}
+    /* ledger */
+    .ledger{display:grid;gap:.6rem}
+    .ledger__row{display:flex;gap:.8rem;align-items:center;flex-wrap:wrap;padding:.8rem 1rem;background:rgba(255,255,255,.02);border:1px solid var(--glass-brd);border-radius:10px}
+    .ledger__name{font-family:var(--font-head);font-weight:700;letter-spacing:.06em;color:#fff;min-width:110px}
+    .ledger__note{color:var(--muted);font-size:.85rem;flex:1;min-width:180px}
+    /* data classes */
+    .dataclasses{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.9rem}
+    .dataclass{padding:1.1rem 1.2rem;text-align:center}
+    .dataclass h4{font-family:var(--font-head);font-size:.9rem;letter-spacing:.08em;color:var(--neon)}
+    .dataclass p{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;color:var(--muted);margin-top:.3rem;line-height:1.5}
+    .dataclass__icon{font-size:1.4rem;margin-bottom:.3rem}
+    /* transports */
+    .transports{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;margin-top:1rem}
+    .transport{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;padding:.35rem .6rem;border-radius:7px;background:rgba(0,240,255,.07);border:1px solid var(--glass-brd);color:var(--muted)}
+    /* validation matrix */
+    .matrix-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--glass-brd);border-radius:12px}
+    .matrix{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:.68rem;min-width:720px}
+    .matrix th{padding:.6rem .5rem;text-align:center;color:var(--neon-3);letter-spacing:.08em;font-weight:700;background:rgba(157,75,255,.06);border-bottom:1px solid var(--glass-brd);white-space:nowrap}
+    .matrix td{padding:.45rem .5rem;text-align:center;border-bottom:1px solid rgba(0,240,255,.06);white-space:nowrap}
+    .matrix td:first-child{color:#fff;font-weight:700;letter-spacing:.06em;text-align:left;padding-left:.8rem;position:sticky;left:0;background:var(--bg);border-right:1px solid var(--glass-brd)}
+    .matrix th:first-child{text-align:left;padding-left:.8rem;position:sticky;left:0;background:var(--bg);z-index:1}
+    .cell--PASS{color:#36f9a0}
+    .cell--BLOCKED{color:#ff5d6c;background:rgba(255,93,108,.08)}
+    .cell--NOT_TESTED{color:var(--muted)}
+    .cell--N\/A{color:#6b7280}
+    .cell--FAIL{color:#ff5d6c;font-weight:700}
+    /* timeline */
+    .timeline{position:relative;padding-left:1.4rem;border-left:1px solid var(--glass-brd)}
+    .timeline__entry{position:relative;padding:1.2rem 1.4rem;margin-bottom:1rem}
+    .timeline__entry::before{content:"";position:absolute;left:-1.42rem;top:1.4rem;width:10px;height:10px;border-radius:50%;background:var(--neon);box-shadow:0 0 10px var(--neon)}
+    .timeline__date{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;color:var(--neon)}
+    .timeline__title{font-family:var(--font-head);font-weight:700;color:#fff;margin-top:.2rem}
+    .timeline__bullets{margin:.6rem 0 0 1rem;color:var(--muted);font-size:.92rem;display:grid;gap:.25rem}
+    /* rf atlas */
+    .rf-flow{display:flex;align-items:center;justify-content:center;gap:.6rem;flex-wrap:wrap;margin:1rem 0}
+    .rf-flow__node{padding:.6rem .9rem;border-radius:10px;background:rgba(0,240,255,.07);border:1px solid var(--glass-brd);font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;color:var(--muted);text-align:center}
+    .rf-flow__node--tx{color:var(--neon);border-color:rgba(0,240,255,.3)}
+    .rf-flow__arrow{color:var(--neon);font-size:1rem}
+    /* infrastructure */
+    .infra{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
+    .infra__card{padding:1.3rem 1.4rem}
+    .infra__card h3{font-family:var(--font-head);font-size:.95rem;letter-spacing:.06em;color:#fff}
+    .infra__card ul{margin:.6rem 0 0 1rem;color:var(--muted);font-size:.92rem;display:grid;gap:.2rem}
+    .infra__tag{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;color:var(--neon-2);margin-top:.6rem;display:inline-block;border:1px solid rgba(255,43,214,.25);padding:.2rem .5rem;border-radius:6px}
+    /* research */
+    .research{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.7rem}
+    .research__item{padding:.8rem 1rem;display:flex;flex-direction:column;gap:.25rem}
+    .research__item h4{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;color:#fff}
+    .research__item p{font-size:.82rem;color:var(--muted);line-height:1.5;margin:0}
+    /* final cta */
+    .final{max-width:760px;margin:4rem auto;text-align:center;padding:2rem 1.4rem}
+    .final h2{font-family:var(--font-head);font-weight:900;letter-spacing:.08em;color:#fff;font-size:clamp(1.2rem,3vw,1.8rem)}
+    .final p{color:var(--muted);margin:.8rem 0 1.4rem}
+    /* subpage teaser */
+    .subpages{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
+    /* spectre/scout diagrams */
+    .diagram{padding:1.2rem 1.4rem;max-width:760px;margin:0 auto}
+    .diagram__row{display:flex;align-items:center;gap:.6rem;justify-content:center;flex-wrap:wrap}
+    .diagram__box{padding:.6rem .9rem;border-radius:10px;background:rgba(0,240,255,.07);border:1px solid var(--glass-brd);font-family:var(--mono);font-size:.7rem;color:var(--muted);text-align:center;min-width:110px}
+    .diagram__arrow{color:var(--neon)}
+    @media(max-width:680px){
+      .matrix{font-size:.62rem}
+      .bw-hero__title{font-size:clamp(2.6rem,14vw,4.5rem)}
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow" aria-hidden="true"></div>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <nav class="nav glass">
+    <a href="../" class="nav__brand">fR3K<span class="nav__dot">.</span>DEV</a>
+    <ul class="nav__links bw-nav__links">
+      <li><a href="../#about">About</a></li>
+      <li><a href="../#work">Work</a></li>
+      <li><a href="./" class="active">BLACKWAVE</a></li>
+      <li><a href="../#principles">Principles</a></li>
+      <li><a href="../#contact">Contact</a></li>
+    </ul>
+    <a href="https://github.com/fr3kchy/fr3k-blackwave" target="_blank" rel="noopener" class="nav__cta">GitHub ↗</a>
+  </nav>
+
+  <!-- 00 HERO -->
+  <header class="bw-hero">
+    <div class="bw-hero__inner">
+      <p class="bw-hero__kicker">DISTRIBUTED PHYSICAL SYSTEMS // EVIDENCE-GATED EDGE FLEET</p>
+      <h1 class="bw-hero__title glitch" data-text="BLACKWAVE">BLACKWAVE</h1>
+      <p class="bw-hero__sub">A DISTRIBUTED PHYSICAL OPERATING MODEL FOR HETEROGENEOUS EDGE HARDWARE</p>
+      <p class="bw-hero__body">A heterogeneous fleet of radios, field terminals, wearables, perception nodes, edge compute and Linux infrastructure — coordinated through common capability, transport, identity and evidence contracts.</p>
+      <div class="bw-hero__ctas">
+        <a href="#status" class="btn btn--primary btn--sm">VIEW CURRENT STATUS</a>
+        <a href="#architecture" class="btn btn--ghost btn--sm">EXPLORE ARCHITECTURE</a>
+        <a href="#timeline" class="btn btn--ghost btn--sm">FOLLOW DEVELOPMENT</a>
+      </div>
+      <div class="live-strip" id="liveStrip">
+        <span class="live-strip__item"><b>CONTRACT V2</b></span>
+        <span class="live-strip__item"><b>9</b> ACTIVE CONTRACT DEVICES</span>
+        <span class="live-strip__item"><b>46</b> RELEASE ARTIFACTS</span>
+        <span class="live-strip__item"><b>82</b> PYTEST PASSES</span>
+        <span class="live-strip__item live-strip__item--blocked"><b>K230 FULL IMAGE BLOCKED</b></span>
+        <span class="live-strip__item"><b>PHYSICAL VALIDATION NEXT</b></span>
+      </div>
+      <p class="mono" style="font-size:.62rem;letter-spacing:.1em;color:var(--muted);margin-top:.7rem;opacity:.7">BUILD 2026-08-29 · 2c423c6 · <a href="https://github.com/fr3kchy/fr3k-blackwave" target="_blank" rel="noopener" style="color:var(--neon)">fr3k-blackwave</a></p>
+    </div>
+  </header>
+
+  <main>
+    <!-- 01 WHAT BLACKWAVE IS -->
+    <section class="bw-section" id="what">
+      <h2 class="section__title"><span class="num">01</span> WHAT BLACKWAVE IS</h2>
+      <div class="card glass" style="margin-bottom:1.2rem">
+        <p>BLACKWAVE begins with a simple problem:</p>
+        <p><strong>different devices should not be forced into fake uniformity.</strong></p>
+        <p class="muted">A T-Deck Plus has a keyboard and LoRa radio. A K10 has cameras, microphones and sensors. A K230 has much heavier edge-compute potential. A T-Echo is useful because it can remain small and low-power. A Linux machine belongs in infrastructure.</p>
+        <p class="muted">BLACKWAVE allows each of them to specialize while exposing a common system boundary.</p>
+        <p class="mono" style="font-size:.72rem;letter-spacing:.12em;color:var(--neon-2);margin-top:.8rem">CAPABILITY EARNED BY EVIDENCE · DISCOVERY IS NOT AUTHORITY · THE NETWORK IS NOT THE SYSTEM</p>
+      </div>
+      <div class="principles">
+        <div class="card glass principle"><div class="principle__icon">⟁</div><h3>CAPABILITY OVER MODEL NAME</h3><p>Hardware is represented by what is actually present and usable, not merely by a product label.</p></div>
+        <div class="card glass principle"><div class="principle__icon">◈</div><h3>DISCOVERY IS NOT AUTHORITY</h3><p>A device being visible does not imply permission to invoke sensitive capabilities.</p></div>
+        <div class="card glass principle"><div class="principle__icon">⟡</div><h3>TRANSPORT IS A SERVICE</h3><p>Applications specify the behaviour they need instead of hardcoding LoRa, Wi-Fi, BLE, cellular or USB.</p></div>
+        <div class="card glass principle"><div class="principle__icon">⬢</div><h3>EVIDENCE BEFORE CLAIMS</h3><p>A compile, hardware probe, flash, boot and physical validation are different evidence states.</p></div>
+      </div>
+    </section>
+
+    <!-- 02 ARCHITECTURE -->
+    <section class="bw-section" id="architecture">
+      <h2 class="section__title"><span class="num">02</span> SYSTEM ARCHITECTURE</h2>
+      <p class="bw-lead">Four layers. Each does one job. Transport and control are separate failure domains.</p>
+      <div class="arch">
+        <div class="arch__layer glass"><h3>FR3K INTELLIGENCE</h3><p>Hermes · Android · Operators · Automation</p><div class="arch__desc">Human and agent operators — Hermes, Android control surfaces, and automation — coordinate the fleet.</div></div>
+        <div class="arch__arrow">↓</div>
+        <div class="arch__layer glass"><h3>BLACKWAVE CORE</h3><p>Identity · Capability Registry · Authorization · Sessions · Transport / QoS · Evidence · Telemetry · OTA · Recovery · Contracts</p><div class="arch__desc">Contracts, identity, capability discovery, authorization, sessions, QoS, evidence, telemetry, OTA and recovery — the nervous system.</div></div>
+        <div class="arch__arrow">↓</div>
+        <div class="arch__layer glass"><h3>COMMUNICATIONS</h3><p>Reticulum · LXMF · MeshCore · Meshtastic · LoRa · FLRC · Wi-Fi · BLE · ESP-NOW · Cellular · Ethernet · USB</p><div class="arch__desc">Transport abstraction. Applications describe what traffic needs; BLACKWAVE decides how the available system can carry it.</div></div>
+        <div class="arch__arrow">↓</div>
+        <div class="arch__layer glass"><h3>PHYSICAL SYSTEMS</h3><p>ABYSS · RELAY · NEXUS · SPECTRE · SCOUT · SIGNAL · VIGIL · CHRONOS · PULSE · PATHFINDER</p><div class="arch__desc">Ten fleet roles spanning field terminals, radios, wearables, perception, edge AI, displays and infrastructure endpoints.</div></div>
+        <p class="tagline" style="text-align:center">THE NETWORK IS NOT THE SYSTEM.</p>
+      </div>
+    </section>
+
+    <!-- 03 FLEET -->
+    <section class="bw-section" id="fleet">
+      <h2 class="section__title"><span class="num">03</span> BLACKWAVE FLEET</h2>
+      <p class="bw-lead">Ten roles. Nine in Contract v2. Each card shows canonical hardware, role, and evidence state. PATHFINDER is outside Contract v2 — represented explicitly.</p>
+      <div class="fleet" id="fleetGrid"></div>
+    </section>
+
+    <!-- 04 EVIDENCE MODEL -->
+    <section class="bw-section" id="evidence">
+      <h2 class="section__title"><span class="num">04</span> CAPABILITY EARNED BY EVIDENCE</h2>
+      <div class="card glass" style="text-align:center">
+        <p class="mono" style="font-size:.72rem;letter-spacing:.12em;color:var(--muted)">Every capability moves through evidence gates. A blocked gate stays visible.</p>
+        <div class="evidence-track" id="evidenceTrack"></div>
+        <div class="evidence-legend" id="evidenceLegend"></div>
+      </div>
+    </section>
+
+    <!-- 05 BUILD LEDGER -->
+    <section class="bw-section" id="status">
+      <h2 class="section__title"><span class="num">05</span> CURRENT BUILD LEDGER</h2>
+      <p class="bw-lead">Verified 2026-08-29 full software build — packaging-only, no device written. Each line is a build gate, not a marketing claim.</p>
+      <div class="ledger" id="ledger"></div>
+      <p class="mono" style="font-size:.62rem;color:var(--muted);margin-top:.6rem">Source: <code>releases/2026-08-29-full-build/BUILD-MANIFEST.json</code> · SHA-256 verified · <code>fr3k/research-reconciliation@2c423c6</code></p>
+    </section>
+
+    <!-- 06 DATA CLASSES -->
+    <section class="bw-section" id="dataclasses">
+      <h2 class="section__title"><span class="num">06</span> NOT ALL DATA IS THE SAME</h2>
+      <p class="bw-lead">Applications describe what the traffic needs. BLACKWAVE decides how the available system can carry it.</p>
+      <div class="dataclasses">
+        <div class="card glass dataclass"><div class="dataclass__icon">◉</div><h4>CONTROL</h4><p>commands<br>approvals<br>configuration</p></div>
+        <div class="card glass dataclass"><div class="dataclass__icon">◐</div><h4>EVENT</h4><p>observations<br>alerts<br>state transitions</p></div>
+        <div class="card glass dataclass"><div class="dataclass__icon">◎</div><h4>STATE</h4><p>battery · position<br>current signal<br>current target</p></div>
+        <div class="card glass dataclass"><div class="dataclass__icon">⬢</div><h4>INTERACTIVE</h4><p>terminal · keyboard<br>UI feedback</p></div>
+        <div class="card glass dataclass"><div class="dataclass__icon">▣</div><h4>BULK</h4><p>firmware · maps<br>logs · models · files</p></div>
+        <div class="card glass dataclass"><div class="dataclass__icon">≋</div><h4>STREAM</h4><p>audio · video<br>high-rate telemetry</p></div>
+      </div>
+      <p class="mono" style="text-align:center;margin-top:1rem;font-size:.72rem;letter-spacing:.1em;color:var(--neon-2)">Candidate transports →</p>
+      <div class="transports">
+        <span class="transport">LoRa</span><span class="transport">FLRC</span><span class="transport">ESP-NOW</span><span class="transport">BLE</span><span class="transport">Wi-Fi</span><span class="transport">Ethernet</span><span class="transport">USB</span><span class="transport">Cellular</span><span class="transport">Reticulum</span>
+      </div>
+    </section>
+
+    <!-- 07 RF ATLAS -->
+    <section class="bw-section" id="rfatlas">
+      <h2 class="section__title"><span class="num">07</span> RF ATLAS</h2>
+      <p class="bw-lead">One physical transmission may be seen differently by multiple observers. Each observation contributes what it actually measured.</p>
+      <div class="card glass">
+        <div class="rf-flow">
+          <div class="rf-flow__node rf-flow__node--tx">Transmission</div>
+          <span class="rf-flow__arrow">↓</span>
+          <div style="display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center">
+            <div class="rf-flow__node">Observation A</div>
+            <div class="rf-flow__node">Observation B</div>
+            <div class="rf-flow__node">Observation C</div>
+          </div>
+        </div>
+        <p class="mono" style="font-size:.68rem;color:var(--muted);text-align:center;margin-top:.8rem">Each observation may carry: observer ID · timestamp · timestamp uncertainty · location · location accuracy · frequency · bandwidth · spreading factor · coding rate · PHY · RSSI · SNR · frequency error · airtime · protocol · confidence · radio · firmware · antenna · transport</p>
+        <p class="mono" style="font-size:.68rem;color:var(--muted);text-align:center;margin-top:.6rem">Observation types: <b style="color:var(--neon)">Observation</b> · <b style="color:var(--neon)">SpectrumObservation</b> · <b style="color:var(--neon)">RangeObservation</b> · <b style="color:var(--neon)">AircraftObservation</b> · <b style="color:var(--neon)">BLEObservation</b></p>
+        <p class="mono" style="font-size:.62rem;color:var(--muted);text-align:center;margin-top:.6rem;opacity:.7">RTL-SDR and embedded radios may eventually contribute complementary observations. <span class="badge badge--blocked" style="vertical-align:middle">EVIDENCE: EMERGING</span></p>
+      </div>
+    </section>
+
+    <!-- 08 SPECTRE -->
+    <section class="bw-section" id="spectre">
+      <h2 class="section__title"><span class="num">08</span> SPECTRE // EDGE ANALYSIS</h2>
+      <p class="bw-lead">SPECTRE is the BLACKWAVE K230 edge-compute tier. Control-plane services and realtime media are separated by design.</p>
+      <div class="card glass diagram">
+        <div class="diagram__row">
+          <div class="diagram__box" style="flex:1">LINUX / CONTROL PLANE<br><span style="color:var(--muted)">Reticulum · Atlas · MCP<br>networking · storage</span></div>
+        </div>
+        <div style="text-align:center;color:var(--neon);margin:.4rem 0;letter-spacing:.2em">↕ IPCMSG / DATAFIFO</div>
+        <div class="diagram__row">
+          <div class="diagram__box" style="flex:1">RT-SMART / REALTIME PLANE<br><span style="color:var(--muted)">camera · display · KPU · FFT · media · radio</span></div>
+        </div>
+      </div>
+      <div class="card glass" style="margin-top:1rem;border-color:rgba(255,93,108,.25)">
+        <p class="mono" style="font-size:.72rem"><span class="badge badge--blocked">BLOCKED</span> <span style="color:var(--muted)">Host-side SPECTRE tests pass. The full vendor media/IPC image remains <b style="color:#ff5d6c">BLOCKED</b> until the external K230 SDK can be reproduced from a clean trusted provenance baseline. This is not presented as completed.</span></p>
+      </div>
+    </section>
+
+    <!-- 09 SCOUT -->
+    <section class="bw-section" id="scout">
+      <h2 class="section__title"><span class="num">09</span> SCOUT // PHYSICAL AI</h2>
+      <p class="bw-lead">Two owned K10s sharing one logical model where appropriate — reflex stays local, reasoning moves upward only when useful.</p>
+      <div class="card glass" style="max-width:760px;margin:0 auto;text-align:center">
+        <p class="mono" style="font-size:.72rem;letter-spacing:.1em;color:var(--muted)">
+          SENSOR → LOCAL REFLEX → TINY MODEL → DEVICE LOGIC → EDGE ANALYSIS → HERMES
+        </p>
+        <p class="muted" style="font-size:.92rem;margin-top:.8rem">Low-latency safety remains local. High-level reasoning can move upward only when useful.</p>
+        <div style="display:flex;gap:.8rem;justify-content:center;margin-top:1rem;flex-wrap:wrap">
+          <span class="badge" style="color:var(--neon);border-color:var(--glass-brd)">SCOUT-1 · embodied perception / actuator</span>
+          <span class="badge" style="color:var(--neon);border-color:var(--glass-brd)">SCOUT-2 · experimental cooperative sensing / swarm</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 RESILIENT COMMS -->
+    <section class="bw-section" id="comms">
+      <h2 class="section__title"><span class="num">10</span> RESILIENT COMMUNICATIONS</h2>
+      <p class="bw-lead">BLACKWAVE does not force one protocol everywhere. Reticulum / LXMF, MeshCore and Meshtastic are complementary — BLACKWAVE itself is not a mesh protocol.</p>
+      <div class="card glass diagram">
+        <div class="diagram__row" style="flex-direction:column;gap:.3rem">
+          <div class="diagram__box">PATHFINDER <span style="color:var(--muted)">LoRa</span></div>
+          <span class="diagram__arrow">↓</span>
+          <div class="diagram__box">ABYSS</div>
+          <span class="diagram__arrow">↓ Reticulum transport</span>
+          <div class="diagram__box">Pi / Radxa infrastructure</div>
+          <span class="diagram__arrow">↓</span>
+          <div class="diagram__box">Android / Hermes</div>
+        </div>
+        <p class="mono" style="font-size:.72rem;color:var(--neon-3);text-align:center;margin-top:1rem;letter-spacing:.12em">The transport path may change. The event should not have to.</p>
+      </div>
+    </section>
+
+    <!-- 11 INFRASTRUCTURE -->
+    <section class="bw-section" id="infrastructure">
+      <h2 class="section__title"><span class="num">11</span> INFRASTRUCTURE</h2>
+      <p class="bw-lead">Clearly separated from Contract v2 embedded targets.</p>
+      <div class="infra">
+        <div class="card glass infra__card"><h3>RASPBERRY PI 500</h3><ul><li>Reticulum services</li><li>Atlas backend</li><li>SDR tooling</li><li>build / provisioning</li><li>dashboards</li></ul></div>
+        <div class="card glass infra__card"><h3>RADXA PI 4C</h3><ul><li>headless gateway</li><li>persistent services</li><li>radio interfaces</li><li>backend / databases</li></ul></div>
+        <div class="card glass infra__card"><h3>GPD WIN MINI</h3><ul><li>field engineering</li><li>SDR workstation</li><li>serial / debug</li><li>development</li></ul></div>
+        <div class="card glass infra__card"><h3>RTX 3060 HOST</h3><ul><li>heavier AI inference</li><li>model training</li><li>embeddings</li><li>vision / RF ML</li><li>CI / orchestration</li></ul></div>
+      </div>
+      <p class="infra__tag">INFRASTRUCTURE ≠ CONTRACT ENDPOINT</p>
+    </section>
+
+    <!-- 12 TIMELINE -->
+    <section class="bw-section" id="timeline">
+      <h2 class="section__title"><span class="num">12</span> FOLLOW THE BUILD</h2>
+      <p class="bw-lead">Timeline entries are sourced from structured data — not hardcoded marketing copy.</p>
+      <div class="timeline" id="timelineEl"></div>
+      <div class="card glass" style="margin-top:1rem">
+        <h3 style="font-family:var(--font-head);font-size:.95rem;color:#fff;letter-spacing:.06em">NEXT PHASE</h3>
+        <ul style="margin:.6rem 0 0 1rem;color:var(--muted);font-size:.92rem;display:grid;gap:.2rem">
+          <li>isolate K230 SDK provenance</li>
+          <li>create hardware probe layer</li>
+          <li>back up devices</li>
+          <li>staged flashing</li>
+          <li>physical subsystem validation</li>
+          <li>receive-only RF validation</li>
+          <li>controlled RF validation</li>
+          <li>first physical Reticulum network</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 13 VALIDATION MATRIX -->
+    <section class="bw-section" id="validation">
+      <h2 class="section__title"><span class="num">13</span> HARDWARE VALIDATION</h2>
+      <p class="bw-lead">One of the core reasons to revisit this page. Explicit gates — no fake percentages. Horizontal scroll on mobile or tap a device to drill down.</p>
+      <div class="matrix-wrap"><table class="matrix" id="matrix"></table></div>
+      <p class="mono" style="font-size:.62rem;color:var(--muted);margin-top:.5rem">Gates: BUILD · PROBE · BACKUP · FLASH · BOOT · DISPLAY · INPUT · STORAGE · POWER · RADIO RX · RADIO TX · NETWORK · OTA · RECOVERY · INTEGRATION</p>
+    </section>
+
+    <!-- 14 RESEARCH LEDGER -->
+    <section class="bw-section" id="research">
+      <h2 class="section__title"><span class="num">14</span> RESEARCH LEDGER</h2>
+      <p class="bw-lead">Every investigation ends with a decision: ADOPT · PORT · STEAL CONCEPT · MONITOR · REJECT · BLOCKED</p>
+      <div class="research" id="researchGrid"></div>
+      <p style="margin-top:1rem"><a href="research/" class="btn btn--ghost btn--sm">OPEN RESEARCH LEDGER →</a></p>
+    </section>
+
+    <!-- 15 RELEASES -->
+    <section class="bw-section" id="releases">
+      <h2 class="section__title"><span class="num">15</span> RELEASES</h2>
+      <div id="releasesEl"></div>
+      <p style="margin-top:1rem"><a href="releases/" class="btn btn--ghost btn--sm">OPEN RELEASES →</a></p>
+    </section>
+
+    <!-- 16 VIDEOS -->
+    <section class="bw-section" id="videos">
+      <h2 class="section__title"><span class="num">16</span> FIELD NOTES / VIDEO</h2>
+      <p class="bw-lead">Organized into OVERVIEW · ARCHITECTURE · SYSTEMS · DEVICES · VALIDATION. Synthetic imagery is marked <b style="color:var(--neon)">ILLUSTRATION</b> where evidence context could be ambiguous.</p>
+      <div class="subpages" id="videosGrid"></div>
+      <p style="margin-top:1rem"><a href="video/" class="btn btn--ghost btn--sm">OPEN VIDEO LEDGER →</a></p>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final">
+      <h2>BLACKWAVE IS BEING BUILT IN PUBLIC.</h2>
+      <p>Every build can pass.<br>Every probe can disagree.<br>Every blocked gate stays visible.</p>
+      <p class="mono" style="letter-spacing:.18em;color:var(--neon)">FOLLOW THE EVIDENCE.</p>
+      <div style="display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin-top:1.2rem">
+        <a href="https://github.com/fr3kchy/fr3k-blackwave" target="_blank" rel="noopener" class="btn btn--primary btn--sm">VIEW GITHUB</a>
+        <a href="#status" class="btn btn--ghost btn--sm">VIEW LATEST BUILD</a>
+        <a href="#validation" class="btn btn--ghost btn--sm">FOLLOW VALIDATION</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© <span id="year"></span> fR3k · BLACKWAVE</span>
+    <span class="footer__sig">CAPABILITY EARNED BY EVIDENCE</span>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const fleets = [
+      {id:"abyss",name:"ABYSS",hw:"LilyGO T-Deck Plus",role:"field operator terminal",contract:"v2",evidence:"BUILT",caps:["display","keyboard","trackball","lora","wifi","ble","gps","sd","audio","ota"],note:""},
+      {id:"relay",name:"RELAY",hw:"LilyGO T-Deck Pro 4G",role:"LoRa + cellular field gateway",contract:"v2",evidence:"BUILT",caps:["epaper","keyboard","trackball","lora","4g","gps","wifi","ble","sd","ota"],note:"A7682E blocked"},
+      {id:"nexus",name:"NEXUS",hw:"M5Stack Tab5",role:"fleet control and observability surface",contract:"v2",evidence:"BUILT",caps:["display","touch","camera","microphone","speaker","wifi","ble","ethernet","sensors","voice-agent","mcp","ota"],note:"~1% app partition"},
+      {id:"spectre",name:"SPECTRE",hw:"LilyGO T-Display K230",role:"edge AI / media / high-rate analysis node",contract:"v2",evidence:"BLOCKED",caps:["camera","display","kpu","fft","media","radio"],note:"full image BLOCKED"},
+      {id:"scout",name:"SCOUT",hw:"UNIHIKER K10",role:"perception and embodied AI node",contract:"v2",evidence:"BUILT",caps:["display","camera","microphone","speaker","wifi","ble","sensors","voice-agent","mcp","ota"],note:"×2 units"},
+      {id:"signal",name:"SIGNAL",hw:"LilyGO T-Embed CC1101",role:"local sub-GHz / NFC / IR instrumentation",contract:"v2",evidence:"BUILT",caps:["display","encoder","subghz","ir","wifi","ble","audio","voice-agent","mcp","ota"],note:"RF not exercised"},
+      {id:"vigil",name:"VIGIL",hw:"LilyGO T-Watch Ultra",role:"wearable contextual sensor and controller",contract:"v2",evidence:"BUILT",caps:["display","touch","lora","wifi","ble","gps","nfc","audio","sensors","ota"],note:"87.8% flash"},
+      {id:"chronos",name:"CHRONOS",hw:"T-Watch 2020",role:"compact notification / approval surface",contract:"v2",evidence:"BUILT",caps:["display","touch","wifi","ble","audio","sensors","voice-agent","mcp","ota"],note:""},
+      {id:"pulse",name:"PULSE",hw:"LilyGO T-Display S3",role:"lightweight fleet state display",contract:"v2",evidence:"BUILT",caps:["display","buttons","wifi","ble","mesh-status","ota"],note:""},
+      {id:"pathfinder",name:"PATHFINDER",hw:"LilyGO T-Echo",role:"low-power resilient radio endpoint",contract:"PATHFINDER",evidence:"BLOCKED",caps:["lora","low-power","rnode"],note:"outside Contract v2"},
+    ];
+    const evClass = e => e==="BLOCKED"?"badge--blocked":e==="BUILT"?"badge--built":"badge--pass";
+    document.getElementById('fleetGrid').innerHTML = fleets.map(f=>`
+      <div class="card glass fleet__card">
+        <div class="fleet__head"><span class="fleet__name">${f.name}</span><span class="fleet__hw">${f.hw}</span></div>
+        <p class="fleet__role">${f.role}</p>
+        <div class="fleet__meta">
+          <span class="badge badge--contract">${f.contract}</span>
+          <span class="badge ${evClass(f.evidence)}">${f.evidence}</span>
+          ${f.note?`<span class="mono" style="color:var(--muted)">${f.note}</span>`:''}
+        </div>
+        <p class="mono" style="font-size:.62rem;color:var(--muted);letter-spacing:.06em">${f.caps.join(' · ')}</p>
+      </div>
+    `).join('');
+
+    const states=["CLAIMED","SOURCE CONFIRMED","BUILT","PROBED","FLASHED","BOOTED","VERIFIED","INTEGRATED","REGRESSION VERIFIED"];
+    document.getElementById('evidenceTrack').innerHTML = states.map(s=>`<span class="evidence-step">${s}</span>`).join('<span class="evidence-arrow">→</span>') + '<span class="evidence-arrow"> </span><span class="evidence-step evidence-step--blocked">BLOCKED</span>';
+    const descs={CLAIMED:"Design/source suggests capability exists.", "SOURCE CONFIRMED":"Primary source verifies hardware.", BUILT:"Artifact reproducibly compiled.", PROBED:"Device reported expected hardware.", FLASHED:"Artifact written to device.", BOOTED:"Artifact successfully started.", VERIFIED:"Physical subsystem tests passed.", INTEGRATED:"Operated through BLACKWAVE boundary.", "REGRESSION VERIFIED":"Later changes preserve capability.", BLOCKED:"Required step cannot yet be completed."};
+    document.getElementById('evidenceLegend').innerHTML = [...states,"BLOCKED"].map(s=>`<div class="evidence-legend__item"><b>${s}</b><p>${descs[s]}</p></div>`).join('');
+
+    const ledger=[
+      {n:"NEXUS",s:"PASS",note:"approx 1% remains in smallest app partition"},
+      {n:"SCOUT",s:"PASS",note:"approx 17% app partition free · two units not yet independently identified"},
+      {n:"SIGNAL",s:"PASS",note:"RF not physically exercised"},
+      {n:"ABYSS",s:"PASS",note:"host/simulator/soak/PlatformIO suite passes"},
+      {n:"RELAY",s:"PASS",note:"A7682E physical operation blocked"},
+      {n:"PULSE",s:"PASS",note:""},
+      {n:"VIGIL",s:"PASS",note:"87.8% flash utilisation"},
+      {n:"CHRONOS",s:"PASS",note:""},
+      {n:"PATHFINDER",s:"PASS",note:"physical RNode acceptance BLOCKED"},
+      {n:"SPECTRE",s:"BLOCKED",note:"HOST TESTS PASS · full vendor media/IPC image BLOCKED — dirty/untrusted SDK baseline"},
+      {n:"PI 500",s:"INFRA",note:"NOT A CONTRACT BUILD TARGET — infrastructure"},
+    ];
+    document.getElementById('ledger').innerHTML = ledger.map(r=>`
+      <div class="ledger__row">
+        <span class="ledger__name">${r.n}</span>
+        <span class="badge ${r.s==="PASS"?"badge--pass":r.s==="BLOCKED"?"badge--blocked":""}" style="min-width:72px;text-align:center">${r.s}</span>
+        <span class="ledger__note">${r.note}</span>
+      </div>
+    `).join('');
+
+    document.getElementById('timelineEl').innerHTML = `
+      <div class="card glass timeline__entry">
+        <div class="timeline__date">2026-08-29 — 2c423c6</div>
+        <div class="timeline__title">FULL SOFTWARE BUILD <span class="badge badge--built" style="margin-left:.5rem">BUILT</span></div>
+        <ul class="timeline__bullets">
+          <li>82 pytest passes</li>
+          <li>46 payload artifacts — SHA-256 verified</li>
+          <li>nine-device Contract v2 preserved</li>
+          <li>Android debug APK signature verified (release unsigned)</li>
+          <li>K230 full image remains BLOCKED</li>
+          <li>physical validation not yet performed</li>
+        </ul>
+      </div>`;
+
+    const cols=["BUILD","PROBE","FLASH","BOOT","DISPLAY","INPUT","STORAGE","POWER","RADIO RX","RADIO TX","NETWORK","OTA","RECOVERY","INTEGRATION"];
+    const rows={
+      "NEXUS":["PASS","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED"],
+      "SCOUT":["PASS","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED"],
+      "SIGNAL":["PASS","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED"],
+      "ABYSS":["PASS","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED"],
+      "RELAY":["PASS","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED"],
+      "PULSE":["PASS","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED"],
+      "VIGIL":["PASS","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED"],
+      "CHRONOS":["PASS","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED"],
+      "PATHFINDER":["PASS","NOT_TESTED","BLOCKED","NOT_TESTED","N/A","N/A","N/A","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","BLOCKED"],
+      "SPECTRE":["BLOCKED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","BLOCKED"],
+    };
+    let h='<tr><th>DEVICE</th>'+cols.map(c=>`<th>${c}</th>`).join('')+'</tr>';
+    for(const [dev,vals] of Object.entries(rows)){
+      h+=`<tr><td>${dev}</td>`+vals.map(v=>`<td class="cell--${v}">${v}</td>`).join('')+'</tr>';
+    }
+    document.getElementById('matrix').innerHTML=h;
+
+    const research=[
+      ["LR2021 FLRC","MONITOR"],["LR2021 ranging","MONITOR"],["LR2021 multi-SF","MONITOR"],["K230 Linux + RT-Smart IPC","BLOCKED"],["Reticulum/RNode","ADOPT"],["MeshCore","MONITOR"],["embedded MCP","PORT"],["embedded WASM","MONITOR"],["MCU vector maps","MONITOR"],["CRDT sync","MONITOR"],["ESP-NOW swarm","MONITOR"],["local voice","PORT"],["hardware probing","ADOPT"],["secure OTA","ADOPT"],["RF Atlas","ADOPT"],["SDR fusion","ADOPT"],
+    ];
+    const rc={ADOPT:"badge--pass",PORT:"badge--built",MONITOR:"",BLOCKED:"badge--blocked",REJECT:"badge--blocked"};
+    document.getElementById('researchGrid').innerHTML = research.map(([t,s])=>`<div class="card glass research__item"><div style="display:flex;justify-content:space-between;align-items:center;gap:.5rem"><h4>${t}</h4><span class="badge ${rc[s]||''}">${s}</span></div></div>`).join('');
+
+    document.getElementById('releasesEl').innerHTML = `
+      <div class="card glass" style="border-color:rgba(0,240,255,.2)">
+        <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem;align-items:center">
+          <span class="mono" style="color:var(--neon);letter-spacing:.1em;font-weight:700">2026-08-29 FULL BUILD</span>
+          <span class="badge badge--built">46 artifacts · SHA-256 verified</span>
+        </div>
+        <p class="mono" style="font-size:.72rem;color:var(--muted);margin-top:.6rem">commit <code>2c423c6</code> · 82 pytest passes · Android debug signed · release unsigned · hardware validation not yet performed · SPECTRE full image blocked</p>
+      </div>`;
+
+    document.getElementById('videosGrid').innerHTML = [
+      ["BLACKWAVE — WHAT IT IS","OVERVIEW"],["ONE FLEET, MANY MACHINES","OVERVIEW"],["HOW BLACKWAVE COMMUNICATES","ARCHITECTURE"],["EVIDENCE BEFORE CLAIMS","SYSTEMS"],["THE FR3K VISION","OVERVIEW"]
+    ].map(([t,c])=>`<div class="card glass" style="padding:1.1rem 1.2rem"><div class="mono" style="font-size:.62rem;letter-spacing:.12em;color:var(--neon-3)">${c}</div><div style="font-family:var(--font-head);font-weight:700;color:#fff;margin-top:.3rem">${t}</div><div class="mono" style="font-size:.62rem;color:var(--muted);margin-top:.4rem">PLANNED · <span style="color:var(--neon)">ILLUSTRATION</span> where synthetic</div></div>`).join('');
+
+    // reveal on scroll
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08});
+    document.querySelectorAll('.card,.bw-section').forEach(el=>io.observe(el));
+  </script>
+</body>
+</html>

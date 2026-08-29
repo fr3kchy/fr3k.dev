@@ -1,0 +1,230 @@
+{
+  "buildDate": "2026-08-29",
+  "commit": "2c423c6",
+  "branch": "fr3k/research-reconciliation",
+  "artifacts": 46,
+  "pytestPasses": 82,
+  "contractVersion": "v2",
+  "devices": {
+    "nexus": {
+      "build": "PASS",
+      "note": "approx 1% remains in smallest app partition"
+    },
+    "scout": {
+      "build": "PASS",
+      "note": "approx 17% app partition free; two physical units not yet independently identified"
+    },
+    "signal": {
+      "build": "PASS",
+      "note": "RF not physically exercised"
+    },
+    "abyss": {
+      "build": "PASS",
+      "note": "host/simulator/soak/PlatformIO suite passes"
+    },
+    "relay": {
+      "build": "PASS",
+      "note": "A7682E physical operation blocked"
+    },
+    "pulse": {
+      "build": "PASS"
+    },
+    "vigil": {
+      "build": "PASS",
+      "note": "87.8% flash utilisation"
+    },
+    "chronos": {
+      "build": "PASS"
+    },
+    "pathfinder": {
+      "build": "PASS",
+      "note": "physical RNode acceptance BLOCKED"
+    },
+    "spectre": {
+      "build": "BLOCKED",
+      "hostTests": "PASS",
+      "reason": "dirty/untrusted external vendor SDK baseline",
+      "note": "full vendor media/IPC image blocked"
+    }
+  },
+  "validationMatrix": {
+    "columns": [
+      "BUILD",
+      "PROBE",
+      "FLASH",
+      "BOOT",
+      "DISPLAY",
+      "INPUT",
+      "STORAGE",
+      "POWER",
+      "RADIO RX",
+      "RADIO TX",
+      "NETWORK",
+      "OTA",
+      "RECOVERY",
+      "INTEGRATION"
+    ],
+    "rows": {
+      "NEXUS": [
+        "PASS",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED"
+      ],
+      "SCOUT": [
+        "PASS",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED"
+      ],
+      "SIGNAL": [
+        "PASS",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED"
+      ],
+      "ABYSS": [
+        "PASS",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED"
+      ],
+      "RELAY": [
+        "PASS",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED"
+      ],
+      "PULSE": [
+        "PASS",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED"
+      ],
+      "VIGIL": [
+        "PASS",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED"
+      ],
+      "CHRONOS": [
+        "PASS",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED"
+      ],
+      "PATHFINDER": [
+        "PASS",
+        "NOT_TESTED",
+        "BLOCKED",
+        "NOT_TESTED",
+        "N/A",
+        "N/A",
+        "N/A",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "BLOCKED"
+      ],
+      "SPECTRE": [
+        "BLOCKED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "NOT_TESTED",
+        "BLOCKED"
+      ]
+    }
+  }
+}

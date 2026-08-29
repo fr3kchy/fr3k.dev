@@ -1,0 +1,13 @@
+{
+  "id": "pathfinder",
+  "name": "PATHFINDER",
+  "hardware": "LilyGO T-Echo",
+  "role": "low-power resilient radio endpoint",
+  "contract": "outside Contract v2 — reconciled separately",
+  "evidence": "BLOCKED",
+  "capabilities": ["lora","low-power","rnode"],
+  "status": { "build": "PASS", "probe": "NOT_TESTED", "flash": "BLOCKED", "boot": "NOT_TESTED", "integration": "BLOCKED" },
+  "blockers": ["physical RNode acceptance BLOCKED"],
+  "latestUpdate": "2026-08-29",
+  "sourceCommit": "2c423c6"
+}

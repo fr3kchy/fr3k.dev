@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research Ledger — BLACKWAVE | fR3K</title>
+  <meta name="description" content="BLACKWAVE Research Ledger — investigations into FLRC, K230 IPC, Reticulum, MCP, WASM, RF Atlas and more. Every entry ends with a decision." />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <style>:root{--mono:'JetBrains Mono',monospace}
+    .page{max-width:1100px;margin:2rem auto;padding:0 1.4rem}
+    .mono{font-family:var(--mono)}
+    .badge{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;padding:.2rem .5rem;border-radius:6px;border:1px solid var(--glass-brd)}
+    .badge--pass{background:rgba(54,249,160,.12);color:#36f9a0;border-color:rgba(54,249,160,.3)}
+    .badge--blocked{background:rgba(255,93,108,.14);color:#ff5d6c;border-color:rgba(255,93,108,.35)}
+    .badge--built{background:rgba(56,189,248,.14);color:#38bdf8;border-color:rgba(56,189,248,.3)}
+    .research-card{padding:1.2rem 1.4rem;margin-bottom:.8rem}
+    .research-card h3{font-family:var(--font-head);font-size:.95rem;color:#fff;letter-spacing:.04em}
+    .research-card p{color:var(--muted);font-size:.92rem;margin:.4rem 0 0;line-height:1.5}
+    .meta{font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;color:var(--muted);margin-top:.5rem}
+  </style>
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div><div class="bg-glow" aria-hidden="true"></div><div class="scanlines" aria-hidden="true"></div>
+  <nav class="nav glass">
+    <a href="../../" class="nav__brand">fR3K<span class="nav__dot">.</span>DEV</a>
+    <ul class="nav__links"><li><a href="../">BLACKWAVE</a></li><li><a href="../#research" style="color:var(--neon)">Research</a></li><li><a href="./">Ledger</a></li></ul>
+    <a href="https://github.com/fr3kchy/fr3k-blackwave" target="_blank" rel="noopener" class="nav__cta">GitHub ↗</a>
+  </nav>
+  <div class="page">
+    <p class="mono" style="font-size:.68rem;letter-spacing:.18em;color:var(--neon-3);margin:1rem 0 .3rem"><a href="../" style="color:var(--neon-3)">BLACKWAVE</a> / RESEARCH</p>
+    <h1 style="font-family:var(--font-head);font-weight:900;color:#fff;letter-spacing:.06em;font-size:clamp(1.6rem,4vw,2.4rem)">14 — RESEARCH LEDGER</h1>
+    <p style="color:var(--muted);max-width:680px;margin:.6rem 0 1.6rem">Every investigation carries: title · date · device · capability · status · sources · why it matters · what was learned · integration value · <b style="color:#fff">decision</b>. Decisions: ADOPT · PORT · STEAL CONCEPT · MONITOR · REJECT · BLOCKED.</p>
+    <div id="grid"></div>
+    <p class="mono" style="font-size:.62rem;color:var(--muted);margin-top:1rem">Source: <code>src/content/blackwave/research/research.json</code> · placeholder entries — replace with <code>research/*.md</code> as investigations mature.</p>
+  </div>
+  <footer class="footer"><span>© <span id="y"></span> fR3k · BLACKWAVE Research</span><a href="../" style="color:var(--neon)">← BLACKWAVE</a></footer>
+  <script>
+    document.getElementById('y').textContent=new Date().getFullYear();
+    const data=[
+      {t:"LR2021 FLRC",d:"Semtech LR2021 FLRC high-rate PHY as candidate transport.",s:"MONITOR"},
+      {t:"LR2021 ranging",d:"RF ranging via LR2021 for RF Atlas RangeObservation.",s:"MONITOR"},
+      {t:"LR2021 multi-SF",d:"Multi spreading-factor operation for parallel channels.",s:"MONITOR"},
+      {t:"K230 Linux + RT-Smart IPC",d:"K230 Linux/RT-Smart IPCMSG + DATAFIFO — blocked on vendor SDK provenance.",s:"BLOCKED"},
+      {t:"Reticulum / RNode",d:"Reticulum network stack + RNode firmware — adopted transport.",s:"ADOPT"},
+      {t:"MeshCore",d:"Complementary mesh protocol alongside Reticulum.",s:"MONITOR"},
+      {t:"embedded MCP",d:"MCP control plane on ESP32-S3 voice-agent endpoints.",s:"PORT"},
+      {t:"embedded WASM",d:"WASM sandbox for on-device policy / extensions.",s:"MONITOR"},
+      {t:"MCU vector maps",d:"On-device vector map tiling for field terminals.",s:"MONITOR"},
+      {t:"CRDT sync",d:"Conflict-free replicated state for distributed fleet.",s:"MONITOR"},
+      {t:"ESP-NOW swarm",d:"ESP-NOW for local swarm coordination.",s:"MONITOR"},
+      {t:"local voice",d:"Offline voice agent via xiaozhi + Kokoro.",s:"PORT"},
+      {t:"hardware probing",d:"Hardware probe layer — PROBED evidence state.",s:"ADOPT"},
+      {t:"secure OTA",d:"Signed A/B OTA with rollback + revocation.",s:"ADOPT"},
+      {t:"RF Atlas",d:"Transmission → Observation model; RTL-SDR + embedded radios.",s:"ADOPT"},
+      {t:"SDR fusion",d:"GPD/RPi SDR workstation fusing SpectrumObservation / RangeObservation / AircraftObservation / BLEObservation.",s:"ADOPT"},
+    ];
+    const c={ADOPT:"badge--pass",PORT:"badge--built",MONITOR:"",BLOCKED:"badge--blocked"};
+    document.getElementById('grid').innerHTML=data.map(r=>`<div class="card glass research-card"><div style="display:flex;justify-content:space-between;gap:.6rem;align-items:center;flex-wrap:wrap"><h3>${r.t}</h3><span class="badge ${c[r.s]||''}">${r.s}</span></div><p>${r.d}</p><div class="meta">decision · ${r.s} · BLACKWAVE research ledger</div></div>`).join('');
+  </script>
+</body>
+</html>

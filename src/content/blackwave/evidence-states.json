@@ -1,0 +1,14 @@
+{
+  "evidenceStates": [
+    { "id": "CLAIMED", "label": "CLAIMED", "desc": "Design/source suggests capability exists.", "color": "#6b7280" },
+    { "id": "SOURCE_CONFIRMED", "label": "SOURCE CONFIRMED", "desc": "Primary technical source verifies the hardware or implementation.", "color": "#8aa0b4" },
+    { "id": "BUILT", "label": "BUILT", "desc": "Software artifact reproducibly compiled or packaged.", "color": "#38bdf8" },
+    { "id": "PROBED", "label": "PROBED", "desc": "The exact physical device reported the expected hardware.", "color": "#00f0ff" },
+    { "id": "FLASHED", "label": "FLASHED", "desc": "The exact artifact was written to the device.", "color": "#a78bfa" },
+    { "id": "BOOTED", "label": "BOOTED", "desc": "That artifact successfully started.", "color": "#c084fc" },
+    { "id": "VERIFIED", "label": "VERIFIED", "desc": "Required physical subsystem tests passed.", "color": "#36f9a0" },
+    { "id": "INTEGRATED", "label": "INTEGRATED", "desc": "The capability operated through the BLACKWAVE system boundary.", "color": "#22c55e" },
+    { "id": "REGRESSION_VERIFIED", "label": "REGRESSION VERIFIED", "desc": "Later changes preserve the previously verified capability.", "color": "#16a34a" },
+    { "id": "BLOCKED", "label": "BLOCKED", "desc": "A required evidence step cannot yet be completed.", "color": "#ff5d6c", "blocked": true }
+  ]
+}
