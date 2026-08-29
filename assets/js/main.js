@@ -46,3 +46,19 @@ const io = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 
 document.querySelectorAll('.section, .tile, .card').forEach((el) => io.observe(el));
+
+// Mobile nav toggle
+(function(){
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  if (!toggle || !links) return;
+  const close = () => { links.classList.remove('nav__links--open'); toggle.setAttribute('aria-expanded','false'); };
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('nav__links--open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  links.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
+  document.addEventListener('click', (e) => {
+    if (!links.contains(e.target) && !toggle.contains(e.target)) close();
+  });
+})();
