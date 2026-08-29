@@ -185,6 +185,13 @@ strong{color:#fff;font-weight:700}
 .reel__overlay{position:absolute;left:0;bottom:0;padding:1rem 1.4rem;background:linear-gradient(to top,rgba(5,6,10,.85),transparent);width:100%}
 .reel__tag{font-family:var(--font-head);font-size:.72rem;letter-spacing:.22em;color:var(--neon-3);text-transform:uppercase}
 
+/* ---------- Shorts grid ---------- */
+.shorts{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:1rem}
+.short{display:flex;flex-direction:column;gap:.3rem;padding:1rem;background:var(--glass);border:1px solid var(--glass-brd);border-radius:14px;transition:.2s;text-decoration:none}
+.short:hover{transform:translateY(-3px);border-color:rgba(0,240,255,.5);box-shadow:0 0 22px rgba(0,240,255,.25)}
+.short__t{font-family:var(--font-head);font-weight:700;color:#fff;font-size:1rem;letter-spacing:.03em}
+.short__d{font-size:.82rem;color:var(--muted);letter-spacing:.04em}
+
 /* ---------- Section lead ---------- */
 .section__lead{max-width:680px;color:var(--muted);font-size:1.12rem;margin:-.8rem 0 1.8rem}
 .muted{color:var(--muted)}
