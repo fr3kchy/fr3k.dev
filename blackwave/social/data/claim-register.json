@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "campaign_id": "blackwave-follow-the-evidence-2026-08",
+  "identity": "fR3k",
+  "canonical": {
+    "blackwave": "https://fr3k.dev/blackwave",
+    "operator": "https://fr3k.dev",
+    "commercial": "https://mcpintelligence.com.au"
+  },
+  "claims": [
+    {"id":"C01","text":"BLACKWAVE is a distributed operating model for heterogeneous physical devices.","source":"fr3k.dev/blackwave","state":"SOURCE_CONFIRMED"},
+    {"id":"C02","text":"The network is a bearer; BLACKWAVE remains the authority.","source":"blackwave/README.md","state":"SOURCE_CONFIRMED"},
+    {"id":"C03","text":"Rendered HyperFrames assets are synthetic compositions, not physical proof.","source":"docs/video/README.md","state":"SOURCE_CONFIRMED"},
+    {"id":"C04","text":"Physical claims remain unit-, procedure-, and artefact-specific.","source":"docs/research/evidence-vocabulary.md","state":"SOURCE_CONFIRMED"},
+    {"id":"C05","text":"SPECTRE remains evidence-gated and must not be presented as physically validated.","source":"docs/research/current-state.md","state":"VERIFY_AT_PUBLISH"}
+  ],
+  "disclosure": "All derived media in this batch is labelled ILLUSTRATION — SYNTHETIC HYPERFRAMES COMPOSITION.",
+  "publishing": "DRAFT_ONLY_UNTIL_DESTINATION_AUTHORISED"
+}

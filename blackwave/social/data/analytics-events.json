@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "campaign_id": "blackwave-follow-the-evidence-2026-08",
+  "events": {
+    "campaign_view": "page_view with campaign_path",
+    "blackwave_click": "cta_click target=blackwave",
+    "github_click": "cta_click target=github",
+    "commercial_click": "cta_click target=mcpintelligence",
+    "media_play": "media_start content_id",
+    "media_complete": "media_complete content_id"
+  },
+  "implementation": "static-site data attributes and privacy-preserving first-party analytics adapter to be selected after existing analytics audit",
+  "status": "local specification; no tracking provider configured or contacted"
+}
