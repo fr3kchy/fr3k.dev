@@ -25,9 +25,7 @@ def make(name, source, caption, width, height, duration, count):
         filters.append(f'[{i}:v]scale={width}:{height}:force_original_aspect_ratio=increase,crop={width}:{height},format=yuv420p,setsar=1[{label}]')
         labels.append(f'[{label}]')
     filters.append(''.join(labels)+f'concat=n={count}:v=1:a=0[vout]')
-    subtitle_filter=f"[vout]subtitles={caption}:force_style='FontName=DejaVu Sans,FontSize=18,PrimaryColour=&H00FFFFFF,BackColour=&H99000000,BorderStyle=1,Outline=1,Shadow=0,Alignment=2,MarginV=48'[final]"
-    filters.append(subtitle_filter)
-    run(['ffmpeg','-y','-hide_banner','-loglevel','error',*inputs,'-i',str(source),'-filter_complex',';'.join(filters),'-map','[final]','-map',f'{count}:a:0?','-t',str(duration),'-c:v','libx264','-profile:v','baseline','-level','4.0','-pix_fmt','yuv420p','-preset','veryfast','-crf','22','-c:a','aac','-b:a','128k','-shortest','-movflags','+faststart',str(dest)])
+    run(['ffmpeg','-y','-hide_banner','-loglevel','error',*inputs,'-i',str(source),'-filter_complex',';'.join(filters),'-map','[vout]','-map',f'{count}:a:0?','-t',str(duration),'-c:v','libx264','-profile:v','baseline','-level','4.0','-pix_fmt','yuv420p','-preset','veryfast','-crf','22','-c:a','aac','-b:a','128k','-shortest','-movflags','+faststart',str(dest)])
     return dest
 
 make('BW-FLAGSHIP-90s-visual.mp4',ROOT/'assets/campaign/blackwave/BW-FLAGSHIP-90s.mp4',ROOT/'blackwave/social/captions/BW-FLAGSHIP-90s.srt',1920,1080,90,11)
