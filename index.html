@@ -61,20 +61,20 @@
         <div class="statusbar glass" id="statusbar">
           <div class="statusbar__item">
             <span class="status-dot" id="nodeDot"></span>
-            <span class="statusbar__n" id="nodeCount">14</span>
-            <span class="statusbar__l">active nodes</span>
+            <span class="statusbar__n" id="nodeCount">—</span>
+            <span class="statusbar__l">live count unavailable</span>
           </div>
           <div class="statusbar__sep"></div>
           <div class="statusbar__item">
             <span class="statusbar__l">reticulum / lxmf mesh</span>
-            <span class="statusbar__n" id="meshQuality">98.7%</span>
-            <span class="statusbar__l">link quality</span>
+            <span class="statusbar__n" id="meshQuality">—</span>
+            <span class="statusbar__l">live mesh quality unavailable</span>
           </div>
           <div class="statusbar__sep"></div>
           <div class="statusbar__item">
             <span class="status-dot status-dot--ok"></span>
             <span class="statusbar__l">systems</span>
-            <span class="statusbar__n statusbar__n--sm">nominal</span>
+            <span class="statusbar__n statusbar__n--sm">not verified</span>
           </div>
         </div>
 
@@ -107,7 +107,7 @@
     <!-- WORK — grouped by discipline -->
     <section id="work" class="section">
       <h2 class="section__title"><span class="num">01</span> Work on GitHub</h2>
-      <p class="section__lead">Real repositories, grouped by the kind of problem they solve. Every one ships with executed evidence — tests, measured sweeps, or reproducible pipelines.</p>
+      <p class="section__lead">Real repositories, grouped by the kind of problem they solve. Repository availability is not proof of deployment. Check each project’s evidence, test results and current release notes.</p>
 
       <div class="workgroup">
         <h3 class="workgroup__h">Resilient Communications</h3>
@@ -153,6 +153,15 @@
       <p class="oss__note muted">The reference names <code>agent-core</code> / <code>reticulum-lxmf</code> from an earlier mock aren't published — links above point to the live, verified equivalents.</p>
     </section>
 
+    <section id="platform" class="section">
+<h2 class="section__title"><span class="num">02</span> FR3K Platform // Current Work</h2>
+<p class="section__lead">Connect machines. Measure reality. Delegate work. Verify results. Public project descriptions reflect engineering workstreams, not blanket claims of finished integration.</p>
+<div class="grid">
+<a class="tile glass" href="https://github.com/fr3k-d3v/fr3k-fleet-mcp" target="_blank" rel="noopener"><h3>Fleet MCP</h3><p>Authenticated device discovery, command execution, job tracking, evidence and operator approvals. Live fleet capabilities must be checked at execution time.</p><span class="tile__tag">active integration</span></a>
+<a class="tile glass" href="https://github.com/fr3k-d3v/fr3k-xiaozhi-claw" target="_blank" rel="noopener"><h3>Xiaozhi × Claw</h3><p>Voice-driven agent orchestration across ESP devices, Hermes and compatible agent frameworks; staged integration with safety boundaries.</p><span class="tile__tag">in development</span></a>
+<a class="tile glass" href="blackwave/"><h3>BLACKWAVE 2026</h3><p>Firmware, OTA, hardware targets, fleet management, radio systems and evidence-backed physical validation. August results preserved as historical snapshots.</p><span class="tile__tag">major rebuild</span></a>
+<a class="tile glass" href="https://github.com/fr3kchy/hermes-reticulum-platform" target="_blank" rel="noopener"><h3>Resilient Edge Communications</h3><p>Reticulum and LXMF work alongside heterogeneous device links, with transport independence and explicit security boundaries.</p><span class="tile__tag">research + integration</span></a>
+</div></section>
     <!-- PRINCIPLES -->
     <section id="principles" class="section">
       <h2 class="section__title"><span class="num">02</span> How I Engineer</h2>
