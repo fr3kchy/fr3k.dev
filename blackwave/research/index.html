@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Research Ledger — BLACKWAVE | fR3K</title>
-  <meta name="description" content="BLACKWAVE Research Ledger — investigations into FLRC, K230 IPC, Reticulum, MCP, WASM, RF Atlas and more. Every entry ends with a decision." />
+  <title>Research Ledger — BLACKWAV3 | fR3K</title>
+  <meta name="description" content="BLACKWAV3 Research Ledger — investigations into FLRC, K230 IPC, Reticulum, MCP, WASM, RF Atlas and more. Every entry ends with a decision." />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../../assets/css/style.css" />
   <style>:root{--mono:'JetBrains Mono',monospace}
@@ -23,17 +23,17 @@
   <div class="bg-grid" aria-hidden="true"></div><div class="bg-glow" aria-hidden="true"></div><div class="scanlines" aria-hidden="true"></div>
   <nav class="nav glass">
     <a href="../../" class="nav__brand">fR3K<span class="nav__dot">.</span>DEV</a>
-    <ul class="nav__links"><li><a href="../">BLACKWAVE</a></li><li><a href="../#research" style="color:var(--neon)">Research</a></li><li><a href="./">Ledger</a></li></ul>
+    <ul class="nav__links"><li><a href="../">BLACKWAV3</a></li><li><a href="../#research" style="color:var(--neon)">Research</a></li><li><a href="./">Ledger</a></li></ul>
     <a href="https://github.com/fr3kchy/fr3k-blackwave" target="_blank" rel="noopener" class="nav__cta">GitHub ↗</a>
   </nav>
   <div class="page">
-    <p class="mono" style="font-size:.68rem;letter-spacing:.18em;color:var(--neon-3);margin:1rem 0 .3rem"><a href="../" style="color:var(--neon-3)">BLACKWAVE</a> / RESEARCH</p>
+    <p class="mono" style="font-size:.68rem;letter-spacing:.18em;color:var(--neon-3);margin:1rem 0 .3rem"><a href="../" style="color:var(--neon-3)">BLACKWAV3</a> / RESEARCH</p>
     <h1 style="font-family:var(--font-head);font-weight:900;color:#fff;letter-spacing:.06em;font-size:clamp(1.6rem,4vw,2.4rem)">14 — RESEARCH LEDGER</h1>
     <p style="color:var(--muted);max-width:680px;margin:.6rem 0 1.6rem">Every investigation carries: title · date · device · capability · status · sources · why it matters · what was learned · integration value · <b style="color:#fff">decision</b>. Decisions: ADOPT · PORT · STEAL CONCEPT · MONITOR · REJECT · BLOCKED.</p>
     <div id="grid"></div>
     <p class="mono" style="font-size:.62rem;color:var(--muted);margin-top:1rem">Source: <code>src/content/blackwave/research/research.json</code> · placeholder entries — replace with <code>research/*.md</code> as investigations mature.</p>
   </div>
-  <footer class="footer"><span>© <span id="y"></span> fR3k · BLACKWAVE Research</span><a href="../" style="color:var(--neon)">← BLACKWAVE</a></footer>
+  <footer class="footer"><span>© <span id="y"></span> fR3k · BLACKWAV3 Research</span><a href="../" style="color:var(--neon)">← BLACKWAV3</a></footer>
   <script>
     document.getElementById('y').textContent=new Date().getFullYear();
     const data=[
@@ -55,7 +55,7 @@
       {t:"SDR fusion",d:"GPD/RPi SDR workstation fusing SpectrumObservation / RangeObservation / AircraftObservation / BLEObservation.",s:"ADOPT"},
     ];
     const c={ADOPT:"badge--pass",PORT:"badge--built",MONITOR:"",BLOCKED:"badge--blocked"};
-    document.getElementById('grid').innerHTML=data.map(r=>`<div class="card glass research-card"><div style="display:flex;justify-content:space-between;gap:.6rem;align-items:center;flex-wrap:wrap"><h3>${r.t}</h3><span class="badge ${c[r.s]||''}">${r.s}</span></div><p>${r.d}</p><div class="meta">decision · ${r.s} · BLACKWAVE research ledger</div></div>`).join('');
+    document.getElementById('grid').innerHTML=data.map(r=>`<div class="card glass research-card"><div style="display:flex;justify-content:space-between;gap:.6rem;align-items:center;flex-wrap:wrap"><h3>${r.t}</h3><span class="badge ${c[r.s]||''}">${r.s}</span></div><p>${r.d}</p><div class="meta">decision · ${r.s} · BLACKWAV3 research ledger</div></div>`).join('');
   </script>
 </body>
 </html>
