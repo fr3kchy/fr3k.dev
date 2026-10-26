@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BLACKWAVE — Distributed Physical Systems | fR3K</title>
-  <meta name="description" content="BLACKWAVE is fR3K's evidence-gated distributed edge platform connecting resilient communications, RF observation, edge AI, physical devices and autonomous agents." />
+  <title>BLACKWAVE 2026 — Firmware, Fleet Control & Field Systems | FR3K</title>
+  <meta name="description" content="BLACKWAVE 2026: evolving embedded firmware, remote fleet operations, OTA validation, communications and real-world evidence. Historical results are clearly separated from current work." />
   <meta name="author" content="fr3k" />
   <meta property="og:title" content="BLACKWAVE — Distributed Physical Systems | fR3K" />
   <meta property="og:description" content="BLACKWAVE is fR3K's evidence-gated distributed edge platform — resilient comms, RF observation, edge AI, and evidence before claims." />
@@ -190,7 +190,21 @@
 
   <main>
     <!-- 01 WHAT BLACKWAVE IS -->
-    <section class="bw-section" id="what">
+    <section class="bw-section" id="blackwave-2026">
+<h2 class="section__title"><span class="num">00</span> BLACKWAVE // OCTOBER 2026 REBUILD</h2>
+<p class="bw-lead">The August BLACKWAVE snapshot is no longer a current fleet status report. BLACKWAVE is being rebuilt as the hardware-facing part of FR3K: from firmware and device onboarding through safe commands, measured telemetry and evidence-backed releases.</p>
+<div class="principles">
+<article class="card glass principle"><h3>FIRMWARE & OTA</h3><p>ESP32, M5 and K230 workstreams: build manifests, target-specific images, upgrade checks, recovery and physical acceptance. Multi-board compatibility must be demonstrated, not assumed.</p><p class="muted">STATE: ACTIVE DEVELOPMENT</p></article>
+<article class="card glass principle"><h3>FLEET CONTROL</h3><p>Device identity, discovered capabilities, authenticated tasks, bounded execution, audit trails and cross-device orchestration through the FR3K Fleet MCP control plane.</p><p class="muted">STATE: INTEGRATION / VERIFY PER DEVICE</p></article>
+<article class="card glass principle"><h3>VOICE & AGENT INTERACTION</h3><p>Xiaozhi voice interfaces, Hermes/Claw agents and Android surfaces are integration tracks. Physical actions remain explicitly permissioned and separately verified.</p><p class="muted">STATE: INTEGRATION IN PROGRESS</p></article>
+<article class="card glass principle"><h3>RADIO & FIELD SCIENCE</h3><p>Reticulum/LXMF, mesh experiments, TinySA and NanoVNA measurement pipelines, RF observation, calibrated baselines and reproducible field evidence.</p><p class="muted">STATE: HARDWARE VALIDATION REQUIRED</p></article>
+<article class="card glass principle"><h3>DEVICE EXPERIENCE</h3><p>BLACKWAVE launcher, landscape interaction, keyboard control, accessible diagnostics, OTA UX and device-specific recovery procedures.</p><p class="muted">STATE: DEVELOPMENT / KNOWN ISSUES</p></article>
+<article class="card glass principle"><h3>PROOF & RELEASES</h3><p>Observe → Verify → Reconcile → Improve → Test → Record. Every public status should reference a commit, timestamp, test artifact or physical observation.</p><p class="muted">STATE: EVIDENCE-GATED</p></article>
+</div>
+<p class="muted" style="margin-top:1.3rem"><strong>Historical data notice:</strong> the earlier build ledger and per-device validation matrix below reference an August 29, 2026 snapshot. They are archived engineering evidence, not today's operational telemetry. No live fleet health is asserted here.</p>
+<p><a href="https://github.com/fR3kdev/fr3k-blackwave" target="_blank" rel="noopener" class="btn btn--ghost">Firmware source ↗</a> <a href="https://github.com/fR3kdev/k230-blackwave-ota" target="_blank" rel="noopener" class="btn btn--ghost">K230 OTA work ↗</a></p>
+</section>
+<section class="bw-section" id="what">
       <h2 class="section__title"><span class="num">01</span> WHAT BLACKWAVE IS</h2>
       <div class="card glass" style="margin-bottom:1.2rem">
         <p>BLACKWAVE begins with a simple problem:</p>
@@ -260,275 +274,4 @@
         <div class="card glass dataclass"><div class="dataclass__icon">▣</div><h4>BULK</h4><p>firmware · maps<br>logs · models · files</p></div>
         <div class="card glass dataclass"><div class="dataclass__icon">≋</div><h4>STREAM</h4><p>audio · video<br>high-rate telemetry</p></div>
       </div>
-      <p class="mono" style="text-align:center;margin-top:1rem;font-size:.72rem;letter-spacing:.1em;color:var(--neon-2)">Candidate transports →</p>
-      <div class="transports">
-        <span class="transport">LoRa</span><span class="transport">FLRC</span><span class="transport">ESP-NOW</span><span class="transport">BLE</span><span class="transport">Wi-Fi</span><span class="transport">Ethernet</span><span class="transport">USB</span><span class="transport">Cellular</span><span class="transport">Reticulum</span>
-      </div>
-    </section>
-
-    <!-- 07 RF ATLAS -->
-    <section class="bw-section" id="rfatlas">
-      <h2 class="section__title"><span class="num">07</span> RF ATLAS</h2>
-      <p class="bw-lead">One physical transmission may be seen differently by multiple observers. Each observation contributes what it actually measured.</p>
-      <div class="card glass">
-        <div class="rf-flow">
-          <div class="rf-flow__node rf-flow__node--tx">Transmission</div>
-          <span class="rf-flow__arrow">↓</span>
-          <div style="display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center">
-            <div class="rf-flow__node">Observation A</div>
-            <div class="rf-flow__node">Observation B</div>
-            <div class="rf-flow__node">Observation C</div>
-          </div>
-        </div>
-        <p class="mono" style="font-size:.68rem;color:var(--muted);text-align:center;margin-top:.8rem">Each observation may carry: observer ID · timestamp · timestamp uncertainty · location · location accuracy · frequency · bandwidth · spreading factor · coding rate · PHY · RSSI · SNR · frequency error · airtime · protocol · confidence · radio · firmware · antenna · transport</p>
-        <p class="mono" style="font-size:.68rem;color:var(--muted);text-align:center;margin-top:.6rem">Observation types: <b style="color:var(--neon)">Observation</b> · <b style="color:var(--neon)">SpectrumObservation</b> · <b style="color:var(--neon)">RangeObservation</b> · <b style="color:var(--neon)">AircraftObservation</b> · <b style="color:var(--neon)">BLEObservation</b></p>
-        <p class="mono" style="font-size:.62rem;color:var(--muted);text-align:center;margin-top:.6rem;opacity:.7">RTL-SDR and embedded radios may eventually contribute complementary observations. <span class="badge badge--blocked" style="vertical-align:middle">EVIDENCE: EMERGING</span></p>
-      </div>
-    </section>
-
-    <!-- 08 SPECTRE -->
-    <section class="bw-section" id="spectre">
-      <h2 class="section__title"><span class="num">08</span> SPECTRE // EDGE ANALYSIS</h2>
-      <p class="bw-lead">SPECTRE is the BLACKWAVE K230 edge-compute tier. Control-plane services and realtime media are separated by design.</p>
-      <div class="card glass diagram">
-        <div class="diagram__row">
-          <div class="diagram__box" style="flex:1">LINUX / CONTROL PLANE<br><span style="color:var(--muted)">Reticulum · Atlas · MCP<br>networking · storage</span></div>
-        </div>
-        <div style="text-align:center;color:var(--neon);margin:.4rem 0;letter-spacing:.2em">↕ IPCMSG / DATAFIFO</div>
-        <div class="diagram__row">
-          <div class="diagram__box" style="flex:1">RT-SMART / REALTIME PLANE<br><span style="color:var(--muted)">camera · display · KPU · FFT · media · radio</span></div>
-        </div>
-      </div>
-      <div class="card glass" style="margin-top:1rem;border-color:rgba(255,93,108,.25)">
-        <p class="mono" style="font-size:.72rem"><span class="badge badge--blocked">BLOCKED</span> <span style="color:var(--muted)">Host-side SPECTRE tests pass. The full vendor media/IPC image remains <b style="color:#ff5d6c">BLOCKED</b> until the external K230 SDK can be reproduced from a clean trusted provenance baseline. This is not presented as completed.</span></p>
-      </div>
-    </section>
-
-    <!-- 09 SCOUT -->
-    <section class="bw-section" id="scout">
-      <h2 class="section__title"><span class="num">09</span> SCOUT // PHYSICAL AI</h2>
-      <p class="bw-lead">Two owned K10s sharing one logical model where appropriate — reflex stays local, reasoning moves upward only when useful.</p>
-      <div class="card glass" style="max-width:760px;margin:0 auto;text-align:center">
-        <p class="mono" style="font-size:.72rem;letter-spacing:.1em;color:var(--muted)">
-          SENSOR → LOCAL REFLEX → TINY MODEL → DEVICE LOGIC → EDGE ANALYSIS → HERMES
-        </p>
-        <p class="muted" style="font-size:.92rem;margin-top:.8rem">Low-latency safety remains local. High-level reasoning can move upward only when useful.</p>
-        <div style="display:flex;gap:.8rem;justify-content:center;margin-top:1rem;flex-wrap:wrap">
-          <span class="badge" style="color:var(--neon);border-color:var(--glass-brd)">SCOUT-1 · embodied perception / actuator</span>
-          <span class="badge" style="color:var(--neon);border-color:var(--glass-brd)">SCOUT-2 · experimental cooperative sensing / swarm</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- 10 RESILIENT COMMS -->
-    <section class="bw-section" id="comms">
-      <h2 class="section__title"><span class="num">10</span> RESILIENT COMMUNICATIONS</h2>
-      <p class="bw-lead">BLACKWAVE does not force one protocol everywhere. Reticulum / LXMF, MeshCore and Meshtastic are complementary — BLACKWAVE itself is not a mesh protocol.</p>
-      <div class="card glass diagram">
-        <div class="diagram__row" style="flex-direction:column;gap:.3rem">
-          <div class="diagram__box">PATHFINDER <span style="color:var(--muted)">LoRa</span></div>
-          <span class="diagram__arrow">↓</span>
-          <div class="diagram__box">ABYSS</div>
-          <span class="diagram__arrow">↓ Reticulum transport</span>
-          <div class="diagram__box">Pi / Radxa infrastructure</div>
-          <span class="diagram__arrow">↓</span>
-          <div class="diagram__box">Android / Hermes</div>
-        </div>
-        <p class="mono" style="font-size:.72rem;color:var(--neon-3);text-align:center;margin-top:1rem;letter-spacing:.12em">The transport path may change. The event should not have to.</p>
-      </div>
-    </section>
-
-    <!-- 11 INFRASTRUCTURE -->
-    <section class="bw-section" id="infrastructure">
-      <h2 class="section__title"><span class="num">11</span> INFRASTRUCTURE</h2>
-      <p class="bw-lead">Clearly separated from Contract v2 embedded targets.</p>
-      <div class="infra">
-        <div class="card glass infra__card"><h3>RASPBERRY PI 500</h3><ul><li>Reticulum services</li><li>Atlas backend</li><li>SDR tooling</li><li>build / provisioning</li><li>dashboards</li></ul></div>
-        <div class="card glass infra__card"><h3>RADXA PI 4C</h3><ul><li>headless gateway</li><li>persistent services</li><li>radio interfaces</li><li>backend / databases</li></ul></div>
-        <div class="card glass infra__card"><h3>GPD WIN MINI</h3><ul><li>field engineering</li><li>SDR workstation</li><li>serial / debug</li><li>development</li></ul></div>
-        <div class="card glass infra__card"><h3>RTX 3060 HOST</h3><ul><li>heavier AI inference</li><li>model training</li><li>embeddings</li><li>vision / RF ML</li><li>CI / orchestration</li></ul></div>
-      </div>
-      <p class="infra__tag">INFRASTRUCTURE ≠ CONTRACT ENDPOINT</p>
-    </section>
-
-    <!-- 12 TIMELINE -->
-    <section class="bw-section" id="timeline">
-      <h2 class="section__title"><span class="num">12</span> FOLLOW THE BUILD</h2>
-      <p class="bw-lead">Timeline entries are sourced from structured data — not hardcoded marketing copy.</p>
-      <div class="timeline" id="timelineEl"></div>
-      <div class="card glass" style="margin-top:1rem">
-        <h3 style="font-family:var(--font-head);font-size:.95rem;color:#fff;letter-spacing:.06em">NEXT PHASE</h3>
-        <ul style="margin:.6rem 0 0 1rem;color:var(--muted);font-size:.92rem;display:grid;gap:.2rem">
-          <li>isolate K230 SDK provenance</li>
-          <li>create hardware probe layer</li>
-          <li>back up devices</li>
-          <li>staged flashing</li>
-          <li>physical subsystem validation</li>
-          <li>receive-only RF validation</li>
-          <li>controlled RF validation</li>
-          <li>first physical Reticulum network</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- 13 VALIDATION MATRIX -->
-    <section class="bw-section" id="validation">
-      <h2 class="section__title"><span class="num">13</span> HARDWARE VALIDATION</h2>
-      <p class="bw-lead">One of the core reasons to revisit this page. Explicit gates — no fake percentages. Horizontal scroll on mobile or tap a device to drill down.</p>
-      <div class="matrix-wrap"><table class="matrix" id="matrix"></table></div>
-      <p class="mono" style="font-size:.62rem;color:var(--muted);margin-top:.5rem">Gates: BUILD · PROBE · BACKUP · FLASH · BOOT · DISPLAY · INPUT · STORAGE · POWER · RADIO RX · RADIO TX · NETWORK · OTA · RECOVERY · INTEGRATION</p>
-    </section>
-
-    <!-- 14 RESEARCH LEDGER -->
-    <section class="bw-section" id="research">
-      <h2 class="section__title"><span class="num">14</span> RESEARCH LEDGER</h2>
-      <p class="bw-lead">Every investigation ends with a decision: ADOPT · PORT · STEAL CONCEPT · MONITOR · REJECT · BLOCKED</p>
-      <div class="research" id="researchGrid"></div>
-      <p style="margin-top:1rem"><a href="research/" class="btn btn--ghost btn--sm">OPEN RESEARCH LEDGER →</a></p>
-    </section>
-
-    <!-- 15 RELEASES -->
-    <section class="bw-section" id="releases">
-      <h2 class="section__title"><span class="num">15</span> RELEASES</h2>
-      <div id="releasesEl"></div>
-      <p style="margin-top:1rem"><a href="releases/" class="btn btn--ghost btn--sm">OPEN RELEASES →</a></p>
-    </section>
-
-    <!-- 16 VIDEOS -->
-    <section class="bw-section" id="videos">
-      <h2 class="section__title"><span class="num">16</span> FIELD NOTES / VIDEO</h2>
-      <p class="bw-lead">Organized into OVERVIEW · ARCHITECTURE · SYSTEMS · DEVICES · VALIDATION. Synthetic imagery is marked <b style="color:var(--neon)">ILLUSTRATION</b> where evidence context could be ambiguous.</p>
-      <div class="subpages" id="videosGrid"></div>
-      <p style="margin-top:1rem"><a href="video/" class="btn btn--ghost btn--sm">OPEN VIDEO LEDGER →</a></p>
-    </section>
-
-    <!-- FINAL CTA -->
-    <section class="final">
-      <h2>BLACKWAVE IS BEING BUILT IN PUBLIC.</h2>
-      <p>Every build can pass.<br>Every probe can disagree.<br>Every blocked gate stays visible.</p>
-      <p class="mono" style="letter-spacing:.18em;color:var(--neon)">FOLLOW THE EVIDENCE.</p>
-      <div style="display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin-top:1.2rem">
-        <a href="https://github.com/fr3kchy/fr3k-blackwave" target="_blank" rel="noopener" class="btn btn--primary btn--sm">VIEW GITHUB</a>
-        <a href="#status" class="btn btn--ghost btn--sm">VIEW LATEST BUILD</a>
-        <a href="#validation" class="btn btn--ghost btn--sm">FOLLOW VALIDATION</a>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <span>© <span id="year"></span> fR3k · BLACKWAVE</span>
-    <span class="footer__sig">CAPABILITY EARNED BY EVIDENCE</span>
-  </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    const fleets = [
-      {id:"abyss",name:"ABYSS",hw:"LilyGO T-Deck Plus",role:"field operator terminal",contract:"v2",evidence:"BUILT",caps:["display","keyboard","trackball","lora","wifi","ble","gps","sd","audio","ota"],note:""},
-      {id:"relay",name:"RELAY",hw:"LilyGO T-Deck Pro 4G",role:"LoRa + cellular field gateway",contract:"v2",evidence:"BUILT",caps:["epaper","keyboard","trackball","lora","4g","gps","wifi","ble","sd","ota"],note:"A7682E blocked"},
-      {id:"nexus",name:"NEXUS",hw:"M5Stack Tab5",role:"fleet control and observability surface",contract:"v2",evidence:"BUILT",caps:["display","touch","camera","microphone","speaker","wifi","ble","ethernet","sensors","voice-agent","mcp","ota"],note:"~1% app partition"},
-      {id:"spectre",name:"SPECTRE",hw:"LilyGO T-Display K230",role:"edge AI / media / high-rate analysis node",contract:"v2",evidence:"BLOCKED",caps:["camera","display","kpu","fft","media","radio"],note:"full image BLOCKED"},
-      {id:"scout",name:"SCOUT",hw:"UNIHIKER K10",role:"perception and embodied AI node",contract:"v2",evidence:"BUILT",caps:["display","camera","microphone","speaker","wifi","ble","sensors","voice-agent","mcp","ota"],note:"×2 units"},
-      {id:"signal",name:"SIGNAL",hw:"LilyGO T-Embed CC1101",role:"local sub-GHz / NFC / IR instrumentation",contract:"v2",evidence:"BUILT",caps:["display","encoder","subghz","ir","wifi","ble","audio","voice-agent","mcp","ota"],note:"RF not exercised"},
-      {id:"vigil",name:"VIGIL",hw:"LilyGO T-Watch Ultra",role:"wearable contextual sensor and controller",contract:"v2",evidence:"BUILT",caps:["display","touch","lora","wifi","ble","gps","nfc","audio","sensors","ota"],note:"87.8% flash"},
-      {id:"chronos",name:"CHRONOS",hw:"T-Watch 2020",role:"compact notification / approval surface",contract:"v2",evidence:"BUILT",caps:["display","touch","wifi","ble","audio","sensors","voice-agent","mcp","ota"],note:""},
-      {id:"pulse",name:"PULSE",hw:"LilyGO T-Display S3",role:"lightweight fleet state display",contract:"v2",evidence:"BUILT",caps:["display","buttons","wifi","ble","mesh-status","ota"],note:""},
-      {id:"pathfinder",name:"PATHFINDER",hw:"LilyGO T-Echo",role:"low-power resilient radio endpoint",contract:"PATHFINDER",evidence:"BLOCKED",caps:["lora","low-power","rnode"],note:"outside Contract v2"},
-    ];
-    const evClass = e => e==="BLOCKED"?"badge--blocked":e==="BUILT"?"badge--built":"badge--pass";
-    document.getElementById('fleetGrid').innerHTML = fleets.map(f=>`
-      <div class="card glass fleet__card">
-        <div class="fleet__head"><span class="fleet__name">${f.name}</span><span class="fleet__hw">${f.hw}</span></div>
-        <p class="fleet__role">${f.role}</p>
-        <div class="fleet__meta">
-          <span class="badge badge--contract">${f.contract}</span>
-          <span class="badge ${evClass(f.evidence)}">${f.evidence}</span>
-          ${f.note?`<span class="mono" style="color:var(--muted)">${f.note}</span>`:''}
-        </div>
-        <p class="mono" style="font-size:.62rem;color:var(--muted);letter-spacing:.06em">${f.caps.join(' · ')}</p>
-      </div>
-    `).join('');
-
-    const states=["CLAIMED","SOURCE CONFIRMED","BUILT","PROBED","FLASHED","BOOTED","VERIFIED","INTEGRATED","REGRESSION VERIFIED"];
-    document.getElementById('evidenceTrack').innerHTML = states.map(s=>`<span class="evidence-step">${s}</span>`).join('<span class="evidence-arrow">→</span>') + '<span class="evidence-arrow"> </span><span class="evidence-step evidence-step--blocked">BLOCKED</span>';
-    const descs={CLAIMED:"Design/source suggests capability exists.", "SOURCE CONFIRMED":"Primary source verifies hardware.", BUILT:"Artifact reproducibly compiled.", PROBED:"Device reported expected hardware.", FLASHED:"Artifact written to device.", BOOTED:"Artifact successfully started.", VERIFIED:"Physical subsystem tests passed.", INTEGRATED:"Operated through BLACKWAVE boundary.", "REGRESSION VERIFIED":"Later changes preserve capability.", BLOCKED:"Required step cannot yet be completed."};
-    document.getElementById('evidenceLegend').innerHTML = [...states,"BLOCKED"].map(s=>`<div class="evidence-legend__item"><b>${s}</b><p>${descs[s]}</p></div>`).join('');
-
-    const ledger=[
-      {n:"NEXUS",s:"PASS",note:"approx 1% remains in smallest app partition"},
-      {n:"SCOUT",s:"PASS",note:"approx 17% app partition free · two units not yet independently identified"},
-      {n:"SIGNAL",s:"PASS",note:"RF not physically exercised"},
-      {n:"ABYSS",s:"PASS",note:"host/simulator/soak/PlatformIO suite passes"},
-      {n:"RELAY",s:"PASS",note:"A7682E physical operation blocked"},
-      {n:"PULSE",s:"PASS",note:""},
-      {n:"VIGIL",s:"PASS",note:"87.8% flash utilisation"},
-      {n:"CHRONOS",s:"PASS",note:""},
-      {n:"PATHFINDER",s:"PASS",note:"physical RNode acceptance BLOCKED"},
-      {n:"SPECTRE",s:"BLOCKED",note:"HOST TESTS PASS · full vendor media/IPC image BLOCKED — dirty/untrusted SDK baseline"},
-      {n:"PI 500",s:"INFRA",note:"NOT A CONTRACT BUILD TARGET — infrastructure"},
-    ];
-    document.getElementById('ledger').innerHTML = ledger.map(r=>`
-      <div class="ledger__row">
-        <span class="ledger__name">${r.n}</span>
-        <span class="badge ${r.s==="PASS"?"badge--pass":r.s==="BLOCKED"?"badge--blocked":""}" style="min-width:72px;text-align:center">${r.s}</span>
-        <span class="ledger__note">${r.note}</span>
-      </div>
-    `).join('');
-
-    document.getElementById('timelineEl').innerHTML = `
-      <div class="card glass timeline__entry">
-        <div class="timeline__date">2026-08-29 — 2c423c6</div>
-        <div class="timeline__title">FULL SOFTWARE BUILD <span class="badge badge--built" style="margin-left:.5rem">BUILT</span></div>
-        <ul class="timeline__bullets">
-          <li>82 pytest passes</li>
-          <li>46 payload artifacts — SHA-256 verified</li>
-          <li>nine-device Contract v2 preserved</li>
-          <li>Android debug APK signature verified (release unsigned)</li>
-          <li>K230 full image remains BLOCKED</li>
-          <li>physical validation not yet performed</li>
-        </ul>
-      </div>`;
-
-    const cols=["BUILD","PROBE","FLASH","BOOT","DISPLAY","INPUT","STORAGE","POWER","RADIO RX","RADIO TX","NETWORK","OTA","RECOVERY","INTEGRATION"];
-    const rows={
-      "NEXUS":["PASS","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED"],
-      "SCOUT":["PASS","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED"],
-      "SIGNAL":["PASS","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED"],
-      "ABYSS":["PASS","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED"],
-      "RELAY":["PASS","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED"],
-      "PULSE":["PASS","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED"],
-      "VIGIL":["PASS","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED"],
-      "CHRONOS":["PASS","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED"],
-      "PATHFINDER":["PASS","NOT_TESTED","BLOCKED","NOT_TESTED","N/A","N/A","N/A","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","BLOCKED"],
-      "SPECTRE":["BLOCKED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","NOT_TESTED","BLOCKED"],
-    };
-    let h='<tr><th>DEVICE</th>'+cols.map(c=>`<th>${c}</th>`).join('')+'</tr>';
-    for(const [dev,vals] of Object.entries(rows)){
-      h+=`<tr><td>${dev}</td>`+vals.map(v=>`<td class="cell--${v}">${v}</td>`).join('')+'</tr>';
-    }
-    document.getElementById('matrix').innerHTML=h;
-
-    const research=[
-      ["LR2021 FLRC","MONITOR"],["LR2021 ranging","MONITOR"],["LR2021 multi-SF","MONITOR"],["K230 Linux + RT-Smart IPC","BLOCKED"],["Reticulum/RNode","ADOPT"],["MeshCore","MONITOR"],["embedded MCP","PORT"],["embedded WASM","MONITOR"],["MCU vector maps","MONITOR"],["CRDT sync","MONITOR"],["ESP-NOW swarm","MONITOR"],["local voice","PORT"],["hardware probing","ADOPT"],["secure OTA","ADOPT"],["RF Atlas","ADOPT"],["SDR fusion","ADOPT"],
-    ];
-    const rc={ADOPT:"badge--pass",PORT:"badge--built",MONITOR:"",BLOCKED:"badge--blocked",REJECT:"badge--blocked"};
-    document.getElementById('researchGrid').innerHTML = research.map(([t,s])=>`<div class="card glass research__item"><div style="display:flex;justify-content:space-between;align-items:center;gap:.5rem"><h4>${t}</h4><span class="badge ${rc[s]||''}">${s}</span></div></div>`).join('');
-
-    document.getElementById('releasesEl').innerHTML = `
-      <div class="card glass" style="border-color:rgba(0,240,255,.2)">
-        <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:.6rem;align-items:center">
-          <span class="mono" style="color:var(--neon);letter-spacing:.1em;font-weight:700">2026-08-29 FULL BUILD</span>
-          <span class="badge badge--built">46 artifacts · SHA-256 verified</span>
-        </div>
-        <p class="mono" style="font-size:.72rem;color:var(--muted);margin-top:.6rem">commit <code>2c423c6</code> · 82 pytest passes · Android debug signed · release unsigned · hardware validation not yet performed · SPECTRE full image blocked</p>
-      </div>`;
-
-    document.getElementById('videosGrid').innerHTML = [
-      ["BLACKWAVE — WHAT IT IS","OVERVIEW"],["ONE FLEET, MANY MACHINES","OVERVIEW"],["HOW BLACKWAVE COMMUNICATES","ARCHITECTURE"],["EVIDENCE BEFORE CLAIMS","SYSTEMS"],["THE FR3K VISION","OVERVIEW"]
-    ].map(([t,c])=>`<div class="card glass" style="padding:1.1rem 1.2rem"><div class="mono" style="font-size:.62rem;letter-spacing:.12em;color:var(--neon-3)">${c}</div><div style="font-family:var(--font-head);font-weight:700;color:#fff;margin-top:.3rem">${t}</div><div class="mono" style="font-size:.62rem;color:var(--muted);margin-top:.4rem">PLANNED · <span style="color:var(--neon)">ILLUSTRATION</span> where synthetic</div></div>`).join('');
-
-    // reveal on scroll
-    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08});
-    document.querySelectorAll('.card,.bw-section').forEach(el=>io.observe(el));
-  </script>
-</body>
-</html>
+      <p class="mono" style="text-align:center;margin-top:1rem;font-size¢멺۫ºwµ益­{²
