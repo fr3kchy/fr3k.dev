@@ -170,20 +170,41 @@ async function collectProject(project, config, currentAccount) {
   source.sourceVisibility = meta.private ? "private" : "public";
   source.lastPushAt = meta.pushed_at || null;
 
-  const runs = tryGhJson(`repos/${repo}/actions/runs?per_page=1`);
+  const runs = tryGhJson("repos/" + repo + "/actions/runs?per_page=1");
   const latestRun = runs?.workflow_runs?.[0];
   if (!runs) source.ciState = "unknown";
   else if (!latestRun) source.ciState = "no-runs";
   else {
     source.ciConclusion = latestRun.conclusion || latestRun.status || null;
     source.ciUpdatedAt = latestRun.updated_at || latestRun.created_at || null;
-    const stale = source.ciUpdatedAt && (Date.now() - new Date(source.ciUpdatedAt).getTime()) > 30 * 86400000;
-    source.ciState = latestRun.status === "completed"
-      ? (stale ? "stale" : latestRun.conclusion === "success" ? "success" :
-        latestRun.conclusion === "cancelled" ? "cancelled" : "failure")
-      : (latestRun.status === "queued" ? "queued" : "running");
-  }
+    const stale = source.ciUpdatedAt &&
+      (Date.now() - new Date(source.ciUpdatedAt).getTime()) > 30 * 86400000;
 
+    if (latestRun.status === "completed" && latestRun.conclusion === "failure") {
+      // Distinguish a test failure from a job rejected before a runner ever starts.
+      const jobs = tryGhJson("repos/" + repo + "/actions/runs/" + latestRun.id + "/jobs?per_page=20");
+      if (!jobs || !Array.isArray(jobs.jobs) || jobs.jobs.length === 0) {
+        source.ciState = "unknown";
+        source.ciConclusion = "failure-unclassified";
+      } else {
+        const runnerNeverStarted = jobs.jobs.every(job =>
+          !job.runner_id && (!Array.isArray(job.steps) || job.steps.length === 0)
+        );
+        if (runnerNeverStarted) {
+          source.ciState = "blocked";
+          source.ciConclusion = "runner-not-started";
+        } else {
+          source.ciState = stale ? "stale" : "failure";
+          source.ciConclusion = "failure";
+        }
+      }
+    } else {
+      source.ciState = latestRun.status === "completed"
+        ? (stale ? "stale" : latestRun.conclusion === "success" ? "success" :
+          latestRun.conclusion === "cancelled" ? "cancelled" : "failure")
+        : (latestRun.status === "queued" ? "queued" : "running");
+    }
+  }
   const query = encodeURIComponent(`repo:${repo} is:pr is:open`);
   const prs = tryGhJson(`search/issues?q=${query}&per_page=1`);
   source.openPullRequests = Number.isInteger(prs?.total_count) ? prs.total_count : null;

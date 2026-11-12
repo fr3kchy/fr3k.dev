@@ -47,7 +47,7 @@ All 16 configured source repositories now contain a complete .fr3k/flagship-stat
 
 Omarchy has manifestEnabled=true for all 16 projects. During reconciliation it fetches each manifest and the Git tree from the same exact default-branch commit SHA. Every evidence path must exist in that tree. A missing, malformed, incomplete, stale-path or truncated-tree manifest fails closed as absent, invalid or unavailable; no source capability overrides are published in that case.
 
-The website displays source-declared state separately from the curated capability state. A source repository cannot self-promote a capability to verified; independent verification remains in the curated portfolio register. The public feed exposes only the source state, evidence-reference count and manifest timestamp—not private repository paths or evidence contents.
+The website displays source-declared state separately from the curated capability state. A source repository cannot self-promote a capability to verified; independent verification remains in the curated portfolio register. The public feed exposes only the source state, evidence-reference count and manifest timestamp—not private repository paths or evidence contents. A GitHub Actions run rejected before any runner or step starts is reported as CI blocked, not as a test failure; genuine failures after a runner starts remain failures.
 
 ## Operator behaviour
 

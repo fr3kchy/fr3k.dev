@@ -44,3 +44,5 @@
 
 .source-state-chip{display:inline-flex;align-items:center;border:1px solid #8fa6ad55;border-radius:999px;padding:4px 8px;color:#aebdca;background:#8fa6ad0c;font:600 10px/1.2 ui-monospace,monospace;letter-spacing:.04em;text-transform:uppercase}
 .state-chip[data-state="not-in-scope"]{border-color:#8fa6ad55;color:#aebdca;background:#8fa6ad0c}
+
+.status-metric__value[data-state="blocked"]{color:#ffd27a}

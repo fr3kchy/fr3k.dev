@@ -165,10 +165,11 @@
         let text = project.readiness?.label || label(project.readiness?.state);
         if (snapshot?.runtime?.state === "healthy") text = "Runtime healthy";
         else if (snapshot?.ciState === "failure") text = "CI failing";
+        else if (snapshot?.ciState === "blocked") text = "CI blocked";
         else if (snapshot?.ciState === "stale") text = "CI stale";
         chip.textContent = text;
         chip.dataset.state = snapshot?.runtime?.state === "healthy" ? "verified" :
-          snapshot?.ciState === "failure" ? "blocked" : project.readiness?.state || "unknown";
+          (snapshot?.ciState === "failure" || snapshot?.ciState === "blocked") ? "blocked" : project.readiness?.state || "unknown";
       });
     }
     const note = document.querySelector("[data-portfolio-status]");
