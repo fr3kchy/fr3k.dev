@@ -8,7 +8,7 @@
  * Modes:
  *   --no-push  write a local snapshot only
  *   --check    collect and fail if the published snapshot would change
- *   --publish  clean-tree reconcile, commit changed snapshot and push main
+ *   --publish  reconcile safely; commit/push only the generated status JSON
  */
 import { execFileSync } from "node:child_process";
 import { existsSync, readFileSync, writeFileSync, mkdirSync } from "node:fs";
@@ -123,14 +123,14 @@ async function collectProject(project, config, currentAccount) {
   let source = {
     sourceVisibility: config.visibility || project.source?.visibility || "unknown",
     sourceAccessible: null,
-    lastCommitAt: null,
+    lastPushAt: null,
     ciState: "unknown",
     ciConclusion: null,
     ciUpdatedAt: null,
     openPullRequests: null,
     local,
     runtime: await runtimeObservation(project.runtimeChecks || []),
-    manifestState: "absent",
+    manifestState: config.manifestEnabled === true ? "absent" : "not-configured",
     capabilities: {}
   };
   if (!config.repo) return source;
@@ -138,14 +138,13 @@ async function collectProject(project, config, currentAccount) {
   if (currentAccount !== config.account) switchAccount(config.account);
   const repo = config.repo;
   const meta = tryGhJson(`repos/${repo}`);
-  if (!meta) { source.sourceAccessible = false; return source; }
+  // A failed metadata request may be a rate limit or transient API failure.
+  // Keep access UNKNOWN rather than publishing a false "unreachable" claim.
+  if (!meta) return source;
 
   source.sourceAccessible = true;
   source.sourceVisibility = meta.private ? "private" : "public";
-  const branch = meta.default_branch || "main";
-  const commit = tryGhJson(`repos/${repo}/commits/${encodeURIComponent(branch)}`);
-  if (commit) source.lastCommitAt =
-    commit.commit?.committer?.date || commit.commit?.author?.date || null;
+  source.lastPushAt = meta.pushed_at || null;
 
   const runs = tryGhJson(`repos/${repo}/actions/runs?per_page=1`);
   const latestRun = runs?.workflow_runs?.[0];
@@ -165,12 +164,18 @@ async function collectProject(project, config, currentAccount) {
   const prs = tryGhJson(`search/issues?q=${query}&per_page=1`);
   source.openPullRequests = Number.isInteger(prs?.total_count) ? prs.total_count : null;
 
-  if (commit?.sha) {
-    const file = tryGhJson(`repos/${repo}/contents/.fr3k/flagship-status.json?ref=${encodeURIComponent(commit.sha)}`);
-    const known = new Set((project.capabilities || []).map(c => slug(c.name)));
-    const manifest = parseManifest(file, project.id, known);
-    source.manifestState = manifest.state;
-    source.capabilities = manifest.capabilities;
+  if (config.manifestEnabled === true) {
+    const branch = meta.default_branch || "main";
+    const commit = tryGhJson(`repos/${repo}/commits/${encodeURIComponent(branch)}`);
+    if (!commit?.sha) {
+      source.manifestState = "unavailable";
+    } else {
+      const file = tryGhJson(`repos/${repo}/contents/.fr3k/flagship-status.json?ref=${encodeURIComponent(commit.sha)}`);
+      const known = new Set((project.capabilities || []).map(c => slug(c.name)));
+      const manifest = parseManifest(file, project.id, known);
+      source.manifestState = manifest.state;
+      source.capabilities = manifest.capabilities;
+    }
   }
   return source;
 }
@@ -179,7 +184,12 @@ function preparePublish(websiteAccount) {
   if (git("branch", "--show-current") !== "main") {
     return { ready: false, reason: "Website checkout is not on main; preserving the current branch." };
   }
-  if (git("status", "--porcelain", "--untracked-files=all")) {
+  const dirty = git("status", "--porcelain", "--untracked-files=all")
+    .split("\n").filter(Boolean);
+  const onlyGeneratedStatus = dirty.length > 0 && dirty.every(line =>
+    line.slice(3).replace(/^"|"$/g, "") === "data/flagships/status.json"
+  );
+  if (dirty.length > 0 && !onlyGeneratedStatus) {
     return { ready: false, reason: "Website edits are present; snapshot saved locally without touching or publishing those edits." };
   }
   switchAccount(websiteAccount);
@@ -191,6 +201,9 @@ function preparePublish(websiteAccount) {
   }
   if (ahead > 0) {
     return { ready: false, reason: "Website has unpublished local commits; refusing to push commits not created by the status collector." };
+  }
+  if (behind > 0 && onlyGeneratedStatus) {
+    return { ready: false, reason: "Remote website updates are pending and the generated status file is dirty; preserving both until a clean fast-forward is possible." };
   }
   if (behind > 0) git("pull", "--ff-only", "origin", "main");
   return { ready: true, reason: null };
@@ -228,8 +241,8 @@ async function main() {
       } catch {
         projects[project.id] = {
           sourceVisibility: config.visibility || "unknown",
-          sourceAccessible: false,
-          lastCommitAt: null,
+          sourceAccessible: null,
+          lastPushAt: null,
           ciState: "unknown",
           ciConclusion: null,
           ciUpdatedAt: null,
@@ -270,7 +283,8 @@ async function main() {
 
     if (PUBLISH && publishGate.ready) {
       switchAccount(publishAccount);
-      if (changed) {
+      const statusFileDirty = Boolean(git("status", "--porcelain", "--", "data/flagships/status.json"));
+      if (statusFileDirty) {
         git("add", "--", "data/flagships/status.json");
         git("commit", "-m", "chore(status): reconcile flagship evidence snapshot");
       }

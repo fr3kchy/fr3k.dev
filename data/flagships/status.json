@@ -5,7 +5,7 @@
     "blackwave": {
       "sourceVisibility": "private",
       "sourceAccessible": true,
-      "lastCommitAt": "2026-08-28T17:27:14Z",
+      "lastPushAt": "2026-09-23T08:59:06Z",
       "ciState": "stale",
       "ciConclusion": "failure",
       "ciUpdatedAt": "2026-09-23T08:59:35Z",
@@ -19,13 +19,13 @@
         "state": "not-tested",
         "statusCode": null
       },
-      "manifestState": "absent",
+      "manifestState": "not-configured",
       "capabilities": {}
     },
     "cortex": {
       "sourceVisibility": "private",
       "sourceAccessible": true,
-      "lastCommitAt": "2026-09-11T15:55:16Z",
+      "lastPushAt": "2026-09-23T07:58:42Z",
       "ciState": "stale",
       "ciConclusion": "failure",
       "ciUpdatedAt": "2026-09-11T18:58:35Z",
@@ -39,13 +39,13 @@
         "state": "not-tested",
         "statusCode": null
       },
-      "manifestState": "absent",
+      "manifestState": "not-configured",
       "capabilities": {}
     },
     "crewworks": {
       "sourceVisibility": "private",
       "sourceAccessible": true,
-      "lastCommitAt": "2026-11-11T12:03:13Z",
+      "lastPushAt": "2026-11-11T12:03:13Z",
       "ciState": "success",
       "ciConclusion": "success",
       "ciUpdatedAt": "2026-11-11T12:04:24Z",
@@ -59,13 +59,13 @@
         "state": "healthy",
         "statusCode": 200
       },
-      "manifestState": "absent",
+      "manifestState": "not-configured",
       "capabilities": {}
     },
     "operations": {
       "sourceVisibility": "private",
       "sourceAccessible": true,
-      "lastCommitAt": "2026-11-11T13:38:20Z",
+      "lastPushAt": "2026-11-11T13:38:25Z",
       "ciState": "success",
       "ciConclusion": "success",
       "ciUpdatedAt": "2026-11-11T13:41:04Z",
@@ -79,13 +79,13 @@
         "state": "not-tested",
         "statusCode": null
       },
-      "manifestState": "absent",
+      "manifestState": "not-configured",
       "capabilities": {}
     },
     "divine": {
       "sourceVisibility": "public",
       "sourceAccessible": true,
-      "lastCommitAt": "2026-11-07T04:54:39Z",
+      "lastPushAt": "2026-11-11T18:32:37Z",
       "ciState": "success",
       "ciConclusion": "success",
       "ciUpdatedAt": "2026-11-11T18:32:59Z",
@@ -99,13 +99,13 @@
         "state": "not-tested",
         "statusCode": null
       },
-      "manifestState": "absent",
+      "manifestState": "not-configured",
       "capabilities": {}
     },
     "fieldops": {
       "sourceVisibility": "private",
       "sourceAccessible": true,
-      "lastCommitAt": "2026-11-12T06:15:38Z",
+      "lastPushAt": "2026-11-12T10:52:58Z",
       "ciState": "success",
       "ciConclusion": "success",
       "ciUpdatedAt": "2026-11-12T10:32:39Z",
@@ -119,13 +119,13 @@
         "state": "not-tested",
         "statusCode": null
       },
-      "manifestState": "absent",
+      "manifestState": "not-configured",
       "capabilities": {}
     },
     "fleet": {
       "sourceVisibility": "private",
       "sourceAccessible": true,
-      "lastCommitAt": "2026-11-03T02:13:38Z",
+      "lastPushAt": "2026-11-09T05:05:33Z",
       "ciState": "success",
       "ciConclusion": "success",
       "ciUpdatedAt": "2026-11-09T05:05:57Z",
@@ -139,13 +139,13 @@
         "state": "healthy",
         "statusCode": 200
       },
-      "manifestState": "absent",
+      "manifestState": "not-configured",
       "capabilities": {}
     },
     "fr3kc0d3r": {
       "sourceVisibility": "private",
       "sourceAccessible": true,
-      "lastCommitAt": "2026-11-09T07:57:35Z",
+      "lastPushAt": "2026-11-09T07:57:42Z",
       "ciState": "no-runs",
       "ciConclusion": null,
       "ciUpdatedAt": null,
@@ -159,13 +159,13 @@
         "state": "healthy",
         "statusCode": 200
       },
-      "manifestState": "absent",
+      "manifestState": "not-configured",
       "capabilities": {}
     },
     "games": {
       "sourceVisibility": "private",
       "sourceAccessible": true,
-      "lastCommitAt": "2026-11-01T03:23:25Z",
+      "lastPushAt": "2026-11-01T03:28:21Z",
       "ciState": "no-runs",
       "ciConclusion": null,
       "ciUpdatedAt": null,
@@ -179,13 +179,13 @@
         "state": "not-tested",
         "statusCode": null
       },
-      "manifestState": "absent",
+      "manifestState": "not-configured",
       "capabilities": {}
     },
     "hud": {
       "sourceVisibility": "public",
       "sourceAccessible": true,
-      "lastCommitAt": "2026-09-05T07:29:21Z",
+      "lastPushAt": "2026-11-07T15:20:08Z",
       "ciState": "no-runs",
       "ciConclusion": null,
       "ciUpdatedAt": null,
@@ -199,33 +199,33 @@
         "state": "not-tested",
         "statusCode": null
       },
-      "manifestState": "absent",
+      "manifestState": "not-configured",
       "capabilities": {}
     },
     "reverse-engineering": {
       "sourceVisibility": "private",
       "sourceAccessible": true,
-      "lastCommitAt": "2026-10-26T10:26:34Z",
-      "ciState": "failure",
-      "ciConclusion": "failure",
-      "ciUpdatedAt": "2026-11-12T10:50:31Z",
+      "lastPushAt": "2026-11-12T11:03:20Z",
+      "ciState": "success",
+      "ciConclusion": "success",
+      "ciUpdatedAt": "2026-11-12T11:04:36Z",
       "openPullRequests": 16,
       "local": {
         "checkoutPresent": true,
-        "changesPending": true,
-        "headAt": "2026-11-12T20:49:19+10:00"
+        "changesPending": false,
+        "headAt": "2026-11-12T21:03:18+10:00"
       },
       "runtime": {
         "state": "not-tested",
         "statusCode": null
       },
-      "manifestState": "absent",
+      "manifestState": "not-configured",
       "capabilities": {}
     },
     "voice-studio": {
       "sourceVisibility": "private",
       "sourceAccessible": true,
-      "lastCommitAt": "2026-11-10T05:23:57Z",
+      "lastPushAt": "2026-11-10T05:23:59Z",
       "ciState": "no-runs",
       "ciConclusion": null,
       "ciUpdatedAt": null,
@@ -239,13 +239,13 @@
         "state": "healthy",
         "statusCode": 200
       },
-      "manifestState": "absent",
+      "manifestState": "not-configured",
       "capabilities": {}
     },
     "xiaozhi-claw": {
       "sourceVisibility": "private",
       "sourceAccessible": true,
-      "lastCommitAt": "2026-11-09T14:30:07Z",
+      "lastPushAt": "2026-11-10T05:10:02Z",
       "ciState": "success",
       "ciConclusion": "success",
       "ciUpdatedAt": "2026-11-07T16:03:36Z",
@@ -259,13 +259,13 @@
         "state": "not-tested",
         "statusCode": null
       },
-      "manifestState": "absent",
+      "manifestState": "not-configured",
       "capabilities": {}
     },
     "simulation-engine": {
       "sourceVisibility": "private",
       "sourceAccessible": true,
-      "lastCommitAt": "2026-11-12T03:55:14Z",
+      "lastPushAt": "2026-11-12T03:55:27Z",
       "ciState": "success",
       "ciConclusion": "success",
       "ciUpdatedAt": "2026-11-12T03:55:46Z",
@@ -279,13 +279,13 @@
         "state": "not-tested",
         "statusCode": null
       },
-      "manifestState": "absent",
+      "manifestState": "not-configured",
       "capabilities": {}
     },
     "evidence-lens": {
       "sourceVisibility": "private",
       "sourceAccessible": true,
-      "lastCommitAt": "2026-09-07T23:59:29Z",
+      "lastPushAt": "2026-09-11T18:55:26Z",
       "ciState": "stale",
       "ciConclusion": "success",
       "ciUpdatedAt": "2026-09-11T18:58:46Z",
@@ -299,13 +299,13 @@
         "state": "not-tested",
         "statusCode": null
       },
-      "manifestState": "absent",
+      "manifestState": "not-configured",
       "capabilities": {}
     },
     "content-foundry": {
       "sourceVisibility": "private",
       "sourceAccessible": true,
-      "lastCommitAt": "2026-09-07T23:59:18Z",
+      "lastPushAt": "2026-09-11T18:55:22Z",
       "ciState": "stale",
       "ciConclusion": "failure",
       "ciUpdatedAt": "2026-09-11T19:00:55Z",
@@ -319,9 +319,9 @@
         "state": "not-tested",
         "statusCode": null
       },
-      "manifestState": "absent",
+      "manifestState": "not-configured",
       "capabilities": {}
     }
   },
-  "snapshotUpdatedAt": "2026-11-12T10:54:25.171Z"
+  "snapshotUpdatedAt": "2026-11-12T11:08:40.333Z"
 }

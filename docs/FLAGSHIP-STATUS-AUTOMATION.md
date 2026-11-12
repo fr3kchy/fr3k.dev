@@ -5,7 +5,7 @@
 The Omarchy collector runs every 15 minutes and reconciles each flagship against the authorised source repositories and configured runtime probes. It publishes a new snapshot only when observed state changes.
 
 Signals collected:
-- default-branch commit timestamp;
+- latest repository push timestamp from GitHub metadata (all branches);
 - latest GitHub Actions workflow state and completion time;
 - open pull-request count;
 - local checkout presence, last local commit time and dirty/clean state (no branch or file names);
@@ -42,13 +42,13 @@ Allowed source-declared states:
 
 A source manifest cannot self-promote a feature to `verified`. If it declares `verified`, the website downgrades that declaration to `source-reported`. The catalog's `verified` state is reserved for an independent evidence review recorded in the website's curated product register. This prevents a developer's claim from becoming a verified fact merely because it was committed.
 
-The manifest is optional. Until a source repository adopts it, the page uses the audited capability baseline in the catalog while repository, CI, review, local and runtime signals still update automatically.
+The manifest is opt-in per source repository. Set `manifestEnabled: true` for that project in the private Omarchy collector config after the file is merged to its default branch. Until then, the page uses the audited capability baseline in the catalog while repository, CI, review, local and runtime signals still update automatically.
 
 ## Operator behaviour
 
 - Timer cadence: 15 minutes; missed runs are caught up after the next user-session start.
 - The collector switches between the two already-authorised GitHub CLI accounts for read-only API queries, then restores the account that was active before the run.
-- Publishing runs only from the website's `main` branch. If the worktree contains user edits, the collector still refreshes the local snapshot but does not stage, commit, pull or push anything. When the tree is clean, it uses fast-forward-only reconciliation, refuses divergent history and unpublished local commits, and commits only `data/flagships/status.json`.
+- Publishing runs only from the website's `main` branch. If unrelated website edits are present, the collector refreshes the local snapshot but does not stage, commit, pull or push anything. If the only dirty path is the generated `data/flagships/status.json`, it may commit that file alone. It uses fast-forward-only reconciliation and refuses divergent history, unpublished local commits, and a dirty status file when a remote fast-forward is also required.
 - If GitHub access, a runtime endpoint, or the website push is unavailable, the collector fails closed and records no fabricated success.
 - No tests are run by the periodic collector; it reads CI evidence and local state. Expensive test suites remain part of project CI/release acceptance.
 

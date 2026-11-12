@@ -85,7 +85,7 @@
         sourceState === "unavailable" ? "Not reachable" : "Unknown",
         snapshot.sourceVisibility === "private" ? "Private repository · repository name withheld" : "Repository metadata check",
         sourceState),
-      metric("Last source commit", date(snapshot.lastCommitAt), "Default-branch activity", "neutral"),
+      metric("Last repository push", date(snapshot.lastPushAt), "GitHub repository metadata · all branches", "neutral"),
       metric("Continuous integration", snapshot.ciState === "stale"
         ? `Stale · last ${label(snapshot.ciConclusion || "unknown")}` : label(snapshot.ciState || "unknown"),
         snapshot.ciUpdatedAt ? date(snapshot.ciUpdatedAt) : "No workflow run timestamp available",
@@ -110,7 +110,7 @@
     foot.append(el("span", "", `Source checks: every ${snapshot.refreshIntervalMinutes || 15} minutes`));
     if (snapshot.manifestState === "current") {
       foot.append(el("span", "manifest-note", "Source capability manifest: current"));
-    } else if (snapshot.manifestState === "absent") {
+    } else if (snapshot.manifestState === "absent" || snapshot.manifestState === "not-configured") {
       foot.append(el("span", "manifest-note", "Capability states: audited baseline · source manifest adoption pending"));
     } else {
       foot.append(el("span", "manifest-note", `Capability manifest: ${label(snapshot.manifestState)}`));
