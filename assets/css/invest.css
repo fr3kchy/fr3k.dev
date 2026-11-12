@@ -119,3 +119,8 @@
 @media(max-width:900px){.invest-nav{align-items:flex-start}.invest-nav__links{gap:.7rem}.invest-hero{grid-template-columns:1fr;padding-top:4rem}.invest-hero__panel{max-width:650px}.invest-flow{grid-template-columns:repeat(2,minmax(0,1fr))}.invest-capital-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:650px){.invest-nav{flex-wrap:wrap}.invest-nav__links{order:3;width:100%;overflow-x:auto;flex-wrap:nowrap;padding:.25rem 0}.invest-nav__links a{white-space:nowrap}.invest-nav__cta{margin-left:auto}.invest-shell{width:min(94vw,1180px)}.invest-hero{padding:3.2rem 0 2rem;gap:1.4rem}.invest-hero h1{font-size:clamp(2.5rem,13vw,4.2rem)}.invest-lead{font-size:1.08rem}.invest-section{padding-top:3.6rem}.invest-thesis-grid,.invest-detail-grid,.invest-architecture-grid,.invest-subscription-grid,.invest-roadmap,.invest-risk-list,.invest-contact{grid-template-columns:1fr}.invest-economics-grid{grid-template-columns:1fr}.invest-flow{grid-template-columns:1fr}.invest-capital-grid{grid-template-columns:1fr}.invest-status-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.invest-status-grid{grid-template-columns:1fr}.invest-contact{padding:1.2rem}.invest-footer{font-size:.76rem}.invest-contract{justify-content:flex-start}.invest-panel__top{align-items:flex-start}}
 @media(prefers-reduced-motion:reduce){.invest-button{transition:none}.invest-button:hover{transform:none}}
+
+.invest-founder{margin:1rem 0;padding:1rem 1.25rem;border:1px solid rgba(157,75,255,.24);border-radius:12px;background:rgba(157,75,255,.045)}
+.invest-founder>span{font:700 .66rem var(--font-head);letter-spacing:.15em;color:var(--neon-2)}
+.invest-founder p{margin-top:.4rem;color:var(--muted);font-size:1rem}
+.invest-founder strong{color:#fff}
