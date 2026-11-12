@@ -245,7 +245,7 @@
     "fieldops": {
       "sourceVisibility": "private",
       "sourceAccessible": true,
-      "lastPushAt": "2026-11-12T14:48:33Z",
+      "lastPushAt": "2026-11-12T15:36:54Z",
       "ciState": "blocked",
       "ciConclusion": "runner-not-started",
       "ciUpdatedAt": "2026-11-12T13:02:52Z",
@@ -304,7 +304,7 @@
       "local": {
         "checkoutPresent": true,
         "changesPending": true,
-        "headAt": "2026-11-13T00:36:06+10:00"
+        "headAt": "2026-11-13T01:44:22+10:00"
       },
       "runtime": {
         "state": "healthy",
@@ -764,5 +764,5 @@
       }
     }
   },
-  "snapshotUpdatedAt": "2026-11-12T15:01:20.687Z"
+  "snapshotUpdatedAt": "2026-11-12T15:46:15.599Z"
 }
