@@ -1,0 +1,46 @@
+name: FR3K Capability Evidence Contract
+
+on:
+  workflow_call:
+    inputs:
+      project-id:
+        description: Stable flagship ID from the FR3K portfolio catalog.
+        required: true
+        type: string
+      capability-ids:
+        description: JSON array containing the complete expected capability ID set.
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate capability evidence manifest
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout calling repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Checkout pinned FR3K validator
+        uses: actions/checkout@v4
+        with:
+          repository: fr3kchy/fr3k.dev
+          ref: ca3d4c5f4ea08bde5a35c327b389dbd724c5c49d
+          path: .fr3k-contract
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Validate manifest and evidence paths
+        run: node .fr3k-contract/scripts/validate-flagship-manifest.mjs
+        env:
+          FR3K_PROJECT_ID: ${{ inputs.project-id }}
+          FR3K_CAPABILITY_IDS: ${{ inputs.capability-ids }}
