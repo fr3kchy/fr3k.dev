@@ -1,6 +1,9 @@
 (() => {
   const CATALOG_URL = "/data/flagships/catalog.json";
-  const STATUS_URL = "/data/flagships/status.json";
+  // Status-only commits are read directly from the public source of truth.
+  // This lets live pages update without waiting for a Vercel redeployment.
+  const STATUS_URL = "https://raw.githubusercontent.com/fr3kchy/fr3k.dev/main/data/flagships/status.json";
+  const LOCAL_STATUS_FALLBACK = "/data/flagships/status.json";
   const REFRESH_MS = 5 * 60 * 1000;
   const labels = {
     verified: "Verified",
@@ -61,6 +64,15 @@
     const response = await fetch(url, { cache: "no-store", credentials: "same-origin" });
     if (!response.ok) throw new Error(`${url}: HTTP ${response.status}`);
     return response.json();
+  }
+  async function fetchStatus() {
+    try {
+      const cacheBust = `?v=${Date.now()}`;
+      return await fetchJson(STATUS_URL + cacheBust);
+    } catch (error) {
+      console.warn("GitHub status feed unavailable; using deployed snapshot", error);
+      return fetchJson(LOCAL_STATUS_FALLBACK);
+    }
   }
 
   function renderStatus(target, project, snapshot) {
@@ -155,7 +167,7 @@
   async function refresh() {
     let catalog, status;
     try {
-      [catalog, status] = await Promise.all([fetchJson(CATALOG_URL), fetchJson(STATUS_URL)]);
+      [catalog, status] = await Promise.all([fetchJson(CATALOG_URL), fetchStatus()]);
     } catch (error) {
       console.warn("Flagship status feed unavailable", error);
       const target = document.querySelector("[data-flagship-status]");

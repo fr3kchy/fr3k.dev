@@ -289,7 +289,7 @@ async function main() {
         git("commit", "-m", "chore(status): reconcile flagship evidence snapshot");
       }
       git("push", "origin", "main");
-      console.log("[flagship-status] published status.json only; Vercel Git integration handles deployment.");
+      console.log("[flagship-status] published status.json to GitHub; live pages read the raw feed directly (no Vercel redeploy needed for status-only changes).");
     } else if (PUBLISH) {
       console.log(`[flagship-status] BLOCKED: ${publishGate.reason} Snapshot saved locally; no website edits or commits were pushed.`);
     }

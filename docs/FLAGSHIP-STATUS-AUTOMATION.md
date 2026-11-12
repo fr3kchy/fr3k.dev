@@ -12,7 +12,7 @@ Signals collected:
 - configured HTTP health probes (status code only);
 - optional source-side capability manifest.
 
-The generated public feed is `data/flagships/status.json`. The pages refresh the feed in an open browser every five minutes. When the snapshot changes, the collector commits and pushes only that JSON file to `main`; the existing Vercel Git integration deploys the site.
+The generated public feed is `data/flagships/status.json`. The pages fetch it from the public GitHub raw URL every five minutes (with a cache-busting query) and fall back to the last deployed local snapshot if GitHub is unavailable. When the snapshot changes, the collector commits and pushes only that JSON file to `main`. Status-only changes therefore reach already-deployed pages without a Vercel redeployment. A Vercel deployment is still required when page HTML, the capability catalog, CSS or JavaScript changes.
 
 ## Evidence and privacy rules
 
