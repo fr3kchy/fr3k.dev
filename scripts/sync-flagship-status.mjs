@@ -19,7 +19,7 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const CATALOG_PATH = join(ROOT, "data/flagships/catalog.json");
 const STATUS_PATH = join(ROOT, "data/flagships/status.json");
 const LOCAL_CONFIG_PATH = process.env.FR3K_FLAGSHIP_STATUS_CONFIG ||
-  join(process.env.HOME || "/home/fr3k", ".config/fr3k/flagship-status.local.json");
+  join(process.env.HOME || ROOT, ".config/fr3k/flagship-status.local.json");
 const args = new Set(process.argv.slice(2));
 const CHECK = args.has("--check");
 const PUBLISH = args.has("--publish");
