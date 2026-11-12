@@ -296,15 +296,15 @@
     "fleet": {
       "sourceVisibility": "private",
       "sourceAccessible": true,
-      "lastPushAt": "2026-11-12T13:02:49Z",
-      "ciState": "success",
-      "ciConclusion": "success",
-      "ciUpdatedAt": "2026-11-12T13:03:10Z",
-      "openPullRequests": 272,
+      "lastPushAt": "2026-11-12T14:12:05Z",
+      "ciState": "blocked",
+      "ciConclusion": "runner-not-started",
+      "ciUpdatedAt": "2026-11-12T14:12:14Z",
+      "openPullRequests": 273,
       "local": {
         "checkoutPresent": true,
         "changesPending": false,
-        "headAt": "2026-11-03T12:13:38+10:00"
+        "headAt": "2026-11-13T00:12:03+10:00"
       },
       "runtime": {
         "state": "healthy",
@@ -764,5 +764,5 @@
       }
     }
   },
-  "snapshotUpdatedAt": "2026-11-12T13:11:11.252Z"
+  "snapshotUpdatedAt": "2026-11-12T14:16:26.773Z"
 }
