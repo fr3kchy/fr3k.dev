@@ -245,7 +245,7 @@
     "fieldops": {
       "sourceVisibility": "private",
       "sourceAccessible": true,
-      "lastPushAt": "2026-11-12T15:36:54Z",
+      "lastPushAt": "2026-11-12T15:52:16Z",
       "ciState": "blocked",
       "ciConclusion": "runner-not-started",
       "ciUpdatedAt": "2026-11-12T13:02:52Z",
@@ -296,15 +296,15 @@
     "fleet": {
       "sourceVisibility": "private",
       "sourceAccessible": true,
-      "lastPushAt": "2026-11-12T14:36:09Z",
+      "lastPushAt": "2026-11-12T15:46:55Z",
       "ciState": "blocked",
       "ciConclusion": "runner-not-started",
-      "ciUpdatedAt": "2026-11-12T14:36:18Z",
+      "ciUpdatedAt": "2026-11-12T15:47:06Z",
       "openPullRequests": 273,
       "local": {
         "checkoutPresent": true,
         "changesPending": true,
-        "headAt": "2026-11-13T01:44:22+10:00"
+        "headAt": "2026-11-13T01:46:52+10:00"
       },
       "runtime": {
         "state": "healthy",
@@ -764,5 +764,5 @@
       }
     }
   },
-  "snapshotUpdatedAt": "2026-11-12T15:46:15.599Z"
+  "snapshotUpdatedAt": "2026-11-12T16:01:30.273Z"
 }
