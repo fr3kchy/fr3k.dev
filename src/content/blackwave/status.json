@@ -1,7 +1,5 @@
 {
   "buildDate": "2026-08-29",
-  "commit": "2c423c6",
-  "branch": "fr3k/research-reconciliation",
   "artifacts": 46,
   "pytestPasses": 82,
   "contractVersion": "v2",
@@ -226,5 +224,6 @@
         "BLOCKED"
       ]
     }
-  }
+  },
+  "statusClassification": "historical-build-snapshot"
 }

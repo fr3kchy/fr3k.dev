@@ -4,7 +4,7 @@
       "artifacts": [],
       "codename": "ABYSS",
       "evidence": "PROBED/PARTIAL",
-      "evidence_details": "Unit 10:51:DB:7C:C7:00 flashed; subsystem gates remain BLOCKED",
+      "evidence_details": "A physical unit was flashed; subsystem gates remain BLOCKED (unit identifier withheld)",
       "expected_peripherals": [
         "display",
         "touch",
@@ -25,7 +25,7 @@
       "artifacts": [],
       "codename": "RELAY",
       "evidence": "PROBED/PARTIAL",
-      "evidence_details": "Unit 28:37:2F:91:38:60 flashed; modem operation BLOCKED",
+      "evidence_details": "A physical unit was flashed; modem operation BLOCKED (unit identifier withheld)",
       "expected_peripherals": [
         "epaper",
         "keyboard",
@@ -45,7 +45,7 @@
       "artifacts": [],
       "codename": "NEXUS",
       "evidence": "PROBED/PARTIAL",
-      "evidence_details": "Unit 30:ED:A0:E2:A7:26 flashed; P4/C6 + display + memory + power benchmarks BLOCKED",
+      "evidence_details": "A physical unit was flashed; P4/C6 + display + memory + power benchmarks BLOCKED (unit identifier withheld)",
       "expected_peripherals": [
         "display",
         "touch",
@@ -133,7 +133,7 @@
       "artifacts": [],
       "codename": "VIGIL",
       "evidence": "PROBED/PARTIAL",
-      "evidence_details": "Unit 10:51:DB:40:4F:90 flashed (57.3% RAM, 87.8% flash); subsystem acceptance not promoted",
+      "evidence_details": "A physical unit was flashed (57.3% RAM, 87.8% flash); subsystem acceptance not promoted",
       "expected_peripherals": [
         "amoled-display",
         "touch",
@@ -181,7 +181,7 @@
       "artifacts": [],
       "codename": "PULSE",
       "evidence": "PROBED/PARTIAL",
-      "evidence_details": "Unit D0:CF:13:33:11:34 flashed (14.5% RAM, 11.5% flash); subsystem acceptance not promoted",
+      "evidence_details": "A physical unit was flashed (14.5% RAM, 11.5% flash); subsystem acceptance not promoted",
       "expected_peripherals": [
         "display",
         "buttons",
@@ -201,7 +201,7 @@
       "artifacts": [],
       "codename": "PATHFINDER",
       "evidence": "BLOCKED",
-      "evidence_details": "Pinned pristine + overlay RNode builds checksum verified; unit 7C5220341FB8348E RNode acceptance BLOCKED pending hashed post-flash log",
+      "evidence_details": "Pinned pristine + overlay RNode builds checksum verified; unit-specific RNode acceptance BLOCKED pending hashed post-flash log",
       "expected_peripherals": [
         "display",
         "gnss",
@@ -257,7 +257,7 @@
     "RECOVERY"
   ],
   "schema": "blackwave-flasher-manifest/v1",
-  "source_dossier": "fr3k-blackwave/docs/research/snapshot-manifest.json",
+  "source_dossier": "Private source dossier (path withheld)",
   "upstream_facts": {
     "LXMF": {
       "status": "latest",

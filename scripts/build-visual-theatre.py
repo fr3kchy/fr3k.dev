@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
-import subprocess, json, shutil
+import subprocess, json, shutil, os
 from pathlib import Path
 
-ROOT=Path('/home/parrot/projects/fr3k.dev')
+ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'blackwave/social/media/visuals'
 OUT.mkdir(parents=True,exist_ok=True)
-IMAGES=sorted(Path('/home/parrot/repos/fr3k-blackwave/video-series/assets').glob('*.png'))
+ASSET_SOURCE=os.environ.get('BLACKWAVE_ASSET_DIR')
+if not ASSET_SOURCE:
+    raise SystemExit('Set BLACKWAVE_ASSET_DIR to the authorised private image-source directory.')
+ASSET_DIR=Path(ASSET_SOURCE)
+IMAGES=sorted(ASSET_DIR.glob('*.png'))
 assert len(IMAGES)>=10
 
 def run(cmd):

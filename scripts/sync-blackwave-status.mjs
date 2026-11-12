@@ -7,7 +7,8 @@
  *
  * Fails on malformed evidence state. Never promotes evidence automatically.
  *
- * Usage: node scripts/sync-blackwave-status.mjs [--check]
+ * Usage: set BLACKWAVE_REPO and BLACKWAVE_STATUS_MANIFEST in the private runtime,
+ * then run node scripts/sync-blackwave-status.mjs [--check].
  *   --check  dry-run, exits non-zero if output would change
  */
 
@@ -17,7 +18,8 @@ import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const SITE_ROOT = join(__dirname, '..');
-const BW_REPO = process.env.BLACKWAVE_REPO || join(SITE_ROOT, '..', '..', 'repos', 'fr3k-blackwave');
+const BW_REPO = process.env.BLACKWAVE_REPO;
+const MANIFEST_RELATIVE = process.env.BLACKWAVE_STATUS_MANIFEST;
 
 const VALID_EVIDENCE = new Set(['CLAIMED','SOURCE_CONFIRMED','BUILT','PROBED','FLASHED','BOOTED','VERIFIED','INTEGRATED','REGRESSION_VERIFIED','BLOCKED','PASS','PASS_UNSIGNED','PASS_BUILD_ONLY','PASS_REPRODUCIBLE_BUILD_ONLY','FAIL','NOT_TESTED','N/A','BLOCKED','INFRA','NOT_A_BUILD_TARGET']);
 
@@ -25,16 +27,18 @@ function fail(msg){ console.error(`[sync-blackwave] ERROR: ${msg}`); process.exi
 function warn(msg){ console.warn(`[sync-blackwave] WARN: ${msg}`); }
 function sanitizePath(p){
   if(!p) return p;
-  // strip /home/parrot, private IPs, absolute local paths → repo-relative
-  return p.replace(/\/home\/[^\/]+\//g, '').replace(/\b192\.168\.\d+\.\d+\b/g, '[redacted-ip]').replace(/\b10\.\d+\.\d+\.\d+\b/g, '[redacted-ip]');
+  // strip absolute local paths, private IPs and hardware identifiers before emission
+  return p.replace(/\/home\/[^\/]+\//g, '').replace(/\b192\.168\.\d+\.\d+\b/g, '[redacted-ip]').replace(/\b10\.\d+\.\d+\.\d+\b/g, '[redacted-ip]').replace(/\b(?:[A-F0-9]{2}:){5}[A-F0-9]{2}\b/gi, '[redacted-device-id]');
 }
 
 function loadManifest(){
-  const p = join(BW_REPO, 'releases/2026-08-29-full-build/BUILD-MANIFEST.json');
+  if (!BW_REPO) fail('Set BLACKWAVE_REPO to the authorised private checkout.');
+  if (!MANIFEST_RELATIVE) fail('Set BLACKWAVE_STATUS_MANIFEST to the authorised evidence manifest path.');
+  const p = join(BW_REPO, MANIFEST_RELATIVE);
   if(!existsSync(p)) { warn(`BUILD-MANIFEST not found at ${p} — using checked-in status.json`); return null; }
   const raw = readFileSync(p,'utf8');
   // sanitize before any emission
-  const sanitized = raw.replace(/\/home\/[^\/]+\//g, '');
+  const sanitized = raw.replace(/\/home\/[^\/]+\//g, '').replace(/\b(?:[A-F0-9]{2}:){5}[A-F0-9]{2}\b/gi, '[redacted-device-id]');
   return JSON.parse(sanitized);
 }
 
@@ -48,6 +52,7 @@ function validateEvidenceStates(states){
 
 function main(){
   const check = process.argv.includes('--check');
+  if (!BW_REPO || !MANIFEST_RELATIVE) fail('Set BLACKWAVE_REPO and BLACKWAVE_STATUS_MANIFEST in the private runtime environment.');
   const manifest = loadManifest();
 
   // Derive status from manifest if available, else keep existing
@@ -55,6 +60,8 @@ function main(){
   const existing = existsSync(statusPath) ? JSON.parse(readFileSync(statusPath,'utf8')) : {};
 
   let next = { ...existing };
+  delete next.commit;
+  delete next.branch;
 
   if(manifest){
     // Validate evidence in manifest targets
@@ -64,16 +71,16 @@ function main(){
     }
     // Update artifact count / commit if manifest is newer
     const artifactCount = manifest.artifacts ? manifest.artifacts.length : next.artifacts;
-    const commit = manifest.source?.commit ? manifest.source.commit.slice(0,7) : next.commit;
     next.artifacts = artifactCount;
-    if(commit) next.commit = commit;
+    delete next.commit; // private source commit identifiers are not published
+    delete next.branch; // private branch names are not published
     // Never auto-promote evidence — only reflect BUILT/PASS that manifest asserts for software
-    console.log(`[sync-blackwave] Ingested manifest: ${artifactCount} artifacts, commit ${commit}`);
+    console.log('[sync-blackwave] Ingested manifest: ' + artifactCount + ' artifacts (source revision withheld)');
   }
 
   // Validate no secrets leaked
   const out = JSON.stringify(next, null, 2);
-  if(/\/home\/parrot/.test(out)) fail('Output contains unsanitized local path /home/parrot');
+  if(/\/home\/[^/]+\//.test(out)) fail('Output contains an unsanitized absolute home path');
   if(/\b[A-Za-z0-9]{20,}\b/.test(out) && /token|secret|key/i.test(out)) warn('Possible secret pattern — review output');
 
   // Deterministic: sort keys
@@ -94,7 +101,7 @@ function main(){
   mkdirSync(dataDir, {recursive:true});
   writeFileSync(join(dataDir, 'status.json'), deterministic);
   console.log(`[sync-blackwave] Mirrored to blackwave/data/status.json`);
-  console.log('[sync-blackwave] Done. Rebuild site: vercel --prod');
+  console.log('[sync-blackwave] Done. Publish through the controlled website workflow.');
 }
 
 main();

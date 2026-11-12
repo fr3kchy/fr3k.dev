@@ -1,7 +1,8 @@
 from pathlib import Path
 import json
 
-p = Path('/home/parrot/projects/fr3k.dev/blackwave/social/data/campaign-media.json')
+ROOT = Path(__file__).resolve().parents[1]
+p = ROOT / 'blackwave/social/data/campaign-media.json'
 data = json.loads(p.read_text())
 for asset in data['assets']:
     asset['output'] = asset['output'].replace('assets/approved/shorts/', 'media/shorts/')
