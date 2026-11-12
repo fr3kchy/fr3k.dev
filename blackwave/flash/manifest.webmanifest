@@ -1,0 +1,16 @@
+{
+  "name": "BLACKWAVE // Deployment Terminal",
+  "short_name": "BLACKWAVE",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#05080a",
+  "theme_color": "#5fd0e6",
+  "description": "Browser-based firmware flasher for the BLACKWAVE fleet. Local-first, evidence-bound.",
+  "icons": [
+    {
+      "src": "assets/silhouette.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

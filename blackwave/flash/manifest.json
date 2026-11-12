@@ -1,0 +1,281 @@
+{
+  "devices": [
+    {
+      "artifacts": [],
+      "codename": "ABYSS",
+      "evidence": "PROBED/PARTIAL",
+      "evidence_details": "Unit 10:51:DB:7C:C7:00 flashed; subsystem gates remain BLOCKED",
+      "expected_peripherals": [
+        "display",
+        "touch",
+        "keyboard",
+        "trackball",
+        "gnss",
+        "sd",
+        "lora-class"
+      ],
+      "flash_authorized": false,
+      "model": "T-Deck Plus",
+      "notes": "Reference path: WebSerial / WebUSB, ESP Web Tools profile.",
+      "partition_mb": 16,
+      "slug": "abyss",
+      "target_class": "esp32-s3"
+    },
+    {
+      "artifacts": [],
+      "codename": "RELAY",
+      "evidence": "PROBED/PARTIAL",
+      "evidence_details": "Unit 28:37:2F:91:38:60 flashed; modem operation BLOCKED",
+      "expected_peripherals": [
+        "epaper",
+        "keyboard",
+        "gnss",
+        "sd",
+        "lora-class",
+        "modem-a7682e"
+      ],
+      "flash_authorized": false,
+      "model": "T-Deck Pro 4G",
+      "notes": "Modem presence is a separate claim from modem operation. Do not flash the modem path without explicit operator workflow.",
+      "partition_mb": 16,
+      "slug": "relay",
+      "target_class": "esp32-s3"
+    },
+    {
+      "artifacts": [],
+      "codename": "NEXUS",
+      "evidence": "PROBED/PARTIAL",
+      "evidence_details": "Unit 30:ED:A0:E2:A7:26 flashed; P4/C6 + display + memory + power benchmarks BLOCKED",
+      "expected_peripherals": [
+        "display",
+        "touch",
+        "camera",
+        "usb",
+        "ethernet",
+        "wifi",
+        "ble"
+      ],
+      "flash_authorized": false,
+      "model": "M5Stack Tab5",
+      "notes": "P4/C6 split. Treat as a multi-MCU target \u2014 flashing one without the other can leave the fleet panel unusable.",
+      "partition_mb": 8,
+      "slug": "nexus",
+      "target_class": "esp32-p4-esp32-c6"
+    },
+    {
+      "artifacts": [],
+      "codename": "SPECTRE",
+      "evidence": "BLOCKED",
+      "evidence_details": "Full media/IPC image blocked by dirty external vendor SDK provenance",
+      "expected_peripherals": [
+        "amoled-display",
+        "touch",
+        "camera",
+        "mic",
+        "sd",
+        "k230-accel"
+      ],
+      "flash_authorized": false,
+      "model": "T-Display K230",
+      "notes": "NOT an ESP Web Tools target. SD / USB-serial / app.elf deployment only. Full media/IPC image is currently BLOCKED.",
+      "partition_mb": 0,
+      "slug": "spectre",
+      "target_class": "k230"
+    },
+    {
+      "artifacts": [],
+      "codename": "SCOUT",
+      "evidence": "BLOCKED",
+      "evidence_details": "K10 #1 + K10 #2 unit-specific identity not yet established; actuator authority BLOCKED",
+      "expected_peripherals": [
+        "display",
+        "touch",
+        "camera",
+        "mic",
+        "speaker",
+        "imu",
+        "env",
+        "sd",
+        "wifi",
+        "ble",
+        "expansion"
+      ],
+      "flash_authorized": false,
+      "model": "UNIHIKER K10",
+      "notes": "Two physical units in the fleet; local identities SCOUT-1 / SCOUT-2 are assigned at first connect, not assumed.",
+      "partition_mb": 16,
+      "slug": "scout",
+      "target_class": "esp32-s3"
+    },
+    {
+      "artifacts": [],
+      "codename": "SIGNAL",
+      "evidence": "PROBED/PARTIAL",
+      "evidence_details": "ESP-IDF 5.5.2 build passed (14% app partition remaining); owned-unit radio + IR require exact-device evidence",
+      "expected_peripherals": [
+        "display",
+        "encoder",
+        "cc1101",
+        "ir",
+        "audio",
+        "sd",
+        "wifi",
+        "ble"
+      ],
+      "flash_authorized": false,
+      "model": "T-Embed CC1101",
+      "notes": "CC1101 + IR. Default RF test is RX-only. Transmit requires explicit operator initiation + regulatory policy pass.",
+      "partition_mb": 16,
+      "slug": "signal",
+      "target_class": "esp32-s3"
+    },
+    {
+      "artifacts": [],
+      "codename": "VIGIL",
+      "evidence": "PROBED/PARTIAL",
+      "evidence_details": "Unit 10:51:DB:40:4F:90 flashed (57.3% RAM, 87.8% flash); subsystem acceptance not promoted",
+      "expected_peripherals": [
+        "amoled-display",
+        "touch",
+        "gnss",
+        "imu",
+        "nfc",
+        "audio",
+        "haptic",
+        "sd",
+        "wifi",
+        "ble",
+        "battery"
+      ],
+      "flash_authorized": false,
+      "model": "T-Watch Ultra",
+      "notes": "Radio module variant is detected, not inferred from product name. T-Watch Ultra family shares form factor across multiple SKUs.",
+      "partition_mb": 16,
+      "slug": "vigil",
+      "target_class": "esp32-s3"
+    },
+    {
+      "artifacts": [],
+      "codename": "CHRONOS",
+      "evidence": "PROBED/PARTIAL",
+      "evidence_details": "PlatformIO firmware + merged factory image reproduced locally (54.2% RAM, 81.3% flash); no new physical test performed",
+      "expected_peripherals": [
+        "display",
+        "touch",
+        "rtc",
+        "pmic",
+        "battery",
+        "wifi",
+        "ble",
+        "buttons",
+        "sensors-on-unit"
+      ],
+      "flash_authorized": false,
+      "model": "T-Watch 2020",
+      "notes": "T-Watch 2020 is the canonical hardware (renamed from T-Watch S3 2020; the build record slug remains as archived history).",
+      "partition_mb": 4,
+      "slug": "chronos",
+      "target_class": "esp32"
+    },
+    {
+      "artifacts": [],
+      "codename": "PULSE",
+      "evidence": "PROBED/PARTIAL",
+      "evidence_details": "Unit D0:CF:13:33:11:34 flashed (14.5% RAM, 11.5% flash); subsystem acceptance not promoted",
+      "expected_peripherals": [
+        "display",
+        "buttons",
+        "battery",
+        "usb",
+        "wifi",
+        "ble"
+      ],
+      "flash_authorized": false,
+      "model": "T-Display S3",
+      "notes": "Recommended first physical-validation target \u2014 relatively simple ESP32-S3 path. Reference implementation for the flasher framework.",
+      "partition_mb": 8,
+      "slug": "pulse",
+      "target_class": "esp32-s3"
+    },
+    {
+      "artifacts": [],
+      "codename": "PATHFINDER",
+      "evidence": "BLOCKED",
+      "evidence_details": "Pinned pristine + overlay RNode builds checksum verified; unit 7C5220341FB8348E RNode acceptance BLOCKED pending hashed post-flash log",
+      "expected_peripherals": [
+        "display",
+        "gnss",
+        "lora-class",
+        "nrf52-radio"
+      ],
+      "flash_authorized": false,
+      "model": "LILYGO T-Echo",
+      "notes": "nRF52840 \u2014 separate flashing strategy. UF2 bootloader mass storage or WebUSB DFU. RNode overlay install is a distinct flow from factory recovery.",
+      "partition_mb": 0,
+      "slug": "pathfinder",
+      "target_class": "nrf52840"
+    }
+  ],
+  "generated_at": "2026-08-29T00:00:00+10:00",
+  "house_phrases": [
+    "CAPABILITY EARNED BY EVIDENCE",
+    "DISCOVERY IS NOT AUTHORITY",
+    "THE NETWORK IS NOT THE SYSTEM",
+    "TRUST THE LEDGER, NOT THE HYPE",
+    "IDENTIFY \u00b7 VERIFY \u00b7 FLASH \u00b7 PROBE \u00b7 VALIDATE \u00b7 RECOVER"
+  ],
+  "infrastructure": {
+    "evidence": "CLAIMED/SOURCE_CONFIRMED",
+    "is_flasher_target": false,
+    "model": "Raspberry Pi 500",
+    "notes": "Pi 500 is infrastructure inventory, not an embedded firmware target. Image-writing would be a separate, deliberate workflow.",
+    "slug": "infra"
+  },
+  "never_auto": {
+    "RF_transmission": "Default RX-only. TX requires country + frequency + PHY + power + antenna + regulatory-pass.",
+    "calibration": "Default DO NOT MODIFY. Per-unit; would require factory re-probe.",
+    "eFuses": "Default DO NOT MODIFY. Requires explicit operator approval + reason + audit entry.",
+    "identity_region": "Default DO NOT MODIFY unless this is the workflow's explicit purpose.",
+    "permanent_security": "Default DO NOT MODIFY. Once set, often not reversible.",
+    "private_keys": "Default DO NOT MODIFY. Use per-device key provisioning, not firmware-baked."
+  },
+  "recovery_scenarios": [
+    "Can't detect device",
+    "Boot loop",
+    "Black screen",
+    "Bad flash (write errors / checksum mismatch)",
+    "Wrong firmware (target mismatch)",
+    "OTA failure",
+    "Filesystem failure",
+    "Radio not detected"
+  ],
+  "release_channels": [
+    "STABLE",
+    "VALIDATED",
+    "TESTING",
+    "NIGHTLY",
+    "RECOVERY"
+  ],
+  "schema": "blackwave-flasher-manifest/v1",
+  "source_dossier": "fr3k-blackwave/docs/research/snapshot-manifest.json",
+  "upstream_facts": {
+    "LXMF": {
+      "status": "latest",
+      "version": "0.9.6"
+    },
+    "M5Tab5-UserDemo": {
+      "commit": "68b19d3",
+      "status": "latest",
+      "version": "V0.4"
+    },
+    "Reticulum": {
+      "commit": "149e415",
+      "status": "dossier-stale-1.4.2-superseded",
+      "version": "1.5.1"
+    },
+    "Xiaozhi": {
+      "status": "latest",
+      "version": "v2.4.0"
+    }
+  }
+}

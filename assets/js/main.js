@@ -8,18 +8,10 @@ window.addEventListener('load', () => {
 const y = document.getElementById('year');
 if (y) y.textContent = new Date().getFullYear();
 
-// Live swarm metrics — subtle, honest jitter around the real values shown
+// No simulated live metrics. Show unavailable until connected to a verified source.
 (function(){
-  const nodeEl = document.getElementById('nodeCount');
-  const meshEl = document.getElementById('meshQuality');
-  const dot = document.getElementById('nodeDot');
-  if(!nodeEl || !meshEl) return;
-  let baseMesh = 98.7;
-  setInterval(() => {
-    const m = Math.min(99.9, Math.max(97.5, baseMesh + (Math.random() - 0.5) * 0.6));
-    meshEl.textContent = m.toFixed(1) + '%';
-    if (dot) dot.style.background = m > 95 ? 'var(--neon)' : '#ff5d6c';
-  }, 2400);
+  const dot=document.getElementById('nodeDot');
+  if(dot){dot.style.background='#888';dot.title='Live telemetry not connected';}
 })();
 
 // Reel: force autoplay (covers browsers that ignore autoplay attr) + never leave hidden

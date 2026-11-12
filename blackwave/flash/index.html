@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#05080a" />
+  <title>BLACKWAVE // Device Deployment Terminal — fR3k.dev</title>
+  <meta name="description" content="Browser-based firmware flasher for the BLACKWAVE distributed physical-computing fleet. Capability earned by evidence. Discovery is not authority. Local-first, no silent uploads." />
+  <meta name="author" content="fr3k" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="app.css" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="assets/silhouette.svg" type="image/svg+xml" />
+</head>
+<body>
+  <div class="bg" aria-hidden="true"></div>
+  <div class="grid" aria-hidden="true"></div>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <b>◆ BLACKWAVE // DEPLOYMENT TERMINAL</b>
+    <span class="sep">|</span>
+    <span>STATUS: <b id="status">WAITING FOR HARDWARE</b></span>
+    <span class="sep">|</span>
+    <a href="../../">fr3k.dev</a>
+    <span class="sep">|</span>
+    <a href="../">BLACKWAVE</a>
+    <span class="sep">|</span>
+    <a href="https://github.com/fr3kchy/fr3k.dev" target="_blank" rel="noopener">source ↗</a>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="hero__kicker">CAPABILITY · EARNED · BY · EVIDENCE</div>
+      <h1 class="hero__title">BLACKWAVE<br/>// DEVICE DEPLOYMENT TERMINAL</h1>
+      <div class="hero__sub">IDENTIFY · VERIFY · FLASH · PROBE · VALIDATE · RECOVER</div>
+      <div class="hero__status">
+        <b>WAITING FOR HARDWARE</b> &nbsp; <span class="dim">// connect a target via WebSerial or WebUSB to begin &mdash; or pick a device below to inspect the manifest</span>
+      </div>
+      <div class="hero__cta">
+        <button class="btn btn--primary" disabled>AUTO DETECT (Phase B)</button>
+        <button class="btn btn--ghost" data-open-device="abyss">ABYSS / T-Deck Plus</button>
+        <button class="btn btn--ghost" data-open-device="pulse">PULSE / T-Display S3</button>
+        <button class="btn btn--ghost" data-open-device="pathfinder">PATHFINDER / T-Echo</button>
+        <a class="btn btn--ghost" href="#devices">SELECT MANUALLY ⌇</a>
+        <a class="btn btn--ghost" href="#recovery">RECOVERY MODE</a>
+        <a class="btn btn--ghost" href="../../media.html">VIEW RELEASES</a>
+        <a class="btn btn--ghost" href="#safety">SAFETY GUIDE</a>
+      </div>
+    </section>
+
+    <section class="section" id="devices">
+      <h2 class="section__h"><span class="num">// 01</span> Targets</h2>
+      <p class="section__lead">Eleven contract devices and one infrastructure host. Every card shows the reconciled evidence state from <code>docs/research/current-state.md</code> — no state is ever promoted without matching machine-readable validation data.</p>
+      <div class="grid-cards">
+
+    <article class="card" data-slug="abyss">
+      <div class="card__codename">ABYSS</div>
+      <div class="card__model">T-Deck Plus</div>
+      <div class="card__class mono">esp32-s3</div>
+      <div class="card__evidence">
+        <span class="chip chip--probed">PROBED/PARTIAL</span>
+        <span class="chip chip--blocked">no artifacts</span>
+
+      </div>
+      <div class="card__cta">
+        <button class="btn btn--primary" data-open-device="abyss">CONSOLE →</button>
+        <button class="btn btn--ghost" onclick="BLACKWAVE.evidence.export('abyss')">EXPORT</button>
+      </div>
+    </article>
+
+    <article class="card" data-slug="relay">
+      <div class="card__codename">RELAY</div>
+      <div class="card__model">T-Deck Pro 4G</div>
+      <div class="card__class mono">esp32-s3</div>
+      <div class="card__evidence">
+        <span class="chip chip--probed">PROBED/PARTIAL</span>
+        <span class="chip chip--blocked">no artifacts</span>
+
+      </div>
+      <div class="card__cta">
+        <button class="btn btn--primary" data-open-device="relay">CONSOLE →</button>
+        <button class="btn btn--ghost" onclick="BLACKWAVE.evidence.export('relay')">EXPORT</button>
+      </div>
+    </article>
+
+    <article class="card" data-slug="nexus">
+      <div class="card__codename">NEXUS</div>
+      <div class="card__model">M5Stack Tab5</div>
+      <div class="card__class mono">esp32-p4-esp32-c6</div>
+      <div class="card__evidence">
+        <span class="chip chip--probed">PROBED/PARTIAL</span>
+        <span class="chip chip--blocked">no artifacts</span>
+
+      </div>
+      <div class="card__cta">
+        <button class="btn btn--primary" data-open-device="nexus">CONSOLE →</button>
+        <button class="btn btn--ghost" onclick="BLACKWAVE.evidence.export('nexus')">EXPORT</button>
+      </div>
+    </article>
+
+    <article class="card" data-slug="spectre">
+      <div class="card__codename">SPECTRE</div>
+      <div class="card__model">T-Display K230</div>
+      <div class="card__class mono">k230</div>
+      <div class="card__evidence">
+        <span class="chip chip--blocked">BLOCKED</span>
+        <span class="chip chip--blocked">no artifacts</span>
+
+      </div>
+      <div class="card__cta">
+        <button class="btn btn--primary" data-open-device="spectre">CONSOLE →</button>
+        <button class="btn btn--ghost" onclick="BLACKWAVE.evidence.export('spectre')">EXPORT</button>
+      </div>
+    </article>
+
+    <article class="card" data-slug="scout">
+      <div class="card__codename">SCOUT</div>
+      <div class="card__model">UNIHIKER K10</div>
+      <div class="card__class mono">esp32-s3</div>
+      <div class="card__evidence">
+        <span class="chip chip--blocked">BLOCKED</span>
+        <span class="chip chip--blocked">no artifacts</span>
+
+      </div>
+      <div class="card__cta">
+        <button class="btn btn--primary" data-open-device="scout">CONSOLE →</button>
+        <button class="btn btn--ghost" onclick="BLACKWAVE.evidence.export('scout')">EXPORT</button>
+      </div>
+    </article>
+
+    <article class="card" data-slug="signal">
+      <div class="card__codename">SIGNAL</div>
+      <div class="card__model">T-Embed CC1101</div>
+      <div class="card__class mono">esp32-s3</div>
+      <div class="card__evidence">
+        <span class="chip chip--probed">PROBED/PARTIAL</span>
+        <span class="chip chip--blocked">no artifacts</span>
+
+      </div>
+      <div class="card__cta">
+        <button class="btn btn--primary" data-open-device="signal">CONSOLE →</button>
+        <button class="btn btn--ghost" onclick="BLACKWAVE.evidence.export('signal')">EXPORT</button>
+      </div>
+    </article>
+
+    <article class="card" data-slug="vigil">
+      <div class="card__codename">VIGIL</div>
+      <div class="card__model">T-Watch Ultra</div>
+      <div class="card__class mono">esp32-s3</div>
+      <div class="card__evidence">
+        <span class="chip chip--probed">PROBED/PARTIAL</span>
+        <span class="chip chip--blocked">no artifacts</span>
+
+      </div>
+      <div class="card__cta">
+        <button class="btn btn--primary" data-open-device="vigil">CONSOLE →</button>
+        <button class="btn btn--ghost" onclick="BLACKWAVE.evidence.export('vigil')">EXPORT</button>
+      </div>
+    </article>
+
+    <article class="card" data-slug="chronos">
+      <div class="card__codename">CHRONOS</div>
+      <div class="card__model">T-Watch 2020</div>
+      <div class="card__class mono">esp32</div>
+      <div class="card__evidence">
+        <span class="chip chip--probed">PROBED/PARTIAL</span>
+        <span class="chip chip--blocked">no artifacts</span>
+
+      </div>
+      <div class="card__cta">
+        <button class="btn btn--primary" data-open-device="chronos">CONSOLE →</button>
+        <button class="btn btn--ghost" onclick="BLACKWAVE.evidence.export('chronos')">EXPORT</button>
+      </div>
+    </article>
+
+    <article class="card" data-slug="pulse">
+      <div class="card__codename">PULSE</div>
+      <div class="card__model">T-Display S3</div>
+      <div class="card__class mono">esp32-s3</div>
+      <div class="card__evidence">
+        <span class="chip chip--probed">PROBED/PARTIAL</span>
+        <span class="chip chip--blocked">no artifacts</span>
+
+      </div>
+      <div class="card__cta">
+        <button class="btn btn--primary" data-open-device="pulse">CONSOLE →</button>
+        <button class="btn btn--ghost" onclick="BLACKWAVE.evidence.export('pulse')">EXPORT</button>
+      </div>
+    </article>
+
+    <article class="card" data-slug="pathfinder">
+      <div class="card__codename">PATHFINDER</div>
+      <div class="card__model">LILYGO T-Echo</div>
+      <div class="card__class mono">nrf52840</div>
+      <div class="card__evidence">
+        <span class="chip chip--blocked">BLOCKED</span>
+        <span class="chip chip--blocked">no artifacts</span>
+
+      </div>
+      <div class="card__cta">
+        <button class="btn btn--primary" data-open-device="pathfinder">CONSOLE →</button>
+        <button class="btn btn--ghost" onclick="BLACKWAVE.evidence.export('pathfinder')">EXPORT</button>
+      </div>
+    </article>
+
+    <article class="card" data-slug="infra">
+      <div class="card__codename">INFRASTRUCTURE</div>
+      <div class="card__model">Raspberry Pi 500</div>
+      <div class="card__class mono">not a flasher target</div>
+      <div class="card__evidence"><span class="chip chip--source">CLAIMED/SOURCE_CONFIRMED</span></div>
+      <p class="card__desc" style="font-size:.84rem">Pi 500 is <b>infrastructure inventory</b>. Image-writing would be a separate, deliberate workflow with a different threat model (full-disk image, not flash partition).</p>
+    </article>
+      </div>
+    </section>
+
+    <section class="section" id="recovery">
+      <h2 class="section__h"><span class="num">// 02</span> Recovery &amp; Safety</h2>
+      <p class="section__lead">Every device gets a recovery card. The flasher will never silently:</p>
+      <div class="grid-cards">
+        <article class="card">
+          <div class="card__codename">FLASH SUCCESS</div>
+          <p class="card__desc" style="font-size:.84rem">...when only the download succeeded. Verifies the artifact before reporting success.</p>
+        </article>
+        <article class="card">
+          <div class="card__codename">DEVICE VERIFIED</div>
+          <p class="card__desc" style="font-size:.84rem">...when only a USB VID/PID matched. Carries a confidence score; AMBIGUOUS halts the flow.</p>
+        </article>
+        <article class="card">
+          <div class="card__codename">SUPPORTED</div>
+          <p class="card__desc" style="font-size:.84rem">...when the exact hardware revision has not been established. Revision detection is a separate evidence class.</p>
+        </article>
+        <article class="card">
+          <div class="card__codename">NEVER MODIFY</div>
+          <p class="card__desc" style="font-size:.84rem">eFuses, permanent security bits, calibration, private keys, identity region, RF transmission — default denied; explicit operator approval required.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="safety">
+      <h2 class="section__h"><span class="num">// 03</span> Operating principles</h2>
+      <p class="section__lead">Local-first. The browser app will not silently send serial logs, device identifiers, flash dumps, Wi-Fi credentials, keys, or configuration to FR3K servers.</p>
+      <ul style="font-size:.94rem;color:var(--ink);max-width:780px;line-height:1.7;padding-left:1.2rem">
+        <li>Discovery is read-only metadata about a peer; it never enrolls or authorizes a peer.</li>
+        <li>Transport and control are separate failure domains; optional AI does not weaken the underlying system.</li>
+        <li>Every artifact has a SHA-256. HASH VERIFIED is not the same as SIGNATURE VERIFIED.</li>
+        <li>Hardware claims require hardware; LAN acceptance is never relabelled as RF, robotics, or field acceptance.</li>
+        <li>Useful failure reports beat polished fiction. A blocked gate is a valid engineering result.</li>
+      </ul>
+    </section>
+  </main>
+
+  <div class="phrases">
+    CAPABILITY EARNED BY EVIDENCE &nbsp; · &nbsp; DISCOVERY IS NOT AUTHORITY &nbsp; · &nbsp; THE NETWORK IS NOT THE SYSTEM
+  </div>
+
+  <footer class="footer">
+    <span>© <span id="year"></span> fR3k · BLACKWAVE // DEPLOYMENT TERMINAL</span>
+    <span class="footer__sig">מִיכָאֵל · who is like God</span>
+  </footer>
+
+  <div class="console-overlay" id="consoleOverlay" role="dialog" aria-modal="true">
+    <div class="console">
+      <div class="console__head">
+        <span><b id="consoleTitle">CONSOLE</b></span>
+        <button class="console__close" data-close>close ×</button>
+      </div>
+      <div class="console__body" id="consoleBody"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+</body>
+</html>
