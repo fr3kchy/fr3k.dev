@@ -581,12 +581,12 @@
     },
     "xiaozhi-claw": {
       "sourceVisibility": "private",
-      "sourceAccessible": null,
-      "lastPushAt": null,
-      "ciState": "unknown",
-      "ciConclusion": null,
-      "ciUpdatedAt": null,
-      "openPullRequests": null,
+      "sourceAccessible": true,
+      "lastPushAt": "2026-11-12T13:03:08Z",
+      "ciState": "blocked",
+      "ciConclusion": "runner-not-started",
+      "ciUpdatedAt": "2026-11-12T13:03:13Z",
+      "openPullRequests": 21,
       "local": {
         "checkoutPresent": true,
         "changesPending": false,
@@ -596,8 +596,34 @@
         "state": "not-tested",
         "statusCode": null
       },
-      "manifestState": "unavailable",
-      "capabilities": {}
+      "manifestState": "current",
+      "capabilities": {
+        "structured-voice-to-tool-adapter": {
+          "state": "implemented",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "authoritative-agent-gateway": {
+          "state": "implemented",
+          "evidenceCount": 3,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "specialist-worker-integration": {
+          "state": "in-development",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "leases-fencing-and-terminal-states": {
+          "state": "in-development",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "production-voice-and-device-execution": {
+          "state": "not-tested",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        }
+      }
     },
     "simulation-engine": {
       "sourceVisibility": "private",
@@ -738,5 +764,5 @@
       }
     }
   },
-  "snapshotUpdatedAt": "2026-11-12T21:47:30.265Z"
+  "snapshotUpdatedAt": "2026-11-12T22:03:39.562Z"
 }
