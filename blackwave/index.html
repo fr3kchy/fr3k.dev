@@ -15,6 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../assets/css/style.css" />
+  <script defer src="../assets/js/flagship-status.js"></script>
   <style>
     :root{--mono:'JetBrains Mono',monospace}
     .bw-nav__links a.active{color:var(--neon);text-shadow:0 0 10px var(--neon)}
@@ -143,9 +144,26 @@
       .matrix{font-size:.62rem}
       .bw-hero__title{font-size:clamp(2.6rem,14vw,4.5rem)}
     }
+
+    /* shared evidence status panel */
+    .status-dashboard{border:1px solid rgba(0,240,255,.28);background:rgba(5,12,24,.82);border-radius:14px;padding:1.2rem;box-shadow:0 16px 45px rgba(0,0,0,.25)}
+    .status-summary{display:flex;align-items:flex-start;gap:1rem;flex-wrap:wrap}
+    .status-summary p{flex:1 1 420px;margin:0;color:var(--muted)}
+    .status-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem;margin-top:1rem}
+    .status-metric{padding:.9rem;border:1px solid var(--glass-brd);border-radius:9px;background:rgba(255,255,255,.025);display:flex;flex-direction:column;gap:.3rem}
+    .status-metric__label{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
+    .status-metric__value{font-family:var(--font-head);font-size:.9rem;color:#fff;overflow-wrap:anywhere}
+    .status-metric__value[data-state="success"],.status-metric__value[data-state="healthy"]{color:#36f9a0}
+    .status-metric__value[data-state="failure"],.status-metric__value[data-state="unavailable"]{color:#ff7184}
+    .status-metric__detail,.status-footnote{font-size:.78rem;color:var(--muted)}
+    .status-snapshot{display:flex;gap:.5rem 1rem;flex-wrap:wrap;margin-top:.9rem;padding-top:.7rem;border-top:1px solid var(--glass-brd);font-family:var(--mono);font-size:.62rem;color:var(--muted)}
+    .state-chip{display:inline-flex;border:1px solid var(--glass-brd);border-radius:30px;padding:.25rem .6rem;font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:#c9d8ea}
+    .state-chip[data-state="verified"]{color:#36f9a0;border-color:rgba(54,249,160,.35)}
+    .state-chip[data-state="blocked"],.state-chip[data-state="not-tested"]{color:#ff8c9a;border-color:rgba(255,93,108,.35)}
+    @media(max-width:680px){.status-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
   </style>
 </head>
-<body>
+<body data-flagship-id="blackwave">
   <div class="bg-grid" aria-hidden="true"></div>
   <div class="bg-glow" aria-hidden="true"></div>
   <div class="scanlines" aria-hidden="true"></div>
@@ -160,7 +178,7 @@
       <li><a href="../#principles">Principles</a></li>
       <li><a href="../#contact">Contact</a></li>
     </ul>
-    <a href="https://github.com/fr3kchy/fr3k-blackwave" target="_blank" rel="noopener" class="nav__cta">GitHub ↗</a>
+    <a href="../projects/" class="nav__cta">PORTFOLIO ↗</a>
   </nav>
 
   <!-- 00 HERO -->
@@ -178,18 +196,25 @@
         <a href="#timeline" class="btn btn--ghost btn--sm">FOLLOW DEVELOPMENT</a>
       </div>
       <div class="live-strip" id="liveStrip">
-        <span class="live-strip__item"><b>CONTRACT V2</b></span>
-        <span class="live-strip__item"><b>9</b> ACTIVE CONTRACT DEVICES</span>
-        <span class="live-strip__item"><b>46</b> RELEASE ARTIFACTS</span>
-        <span class="live-strip__item"><b>82</b> PYTEST PASSES</span>
-        <span class="live-strip__item live-strip__item--blocked"><b>K230 FULL IMAGE BLOCKED</b></span>
-        <span class="live-strip__item"><b>PHYSICAL VALIDATION NEXT</b></span>
+        <span class="live-strip__item"><b>ACTIVE REBUILD</b></span>
+        <span class="live-strip__item"><b>OTA</b> PER-TARGET ACCEPTANCE</span>
+        <span class="live-strip__item"><b>PHYSICAL</b> VERIFICATION OPEN</span>
+        <span class="live-strip__item"><b>AUTHORITY</b> FAIL-CLOSED</span>
       </div>
-      <p class="mono" style="font-size:.62rem;letter-spacing:.1em;color:var(--muted);margin-top:.7rem;opacity:.7">BUILD 2026-08-29 · 2c423c6 · <a href="https://github.com/fr3kchy/fr3k-blackwave" target="_blank" rel="noopener" style="color:var(--neon)">fr3k-blackwave</a></p>
+      <p class="mono" style="font-size:.62rem;letter-spacing:.1em;color:var(--muted);margin-top:.7rem;opacity:.7">SOURCE STATE IS RECONCILED AUTOMATICALLY · HISTORICAL BUILD LEDGER RETAINED BELOW</p>
     </div>
   </header>
 
   <main>
+    <section class="bw-section" id="status">
+      <h2 class="section__title"><span class="num">LIVE</span> CURRENT PRODUCT STATUS</h2>
+      <p class="bw-lead">The live panel reconciles source activity, CI, review state, the Omarchy worktree and configured health probes. It does not equate a build with a physical deployment.</p>
+      <div class="status-dashboard" data-flagship-status>
+        <div class="status-summary"><span class="state-chip">ACTIVE DEVELOPMENT</span><p>BLACKWAV3 is being rebuilt as the hardware-facing FR3K platform. Per-target physical acceptance remains open.</p></div>
+        <p class="status-loading">Loading the latest source and runtime snapshot…</p>
+      </div>
+      <p class="status-footnote">Repository and runtime signals are checked every 15 minutes. The status collector publishes only sanitised aggregate evidence; private repository names and infrastructure details are withheld.</p>
+    </section>
     <!-- 01 WHAT BLACKWAV3 IS -->
     <section class="bw-section" id="blackwave-2026">
 <h2 class="section__title"><span class="num">00</span> BLACKWAV3 // OCTOBER 2026 REBUILD</h2>
@@ -203,7 +228,7 @@
 <article class="card glass principle"><h3>PROOF & RELEASES</h3><p>Observe → Verify → Reconcile → Improve → Test → Record. Every public status should reference a commit, timestamp, test artifact or physical observation.</p><p class="muted">STATE: EVIDENCE-GATED</p></article>
 </div>
 <p class="muted" style="margin-top:1.3rem"><strong>Historical data notice:</strong> the earlier build ledger and per-device validation matrix below reference an August 29, 2026 snapshot. They are archived engineering evidence, not today's operational telemetry. No live fleet health is asserted here.</p>
-<p><a href="https://github.com/fR3kdev/fr3k-blackwave" target="_blank" rel="noopener" class="btn btn--ghost">Firmware source ↗</a> <a href="https://github.com/fR3kdev/k230-blackwave-ota" target="_blank" rel="noopener" class="btn btn--ghost">K230 OTA work ↗</a></p>
+<p class="muted">Source repository is private. Public status exposes only sanitised activity, CI and acceptance signals.</p>
 </section>
 <section class="bw-section" id="what">
       <h2 class="section__title"><span class="num">01</span> WHAT BLACKWAV3 IS</h2>
@@ -256,9 +281,9 @@
     </section>
 
     <!-- 05 BUILD LEDGER -->
-    <section class="bw-section" id="status">
-      <h2 class="section__title"><span class="num">05</span> CURRENT BUILD LEDGER</h2>
-      <p class="bw-lead">Verified 2026-08-29 full software build — packaging-only, no device written. Each line is a build gate, not a marketing claim.</p>
+    <section class="bw-section" id="historical-status">
+      <h2 class="section__title"><span class="num">05</span> ARCHIVED BUILD LEDGER</h2>
+      <p class="bw-lead">Historical verified 2026-08-29 full software build — packaging-only, no device written. This is an archived snapshot, not the current live status.</p>
       <div class="ledger" id="ledger"></div>
       <p class="mono" style="font-size:.62rem;color:var(--muted);margin-top:.6rem">Source: <code>releases/2026-08-29-full-build/BUILD-MANIFEST.json</code> · SHA-256 verified · <code>fr3k/research-reconciliation@2c423c6</code></p>
     </section>

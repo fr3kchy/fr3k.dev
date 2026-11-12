@@ -1,1 +1,71 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#080b13"><title>FIELDOPS | fR3k.dev</title><meta name="description" content="Coordinate field activity and gather the evidence needed to understand what really happened."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/css/flagships.css"><style>:root{--accent:#9bdc67}</style></head><body><nav class="nav shell"><a class="brand" href="/">fR3k<span>.</span>DEV</a><div class="navlinks"><a href="/projects/">All projects</a><a href="/#contact">Contact</a></div></nav><main><section class="hero shell"><div><div class="eyebrow">fR3k flagship / Field systems</div><h1>Operational intelligence where it matters.</h1><p class="lead">Coordinate field activity and gather the evidence needed to understand what really happened.</p><div class="actions"><a class="btn primary" href="mailto:fr3k@fr3k.dev?subject=fieldops%20enquiry">Discuss a project</a><a class="btn" href="#capabilities">Explore capabilities ↓</a></div></div></section><section id="capabilities" class="section"><div class="shell"><div class="eyebrow">Built for possibility</div><h2>Engineering the next frontier.</h2><div class="features"><article class="tile"><b>Operational visibility</b><p>Explore the design decisions, engineering work and evolving capabilities behind FIELDOPS.</p></article><article class="tile"><b>Evidence capture</b><p>Explore the design decisions, engineering work and evolving capabilities behind FIELDOPS.</p></article><article class="tile"><b>Distributed workflows</b><p>Explore the design decisions, engineering work and evolving capabilities behind FIELDOPS.</p></article></div></div></section><section class="section"><div class="shell"><div class="eyebrow">Transparent by design</div><h2>Explore the work.</h2><p>Products in the fR3k portfolio range from research and prototypes to active development. Features and availability are subject to validation. Request a walkthrough or technical discussion for the current state of this project.</p><div class="actions"><a class="btn primary" href="mailto:fr3k@fr3k.dev?subject=fieldops%20demo">Request a walkthrough</a><a class="btn" href="https://github.com/fr3k-d3v/fr3k-fieldops" rel="noopener noreferrer" target="_blank">Project reference ↗</a><a class="btn" href="/projects/">Explore all flagships</a></div></div></section></main><footer class="foot"><div class="shell">© fR3k · Independent engineering and research · <a href="mailto:fr3k@fr3k.dev">fr3k@fr3k.dev</a></div></footer></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080b13">
+<title>FIELDOPS | fR3k.dev</title>
+<meta name="description" content="A modular Android-first field platform bringing together Linux runtimes, network and wireless inspection, USB, RF, device operations and structured evidence — without creating a second execution control plane.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/flagships.css">
+<style>:root{--accent:#9bdc67}</style>
+<script defer src="/assets/js/flagship-status.js"></script>
+</head>
+<body data-flagship-id="fieldops">
+<nav class="nav shell"><a class="brand" href="/">fR3k<span>.</span>DEV</a><div class="navlinks"><a href="/projects/">All projects</a><a href="/#contact">Contact</a></div></nav>
+<main>
+<section class="hero shell"><div>
+<div class="eyebrow">fR3k flagship / Android field workstation · security · RF · evidence</div>
+<h1>An Android field workstation with authority and evidence built in.</h1>
+<p class="lead">A modular Android-first field platform bringing together Linux runtimes, network and wireless inspection, USB, RF, device operations and structured evidence — without creating a second execution control plane.</p>
+<div class="actions"><a class="btn primary" href="#status">Inspect live status ↓</a><a class="btn" href="#capabilities">Capabilities ↓</a></div>
+</div></section>
+<section id="status" class="section status-section"><div class="shell">
+<div class="eyebrow">Evidence feed // auto-reconciled</div><h2>What exists. What is running. What remains open.</h2>
+<div class="status-dashboard" data-flagship-status>
+  <div class="status-summary"><span class="state-chip">Android alpha · Fold3 smoke verified</span><p>The current local evidence records 52 JVM tests, debug and instrumentation APK builds, lint and manifest checks passing, plus one physical Galaxy Z Fold3 instrumentation smoke test. That device check proves package and launch-component availability only; UI interaction, PRoot and advanced radio/security modules remain unverified.</p></div>
+  <p class="status-loading">Loading the latest source and runtime snapshot…</p>
+</div>
+<p class="status-footnote">Repository, CI, review and runtime signals are checked every 15 minutes. This feed does not promote a commit into a verified capability or a running process into a successful outcome.</p>
+</div></section>
+<section id="capabilities" class="section"><div class="shell">
+<div class="eyebrow">Capability register</div><h2>What the system can actually do.</h2>
+<div class="features"><article class="tile capability-card" data-capability-id="android-alpha-shell-and-build">
+    <div class="capability-card__top"><b>Android alpha shell and build</b><span class="state-chip" data-capability-state>verified</span></div>
+    <p>Kotlin/Compose alpha compiles; debug and Android instrumentation APKs assemble; static manifest safety checks pass.</p>
+    <p class="capability-evidence"><strong>Evidence:</strong> 52 JVM tests passed; Gradle test/build/lint successful.</p>
+  </article><article class="tile capability-card" data-capability-id="galaxy-z-fold3-package-launch-smoke">
+    <div class="capability-card__top"><b>Galaxy Z Fold3 package/launch smoke</b><span class="state-chip" data-capability-state>verified</span></div>
+    <p>Both debug APKs installed on a physical Fold3 and the bounded instrumentation test passed.</p>
+    <p class="capability-evidence"><strong>Evidence:</strong> 1 instrumentation test: OK; verifies package and launch-component availability only.</p>
+  </article><article class="tile capability-card" data-capability-id="linux-proot-workstation">
+    <div class="capability-card__top"><b>Linux / PRoot workstation</b><span class="state-chip" data-capability-state>not-implemented</span></div>
+    <p>A rootless Linux runtime is a planned feature family; actual PRoot execution is explicitly not implemented.</p>
+    <p class="capability-evidence"><strong>Evidence:</strong> Current device evidence records PRoot as NOT_IMPLEMENTED.</p>
+  </article><article class="tile capability-card" data-capability-id="wi-fi-ble-network-and-web-assessment">
+    <div class="capability-card__top"><b>Wi-Fi, BLE, network and web assessment</b><span class="state-chip" data-capability-state>planned</span></div>
+    <p>Scoped discovery, BLE inspection, Nmap, HTTP/TLS and report adapters are planned behind explicit authorization.</p>
+    <p class="capability-evidence"><strong>Evidence:</strong> Master execution plan and quality gates; no intrusive testing is implied.</p>
+  </article><article class="tile capability-card" data-capability-id="usb-sdr-lora-and-blackwave">
+    <div class="capability-card__top"><b>USB, SDR, LoRa and BLACKWAVE</b><span class="state-chip" data-capability-state>planned</span></div>
+    <p>USB/OTG, RTL-SDR, LoRa and radio integrations require separate adapter and per-device hardware acceptance.</p>
+    <p class="capability-evidence"><strong>Evidence:</strong> No hardware support is inferred from compilation.</p>
+  </article><article class="tile capability-card" data-capability-id="fleet-hermes-and-cortex-integration">
+    <div class="capability-card__top"><b>Fleet, Hermes and CORTEX integration</b><span class="state-chip" data-capability-state>planned</span></div>
+    <p>Use the existing FR3K authority and job lifecycle for approved remote work; do not create a parallel control plane.</p>
+    <p class="capability-evidence"><strong>Evidence:</strong> Integration is in the architecture and execution plan.</p>
+  </article></div>
+</div></section>
+<section class="section"><div class="shell">
+<div class="eyebrow">Proof ledger</div><h2>Current evidence and acceptance state.</h2>
+<div class="evidence-list"><article class="evidence-item"><span class="state-chip state-chip--verified">verified</span><div><strong>JVM tests</strong><p>52 passed · 0 failures</p></div></article><article class="evidence-item"><span class="state-chip state-chip--verified">verified</span><div><strong>Fold3 instrumentation</strong><p>1 passed · package/launch only</p></div></article><article class="evidence-item"><span class="state-chip state-chip--not-tested">not-tested</span><div><strong>Advanced runtime</strong><p>PRoot and other device support not verified</p></div></article></div>
+</div></section>
+<section class="section"><div class="shell">
+<div class="eyebrow">Boundaries and open gates</div><h2>What we will not pretend is finished.</h2>
+<ul class="boundary-list"><li>All security testing requires an authorized scope.</li><li>Build success does not imply device compatibility, exploit capability or radio support.</li><li>Consequential remote commands, device modification and RF transmission require applicable approval.</li></ul>
+<div class="next-gate"><span class="eyebrow">NEXT ACCEPTANCE GATE</span><p>Expand from package/launch smoke to interactive UI and runtime tests, then verify each feature family on each named device independently.</p></div>
+<div class="actions"><a class="btn primary" href="mailto:fr3k@fr3k.dev?subject=FIELDOPS%20technical%20discussion">Discuss this system</a><a class="btn" href="/projects/">Back to all flagships</a></div>
+</div></section>
+</main>
+<footer class="foot"><div class="shell">© fR3k · Evidence before claims · <a href="mailto:fr3k@fr3k.dev">fr3k@fr3k.dev</a></div></footer>
+</body></html>

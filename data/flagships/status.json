@@ -1,0 +1,327 @@
+{
+  "schemaVersion": 1,
+  "refreshIntervalMinutes": 15,
+  "projects": {
+    "blackwave": {
+      "sourceVisibility": "private",
+      "sourceAccessible": true,
+      "lastCommitAt": "2026-08-28T17:27:14Z",
+      "ciState": "stale",
+      "ciConclusion": "failure",
+      "ciUpdatedAt": "2026-09-23T08:59:35Z",
+      "openPullRequests": 1,
+      "local": {
+        "checkoutPresent": false,
+        "changesPending": null,
+        "headAt": null
+      },
+      "runtime": {
+        "state": "not-tested",
+        "statusCode": null
+      },
+      "manifestState": "absent",
+      "capabilities": {}
+    },
+    "cortex": {
+      "sourceVisibility": "private",
+      "sourceAccessible": true,
+      "lastCommitAt": "2026-09-11T15:55:16Z",
+      "ciState": "stale",
+      "ciConclusion": "failure",
+      "ciUpdatedAt": "2026-09-11T18:58:35Z",
+      "openPullRequests": 2,
+      "local": {
+        "checkoutPresent": false,
+        "changesPending": null,
+        "headAt": null
+      },
+      "runtime": {
+        "state": "not-tested",
+        "statusCode": null
+      },
+      "manifestState": "absent",
+      "capabilities": {}
+    },
+    "crewworks": {
+      "sourceVisibility": "private",
+      "sourceAccessible": true,
+      "lastCommitAt": "2026-11-11T12:03:13Z",
+      "ciState": "success",
+      "ciConclusion": "success",
+      "ciUpdatedAt": "2026-11-11T12:04:24Z",
+      "openPullRequests": 0,
+      "local": {
+        "checkoutPresent": true,
+        "changesPending": false,
+        "headAt": "2026-11-11T22:03:13+10:00"
+      },
+      "runtime": {
+        "state": "healthy",
+        "statusCode": 200
+      },
+      "manifestState": "absent",
+      "capabilities": {}
+    },
+    "operations": {
+      "sourceVisibility": "private",
+      "sourceAccessible": true,
+      "lastCommitAt": "2026-11-11T13:38:20Z",
+      "ciState": "success",
+      "ciConclusion": "success",
+      "ciUpdatedAt": "2026-11-11T13:41:04Z",
+      "openPullRequests": 0,
+      "local": {
+        "checkoutPresent": true,
+        "changesPending": false,
+        "headAt": "2026-11-11T23:38:20+10:00"
+      },
+      "runtime": {
+        "state": "not-tested",
+        "statusCode": null
+      },
+      "manifestState": "absent",
+      "capabilities": {}
+    },
+    "divine": {
+      "sourceVisibility": "public",
+      "sourceAccessible": true,
+      "lastCommitAt": "2026-11-07T04:54:39Z",
+      "ciState": "success",
+      "ciConclusion": "success",
+      "ciUpdatedAt": "2026-11-11T18:32:59Z",
+      "openPullRequests": 1,
+      "local": {
+        "checkoutPresent": true,
+        "changesPending": true,
+        "headAt": "2026-11-12T13:58:48+10:00"
+      },
+      "runtime": {
+        "state": "not-tested",
+        "statusCode": null
+      },
+      "manifestState": "absent",
+      "capabilities": {}
+    },
+    "fieldops": {
+      "sourceVisibility": "private",
+      "sourceAccessible": true,
+      "lastCommitAt": "2026-11-12T06:15:38Z",
+      "ciState": "success",
+      "ciConclusion": "success",
+      "ciUpdatedAt": "2026-11-12T10:32:39Z",
+      "openPullRequests": 8,
+      "local": {
+        "checkoutPresent": true,
+        "changesPending": false,
+        "headAt": "2026-11-12T20:27:18+10:00"
+      },
+      "runtime": {
+        "state": "not-tested",
+        "statusCode": null
+      },
+      "manifestState": "absent",
+      "capabilities": {}
+    },
+    "fleet": {
+      "sourceVisibility": "private",
+      "sourceAccessible": true,
+      "lastCommitAt": "2026-11-03T02:13:38Z",
+      "ciState": "success",
+      "ciConclusion": "success",
+      "ciUpdatedAt": "2026-11-09T05:05:57Z",
+      "openPullRequests": 272,
+      "local": {
+        "checkoutPresent": true,
+        "changesPending": false,
+        "headAt": "2026-11-03T12:13:38+10:00"
+      },
+      "runtime": {
+        "state": "healthy",
+        "statusCode": 200
+      },
+      "manifestState": "absent",
+      "capabilities": {}
+    },
+    "fr3kc0d3r": {
+      "sourceVisibility": "private",
+      "sourceAccessible": true,
+      "lastCommitAt": "2026-11-09T07:57:35Z",
+      "ciState": "no-runs",
+      "ciConclusion": null,
+      "ciUpdatedAt": null,
+      "openPullRequests": 0,
+      "local": {
+        "checkoutPresent": false,
+        "changesPending": null,
+        "headAt": null
+      },
+      "runtime": {
+        "state": "healthy",
+        "statusCode": 200
+      },
+      "manifestState": "absent",
+      "capabilities": {}
+    },
+    "games": {
+      "sourceVisibility": "private",
+      "sourceAccessible": true,
+      "lastCommitAt": "2026-11-01T03:23:25Z",
+      "ciState": "no-runs",
+      "ciConclusion": null,
+      "ciUpdatedAt": null,
+      "openPullRequests": 0,
+      "local": {
+        "checkoutPresent": false,
+        "changesPending": null,
+        "headAt": null
+      },
+      "runtime": {
+        "state": "not-tested",
+        "statusCode": null
+      },
+      "manifestState": "absent",
+      "capabilities": {}
+    },
+    "hud": {
+      "sourceVisibility": "public",
+      "sourceAccessible": true,
+      "lastCommitAt": "2026-09-05T07:29:21Z",
+      "ciState": "no-runs",
+      "ciConclusion": null,
+      "ciUpdatedAt": null,
+      "openPullRequests": 1,
+      "local": {
+        "checkoutPresent": false,
+        "changesPending": null,
+        "headAt": null
+      },
+      "runtime": {
+        "state": "not-tested",
+        "statusCode": null
+      },
+      "manifestState": "absent",
+      "capabilities": {}
+    },
+    "reverse-engineering": {
+      "sourceVisibility": "private",
+      "sourceAccessible": true,
+      "lastCommitAt": "2026-10-26T10:26:34Z",
+      "ciState": "failure",
+      "ciConclusion": "failure",
+      "ciUpdatedAt": "2026-11-12T10:50:31Z",
+      "openPullRequests": 16,
+      "local": {
+        "checkoutPresent": true,
+        "changesPending": true,
+        "headAt": "2026-11-12T20:49:19+10:00"
+      },
+      "runtime": {
+        "state": "not-tested",
+        "statusCode": null
+      },
+      "manifestState": "absent",
+      "capabilities": {}
+    },
+    "voice-studio": {
+      "sourceVisibility": "private",
+      "sourceAccessible": true,
+      "lastCommitAt": "2026-11-10T05:23:57Z",
+      "ciState": "no-runs",
+      "ciConclusion": null,
+      "ciUpdatedAt": null,
+      "openPullRequests": 0,
+      "local": {
+        "checkoutPresent": true,
+        "changesPending": true,
+        "headAt": "2026-11-10T15:23:57+10:00"
+      },
+      "runtime": {
+        "state": "healthy",
+        "statusCode": 200
+      },
+      "manifestState": "absent",
+      "capabilities": {}
+    },
+    "xiaozhi-claw": {
+      "sourceVisibility": "private",
+      "sourceAccessible": true,
+      "lastCommitAt": "2026-11-09T14:30:07Z",
+      "ciState": "success",
+      "ciConclusion": "success",
+      "ciUpdatedAt": "2026-11-07T16:03:36Z",
+      "openPullRequests": 21,
+      "local": {
+        "checkoutPresent": true,
+        "changesPending": false,
+        "headAt": "2026-11-10T15:04:17+10:00"
+      },
+      "runtime": {
+        "state": "not-tested",
+        "statusCode": null
+      },
+      "manifestState": "absent",
+      "capabilities": {}
+    },
+    "simulation-engine": {
+      "sourceVisibility": "private",
+      "sourceAccessible": true,
+      "lastCommitAt": "2026-11-12T03:55:14Z",
+      "ciState": "success",
+      "ciConclusion": "success",
+      "ciUpdatedAt": "2026-11-12T03:55:46Z",
+      "openPullRequests": 0,
+      "local": {
+        "checkoutPresent": true,
+        "changesPending": false,
+        "headAt": "2026-11-12T13:55:14+10:00"
+      },
+      "runtime": {
+        "state": "not-tested",
+        "statusCode": null
+      },
+      "manifestState": "absent",
+      "capabilities": {}
+    },
+    "evidence-lens": {
+      "sourceVisibility": "private",
+      "sourceAccessible": true,
+      "lastCommitAt": "2026-09-07T23:59:29Z",
+      "ciState": "stale",
+      "ciConclusion": "success",
+      "ciUpdatedAt": "2026-09-11T18:58:46Z",
+      "openPullRequests": 1,
+      "local": {
+        "checkoutPresent": true,
+        "changesPending": false,
+        "headAt": "2026-08-31T03:28:31+10:00"
+      },
+      "runtime": {
+        "state": "not-tested",
+        "statusCode": null
+      },
+      "manifestState": "absent",
+      "capabilities": {}
+    },
+    "content-foundry": {
+      "sourceVisibility": "private",
+      "sourceAccessible": true,
+      "lastCommitAt": "2026-09-07T23:59:18Z",
+      "ciState": "stale",
+      "ciConclusion": "failure",
+      "ciUpdatedAt": "2026-09-11T19:00:55Z",
+      "openPullRequests": 1,
+      "local": {
+        "checkoutPresent": true,
+        "changesPending": true,
+        "headAt": "2026-09-08T09:59:18+10:00"
+      },
+      "runtime": {
+        "state": "not-tested",
+        "statusCode": null
+      },
+      "manifestState": "absent",
+      "capabilities": {}
+    }
+  },
+  "snapshotUpdatedAt": "2026-11-12T10:54:25.171Z"
+}

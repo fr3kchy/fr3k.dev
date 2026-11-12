@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080b13">
+<title>EVIDENCE LENS | fR3k.dev</title>
+<meta name="description" content="An evidence-first fact-checking desk and browser extension, built alongside the Agent Fr3k local desktop agent interface. It separates factual verdicts from rhetoric signals and preserves the source evidence behind each assessment.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/flagships.css">
+<style>:root{--accent:#53e8df}</style>
+<script defer src="/assets/js/flagship-status.js"></script>
+</head>
+<body data-flagship-id="evidence-lens">
+<nav class="nav shell"><a class="brand" href="/">fR3k<span>.</span>DEV</a><div class="navlinks"><a href="/projects/">All projects</a><a href="/#contact">Contact</a></div></nav>
+<main>
+<section class="hero shell"><div>
+<div class="eyebrow">fR3k flagship / Fact-checking · source verification · browser signals</div>
+<h1>Verify the claim before amplifying the conclusion.</h1>
+<p class="lead">An evidence-first fact-checking desk and browser extension, built alongside the Agent Fr3k local desktop agent interface. It separates factual verdicts from rhetoric signals and preserves the source evidence behind each assessment.</p>
+<div class="actions"><a class="btn primary" href="#status">Inspect live status ↓</a><a class="btn" href="#capabilities">Capabilities ↓</a></div>
+</div></section>
+<section id="status" class="section status-section"><div class="shell">
+<div class="eyebrow">Evidence feed // auto-reconciled</div><h2>What exists. What is running. What remains open.</h2>
+<div class="status-dashboard" data-flagship-status>
+  <div class="status-summary"><span class="state-chip">Source implementation present · tests not run</span><p>The local source tree includes a React/TypeScript/Bun desktop agent interface, Claude Agent SDK integration, persistent sessions, multi-provider configuration, a structured fact-check API and a browser extension. Bun was unavailable in the Omarchy shell during this audit, so tests and typecheck were not run.</p></div>
+  <p class="status-loading">Loading the latest source and runtime snapshot…</p>
+</div>
+<p class="status-footnote">Repository, CI, review and runtime signals are checked every 15 minutes. This feed does not promote a commit into a verified capability or a running process into a successful outcome.</p>
+</div></section>
+<section id="capabilities" class="section"><div class="shell">
+<div class="eyebrow">Capability register</div><h2>What the system can actually do.</h2>
+<div class="features"><article class="tile capability-card" data-capability-id="atomic-claim-extraction">
+    <div class="capability-card__top"><b>Atomic claim extraction</b><span class="state-chip" data-capability-state>implemented</span></div>
+    <p>The fact-check API decomposes supplied text into atomic claims and returns bounded verdict categories.</p>
+    <p class="capability-evidence"><strong>Evidence:</strong> Local README documents POST /api/fact-check and verdict schema.</p>
+  </article><article class="tile capability-card" data-capability-id="source-backed-evidence-checks">
+    <div class="capability-card__top"><b>Source-backed evidence checks</b><span class="state-chip" data-capability-state>implemented</span></div>
+    <p>Evidence records require URL, exact quote, title, claim and retrieval timestamp before they can support a verdict.</p>
+    <p class="capability-evidence"><strong>Evidence:</strong> Fact-checker source documentation.</p>
+  </article><article class="tile capability-card" data-capability-id="bullshit-signals-extension">
+    <div class="capability-card__top"><b>Bullshit Signals extension</b><span class="state-chip" data-capability-state>implemented</span></div>
+    <p>Browser extension surfaces explainable rhetorical signals separately from factual verdicts.</p>
+    <p class="capability-evidence"><strong>Evidence:</strong> Local README and extension test entrypoint.</p>
+  </article><article class="tile capability-card" data-capability-id="agent-fr3k-desktop-workspace">
+    <div class="capability-card__top"><b>Agent Fr3k desktop workspace</b><span class="state-chip" data-capability-state>implemented</span></div>
+    <p>React chat UI, Claude Agent SDK, specialized sub-agents, MCP integration, WebSocket streaming and SQLite session persistence.</p>
+    <p class="capability-evidence"><strong>Evidence:</strong> Source README and package scripts.</p>
+  </article><article class="tile capability-card" data-capability-id="build-and-test-acceptance">
+    <div class="capability-card__top"><b>Build and test acceptance</b><span class="state-chip" data-capability-state>not-tested</span></div>
+    <p>Bun test, typecheck, build and browser-extension acceptance were not run in this audit because Bun was not available in PATH.</p>
+    <p class="capability-evidence"><strong>Evidence:</strong> Audit environment observation.</p>
+  </article></div>
+</div></section>
+<section class="section"><div class="shell">
+<div class="eyebrow">Proof ledger</div><h2>Current evidence and acceptance state.</h2>
+<div class="evidence-list"><article class="evidence-item"><span class="state-chip state-chip--source-reported">source-reported</span><div><strong>Source tree</strong><p>140 tracked files · fact-check and extension code present</p></div></article><article class="evidence-item"><span class="state-chip state-chip--not-tested">not-tested</span><div><strong>Automated tests</strong><p>Not run · Bun unavailable in audit shell</p></div></article><article class="evidence-item"><span class="state-chip state-chip--not-deployed">not-deployed</span><div><strong>Production deployment</strong><p>Not verified</p></div></article></div>
+</div></section>
+<section class="section"><div class="shell">
+<div class="eyebrow">Boundaries and open gates</div><h2>What we will not pretend is finished.</h2>
+<ul class="boundary-list"><li>A verdict is limited by the supplied evidence; insufficient evidence is a valid outcome.</li><li>Rhetoric analysis is not a factual verdict.</li><li>Local storage and provider API calls have distinct privacy boundaries.</li></ul>
+<div class="next-gate"><span class="eyebrow">NEXT ACCEPTANCE GATE</span><p>Install or activate the pinned Bun toolchain, run tests/typecheck/build, then verify fact-check API and extension behaviour against synthetic fixtures.</p></div>
+<div class="actions"><a class="btn primary" href="mailto:fr3k@fr3k.dev?subject=EVIDENCE%20LENS%20technical%20discussion">Discuss this system</a><a class="btn" href="/projects/">Back to all flagships</a></div>
+</div></section>
+</main>
+<footer class="foot"><div class="shell">© fR3k · Evidence before claims · <a href="mailto:fr3k@fr3k.dev">fr3k@fr3k.dev</a></div></footer>
+</body></html>

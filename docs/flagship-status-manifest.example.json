@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "projectId": "fleet",
+  "updatedAt": "2026-11-12T00:00:00Z",
+  "capabilities": [
+    {
+      "id": "durable-jobs-and-leases",
+      "state": "implemented",
+      "evidence": [
+        {
+          "type": "test-suite",
+          "ref": "docs/evidence/job-lease-regression.md"
+        }
+      ]
+    },
+    {
+      "id": "approval-and-filesystem-policy",
+      "state": "blocked",
+      "evidence": [
+        {
+          "type": "acceptance-gate",
+          "ref": "docs/evidence/policy-acceptance.md"
+        }
+      ]
+    }
+  ]
+}

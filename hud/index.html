@@ -1,1 +1,71 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#080b13"><title>FR3K HUD | fR3k.dev</title><meta name="description" content="A high-contrast operator experience bringing complex systems into focus."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/css/flagships.css"><style>:root{--accent:#fa6aa5}</style></head><body><nav class="nav shell"><a class="brand" href="/">fR3k<span>.</span>DEV</a><div class="navlinks"><a href="/projects/">All projects</a><a href="/#contact">Contact</a></div></nav><main><section class="hero shell"><div><div class="eyebrow">fR3k flagship / Operator interface</div><h1>Your world, under one interface.</h1><p class="lead">A high-contrast operator experience bringing complex systems into focus.</p><div class="actions"><a class="btn primary" href="mailto:fr3k@fr3k.dev?subject=hud%20enquiry">Discuss a project</a><a class="btn" href="#capabilities">Explore capabilities ↓</a></div></div></section><section id="capabilities" class="section"><div class="shell"><div class="eyebrow">Built for possibility</div><h2>Engineering the next frontier.</h2><div class="features"><article class="tile"><b>System overlays</b><p>Explore the design decisions, engineering work and evolving capabilities behind FR3K HUD.</p></article><article class="tile"><b>Unified visibility</b><p>Explore the design decisions, engineering work and evolving capabilities behind FR3K HUD.</p></article><article class="tile"><b>Adaptive controls</b><p>Explore the design decisions, engineering work and evolving capabilities behind FR3K HUD.</p></article></div></div></section><section class="section"><div class="shell"><div class="eyebrow">Transparent by design</div><h2>Explore the work.</h2><p>Products in the fR3k portfolio range from research and prototypes to active development. Features and availability are subject to validation. Request a walkthrough or technical discussion for the current state of this project.</p><div class="actions"><a class="btn primary" href="mailto:fr3k@fr3k.dev?subject=hud%20demo">Request a walkthrough</a><a class="btn" href="https://github.com/fr3k-d3v/fr3k-hud" rel="noopener noreferrer" target="_blank">Project reference ↗</a><a class="btn" href="/projects/">Explore all flagships</a></div></div></section></main><footer class="foot"><div class="shell">© fR3k · Independent engineering and research · <a href="mailto:fr3k@fr3k.dev">fr3k@fr3k.dev</a></div></footer></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080b13">
+<title>FR3K HUD | fR3k.dev</title>
+<meta name="description" content="A capability-aware Android HUD, command surface and integration hub. It adapts to the available permission tier and partner services instead of showing actions that silently fail when a dependency is absent.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/flagships.css">
+<style>:root{--accent:#8b83ff}</style>
+<script defer src="/assets/js/flagship-status.js"></script>
+</head>
+<body data-flagship-id="hud">
+<nav class="nav shell"><a class="brand" href="/">fR3k<span>.</span>DEV</a><div class="navlinks"><a href="/projects/">All projects</a><a href="/#contact">Contact</a></div></nav>
+<main>
+<section class="hero shell"><div>
+<div class="eyebrow">fR3k flagship / Android operator interface · capability router</div>
+<h1>An adaptive Android interface that exposes only what the device can do.</h1>
+<p class="lead">A capability-aware Android HUD, command surface and integration hub. It adapts to the available permission tier and partner services instead of showing actions that silently fail when a dependency is absent.</p>
+<div class="actions"><a class="btn primary" href="#status">Inspect live status ↓</a><a class="btn" href="#capabilities">Capabilities ↓</a><a class="btn" href="https://github.com/fr3k-d3v/fr3k-hud" target="_blank" rel="noopener noreferrer">Source repository ↗</a></div>
+</div></section>
+<section id="status" class="section status-section"><div class="shell">
+<div class="eyebrow">Evidence feed // auto-reconciled</div><h2>What exists. What is running. What remains open.</h2>
+<div class="status-dashboard" data-flagship-status>
+  <div class="status-summary"><span class="state-chip">Integration hardening · draft PR</span><p>The source V1 acceptance matrix marks 14 criteria complete and four as partial/V2-V3. The current HUD × Voice Studio integration PR is draft and not deployed; Android build, device smoke and security review remain release gates.</p></div>
+  <p class="status-loading">Loading the latest source and runtime snapshot…</p>
+</div>
+<p class="status-footnote">Repository, CI, review and runtime signals are checked every 15 minutes. This feed does not promote a commit into a verified capability or a running process into a successful outcome.</p>
+</div></section>
+<section id="capabilities" class="section"><div class="shell">
+<div class="eyebrow">Capability register</div><h2>What the system can actually do.</h2>
+<div class="features"><article class="tile capability-card" data-capability-id="floating-hud-and-command-palette">
+    <div class="capability-card__top"><b>Floating HUD and command palette</b><span class="state-chip" data-capability-state>source-reported</span></div>
+    <p>Foreground overlay orb, quick panel, radial menu and command palette with share and Ask About This flows.</p>
+    <p class="capability-evidence"><strong>Evidence:</strong> V1 acceptance matrix and source component map.</p>
+  </article><article class="tile capability-card" data-capability-id="hermes-and-device-registry">
+    <div class="capability-card__top"><b>Hermes and device registry</b><span class="state-chip" data-capability-state>source-reported</span></div>
+    <p>Hermes provider, Ask command, HTTP transport, device discovery and cross-device open/share actions.</p>
+    <p class="capability-evidence"><strong>Evidence:</strong> V1 acceptance matrix.</p>
+  </article><article class="tile capability-card" data-capability-id="progressive-privilege">
+    <div class="capability-card__top"><b>Progressive privilege</b><span class="state-chip" data-capability-state>implemented</span></div>
+    <p>Tier 0 rootless operation with optional user-granted overlay/accessibility/location, Shizuku and rooted adapters.</p>
+    <p class="capability-evidence"><strong>Evidence:</strong> README security and capability model.</p>
+  </article><article class="tile capability-card" data-capability-id="integration-and-permission-panel">
+    <div class="capability-card__top"><b>Integration and permission panel</b><span class="state-chip" data-capability-state>source-reported</span></div>
+    <p>Live integration panel, one-tap permission grant flow and per-feature permission registry.</p>
+    <p class="capability-evidence"><strong>Evidence:</strong> V1 acceptance matrix.</p>
+  </article><article class="tile capability-card" data-capability-id="screenshot-termux-jobs-gps-and-mesh">
+    <div class="capability-card__top"><b>Screenshot, Termux jobs, GPS and mesh</b><span class="state-chip" data-capability-state>in-development</span></div>
+    <p>These four acceptance areas are marked partial or reserved for later integration phases.</p>
+    <p class="capability-evidence"><strong>Evidence:</strong> V1 acceptance table.</p>
+  </article><article class="tile capability-card" data-capability-id="voice-studio-e01-e12-integration">
+    <div class="capability-card__top"><b>Voice Studio E01–E12 integration</b><span class="state-chip" data-capability-state>in-development</span></div>
+    <p>A single gateway task lifecycle and Fleet remote dispatcher are specified; transport hardening and regression tests are in a draft PR.</p>
+    <p class="capability-evidence"><strong>Evidence:</strong> PR #1 is open draft, not deployed; build and device acceptance pending.</p>
+  </article></div>
+</div></section>
+<section class="section"><div class="shell">
+<div class="eyebrow">Proof ledger</div><h2>Current evidence and acceptance state.</h2>
+<div class="evidence-list"><article class="evidence-item"><span class="state-chip state-chip--source-reported">source-reported</span><div><strong>V1 acceptance matrix</strong><p>14 complete · 4 partial (source-reported)</p></div></article><article class="evidence-item"><span class="state-chip state-chip--in-development">in-development</span><div><strong>Integration PR</strong><p>Open draft · not deployed</p></div></article><article class="evidence-item"><span class="state-chip state-chip--not-tested">not-tested</span><div><strong>Release acceptance</strong><p>Build, device smoke and security review pending</p></div></article></div>
+</div></section>
+<section class="section"><div class="shell">
+<div class="eyebrow">Boundaries and open gates</div><h2>What we will not pretend is finished.</h2>
+<ul class="boundary-list"><li>An integration being installed is not proof that it is authorised or usable.</li><li>The draft integration PR does not implement all E01–E12 capabilities.</li><li>Release requires signed APK identity and independently observed postconditions.</li></ul>
+<div class="next-gate"><span class="eyebrow">NEXT ACCEPTANCE GATE</span><p>Run the debug unit-test and assemble tasks, perform Android smoke/regression tests, and complete independent security review before merge or release.</p></div>
+<div class="actions"><a class="btn primary" href="mailto:fr3k@fr3k.dev?subject=FR3K%20HUD%20technical%20discussion">Discuss this system</a><a class="btn" href="/projects/">Back to all flagships</a></div>
+</div></section>
+</main>
+<footer class="foot"><div class="shell">© fR3k · Evidence before claims · <a href="mailto:fr3k@fr3k.dev">fr3k@fr3k.dev</a></div></footer>
+</body></html>

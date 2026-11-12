@@ -1,0 +1,1249 @@
+{
+  "schemaVersion": 1,
+  "site": "https://fr3k.dev",
+  "description": "Curated product capabilities and evidence states. Runtime and repository signals are published separately in status.json.",
+  "projects": [
+    {
+      "id": "blackwave",
+      "route": "blackwave",
+      "name": "BLACKWAV3",
+      "category": "Distributed hardware · firmware · field communications",
+      "accent": "#54f3c6",
+      "headline": "A field network that earns every capability through evidence.",
+      "summary": "The hardware-facing FR3K fabric: firmware, target-specific builds, safe OTA, device identity, fleet operations, RF observation and resilient field communications across heterogeneous boards.",
+      "readiness": {
+        "state": "active-development",
+        "label": "Active development",
+        "detail": "The private monorepo contains device firmware, contracts, a local fleet bridge and WebUI, signed OTA policy, integration tests and release evidence. Hardware acceptance remains target-specific; a build is not a physical flash or field verification."
+      },
+      "capabilities": [
+        {
+          "name": "Heterogeneous device firmware",
+          "state": "implemented",
+          "description": "Canonical source tracks T-Deck Plus, T-Watch Ultra/S3, T-Embed CC1101, T-Deck Pro 4G, UniHiker K10, M5Stack Tab5, T-Display S3/K230 and PATHFINDER roles.",
+          "evidence": "Repository device map; each target still needs its own build and physical acceptance."
+        },
+        {
+          "name": "Fleet console and flash planning",
+          "state": "implemented",
+          "description": "A local bridge and WebUI generate target-specific configuration images and target-confirmed flash plans.",
+          "evidence": "Documented in the private source README; no public fleet-console deployment is asserted."
+        },
+        {
+          "name": "Signed OTA and rollback policy",
+          "state": "implemented",
+          "description": "Model-bound signed manifests, monotonic sequence checks, verified downloads, health checks and rollback paths.",
+          "evidence": "Source and policy contracts exist; physical rollout remains per-device."
+        },
+        {
+          "name": "Android companion",
+          "state": "in-development",
+          "description": "A mobile operations workbook consumes the canonical catalog and paired mobile projection rather than creating a second control plane.",
+          "evidence": "Android companion source and integration documentation are present."
+        },
+        {
+          "name": "RF, mesh and field acceptance",
+          "state": "not-tested",
+          "description": "Reticulum/PATHFINDER, SDR, LoRa and field measurements require real hardware observations and preserved evidence.",
+          "evidence": "No current field measurement or fleet-wide physical acceptance is claimed."
+        }
+      ],
+      "evidence": [
+        {
+          "label": "Source architecture",
+          "value": "Private firmware and management monorepo",
+          "state": "source-reported"
+        },
+        {
+          "label": "OTA safety model",
+          "value": "Signed, model-bound manifests and rollback documented",
+          "state": "implemented"
+        },
+        {
+          "label": "Physical fleet",
+          "value": "Per-target acceptance still open",
+          "state": "not-tested"
+        }
+      ],
+      "boundaries": [
+        "Discovery does not grant command authority; sensitive actions remain explicitly armed or approved.",
+        "A compiled image, successful flash, boot, OTA and physical field acceptance are separate gates.",
+        "The August 2026 build ledger is historical evidence, not current live fleet telemetry."
+      ],
+      "nextGate": "Complete repeatable build and physical acceptance receipts for each supported hardware target, then publish a reconciled release ledger.",
+      "source": {
+        "visibility": "private"
+      }
+    },
+    {
+      "id": "cortex",
+      "route": "cortex",
+      "name": "CORTEX",
+      "category": "Android control surface · Discord plugin · agent bridge",
+      "accent": "#8b83ff",
+      "headline": "Turn Discord on Android into a live FR3K control surface.",
+      "summary": "CORTEX is a Revenge plugin for Discord Android paired with a Termux companion daemon. It exposes context menus and /fr3k commands, routes events to services and agents, and bridges the phone to FR3K hardware and infrastructure.",
+      "readiness": {
+        "state": "test-device-build",
+        "label": "Test-device build · v0.1.0",
+        "detail": "The source README reports v0.1.0 running on Android test devices. Plugin, daemon and service-bus architecture are documented; this audit did not independently reconnect a device or verify every real backend action."
+      },
+      "capabilities": [
+        {
+          "name": "Revenge / Discord plugin",
+          "state": "source-reported",
+          "description": "JavaScript plugin with context menus, /fr3k command surface, settings page and lifecycle hooks.",
+          "evidence": "v0.1.0 source README and built plugin manifest."
+        },
+        {
+          "name": "Agent router and event bus",
+          "state": "implemented",
+          "description": "Plugin events route through an internal event bus and WebSocket service bus to the companion daemon.",
+          "evidence": "Architecture and component map in source README."
+        },
+        {
+          "name": "Termux companion daemon",
+          "state": "source-reported",
+          "description": "Python daemon exposes a service registry, job manager and task executor with simulated and real backends.",
+          "evidence": "Documented backends include Ollama, NanoVNA, tinySA, Reachy, BLACKWAVE, SDR, TTS and Hermes."
+        },
+        {
+          "name": "Android plugin delivery",
+          "state": "implemented",
+          "description": "HTTP server serves the plugin manifest and bundle; ADB reverse tunnelling bridges the Android app sandbox.",
+          "evidence": "Install and quick-start procedure documented in source README."
+        },
+        {
+          "name": "Real hardware actions",
+          "state": "not-tested",
+          "description": "A backend being listed does not prove that the corresponding instrument or device action is currently connected, authorised or verified.",
+          "evidence": "Per-backend runtime and physical acceptance remain required."
+        }
+      ],
+      "evidence": [
+        {
+          "label": "Version",
+          "value": "v0.1.0 source release",
+          "state": "source-reported"
+        },
+        {
+          "label": "Runtime",
+          "value": "Android test-device operation reported by repository",
+          "state": "source-reported"
+        },
+        {
+          "label": "Backend verification",
+          "value": "Not independently checked in this audit",
+          "state": "not-tested"
+        }
+      ],
+      "boundaries": [
+        "A simulated backend is not a hardware observation.",
+        "ADB reverse, Termux and Discord plugin permissions are explicit integration requirements.",
+        "CORTEX proposes and routes work; Fleet and device-side policy remain authoritative."
+      ],
+      "nextGate": "Capture a current Android test-device receipt and one independently verified end-to-end backend action.",
+      "source": {
+        "visibility": "private"
+      }
+    },
+    {
+      "id": "crewworks",
+      "route": "crewworks",
+      "name": "CREWWORKS DIGITAL",
+      "category": "Client website · conversion · crew recruitment",
+      "accent": "#ffbd6e",
+      "headline": "A clearer CrewWorks website, built to stand on its own.",
+      "summary": "An independently deployable Astro website transformation for CrewWorks: explain event workforce and production services, build trust, and create distinct client-enquiry and crew-recruitment journeys.",
+      "readiness": {
+        "state": "review-deployment",
+        "label": "Live review deployment",
+        "detail": "The review site is deployed at crewworks.vercel.app and key public routes return HTTP 200. It is a noindex review deployment, not an approved production cutover. The original crewworks.com.au domain and DNS remain unchanged; online forms stay disabled pending privacy, storage, sender and receipt acceptance."
+      },
+      "capabilities": [
+        {
+          "name": "Independent Astro website",
+          "state": "verified",
+          "description": "A responsive, separately deployable website with its own repository, deployment lifecycle and content system.",
+          "evidence": "Live review deployment returned HTTP 200 on the home, about, services and crew-request routes."
+        },
+        {
+          "name": "Client and crew journeys",
+          "state": "implemented",
+          "description": "Separate service discovery, client enquiry and crew recruitment information paths.",
+          "evidence": "Website strategy and specification define independent audiences and conversion paths."
+        },
+        {
+          "name": "Service and project storytelling",
+          "state": "implemented",
+          "description": "Structured service pages and project proof designed to communicate event workforce, operational management and production capabilities.",
+          "evidence": "Source strategy and content architecture."
+        },
+        {
+          "name": "Online intake",
+          "state": "blocked",
+          "description": "Forms remain disabled until secure storage, sender domain, destinations, privacy/retention controls and live receipt tests are configured.",
+          "evidence": "Explicit repository status and form runbook."
+        },
+        {
+          "name": "Deputy replacement integration",
+          "state": "not-in-scope",
+          "description": "The public website remains independent from the separate FR3K Operations application; future integration is optional and adapter-based.",
+          "evidence": "Independence ADR and repository boundary."
+        }
+      ],
+      "evidence": [
+        {
+          "label": "Review deployment",
+          "value": "crewworks.vercel.app · key routes HTTP 200",
+          "state": "verified"
+        },
+        {
+          "label": "Production domain",
+          "value": "Original domain and DNS not changed",
+          "state": "not-deployed"
+        },
+        {
+          "label": "Forms",
+          "value": "Disabled pending live receipt and privacy gates",
+          "state": "blocked"
+        }
+      ],
+      "boundaries": [
+        "No employee, applicant, roster, timesheet or payroll master data belongs in this website.",
+        "No unverified statistics, testimonials, certifications, client outcomes or coverage claims.",
+        "This website is not the FR3K Operations application."
+      ],
+      "nextGate": "Complete the form privacy/storage/sender configuration and live receipt tests; obtain approval before domain cutover.",
+      "source": {
+        "visibility": "private"
+      },
+      "links": [
+        {
+          "label": "Open review deployment",
+          "url": "https://crewworks.vercel.app"
+        }
+      ],
+      "runtimeChecks": [
+        {
+          "name": "review-site",
+          "url": "https://crewworks.vercel.app/",
+          "kind": "http"
+        }
+      ]
+    },
+    {
+      "id": "operations",
+      "route": "operations",
+      "name": "FR3K OPERATIONS",
+      "category": "Workforce · projects · finance · compliance",
+      "accent": "#63e6a8",
+      "headline": "One operational system. Every decision traceable.",
+      "summary": "An industry-agnostic, self-hostable operations platform for people, workforce, projects and financial preparation. Built to reduce fragmented administration without automating away human authority over payroll, payments or compliance decisions.",
+      "readiness": {
+        "state": "development-pilot",
+        "label": "Development pilot · acceptance incomplete",
+        "detail": "The connected CREW CENTRAL workspace, role-scoped modules, versioned records, review queues and company actions are implemented. The source evidence records a 118-test PostgreSQL suite and a browser acceptance journey. It is not production payroll software and is not certified compliant."
+      },
+      "capabilities": [
+        {
+          "name": "People and workforce",
+          "state": "implemented",
+          "description": "Employee and applicant records, effective-dated classification history, availability, rostering, attendance, leave and timesheets.",
+          "evidence": "Versioned records, role-scoped views, leave workflows and immutable timesheet manifests are documented in the current capability matrix."
+        },
+        {
+          "name": "Projects and delivery",
+          "state": "implemented",
+          "description": "Projects, tasks, dependencies, assignments, budgets and agent-job links in the same operational workspace.",
+          "evidence": "Connected dashboard and project/workspace module."
+        },
+        {
+          "name": "Payroll preparation and modelling",
+          "state": "implemented",
+          "description": "Wage estimates, PAYG and super projections, payroll-tax scenarios, labour-cost forecasts and reproducible calculation traces.",
+          "evidence": "Synthetic fixtures and mocked calculations; actual legal applicability and company rates still require independent review."
+        },
+        {
+          "name": "Xero handoff",
+          "state": "implemented",
+          "description": "Versioned OAuth vault, GET-only Accounting transport and opt-in draft-timesheet staging behind tenant allowlists and explicit mappings.",
+          "evidence": "Mocked OAuth and Payroll AU staging tests pass; no live tenant, credential or payroll eligibility has been verified."
+        },
+        {
+          "name": "Audit, data integrity and recovery",
+          "state": "verified",
+          "description": "Append-only audit events, encrypted import staging, versioned records, export outbox leases/fencing, backup and restore procedures.",
+          "evidence": "Source records 118 PostgreSQL tests and a guarded synthetic PostgreSQL restore rehearsal."
+        },
+        {
+          "name": "Production compliance and payroll finalisation",
+          "state": "blocked",
+          "description": "Award/PAYG/super/leave rule signoff, live vendor reconciliation, independent security/privacy review and production payroll acceptance remain open.",
+          "evidence": "No live Deputy/Xero interactions, ATO/STP capability or independent compliance certification is claimed."
+        }
+      ],
+      "evidence": [
+        {
+          "label": "Automated suite",
+          "value": "118 PostgreSQL tests passed in the 11 Nov source evidence",
+          "state": "verified"
+        },
+        {
+          "label": "Browser acceptance",
+          "value": "Authenticated desktop/mobile workflow passed in source evidence",
+          "state": "verified"
+        },
+        {
+          "label": "Production state",
+          "value": "Development pilot only · no production payroll",
+          "state": "blocked"
+        }
+      ],
+      "boundaries": [
+        "Core is industry-agnostic; award and sector rules must be versioned, sourced and independently reviewed.",
+        "No payroll finalisation, payment or lodgement without human approval.",
+        "A modelled payslip or synthetic golden total is not a legally verified payroll result."
+      ],
+      "nextGate": "Complete source-data completeness, legal rule and Xero tenant evidence, independent security/privacy review, production database controls and parallel payroll signoff.",
+      "source": {
+        "visibility": "private"
+      },
+      "links": [
+        {
+          "label": "Public architecture and progress brief",
+          "url": "https://github.com/fr3k-d3v/fr3k-operations"
+        }
+      ]
+    },
+    {
+      "id": "divine",
+      "route": "divine-arsenal",
+      "name": "DIVINE ARSENAL",
+      "category": "Astronomy · Hermetic research · local agent workbench",
+      "accent": "#d4a657",
+      "headline": "A local astronomical workbench with explicit precision boundaries.",
+      "summary": "A local-first astronomical and Hermetic research workbench with private birth profiles, deterministic timing calculations and project-scoped AI-agent configuration. Astronomical calculation and traditional interpretation are kept distinct.",
+      "readiness": {
+        "state": "experimental-validation",
+        "label": "Experimental X1 validation build",
+        "detail": "The source describes a working local dashboard and core calculations. The Omarchy audit ran 131 tests successfully. This is not production software or hosted SaaS; advanced charting, legal/security review and prediction claims remain out of scope."
+      },
+      "capabilities": [
+        {
+          "name": "Astronomical positions and lunar cycles",
+          "state": "verified",
+          "description": "Geocentric planetary longitudes, Moon phases and inferred retrograde motion using Astronomy Engine.",
+          "evidence": "131 local pytest tests passed; source identifies the astronomical engine and precision boundaries."
+        },
+        {
+          "name": "Planetary hours and lunar mansions",
+          "state": "verified",
+          "description": "Unequal planetary hours from sunrise to next sunrise with IANA timezone handling, plus a 28-interval lunar-mansion index.",
+          "evidence": "Local test suite passed; timezone and interval rules are documented."
+        },
+        {
+          "name": "Private profiles and uncertainty",
+          "state": "implemented",
+          "description": "Multiple local profiles, birthplace/current-location separation, private JSON export and explicit uncertainty for date-only births.",
+          "evidence": "Source README; personal data remain on the user's machine."
+        },
+        {
+          "name": "Agent configuration and read-only MCP",
+          "state": "implemented",
+          "description": "Goal-selected roles and project-scoped Hermes/Codex/OpenCode files, with read-only MCP tools and a generated preview.",
+          "evidence": "Source README and local test suite."
+        },
+        {
+          "name": "Planetary magic squares",
+          "state": "verified",
+          "description": "Math-verified 3×3 through 9×9 squares for traditional planetary associations.",
+          "evidence": "Source README and 131 passing tests."
+        },
+        {
+          "name": "Ascendant, houses and prediction",
+          "state": "not-implemented",
+          "description": "Exact houses, rectification and professional predictive/electional claims are not implemented or validated.",
+          "evidence": "Explicit project limitations."
+        }
+      ],
+      "evidence": [
+        {
+          "label": "Local test suite",
+          "value": "131 passed",
+          "state": "verified"
+        },
+        {
+          "label": "Runtime target",
+          "value": "Experimental X1 validation build",
+          "state": "source-reported"
+        },
+        {
+          "label": "Hosted SaaS",
+          "value": "Not production or hosted",
+          "state": "not-deployed"
+        }
+      ],
+      "boundaries": [
+        "Astronomy is calculation; Hermetic meaning is traditional interpretation, not a scientific prediction.",
+        "Date-only birth data carry explicit uncertainty; exact houses/Ascendant are not implemented.",
+        "Local API is not internet-authenticated and must remain bound to loopback."
+      ],
+      "nextGate": "Complete source-atlas and research-edition review, verify precision/edge cases independently, and keep the local API loopback-only until an authentication design is accepted.",
+      "source": {
+        "visibility": "public",
+        "repoUrl": "https://github.com/fr3k-d3v/divine-arsenal"
+      },
+      "links": [
+        {
+          "label": "Source repository",
+          "url": "https://github.com/fr3k-d3v/divine-arsenal"
+        }
+      ]
+    },
+    {
+      "id": "fieldops",
+      "route": "fieldops",
+      "name": "FIELDOPS",
+      "category": "Android field workstation · security · RF · evidence",
+      "accent": "#9bdc67",
+      "headline": "An Android field workstation with authority and evidence built in.",
+      "summary": "A modular Android-first field platform bringing together Linux runtimes, network and wireless inspection, USB, RF, device operations and structured evidence — without creating a second execution control plane.",
+      "readiness": {
+        "state": "android-alpha",
+        "label": "Android alpha · Fold3 smoke verified",
+        "detail": "The current local evidence records 52 JVM tests, debug and instrumentation APK builds, lint and manifest checks passing, plus one physical Galaxy Z Fold3 instrumentation smoke test. That device check proves package and launch-component availability only; UI interaction, PRoot and advanced radio/security modules remain unverified."
+      },
+      "capabilities": [
+        {
+          "name": "Android alpha shell and build",
+          "state": "verified",
+          "description": "Kotlin/Compose alpha compiles; debug and Android instrumentation APKs assemble; static manifest safety checks pass.",
+          "evidence": "52 JVM tests passed; Gradle test/build/lint successful."
+        },
+        {
+          "name": "Galaxy Z Fold3 package/launch smoke",
+          "state": "verified",
+          "description": "Both debug APKs installed on a physical Fold3 and the bounded instrumentation test passed.",
+          "evidence": "1 instrumentation test: OK; verifies package and launch-component availability only."
+        },
+        {
+          "name": "Linux / PRoot workstation",
+          "state": "not-implemented",
+          "description": "A rootless Linux runtime is a planned feature family; actual PRoot execution is explicitly not implemented.",
+          "evidence": "Current device evidence records PRoot as NOT_IMPLEMENTED."
+        },
+        {
+          "name": "Wi-Fi, BLE, network and web assessment",
+          "state": "planned",
+          "description": "Scoped discovery, BLE inspection, Nmap, HTTP/TLS and report adapters are planned behind explicit authorization.",
+          "evidence": "Master execution plan and quality gates; no intrusive testing is implied."
+        },
+        {
+          "name": "USB, SDR, LoRa and BLACKWAVE",
+          "state": "planned",
+          "description": "USB/OTG, RTL-SDR, LoRa and radio integrations require separate adapter and per-device hardware acceptance.",
+          "evidence": "No hardware support is inferred from compilation."
+        },
+        {
+          "name": "Fleet, Hermes and CORTEX integration",
+          "state": "planned",
+          "description": "Use the existing FR3K authority and job lifecycle for approved remote work; do not create a parallel control plane.",
+          "evidence": "Integration is in the architecture and execution plan."
+        }
+      ],
+      "evidence": [
+        {
+          "label": "JVM tests",
+          "value": "52 passed · 0 failures",
+          "state": "verified"
+        },
+        {
+          "label": "Fold3 instrumentation",
+          "value": "1 passed · package/launch only",
+          "state": "verified"
+        },
+        {
+          "label": "Advanced runtime",
+          "value": "PRoot and other device support not verified",
+          "state": "not-tested"
+        }
+      ],
+      "boundaries": [
+        "All security testing requires an authorized scope.",
+        "Build success does not imply device compatibility, exploit capability or radio support.",
+        "Consequential remote commands, device modification and RF transmission require applicable approval."
+      ],
+      "nextGate": "Expand from package/launch smoke to interactive UI and runtime tests, then verify each feature family on each named device independently.",
+      "source": {
+        "visibility": "private"
+      }
+    },
+    {
+      "id": "fleet",
+      "route": "fleet",
+      "name": "FR3K FLEET",
+      "category": "Remote device operations · MCP · authenticated control",
+      "accent": "#46d7ff",
+      "headline": "One governed control plane for the entire device universe.",
+      "summary": "A self-hosted, authenticated remote device-management gateway exposed through MCP. It coordinates outbound device agents, bounded jobs, leases, audit and operator approval without relying on a third-party relay.",
+      "readiness": {
+        "state": "live-service-healthy",
+        "label": "Live service · readiness healthy",
+        "detail": "The public Fleet health endpoint returned HTTP 200 and the readiness endpoint reported ready=true during this audit. The Omarchy test run passed 726 tests plus 77 subtests, with one Starlette/httpx deprecation warning."
+      },
+      "capabilities": [
+        {
+          "name": "Authenticated MCP gateway",
+          "state": "verified",
+          "description": "FastAPI gateway with OAuth 2.1 PKCE, protected resource metadata, dynamic client registration and MCP Streamable HTTP.",
+          "evidence": "726 passing tests and live public health/readiness checks."
+        },
+        {
+          "name": "Outbound device agents",
+          "state": "implemented",
+          "description": "Outbound-only device agents plus optional local and SSH backends; devices do not need public SSH or ADB ports.",
+          "evidence": "Source architecture and integration tests."
+        },
+        {
+          "name": "Durable jobs and leases",
+          "state": "verified",
+          "description": "Incarnation-aware leases and requeue semantics recover work from dying agents rather than leaving jobs stuck in running.",
+          "evidence": "Included in the passing test suite."
+        },
+        {
+          "name": "Approval and filesystem policy",
+          "state": "verified",
+          "description": "Critical commands are refused; privileged operations require out-of-band approval; filesystem access is confined by allow-roots and deny-globs.",
+          "evidence": "Policy tests and live service readiness."
+        },
+        {
+          "name": "Device and Android operations",
+          "state": "implemented",
+          "description": "Inventory, health, capabilities, commands, processes, files, system resources, Android shell/install/logcat and job history tools.",
+          "evidence": "29-tool surface documented in source README."
+        },
+        {
+          "name": "ChatGPT connection and per-device acceptance",
+          "state": "not-tested",
+          "description": "The public service is healthy, but app registration and end-to-end ChatGPT connection still require operator configuration and independent verification.",
+          "evidence": "Explicit connection gate in source README."
+        }
+      ],
+      "evidence": [
+        {
+          "label": "Automated tests",
+          "value": "726 passed · 77 subtests passed",
+          "state": "verified"
+        },
+        {
+          "label": "Live health",
+          "value": "https://fleet.fr3k.dev/healthz · HTTP 200",
+          "state": "verified"
+        },
+        {
+          "label": "Readiness",
+          "value": "ready=true at audit time",
+          "state": "verified"
+        }
+      ],
+      "boundaries": [
+        "A heartbeat is not proof of useful work; each action needs a postcondition and evidence.",
+        "A healthy gateway does not mean every connected device is online or approved.",
+        "The ChatGPT OAuth registration path remains a separate acceptance gate."
+      ],
+      "nextGate": "Complete operator app registration and a second-device ChatGPT-to-Fleet acceptance flow with independently observed postconditions.",
+      "source": {
+        "visibility": "private"
+      },
+      "links": [
+        {
+          "label": "Live service health",
+          "url": "https://fleet.fr3k.dev/healthz"
+        }
+      ],
+      "runtimeChecks": [
+        {
+          "name": "fleet-health",
+          "url": "https://fleet.fr3k.dev/healthz",
+          "kind": "http"
+        }
+      ]
+    },
+    {
+      "id": "fr3kc0d3r",
+      "route": "fr3kc0d3r",
+      "name": "FR3KC0D3R",
+      "category": "Local inference · model serving · GPU engineering",
+      "accent": "#f472ff",
+      "headline": "Private inference on hardware you control.",
+      "summary": "A local llama.cpp inference service tuned for the Omarchy RTX 3060 environment. The same local model endpoint can serve coding and agent workloads without forcing every prompt through a hosted provider.",
+      "readiness": {
+        "state": "local-runtime-healthy",
+        "label": "Local runtime · healthy",
+        "detail": "The local llama.cpp server process is running on loopback at 127.0.0.1:8080 and its /health endpoint returned HTTP 200. The observed process is configured for a Qwen3 Coder 30B-A3B Instruct abliterated Q4_K_M model, 65,536 context and one generation slot. No public inference endpoint is exposed."
+      },
+      "capabilities": [
+        {
+          "name": "Local llama.cpp server",
+          "state": "verified",
+          "description": "Native CUDA llama-server provides a local OpenAI-compatible inference API on loopback.",
+          "evidence": "Observed running process and HTTP 200 /health response."
+        },
+        {
+          "name": "Qwen3 Coder 30B-A3B runtime",
+          "state": "source-reported",
+          "description": "The current process command line selects the quantized Qwen3 Coder 30B-A3B Instruct model.",
+          "evidence": "Runtime process configuration; authenticated inference request not performed in this audit."
+        },
+        {
+          "name": "GPU and memory tuning",
+          "state": "implemented",
+          "description": "CUDA offload, quantized KV cache, bounded prompt cache, one generation slot and idle model unload are configured.",
+          "evidence": "Local service README and observed process configuration."
+        },
+        {
+          "name": "Authenticated API boundary",
+          "state": "verified",
+          "description": "The model API rejects unauthenticated /v1/models requests; the health endpoint remains available for local supervision.",
+          "evidence": "Unauthenticated request returned HTTP 401; secret key was not read or exposed."
+        },
+        {
+          "name": "Benchmark and multi-client optimisation",
+          "state": "in-development",
+          "description": "Resource-aware tuning and shared-client behaviour remain under active measurement.",
+          "evidence": "Local optimisation workstream; no current benchmark result is promoted here."
+        }
+      ],
+      "evidence": [
+        {
+          "label": "Health endpoint",
+          "value": "127.0.0.1:8080/health · HTTP 200",
+          "state": "verified"
+        },
+        {
+          "label": "Model server",
+          "value": "llama.cpp process observed running",
+          "state": "verified"
+        },
+        {
+          "label": "Public exposure",
+          "value": "Loopback binding only",
+          "state": "verified"
+        }
+      ],
+      "boundaries": [
+        "The service is local-only; this page does not publish a private model endpoint or credentials.",
+        "A healthy process is not a completed inference benchmark.",
+        "Cloud fallback is not assumed; provider routing is a separate policy decision."
+      ],
+      "nextGate": "Run a repeatable authenticated workload benchmark with latency, tokens/sec, VRAM, RAM, swap and failure evidence.",
+      "source": {
+        "visibility": "private"
+      },
+      "runtimeChecks": [
+        {
+          "name": "local-inference-health",
+          "url": "http://127.0.0.1:8080/health",
+          "kind": "http"
+        }
+      ]
+    },
+    {
+      "id": "games",
+      "route": "games",
+      "name": "FR3K GAMES",
+      "category": "Interactive worlds · static game launcher",
+      "accent": "#ff6c9d",
+      "headline": "Small playable worlds, built as independent experiences.",
+      "summary": "A static game launcher that brings independently developed browser games together without modifying their original projects or sharing their local save state.",
+      "readiness": {
+        "state": "prototype",
+        "label": "Prototype launcher",
+        "detail": "The private source README identifies Cats and Guinea Pigs as current launcher entries. Desiree is a disabled coming-soon card. Production deployment and live verification are explicitly pending authorization."
+      },
+      "capabilities": [
+        {
+          "name": "Static game launcher",
+          "state": "implemented",
+          "description": "A lightweight launcher serves independent game builds from static public paths.",
+          "evidence": "Source README and repository layout."
+        },
+        {
+          "name": "Cats game",
+          "state": "source-reported",
+          "description": "A current launcher entry with its own direct-launch screen parameter and save namespace.",
+          "evidence": "Source README; runtime playthrough not tested in this audit."
+        },
+        {
+          "name": "Guinea Pigs game",
+          "state": "source-reported",
+          "description": "A second independent launcher entry with a separate localStorage namespace.",
+          "evidence": "Source README; runtime playthrough not tested in this audit."
+        },
+        {
+          "name": "Desiree",
+          "state": "planned",
+          "description": "Disabled coming-soon card; not represented as a playable release.",
+          "evidence": "Source README."
+        },
+        {
+          "name": "Production hosting",
+          "state": "blocked",
+          "description": "The target Vercel production deployment and live verification are pending authorization.",
+          "evidence": "Explicit source README gate."
+        }
+      ],
+      "evidence": [
+        {
+          "label": "Current catalogue",
+          "value": "Cats + Guinea Pigs; Desiree disabled",
+          "state": "source-reported"
+        },
+        {
+          "label": "Build verification",
+          "value": "Not run in this audit",
+          "state": "not-tested"
+        },
+        {
+          "label": "Production deployment",
+          "value": "Pending authorization",
+          "state": "blocked"
+        }
+      ],
+      "boundaries": [
+        "Game source snapshots do not replace or rewrite original development projects.",
+        "Each title retains its own save key and launch contract.",
+        "No production deployment is claimed."
+      ],
+      "nextGate": "Run each game's documented npm verification, inspect the launcher in-browser and obtain production deployment authorization.",
+      "source": {
+        "visibility": "private"
+      }
+    },
+    {
+      "id": "hud",
+      "route": "hud",
+      "name": "FR3K HUD",
+      "category": "Android operator interface · capability router",
+      "accent": "#8b83ff",
+      "headline": "An adaptive Android interface that exposes only what the device can do.",
+      "summary": "A capability-aware Android HUD, command surface and integration hub. It adapts to the available permission tier and partner services instead of showing actions that silently fail when a dependency is absent.",
+      "readiness": {
+        "state": "integration-draft",
+        "label": "Integration hardening · draft PR",
+        "detail": "The source V1 acceptance matrix marks 14 criteria complete and four as partial/V2-V3. The current HUD × Voice Studio integration PR is draft and not deployed; Android build, device smoke and security review remain release gates."
+      },
+      "capabilities": [
+        {
+          "name": "Floating HUD and command palette",
+          "state": "source-reported",
+          "description": "Foreground overlay orb, quick panel, radial menu and command palette with share and Ask About This flows.",
+          "evidence": "V1 acceptance matrix and source component map."
+        },
+        {
+          "name": "Hermes and device registry",
+          "state": "source-reported",
+          "description": "Hermes provider, Ask command, HTTP transport, device discovery and cross-device open/share actions.",
+          "evidence": "V1 acceptance matrix."
+        },
+        {
+          "name": "Progressive privilege",
+          "state": "implemented",
+          "description": "Tier 0 rootless operation with optional user-granted overlay/accessibility/location, Shizuku and rooted adapters.",
+          "evidence": "README security and capability model."
+        },
+        {
+          "name": "Integration and permission panel",
+          "state": "source-reported",
+          "description": "Live integration panel, one-tap permission grant flow and per-feature permission registry.",
+          "evidence": "V1 acceptance matrix."
+        },
+        {
+          "name": "Screenshot, Termux jobs, GPS and mesh",
+          "state": "in-development",
+          "description": "These four acceptance areas are marked partial or reserved for later integration phases.",
+          "evidence": "V1 acceptance table."
+        },
+        {
+          "name": "Voice Studio E01–E12 integration",
+          "state": "in-development",
+          "description": "A single gateway task lifecycle and Fleet remote dispatcher are specified; transport hardening and regression tests are in a draft PR.",
+          "evidence": "PR #1 is open draft, not deployed; build and device acceptance pending."
+        }
+      ],
+      "evidence": [
+        {
+          "label": "V1 acceptance matrix",
+          "value": "14 complete · 4 partial (source-reported)",
+          "state": "source-reported"
+        },
+        {
+          "label": "Integration PR",
+          "value": "Open draft · not deployed",
+          "state": "in-development"
+        },
+        {
+          "label": "Release acceptance",
+          "value": "Build, device smoke and security review pending",
+          "state": "not-tested"
+        }
+      ],
+      "boundaries": [
+        "An integration being installed is not proof that it is authorised or usable.",
+        "The draft integration PR does not implement all E01–E12 capabilities.",
+        "Release requires signed APK identity and independently observed postconditions."
+      ],
+      "nextGate": "Run the debug unit-test and assemble tasks, perform Android smoke/regression tests, and complete independent security review before merge or release.",
+      "source": {
+        "visibility": "public",
+        "repoUrl": "https://github.com/fr3k-d3v/fr3k-hud"
+      },
+      "links": [
+        {
+          "label": "Source repository",
+          "url": "https://github.com/fr3k-d3v/fr3k-hud"
+        }
+      ]
+    },
+    {
+      "id": "reverse-engineering",
+      "route": "reverse-engineering",
+      "name": "FR3K REVERSE ENGINEERING",
+      "category": "Local analysis engine · binary research · evidence",
+      "accent": "#ff985e",
+      "headline": "Understand complex binaries without executing the target.",
+      "summary": "The Universal Reverse Engineering Engine (URE) is a local, evidence-first analysis service for file identification, Android DEX/APK structure, ELF metadata and isolated specialist analyzers with preserved raw evidence.",
+      "readiness": {
+        "state": "local-release-acceptance",
+        "label": "Local release acceptance passed · PR draft",
+        "detail": "The Omarchy run completed 168 tests and the release verifier passed: sdist/wheel build, clean-target install, package-data and CLI smoke. A real Bubblewrap probe confirmed non-root isolation, hidden host home, read-only input, blocked network and writable output. PR #28 remains draft and unmerged."
+      },
+      "capabilities": [
+        {
+          "name": "APK, DEX and ELF intake",
+          "state": "verified",
+          "description": "Conservative file classification, Android DEX structural parsing and bounded ELF metadata extraction.",
+          "evidence": "Owned APK/DEX/ELF fixtures and 168 passing tests."
+        },
+        {
+          "name": "Specialist analyzer adapters",
+          "state": "verified",
+          "description": "Versioned OBSERVE-only adapters for Ghidra, JADX, Binwalk, radare2, Unblob and Kaitai.",
+          "evidence": "Owned fixtures passed through the final installed wheel."
+        },
+        {
+          "name": "Isolated worker sandbox",
+          "state": "verified",
+          "description": "Bubblewrap workers run non-root with read-only inputs, blocked network and bounded writable output.",
+          "evidence": "Actual isolation probe recorded in release verification."
+        },
+        {
+          "name": "Evidence store and replayable reports",
+          "state": "implemented",
+          "description": "Single SQLite job authority, content-addressed raw evidence, scheduler and reproducible analysis reports.",
+          "evidence": "Source architecture and regression tests."
+        },
+        {
+          "name": "Real-world corpus and redistribution",
+          "state": "not-tested",
+          "description": "Representative authorized corpora, independent result oracles, transitive licensing/SBOM clearance and second-host reproducibility remain open.",
+          "evidence": "Explicit PR #28 remaining gates."
+        }
+      ],
+      "evidence": [
+        {
+          "label": "Local test suite",
+          "value": "168 passed · 0 failures",
+          "state": "verified"
+        },
+        {
+          "label": "Package release check",
+          "value": "Wheel + sdist + installed CLI smoke passed",
+          "state": "verified"
+        },
+        {
+          "label": "GitHub review",
+          "value": "PR #28 open draft · not merged",
+          "state": "in-development"
+        }
+      ],
+      "boundaries": [
+        "Analysis is OBSERVE-only; target binaries are not executed.",
+        "Owned fixtures do not certify accuracy on arbitrary real-world samples.",
+        "External analyzer licences and redistribution rights require clearance."
+      ],
+      "nextGate": "Validate against an authorized representative corpus with independent oracles, finish SBOM/licensing review and reproduce on a second host.",
+      "source": {
+        "visibility": "private"
+      }
+    },
+    {
+      "id": "voice-studio",
+      "route": "voice-studio",
+      "name": "VOICE STUDIO",
+      "category": "Voice API · persona control · local inference",
+      "accent": "#f472ff",
+      "headline": "A controlled voice interface over one shared local inference engine.",
+      "summary": "The private fR3kv01c3 service is an independently authenticated OpenAI-compatible voice gateway with a five-mode controller, explicit consent state and persona prompt assembly, reusing the existing FR3KC0D3R llama.cpp runtime.",
+      "readiness": {
+        "state": "local-gateway-running",
+        "label": "Local gateway · health healthy",
+        "detail": "The local gateway on port 8092 returned HTTP 200 from /health. The current unittest run completed 37 tests: 35 passed and two show-intro expectation assertions failed. Production deployment and live inference acceptance are not verified."
+      },
+      "capabilities": [
+        {
+          "name": "OpenAI-compatible voice gateway",
+          "state": "verified",
+          "description": "Private authenticated gateway exposes an OpenAI-compatible chat interface and health endpoint.",
+          "evidence": "Local /health returned HTTP 200; unauthenticated model inference was not attempted."
+        },
+        {
+          "name": "Five-mode controller",
+          "state": "implemented",
+          "description": "Mode-specific persona selection, explicit adult eligibility and opt-in, session state, intensity limits and stop priority.",
+          "evidence": "35 of 37 unit tests passed; two show-intro expectation tests need reconciliation."
+        },
+        {
+          "name": "Shared local model runtime",
+          "state": "implemented",
+          "description": "Uses the existing FR3KC0D3R llama.cpp server rather than loading a second GPU model.",
+          "evidence": "Source README and deployment architecture."
+        },
+        {
+          "name": "Streaming and scene context",
+          "state": "implemented",
+          "description": "Gateway request preparation supports streaming, bounded responses and trusted scene context.",
+          "evidence": "Unit tests cover request preparation; real GPU cancellation and end-to-end streaming remain unverified."
+        },
+        {
+          "name": "Production rollout",
+          "state": "not-tested",
+          "description": "Production key generation, service activation, authentication review and rollback have not been accepted.",
+          "evidence": "Deployment guide explicitly keeps production activation gated."
+        }
+      ],
+      "evidence": [
+        {
+          "label": "Gateway health",
+          "value": "127.0.0.1:8092/health · HTTP 200",
+          "state": "verified"
+        },
+        {
+          "label": "Unit suite",
+          "value": "35 passed · 2 failed assertions",
+          "state": "in-development"
+        },
+        {
+          "label": "Production",
+          "value": "Not deployed / not verified",
+          "state": "not-deployed"
+        }
+      ],
+      "boundaries": [
+        "This gateway is distinct from the Xiaozhi × Claw integration repository.",
+        "The two failed assertions are reported as test failures, not silently reclassified as passes.",
+        "No production credentials, service activation or remote access changes are performed by the status updater."
+      ],
+      "nextGate": "Reconcile the two show-intro tests, rerun the full suite, then complete authenticated inference, streaming/cancellation and rollback acceptance.",
+      "source": {
+        "visibility": "private"
+      },
+      "runtimeChecks": [
+        {
+          "name": "voice-gateway",
+          "url": "http://127.0.0.1:8092/health",
+          "kind": "http"
+        }
+      ]
+    },
+    {
+      "id": "xiaozhi-claw",
+      "route": "xiaozhi-claw",
+      "name": "XIAOZHI × CLAW",
+      "category": "Voice agents · device tools · durable orchestration",
+      "accent": "#ff6c9d",
+      "headline": "Voice sessions that delegate work without losing control.",
+      "summary": "A private integration track connecting the existing Xiaozhi voice server to structured tool adapters, an authoritative agent gateway and specialist Hermes, PicoClaw, Fleet and ESP-Claw workers.",
+      "readiness": {
+        "state": "staged-integration",
+        "label": "Staged integration · no production rollout",
+        "detail": "The V3 gateway work was published as PR #51 with 22 local unit tests reported passing, then closed without merge. The PR explicitly records live inference, GPU cancellation, real streaming, service restart and second-device Tailscale acceptance as NOT TESTED. Production mutations require operator approval."
+      },
+      "capabilities": [
+        {
+          "name": "Structured voice-to-tool adapter",
+          "state": "implemented",
+          "description": "A voice request is converted into a structured tool request rather than letting speech directly execute arbitrary commands.",
+          "evidence": "PR #51 source summary and architecture notes."
+        },
+        {
+          "name": "Authoritative agent gateway",
+          "state": "implemented",
+          "description": "The intended architecture centralises authorization, durable job IDs, progress/result streaming and memory.",
+          "evidence": "Repository architecture; complete production path not yet verified."
+        },
+        {
+          "name": "Specialist worker integration",
+          "state": "in-development",
+          "description": "Hermes, PicoClaw, Fleet MCP, ESP-Claw and research workers are integration targets behind one orchestrator.",
+          "evidence": "Source architecture and current work register."
+        },
+        {
+          "name": "Leases, fencing and terminal states",
+          "state": "in-development",
+          "description": "Idempotent jobs, leases, fencing, explicit approval and immutable terminal states are required integration contracts.",
+          "evidence": "Architecture and PR work; end-to-end production behaviour remains untested."
+        },
+        {
+          "name": "Production voice and device execution",
+          "state": "not-tested",
+          "description": "Live inference, GPU abort, real streaming, service restart, second-device access and physical actions are not accepted.",
+          "evidence": "Explicit NOT TESTED list in PR #51."
+        }
+      ],
+      "evidence": [
+        {
+          "label": "Gateway branch tests",
+          "value": "22 passed in PR #51 record",
+          "state": "source-reported"
+        },
+        {
+          "label": "Review state",
+          "value": "PR #51 closed · not merged",
+          "state": "blocked"
+        },
+        {
+          "label": "Production rollout",
+          "value": "Not authorised / not verified",
+          "state": "not-deployed"
+        }
+      ],
+      "boundaries": [
+        "Voice-session lifetime must not own or expire durable background jobs.",
+        "One authoritative orchestrator; specialist workers do not acquire extra authority.",
+        "A voice response is not proof that a remote action succeeded; verify the postcondition."
+      ],
+      "nextGate": "Reconcile the closed PR into an approved branch, then test real streaming, GPU cancellation, restart recovery and second-device access under explicit approval.",
+      "source": {
+        "visibility": "private"
+      }
+    },
+    {
+      "id": "simulation-engine",
+      "route": "simulation-engine",
+      "name": "FR3K WORLD ENGINE",
+      "category": "Multi-agent simulation · scenario rehearsal · replay",
+      "accent": "#6ac8ff",
+      "headline": "Explore possible worlds without pretending they are reality.",
+      "summary": "A local-first simulation architecture for turning structured evidence and explicit assumptions into bounded, inspectable multi-agent scenarios, replayable state transitions and explainable reports.",
+      "readiness": {
+        "state": "research-scaffold",
+        "label": "Research and package scaffold",
+        "detail": "The repository has comparative MiroFish research, architecture, security and licensing documentation plus a Python package scaffold. The README explicitly states that no simulation engine, API, UI, graph database, distributed runtime or prediction capability is implemented yet. One package-bootstrap test passes."
+      },
+      "capabilities": [
+        {
+          "name": "Research and architecture",
+          "state": "implemented",
+          "description": "Comparative research across MiroFish, OASIS, Concordia, Mesa, AgentSociety and other simulation foundations.",
+          "evidence": "Private repository research register and architecture documentation."
+        },
+        {
+          "name": "Deterministic simulation core",
+          "state": "planned",
+          "description": "Rules-owned state transitions with model-generated actions proposed and validated before application.",
+          "evidence": "Target architecture only; engine not implemented."
+        },
+        {
+          "name": "Evidence ingestion and provenance",
+          "state": "planned",
+          "description": "Structured source ingestion, normalization, provenance and explicit claim/observation/evidence labels.",
+          "evidence": "Architecture target; no working ingestion engine yet."
+        },
+        {
+          "name": "Scenario replay and reports",
+          "state": "planned",
+          "description": "Capture seeds, configuration, prompts, model metadata, responses and append-only events for replay.",
+          "evidence": "Product principles; not implemented."
+        },
+        {
+          "name": "Distributed worlds and prediction",
+          "state": "not-implemented",
+          "description": "Graph database, distributed runtime, predictive oracle and real-world authority are explicitly absent.",
+          "evidence": "Current README status."
+        }
+      ],
+      "evidence": [
+        {
+          "label": "Package bootstrap",
+          "value": "1 test passed",
+          "state": "verified"
+        },
+        {
+          "label": "Architecture",
+          "value": "Research and package scaffold",
+          "state": "implemented"
+        },
+        {
+          "label": "Simulation runtime",
+          "value": "Not implemented",
+          "state": "not-implemented"
+        }
+      ],
+      "boundaries": [
+        "A simulation result is a result inside a model, not proof of a real-world outcome.",
+        "No simulation can operate devices, contact people, change payroll or mutate production systems.",
+        "Upstream licences must be reviewed before any code reuse."
+      ],
+      "nextGate": "Build a deterministic single-process vertical slice with explicit assumptions, seeded replay and preserved raw event evidence.",
+      "source": {
+        "visibility": "private"
+      }
+    },
+    {
+      "id": "evidence-lens",
+      "route": "evidence-lens",
+      "name": "EVIDENCE LENS",
+      "category": "Fact-checking · source verification · browser signals",
+      "accent": "#53e8df",
+      "headline": "Verify the claim before amplifying the conclusion.",
+      "summary": "An evidence-first fact-checking desk and browser extension, built alongside the Agent Fr3k local desktop agent interface. It separates factual verdicts from rhetoric signals and preserves the source evidence behind each assessment.",
+      "readiness": {
+        "state": "implemented-not-tested",
+        "label": "Source implementation present · tests not run",
+        "detail": "The local source tree includes a React/TypeScript/Bun desktop agent interface, Claude Agent SDK integration, persistent sessions, multi-provider configuration, a structured fact-check API and a browser extension. Bun was unavailable in the Omarchy shell during this audit, so tests and typecheck were not run."
+      },
+      "capabilities": [
+        {
+          "name": "Atomic claim extraction",
+          "state": "implemented",
+          "description": "The fact-check API decomposes supplied text into atomic claims and returns bounded verdict categories.",
+          "evidence": "Local README documents POST /api/fact-check and verdict schema."
+        },
+        {
+          "name": "Source-backed evidence checks",
+          "state": "implemented",
+          "description": "Evidence records require URL, exact quote, title, claim and retrieval timestamp before they can support a verdict.",
+          "evidence": "Fact-checker source documentation."
+        },
+        {
+          "name": "Bullshit Signals extension",
+          "state": "implemented",
+          "description": "Browser extension surfaces explainable rhetorical signals separately from factual verdicts.",
+          "evidence": "Local README and extension test entrypoint."
+        },
+        {
+          "name": "Agent Fr3k desktop workspace",
+          "state": "implemented",
+          "description": "React chat UI, Claude Agent SDK, specialized sub-agents, MCP integration, WebSocket streaming and SQLite session persistence.",
+          "evidence": "Source README and package scripts."
+        },
+        {
+          "name": "Build and test acceptance",
+          "state": "not-tested",
+          "description": "Bun test, typecheck, build and browser-extension acceptance were not run in this audit because Bun was not available in PATH.",
+          "evidence": "Audit environment observation."
+        }
+      ],
+      "evidence": [
+        {
+          "label": "Source tree",
+          "value": "140 tracked files · fact-check and extension code present",
+          "state": "source-reported"
+        },
+        {
+          "label": "Automated tests",
+          "value": "Not run · Bun unavailable in audit shell",
+          "state": "not-tested"
+        },
+        {
+          "label": "Production deployment",
+          "value": "Not verified",
+          "state": "not-deployed"
+        }
+      ],
+      "boundaries": [
+        "A verdict is limited by the supplied evidence; insufficient evidence is a valid outcome.",
+        "Rhetoric analysis is not a factual verdict.",
+        "Local storage and provider API calls have distinct privacy boundaries."
+      ],
+      "nextGate": "Install or activate the pinned Bun toolchain, run tests/typecheck/build, then verify fact-check API and extension behaviour against synthetic fixtures.",
+      "source": {
+        "visibility": "private"
+      }
+    },
+    {
+      "id": "content-foundry",
+      "route": "content-foundry",
+      "name": "FR3K CONTENT FOUNDRY",
+      "category": "Local source library · provenance · content preparation",
+      "accent": "#ff985e",
+      "headline": "A source refinery that preserves originals and tracks provenance.",
+      "summary": "A private local-first source library and content-preparation workflow. It ingests authorized material, preserves originals, extracts supported formats, indexes lexical evidence and creates draft production manifests with rights and QC gates.",
+      "readiness": {
+        "state": "phase-0-foundation",
+        "label": "Phase 0 foundation · 75 tests passing",
+        "detail": "The current local suite passed 75 tests. The CLI foundation supports source ingestion, hashes, read-only originals, extraction, lexical search, knowledge mapping, draft scripts/campaigns, packaging and QC. It is not a verified NotebookLM/Gemini integration or automatic publishing service."
+      },
+      "capabilities": [
+        {
+          "name": "Source preservation and provenance",
+          "state": "verified",
+          "description": "Ingestion copies authorized files into a source-originals area, records hashes and makes stored copies read-only.",
+          "evidence": "75 local tests passed; source README documents custody behaviour."
+        },
+        {
+          "name": "Extraction and lexical indexing",
+          "state": "implemented",
+          "description": "Supported formats are extracted and indexed with deterministic lexical matching and path-level citations.",
+          "evidence": "CLI workflow and local tests."
+        },
+        {
+          "name": "Knowledge mapping and draft generation",
+          "state": "implemented",
+          "description": "Concepts, scripts, campaigns and SeaArt job plans are generated as draft manifests.",
+          "evidence": "Source README; SeaArt planning is dry-run and does not spend credits."
+        },
+        {
+          "name": "Rights and publication QC",
+          "state": "implemented",
+          "description": "Publication QC requires an operator-supplied rights manifest for each source reference; manifests remain claims requiring human review.",
+          "evidence": "Rights manifest contract and 75 passing tests."
+        },
+        {
+          "name": "External semantic search and publishing",
+          "state": "not-implemented",
+          "description": "Verified NotebookLM/Gemini integration, semantic search, factual verification, live social publishing and automatic production are not provided.",
+          "evidence": "Explicit README limitations."
+        }
+      ],
+      "evidence": [
+        {
+          "label": "Automated suite",
+          "value": "75 passed",
+          "state": "verified"
+        },
+        {
+          "label": "Source handling",
+          "value": "Hash-preserved originals and lexical evidence index",
+          "state": "implemented"
+        },
+        {
+          "label": "Publishing acceptance",
+          "value": "No external corpus, rights or editorial approval",
+          "state": "not-tested"
+        }
+      ],
+      "boundaries": [
+        "Only ingest material the operator is authorised to process.",
+        "A rights manifest is an operator claim, not automated proof of ownership or licence.",
+        "Grounded drafts reference indexed sources; they are not independently fact-checked."
+      ],
+      "nextGate": "Validate on an authorised representative corpus, complete human rights/editorial review and add provider integrations only behind explicit acceptance gates.",
+      "source": {
+        "visibility": "private"
+      }
+    }
+  ]
+}

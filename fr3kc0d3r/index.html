@@ -1,1 +1,67 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#080b13"><title>FR3KC0D3R | fR3k.dev</title><meta name="description" content="An exploration of private, locally operated AI and resource-aware model engineering."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/css/flagships.css"><style>:root{--accent:#68a9ff}</style></head><body><nav class="nav shell"><a class="brand" href="/">fR3k<span>.</span>DEV</a><div class="navlinks"><a href="/projects/">All projects</a><a href="/#contact">Contact</a></div></nav><main><section class="hero shell"><div><div class="eyebrow">fR3k flagship / Local AI</div><h1>Own your inference. Shape your intelligence.</h1><p class="lead">An exploration of private, locally operated AI and resource-aware model engineering.</p><div class="actions"><a class="btn primary" href="mailto:fr3k@fr3k.dev?subject=fr3kc0d3r%20enquiry">Discuss a project</a><a class="btn" href="#capabilities">Explore capabilities ↓</a></div></div></section><section id="capabilities" class="section"><div class="shell"><div class="eyebrow">Built for possibility</div><h2>Engineering the next frontier.</h2><div class="features"><article class="tile"><b>Private inference</b><p>Explore the design decisions, engineering work and evolving capabilities behind FR3KC0D3R.</p></article><article class="tile"><b>Model optimization</b><p>Explore the design decisions, engineering work and evolving capabilities behind FR3KC0D3R.</p></article><article class="tile"><b>Operator control</b><p>Explore the design decisions, engineering work and evolving capabilities behind FR3KC0D3R.</p></article></div></div></section><section class="section"><div class="shell"><div class="eyebrow">Transparent by design</div><h2>Explore the work.</h2><p>Products in the fR3k portfolio range from research and prototypes to active development. Features and availability are subject to validation. Request a walkthrough or technical discussion for the current state of this project.</p><div class="actions"><a class="btn primary" href="mailto:fr3k@fr3k.dev?subject=fr3kc0d3r%20demo">Request a walkthrough</a><a class="btn" href="https://github.com/fr3k-d3v/fr3k-gpu-optimization-private" rel="noopener noreferrer" target="_blank">Project reference ↗</a><a class="btn" href="/projects/">Explore all flagships</a></div></div></section></main><footer class="foot"><div class="shell">© fR3k · Independent engineering and research · <a href="mailto:fr3k@fr3k.dev">fr3k@fr3k.dev</a></div></footer></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080b13">
+<title>FR3KC0D3R | fR3k.dev</title>
+<meta name="description" content="A local llama.cpp inference service tuned for the Omarchy RTX 3060 environment. The same local model endpoint can serve coding and agent workloads without forcing every prompt through a hosted provider.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/flagships.css">
+<style>:root{--accent:#f472ff}</style>
+<script defer src="/assets/js/flagship-status.js"></script>
+</head>
+<body data-flagship-id="fr3kc0d3r">
+<nav class="nav shell"><a class="brand" href="/">fR3k<span>.</span>DEV</a><div class="navlinks"><a href="/projects/">All projects</a><a href="/#contact">Contact</a></div></nav>
+<main>
+<section class="hero shell"><div>
+<div class="eyebrow">fR3k flagship / Local inference · model serving · GPU engineering</div>
+<h1>Private inference on hardware you control.</h1>
+<p class="lead">A local llama.cpp inference service tuned for the Omarchy RTX 3060 environment. The same local model endpoint can serve coding and agent workloads without forcing every prompt through a hosted provider.</p>
+<div class="actions"><a class="btn primary" href="#status">Inspect live status ↓</a><a class="btn" href="#capabilities">Capabilities ↓</a></div>
+</div></section>
+<section id="status" class="section status-section"><div class="shell">
+<div class="eyebrow">Evidence feed // auto-reconciled</div><h2>What exists. What is running. What remains open.</h2>
+<div class="status-dashboard" data-flagship-status>
+  <div class="status-summary"><span class="state-chip">Local runtime · healthy</span><p>The local llama.cpp server process is running on loopback at 127.0.0.1:8080 and its /health endpoint returned HTTP 200. The observed process is configured for a Qwen3 Coder 30B-A3B Instruct abliterated Q4_K_M model, 65,536 context and one generation slot. No public inference endpoint is exposed.</p></div>
+  <p class="status-loading">Loading the latest source and runtime snapshot…</p>
+</div>
+<p class="status-footnote">Repository, CI, review and runtime signals are checked every 15 minutes. This feed does not promote a commit into a verified capability or a running process into a successful outcome.</p>
+</div></section>
+<section id="capabilities" class="section"><div class="shell">
+<div class="eyebrow">Capability register</div><h2>What the system can actually do.</h2>
+<div class="features"><article class="tile capability-card" data-capability-id="local-llama-cpp-server">
+    <div class="capability-card__top"><b>Local llama.cpp server</b><span class="state-chip" data-capability-state>verified</span></div>
+    <p>Native CUDA llama-server provides a local OpenAI-compatible inference API on loopback.</p>
+    <p class="capability-evidence"><strong>Evidence:</strong> Observed running process and HTTP 200 /health response.</p>
+  </article><article class="tile capability-card" data-capability-id="qwen3-coder-30b-a3b-runtime">
+    <div class="capability-card__top"><b>Qwen3 Coder 30B-A3B runtime</b><span class="state-chip" data-capability-state>source-reported</span></div>
+    <p>The current process command line selects the quantized Qwen3 Coder 30B-A3B Instruct model.</p>
+    <p class="capability-evidence"><strong>Evidence:</strong> Runtime process configuration; authenticated inference request not performed in this audit.</p>
+  </article><article class="tile capability-card" data-capability-id="gpu-and-memory-tuning">
+    <div class="capability-card__top"><b>GPU and memory tuning</b><span class="state-chip" data-capability-state>implemented</span></div>
+    <p>CUDA offload, quantized KV cache, bounded prompt cache, one generation slot and idle model unload are configured.</p>
+    <p class="capability-evidence"><strong>Evidence:</strong> Local service README and observed process configuration.</p>
+  </article><article class="tile capability-card" data-capability-id="authenticated-api-boundary">
+    <div class="capability-card__top"><b>Authenticated API boundary</b><span class="state-chip" data-capability-state>verified</span></div>
+    <p>The model API rejects unauthenticated /v1/models requests; the health endpoint remains available for local supervision.</p>
+    <p class="capability-evidence"><strong>Evidence:</strong> Unauthenticated request returned HTTP 401; secret key was not read or exposed.</p>
+  </article><article class="tile capability-card" data-capability-id="benchmark-and-multi-client-optimisation">
+    <div class="capability-card__top"><b>Benchmark and multi-client optimisation</b><span class="state-chip" data-capability-state>in-development</span></div>
+    <p>Resource-aware tuning and shared-client behaviour remain under active measurement.</p>
+    <p class="capability-evidence"><strong>Evidence:</strong> Local optimisation workstream; no current benchmark result is promoted here.</p>
+  </article></div>
+</div></section>
+<section class="section"><div class="shell">
+<div class="eyebrow">Proof ledger</div><h2>Current evidence and acceptance state.</h2>
+<div class="evidence-list"><article class="evidence-item"><span class="state-chip state-chip--verified">verified</span><div><strong>Health endpoint</strong><p>127.0.0.1:8080/health · HTTP 200</p></div></article><article class="evidence-item"><span class="state-chip state-chip--verified">verified</span><div><strong>Model server</strong><p>llama.cpp process observed running</p></div></article><article class="evidence-item"><span class="state-chip state-chip--verified">verified</span><div><strong>Public exposure</strong><p>Loopback binding only</p></div></article></div>
+</div></section>
+<section class="section"><div class="shell">
+<div class="eyebrow">Boundaries and open gates</div><h2>What we will not pretend is finished.</h2>
+<ul class="boundary-list"><li>The service is local-only; this page does not publish a private model endpoint or credentials.</li><li>A healthy process is not a completed inference benchmark.</li><li>Cloud fallback is not assumed; provider routing is a separate policy decision.</li></ul>
+<div class="next-gate"><span class="eyebrow">NEXT ACCEPTANCE GATE</span><p>Run a repeatable authenticated workload benchmark with latency, tokens/sec, VRAM, RAM, swap and failure evidence.</p></div>
+<div class="actions"><a class="btn primary" href="mailto:fr3k@fr3k.dev?subject=FR3KC0D3R%20technical%20discussion">Discuss this system</a><a class="btn" href="/projects/">Back to all flagships</a></div>
+</div></section>
+</main>
+<footer class="foot"><div class="shell">© fR3k · Evidence before claims · <a href="mailto:fr3k@fr3k.dev">fr3k@fr3k.dev</a></div></footer>
+</body></html>

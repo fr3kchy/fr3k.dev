@@ -1,1 +1,71 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#080b13"><title>FR3K FLEET | fR3k.dev</title><meta name="description" content="A device operations control plane designed around observable, auditable execution."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/assets/css/flagships.css"><style>:root{--accent:#5ce0b8}</style></head><body><nav class="nav shell"><a class="brand" href="/">fR3k<span>.</span>DEV</a><div class="navlinks"><a href="/projects/">All projects</a><a href="/#contact">Contact</a></div></nav><main><section class="hero shell"><div><div class="eyebrow">fR3k flagship / Device operations</div><h1>One command. Your entire device universe.</h1><p class="lead">A device operations control plane designed around observable, auditable execution.</p><div class="actions"><a class="btn primary" href="mailto:fr3k@fr3k.dev?subject=fleet%20enquiry">Discuss a project</a><a class="btn" href="#capabilities">Explore capabilities ↓</a></div></div></section><section id="capabilities" class="section"><div class="shell"><div class="eyebrow">Built for possibility</div><h2>Engineering the next frontier.</h2><div class="features"><article class="tile"><b>Distributed commands</b><p>Explore the design decisions, engineering work and evolving capabilities behind FR3K FLEET.</p></article><article class="tile"><b>Execution evidence</b><p>Explore the design decisions, engineering work and evolving capabilities behind FR3K FLEET.</p></article><article class="tile"><b>Device visibility</b><p>Explore the design decisions, engineering work and evolving capabilities behind FR3K FLEET.</p></article></div></div></section><section class="section"><div class="shell"><div class="eyebrow">Transparent by design</div><h2>Explore the work.</h2><p>Products in the fR3k portfolio range from research and prototypes to active development. Features and availability are subject to validation. Request a walkthrough or technical discussion for the current state of this project.</p><div class="actions"><a class="btn primary" href="mailto:fr3k@fr3k.dev?subject=fleet%20demo">Request a walkthrough</a><a class="btn" href="https://github.com/fr3k-d3v/fr3k-fleet-mcp" rel="noopener noreferrer" target="_blank">Project reference ↗</a><a class="btn" href="/projects/">Explore all flagships</a></div></div></section></main><footer class="foot"><div class="shell">© fR3k · Independent engineering and research · <a href="mailto:fr3k@fr3k.dev">fr3k@fr3k.dev</a></div></footer></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080b13">
+<title>FR3K FLEET | fR3k.dev</title>
+<meta name="description" content="A self-hosted, authenticated remote device-management gateway exposed through MCP. It coordinates outbound device agents, bounded jobs, leases, audit and operator approval without relying on a third-party relay.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/flagships.css">
+<style>:root{--accent:#46d7ff}</style>
+<script defer src="/assets/js/flagship-status.js"></script>
+</head>
+<body data-flagship-id="fleet">
+<nav class="nav shell"><a class="brand" href="/">fR3k<span>.</span>DEV</a><div class="navlinks"><a href="/projects/">All projects</a><a href="/#contact">Contact</a></div></nav>
+<main>
+<section class="hero shell"><div>
+<div class="eyebrow">fR3k flagship / Remote device operations · MCP · authenticated control</div>
+<h1>One governed control plane for the entire device universe.</h1>
+<p class="lead">A self-hosted, authenticated remote device-management gateway exposed through MCP. It coordinates outbound device agents, bounded jobs, leases, audit and operator approval without relying on a third-party relay.</p>
+<div class="actions"><a class="btn primary" href="#status">Inspect live status ↓</a><a class="btn" href="#capabilities">Capabilities ↓</a><a class="btn" href="https://fleet.fr3k.dev/healthz" target="_blank" rel="noopener noreferrer">Live service health ↗</a></div>
+</div></section>
+<section id="status" class="section status-section"><div class="shell">
+<div class="eyebrow">Evidence feed // auto-reconciled</div><h2>What exists. What is running. What remains open.</h2>
+<div class="status-dashboard" data-flagship-status>
+  <div class="status-summary"><span class="state-chip">Live service · readiness healthy</span><p>The public Fleet health endpoint returned HTTP 200 and the readiness endpoint reported ready=true during this audit. The Omarchy test run passed 726 tests plus 77 subtests, with one Starlette/httpx deprecation warning.</p></div>
+  <p class="status-loading">Loading the latest source and runtime snapshot…</p>
+</div>
+<p class="status-footnote">Repository, CI, review and runtime signals are checked every 15 minutes. This feed does not promote a commit into a verified capability or a running process into a successful outcome.</p>
+</div></section>
+<section id="capabilities" class="section"><div class="shell">
+<div class="eyebrow">Capability register</div><h2>What the system can actually do.</h2>
+<div class="features"><article class="tile capability-card" data-capability-id="authenticated-mcp-gateway">
+    <div class="capability-card__top"><b>Authenticated MCP gateway</b><span class="state-chip" data-capability-state>verified</span></div>
+    <p>FastAPI gateway with OAuth 2.1 PKCE, protected resource metadata, dynamic client registration and MCP Streamable HTTP.</p>
+    <p class="capability-evidence"><strong>Evidence:</strong> 726 passing tests and live public health/readiness checks.</p>
+  </article><article class="tile capability-card" data-capability-id="outbound-device-agents">
+    <div class="capability-card__top"><b>Outbound device agents</b><span class="state-chip" data-capability-state>implemented</span></div>
+    <p>Outbound-only device agents plus optional local and SSH backends; devices do not need public SSH or ADB ports.</p>
+    <p class="capability-evidence"><strong>Evidence:</strong> Source architecture and integration tests.</p>
+  </article><article class="tile capability-card" data-capability-id="durable-jobs-and-leases">
+    <div class="capability-card__top"><b>Durable jobs and leases</b><span class="state-chip" data-capability-state>verified</span></div>
+    <p>Incarnation-aware leases and requeue semantics recover work from dying agents rather than leaving jobs stuck in running.</p>
+    <p class="capability-evidence"><strong>Evidence:</strong> Included in the passing test suite.</p>
+  </article><article class="tile capability-card" data-capability-id="approval-and-filesystem-policy">
+    <div class="capability-card__top"><b>Approval and filesystem policy</b><span class="state-chip" data-capability-state>verified</span></div>
+    <p>Critical commands are refused; privileged operations require out-of-band approval; filesystem access is confined by allow-roots and deny-globs.</p>
+    <p class="capability-evidence"><strong>Evidence:</strong> Policy tests and live service readiness.</p>
+  </article><article class="tile capability-card" data-capability-id="device-and-android-operations">
+    <div class="capability-card__top"><b>Device and Android operations</b><span class="state-chip" data-capability-state>implemented</span></div>
+    <p>Inventory, health, capabilities, commands, processes, files, system resources, Android shell/install/logcat and job history tools.</p>
+    <p class="capability-evidence"><strong>Evidence:</strong> 29-tool surface documented in source README.</p>
+  </article><article class="tile capability-card" data-capability-id="chatgpt-connection-and-per-device-acceptance">
+    <div class="capability-card__top"><b>ChatGPT connection and per-device acceptance</b><span class="state-chip" data-capability-state>not-tested</span></div>
+    <p>The public service is healthy, but app registration and end-to-end ChatGPT connection still require operator configuration and independent verification.</p>
+    <p class="capability-evidence"><strong>Evidence:</strong> Explicit connection gate in source README.</p>
+  </article></div>
+</div></section>
+<section class="section"><div class="shell">
+<div class="eyebrow">Proof ledger</div><h2>Current evidence and acceptance state.</h2>
+<div class="evidence-list"><article class="evidence-item"><span class="state-chip state-chip--verified">verified</span><div><strong>Automated tests</strong><p>726 passed · 77 subtests passed</p></div></article><article class="evidence-item"><span class="state-chip state-chip--verified">verified</span><div><strong>Live health</strong><p>https://fleet.fr3k.dev/healthz · HTTP 200</p></div></article><article class="evidence-item"><span class="state-chip state-chip--verified">verified</span><div><strong>Readiness</strong><p>ready=true at audit time</p></div></article></div>
+</div></section>
+<section class="section"><div class="shell">
+<div class="eyebrow">Boundaries and open gates</div><h2>What we will not pretend is finished.</h2>
+<ul class="boundary-list"><li>A heartbeat is not proof of useful work; each action needs a postcondition and evidence.</li><li>A healthy gateway does not mean every connected device is online or approved.</li><li>The ChatGPT OAuth registration path remains a separate acceptance gate.</li></ul>
+<div class="next-gate"><span class="eyebrow">NEXT ACCEPTANCE GATE</span><p>Complete operator app registration and a second-device ChatGPT-to-Fleet acceptance flow with independently observed postconditions.</p></div>
+<div class="actions"><a class="btn primary" href="mailto:fr3k@fr3k.dev?subject=FR3K%20FLEET%20technical%20discussion">Discuss this system</a><a class="btn" href="/projects/">Back to all flagships</a></div>
+</div></section>
+</main>
+<footer class="foot"><div class="shell">© fR3k · Evidence before claims · <a href="mailto:fr3k@fr3k.dev">fr3k@fr3k.dev</a></div></footer>
+</body></html>
