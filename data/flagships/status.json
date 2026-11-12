@@ -205,10 +205,10 @@
     "reverse-engineering": {
       "sourceVisibility": "private",
       "sourceAccessible": true,
-      "lastPushAt": "2026-11-12T11:50:12Z",
+      "lastPushAt": "2026-11-12T12:05:02Z",
       "ciState": "success",
       "ciConclusion": "success",
-      "ciUpdatedAt": "2026-11-12T11:51:02Z",
+      "ciUpdatedAt": "2026-11-12T12:05:49Z",
       "openPullRequests": 17,
       "local": {
         "checkoutPresent": true,
@@ -323,5 +323,5 @@
       "capabilities": {}
     }
   },
-  "snapshotUpdatedAt": "2026-11-12T12:00:40.402Z"
+  "snapshotUpdatedAt": "2026-11-12T12:15:42.159Z"
 }
