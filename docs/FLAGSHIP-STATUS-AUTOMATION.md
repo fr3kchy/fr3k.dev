@@ -39,10 +39,15 @@ Allowed source-declared states:
 - `not-implemented`
 - `blocked`
 - `not-deployed`
+- `not-in-scope`
 
 A source manifest cannot self-promote a feature to `verified`. If it declares `verified`, the website downgrades that declaration to `source-reported`. The catalog's `verified` state is reserved for an independent evidence review recorded in the website's curated product register. This prevents a developer's claim from becoming a verified fact merely because it was committed.
 
-The manifest is opt-in per source repository. Set `manifestEnabled: true` for that project in the private Omarchy collector config after the file is merged to its default branch. Until then, the page uses the audited capability baseline in the catalog while repository, CI, review, local and runtime signals still update automatically.
+All 16 configured source repositories now contain a complete .fr3k/flagship-status.json and a .github/workflows/fr3k-capability-manifest.yml caller workflow. The caller workflows pin the public reusable validator workflow to commit e9b03af46f4688bec1de752c12f247632e63baab; that workflow checks out the validator at immutable commit ca3d4c5f4ea08bde5a35c327b389dbd724c5c49d. The validator checks project identity, exact capability-set completeness, allowed source states, safe repository-relative evidence references, and that every reference is a regular file in the checkout.
+
+Omarchy has manifestEnabled=true for all 16 projects. During reconciliation it fetches each manifest and the Git tree from the same exact default-branch commit SHA. Every evidence path must exist in that tree. A missing, malformed, incomplete, stale-path or truncated-tree manifest fails closed as absent, invalid or unavailable; no source capability overrides are published in that case.
+
+The website displays source-declared state separately from the curated capability state. A source repository cannot self-promote a capability to verified; independent verification remains in the curated portfolio register. The public feed exposes only the source state, evidence-reference count and manifest timestamp—not private repository paths or evidence contents.
 
 ## Operator behaviour
 

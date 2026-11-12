@@ -121,7 +121,9 @@
     foot.append(el("span", "", `Snapshot published: ${date(snapshot.snapshotUpdatedAt)}`));
     foot.append(el("span", "", `Source checks: every ${snapshot.refreshIntervalMinutes || 15} minutes`));
     if (snapshot.manifestState === "current") {
-      foot.append(el("span", "manifest-note", "Source capability manifest: current"));
+      foot.append(el("span", "manifest-note", "Source manifest validated · " +
+        Object.keys(snapshot.capabilities || {}).length +
+        " capabilities · evidence paths checked against the exact source commit"));
     } else if (snapshot.manifestState === "absent" || snapshot.manifestState === "not-configured") {
       foot.append(el("span", "manifest-note", "Capability states: audited baseline · source manifest adoption pending"));
     } else {
@@ -136,13 +138,24 @@
       const id = card.dataset.capabilityId;
       const override = overrides[id];
       const chip = card.querySelector("[data-capability-state]");
-      if (!chip || !override?.state) return;
-      chip.textContent = label(override.state);
-      chip.dataset.state = override.state;
-      if (override.evidenceCount) chip.title = `${override.evidenceCount} evidence reference(s) in source manifest`;
+      if (!chip) return;
+      let sourceChip = card.querySelector("[data-source-capability-state]");
+      if (!override?.state) {
+        sourceChip?.remove();
+        return;
+      }
+      if (!sourceChip) {
+        sourceChip = document.createElement("span");
+        sourceChip.className = "source-state-chip";
+        sourceChip.dataset.sourceCapabilityState = "";
+        chip.insertAdjacentElement("afterend", sourceChip);
+      }
+      sourceChip.textContent = "Source: " + label(override.state);
+      sourceChip.dataset.state = override.state;
+      sourceChip.title = String(override.evidenceCount || 0) +
+        " evidence reference(s) validated against the exact source commit. This is a source declaration, not independent verification.";
     });
   }
-
   function renderIndex(catalog, status) {
     for (const project of catalog.projects || []) {
       const snapshot = status?.projects?.[project.id];

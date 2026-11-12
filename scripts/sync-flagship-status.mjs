@@ -25,7 +25,10 @@ const CHECK = args.has("--check");
 const PUBLISH = args.has("--publish");
 const VALID_STATES = new Set([
   "verified", "implemented", "in-development", "source-reported",
-  "planned", "not-tested", "not-implemented", "blocked", "not-deployed"
+  "planned", "not-tested", "not-implemented", "blocked", "not-deployed", "not-in-scope"
+]);
+const VALID_EVIDENCE_TYPES = new Set([
+  "source", "test", "documentation", "workflow", "artifact", "acceptance", "runtime", "hardware", "roadmap"
 ]);
 
 function run(command, argv, options = {}) {
@@ -90,28 +93,49 @@ async function runtimeObservation(checks = []) {
     statusCode: results.length === 1 ? results[0].statusCode : null
   };
 }
-function parseManifest(file, projectId, knownCapabilityIds) {
+function parseManifest(file, projectId, knownCapabilityIds, treeEntries) {
   if (!file?.content || file.encoding !== "base64") return { state: "absent", capabilities: {} };
   try {
     const manifest = JSON.parse(Buffer.from(file.content, "base64").toString("utf8"));
-    if (manifest.schemaVersion !== 1 || manifest.projectId !== projectId) {
+    if (manifest.schemaVersion !== 1 || manifest.projectId !== projectId ||
+        !Array.isArray(manifest.capabilities) ||
+        typeof manifest.updatedAt !== "string" ||
+        !Number.isFinite(Date.parse(manifest.updatedAt)) ||
+        !Array.isArray(treeEntries)) {
       return { state: "invalid", capabilities: {} };
     }
-    // The API fetch is pinned to the exact branch HEAD SHA. Do not require a
-    // manifest to contain its own commit hash: that would be self-referential.
-    if (!Array.isArray(manifest.capabilities)) return { state: "invalid", capabilities: {} };
+    // The Git tree is fetched using the exact commit SHA that supplied the manifest.
+    const paths = new Set(treeEntries.filter(entry => entry?.type === "blob").map(entry => entry.path));
+    const seen = new Set();
     const capabilities = {};
     for (const item of manifest.capabilities) {
-      if (!item || !knownCapabilityIds.has(item.id) || !VALID_STATES.has(item.state)) continue;
-      const evidence = Array.isArray(item.evidence) ? item.evidence : [];
+      if (!item || !knownCapabilityIds.has(item.id) || seen.has(item.id) ||
+          !VALID_STATES.has(item.state) || !Array.isArray(item.evidence) || item.evidence.length === 0) {
+        return { state: "invalid", capabilities: {} };
+      }
+      seen.add(item.id);
+      for (const evidence of item.evidence) {
+        const ref = evidence?.ref;
+        if (!evidence || !VALID_EVIDENCE_TYPES.has(evidence.type) ||
+            typeof ref !== "string" || !ref || ref.startsWith("/") || ref.includes("\\") ||
+            ref.includes("?") || ref.includes("#") ||
+            ref.split("/").some(part => !part || part === "." || part === "..") ||
+            !paths.has(ref) ||
+            typeof evidence.note !== "string" || evidence.note.trim().length < 8 || evidence.note.length > 300) {
+          return { state: "invalid", capabilities: {} };
+        }
+      }
       let state = item.state;
-      // Source manifests cannot self-certify. Independent review is curated in catalog.json.
       if (state === "verified") state = "source-reported";
       capabilities[item.id] = {
         state,
-        evidenceCount: evidence.length,
-        updatedAt: typeof manifest.updatedAt === "string" ? manifest.updatedAt : null
+        evidenceCount: item.evidence.length,
+        updatedAt: manifest.updatedAt
       };
+    }
+    if (seen.size !== knownCapabilityIds.size ||
+        [...knownCapabilityIds].some(id => !seen.has(id))) {
+      return { state: "invalid", capabilities: {} };
     }
     return { state: "current", capabilities };
   } catch {
@@ -130,7 +154,7 @@ async function collectProject(project, config, currentAccount) {
     openPullRequests: null,
     local,
     runtime: await runtimeObservation(project.runtimeChecks || []),
-    manifestState: config.manifestEnabled === true ? "absent" : "not-configured",
+    manifestState: config.manifestEnabled === true ? "unavailable" : "not-configured",
     capabilities: {}
   };
   if (!config.repo) return source;
@@ -166,15 +190,24 @@ async function collectProject(project, config, currentAccount) {
 
   if (config.manifestEnabled === true) {
     const branch = meta.default_branch || "main";
-    const commit = tryGhJson(`repos/${repo}/commits/${encodeURIComponent(branch)}`);
-    if (!commit?.sha) {
+    const commit = tryGhJson("repos/" + repo + "/commits/" + encodeURIComponent(branch));
+    if (!commit?.sha || !commit.commit?.tree?.sha) {
       source.manifestState = "unavailable";
     } else {
-      const file = tryGhJson(`repos/${repo}/contents/.fr3k/flagship-status.json?ref=${encodeURIComponent(commit.sha)}`);
-      const known = new Set((project.capabilities || []).map(c => slug(c.name)));
-      const manifest = parseManifest(file, project.id, known);
-      source.manifestState = manifest.state;
-      source.capabilities = manifest.capabilities;
+      const file = tryGhJson("repos/" + repo + "/contents/.fr3k/flagship-status.json?ref=" + encodeURIComponent(commit.sha));
+      if (!file) {
+        source.manifestState = "absent";
+      } else {
+        const tree = tryGhJson("repos/" + repo + "/git/trees/" + encodeURIComponent(commit.commit.tree.sha) + "?recursive=1");
+        if (!tree || tree.truncated === true || !Array.isArray(tree.tree)) {
+          source.manifestState = "unavailable";
+        } else {
+          const known = new Set((project.capabilities || []).map(c => slug(c.name)));
+          const manifest = parseManifest(file, project.id, known, tree.tree);
+          source.manifestState = manifest.state;
+          source.capabilities = manifest.capabilities;
+        }
+      }
     }
   }
   return source;

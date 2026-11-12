@@ -5,10 +5,10 @@
     "blackwave": {
       "sourceVisibility": "private",
       "sourceAccessible": true,
-      "lastPushAt": "2026-09-23T08:59:06Z",
-      "ciState": "stale",
-      "ciConclusion": "failure",
-      "ciUpdatedAt": "2026-09-23T08:59:35Z",
+      "lastPushAt": "2026-11-12T12:33:23Z",
+      "ciState": "success",
+      "ciConclusion": "success",
+      "ciUpdatedAt": "2026-11-12T12:43:33Z",
       "openPullRequests": 1,
       "local": {
         "checkoutPresent": false,
@@ -19,16 +19,42 @@
         "state": "not-tested",
         "statusCode": null
       },
-      "manifestState": "not-configured",
-      "capabilities": {}
+      "manifestState": "current",
+      "capabilities": {
+        "heterogeneous-device-firmware": {
+          "state": "implemented",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "fleet-console-and-flash-planning": {
+          "state": "implemented",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "signed-ota-and-rollback-policy": {
+          "state": "implemented",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "android-companion": {
+          "state": "in-development",
+          "evidenceCount": 3,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "rf-mesh-and-field-acceptance": {
+          "state": "not-tested",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        }
+      }
     },
     "cortex": {
       "sourceVisibility": "private",
       "sourceAccessible": true,
-      "lastPushAt": "2026-09-23T07:58:42Z",
-      "ciState": "stale",
-      "ciConclusion": "failure",
-      "ciUpdatedAt": "2026-09-11T18:58:35Z",
+      "lastPushAt": "2026-11-12T12:33:30Z",
+      "ciState": "success",
+      "ciConclusion": "success",
+      "ciUpdatedAt": "2026-11-12T12:43:35Z",
       "openPullRequests": 2,
       "local": {
         "checkoutPresent": false,
@@ -39,16 +65,42 @@
         "state": "not-tested",
         "statusCode": null
       },
-      "manifestState": "not-configured",
-      "capabilities": {}
+      "manifestState": "current",
+      "capabilities": {
+        "revenge-discord-plugin": {
+          "state": "source-reported",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "agent-router-and-event-bus": {
+          "state": "implemented",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "termux-companion-daemon": {
+          "state": "source-reported",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "android-plugin-delivery": {
+          "state": "implemented",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "real-hardware-actions": {
+          "state": "not-tested",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        }
+      }
     },
     "crewworks": {
       "sourceVisibility": "private",
       "sourceAccessible": true,
-      "lastPushAt": "2026-11-11T12:03:13Z",
+      "lastPushAt": "2026-11-12T12:33:35Z",
       "ciState": "success",
       "ciConclusion": "success",
-      "ciUpdatedAt": "2026-11-11T12:04:24Z",
+      "ciUpdatedAt": "2026-11-12T12:43:38Z",
       "openPullRequests": 0,
       "local": {
         "checkoutPresent": true,
@@ -59,16 +111,42 @@
         "state": "healthy",
         "statusCode": 200
       },
-      "manifestState": "not-configured",
-      "capabilities": {}
+      "manifestState": "current",
+      "capabilities": {
+        "independent-astro-website": {
+          "state": "source-reported",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "client-and-crew-journeys": {
+          "state": "implemented",
+          "evidenceCount": 3,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "service-and-project-storytelling": {
+          "state": "implemented",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "online-intake": {
+          "state": "blocked",
+          "evidenceCount": 3,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "deputy-replacement-integration": {
+          "state": "not-in-scope",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        }
+      }
     },
     "operations": {
       "sourceVisibility": "private",
       "sourceAccessible": true,
-      "lastPushAt": "2026-11-11T13:38:25Z",
+      "lastPushAt": "2026-11-12T12:33:41Z",
       "ciState": "success",
       "ciConclusion": "success",
-      "ciUpdatedAt": "2026-11-11T13:41:04Z",
+      "ciUpdatedAt": "2026-11-12T12:43:42Z",
       "openPullRequests": 0,
       "local": {
         "checkoutPresent": true,
@@ -79,16 +157,47 @@
         "state": "not-tested",
         "statusCode": null
       },
-      "manifestState": "not-configured",
-      "capabilities": {}
+      "manifestState": "current",
+      "capabilities": {
+        "people-and-workforce": {
+          "state": "implemented",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "projects-and-delivery": {
+          "state": "implemented",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "payroll-preparation-and-modelling": {
+          "state": "implemented",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "xero-handoff": {
+          "state": "implemented",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "audit-data-integrity-and-recovery": {
+          "state": "source-reported",
+          "evidenceCount": 3,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "production-compliance-and-payroll-finalisation": {
+          "state": "blocked",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        }
+      }
     },
     "divine": {
       "sourceVisibility": "public",
       "sourceAccessible": true,
-      "lastPushAt": "2026-11-11T18:32:37Z",
+      "lastPushAt": "2026-11-12T12:33:46Z",
       "ciState": "success",
       "ciConclusion": "success",
-      "ciUpdatedAt": "2026-11-11T18:32:59Z",
+      "ciUpdatedAt": "2026-11-12T12:43:42Z",
       "openPullRequests": 1,
       "local": {
         "checkoutPresent": true,
@@ -99,16 +208,47 @@
         "state": "not-tested",
         "statusCode": null
       },
-      "manifestState": "not-configured",
-      "capabilities": {}
+      "manifestState": "current",
+      "capabilities": {
+        "astronomical-positions-and-lunar-cycles": {
+          "state": "source-reported",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "planetary-hours-and-lunar-mansions": {
+          "state": "source-reported",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "private-profiles-and-uncertainty": {
+          "state": "implemented",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "agent-configuration-and-read-only-mcp": {
+          "state": "implemented",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "planetary-magic-squares": {
+          "state": "source-reported",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "ascendant-houses-and-prediction": {
+          "state": "not-implemented",
+          "evidenceCount": 1,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        }
+      }
     },
     "fieldops": {
       "sourceVisibility": "private",
       "sourceAccessible": true,
-      "lastPushAt": "2026-11-12T12:27:06Z",
+      "lastPushAt": "2026-11-12T12:46:54Z",
       "ciState": "success",
       "ciConclusion": "success",
-      "ciUpdatedAt": "2026-11-12T10:32:39Z",
+      "ciUpdatedAt": "2026-11-12T12:43:43Z",
       "openPullRequests": 8,
       "local": {
         "checkoutPresent": true,
@@ -119,16 +259,47 @@
         "state": "not-tested",
         "statusCode": null
       },
-      "manifestState": "not-configured",
-      "capabilities": {}
+      "manifestState": "current",
+      "capabilities": {
+        "android-alpha-shell-and-build": {
+          "state": "source-reported",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "galaxy-z-fold3-package-launch-smoke": {
+          "state": "source-reported",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "linux-proot-workstation": {
+          "state": "not-implemented",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "wi-fi-ble-network-and-web-assessment": {
+          "state": "planned",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "usb-sdr-lora-and-blackwave": {
+          "state": "planned",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "fleet-hermes-and-cortex-integration": {
+          "state": "planned",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        }
+      }
     },
     "fleet": {
       "sourceVisibility": "private",
       "sourceAccessible": true,
-      "lastPushAt": "2026-11-09T05:05:33Z",
+      "lastPushAt": "2026-11-12T12:33:57Z",
       "ciState": "success",
       "ciConclusion": "success",
-      "ciUpdatedAt": "2026-11-09T05:05:57Z",
+      "ciUpdatedAt": "2026-11-12T12:43:48Z",
       "openPullRequests": 272,
       "local": {
         "checkoutPresent": true,
@@ -139,16 +310,47 @@
         "state": "healthy",
         "statusCode": 200
       },
-      "manifestState": "not-configured",
-      "capabilities": {}
+      "manifestState": "current",
+      "capabilities": {
+        "authenticated-mcp-gateway": {
+          "state": "source-reported",
+          "evidenceCount": 3,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "outbound-device-agents": {
+          "state": "implemented",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "durable-jobs-and-leases": {
+          "state": "source-reported",
+          "evidenceCount": 3,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "approval-and-filesystem-policy": {
+          "state": "source-reported",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "device-and-android-operations": {
+          "state": "implemented",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "chatgpt-connection-and-per-device-acceptance": {
+          "state": "not-tested",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        }
+      }
     },
     "fr3kc0d3r": {
       "sourceVisibility": "private",
       "sourceAccessible": true,
-      "lastPushAt": "2026-11-09T07:57:42Z",
-      "ciState": "no-runs",
-      "ciConclusion": null,
-      "ciUpdatedAt": null,
+      "lastPushAt": "2026-11-12T12:34:03Z",
+      "ciState": "success",
+      "ciConclusion": "success",
+      "ciUpdatedAt": "2026-11-12T12:43:52Z",
       "openPullRequests": 0,
       "local": {
         "checkoutPresent": false,
@@ -159,16 +361,42 @@
         "state": "healthy",
         "statusCode": 200
       },
-      "manifestState": "not-configured",
-      "capabilities": {}
+      "manifestState": "current",
+      "capabilities": {
+        "local-llama-cpp-server": {
+          "state": "source-reported",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "qwen3-coder-30b-a3b-runtime": {
+          "state": "source-reported",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "gpu-and-memory-tuning": {
+          "state": "implemented",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "authenticated-api-boundary": {
+          "state": "source-reported",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "benchmark-and-multi-client-optimisation": {
+          "state": "in-development",
+          "evidenceCount": 3,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        }
+      }
     },
     "games": {
       "sourceVisibility": "private",
       "sourceAccessible": true,
-      "lastPushAt": "2026-11-01T03:28:21Z",
-      "ciState": "no-runs",
-      "ciConclusion": null,
-      "ciUpdatedAt": null,
+      "lastPushAt": "2026-11-12T12:34:08Z",
+      "ciState": "success",
+      "ciConclusion": "success",
+      "ciUpdatedAt": "2026-11-12T12:44:00Z",
       "openPullRequests": 0,
       "local": {
         "checkoutPresent": false,
@@ -179,16 +407,42 @@
         "state": "not-tested",
         "statusCode": null
       },
-      "manifestState": "not-configured",
-      "capabilities": {}
+      "manifestState": "current",
+      "capabilities": {
+        "static-game-launcher": {
+          "state": "implemented",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "cats-game": {
+          "state": "source-reported",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "guinea-pigs-game": {
+          "state": "source-reported",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "desiree": {
+          "state": "planned",
+          "evidenceCount": 1,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "production-hosting": {
+          "state": "blocked",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        }
+      }
     },
     "hud": {
       "sourceVisibility": "public",
       "sourceAccessible": true,
-      "lastPushAt": "2026-11-07T15:20:08Z",
-      "ciState": "no-runs",
-      "ciConclusion": null,
-      "ciUpdatedAt": null,
+      "lastPushAt": "2026-11-12T12:34:16Z",
+      "ciState": "success",
+      "ciConclusion": "success",
+      "ciUpdatedAt": "2026-11-12T12:43:56Z",
       "openPullRequests": 1,
       "local": {
         "checkoutPresent": false,
@@ -199,16 +453,47 @@
         "state": "not-tested",
         "statusCode": null
       },
-      "manifestState": "not-configured",
-      "capabilities": {}
+      "manifestState": "current",
+      "capabilities": {
+        "floating-hud-and-command-palette": {
+          "state": "source-reported",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "hermes-and-device-registry": {
+          "state": "source-reported",
+          "evidenceCount": 3,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "progressive-privilege": {
+          "state": "implemented",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "integration-and-permission-panel": {
+          "state": "source-reported",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "screenshot-termux-jobs-gps-and-mesh": {
+          "state": "in-development",
+          "evidenceCount": 4,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "voice-studio-e01-e12-integration": {
+          "state": "in-development",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        }
+      }
     },
     "reverse-engineering": {
       "sourceVisibility": "private",
       "sourceAccessible": true,
-      "lastPushAt": "2026-11-12T12:05:02Z",
+      "lastPushAt": "2026-11-12T12:41:36Z",
       "ciState": "success",
       "ciConclusion": "success",
-      "ciUpdatedAt": "2026-11-12T12:05:49Z",
+      "ciUpdatedAt": "2026-11-12T12:44:00Z",
       "openPullRequests": 17,
       "local": {
         "checkoutPresent": true,
@@ -219,16 +504,42 @@
         "state": "not-tested",
         "statusCode": null
       },
-      "manifestState": "not-configured",
-      "capabilities": {}
+      "manifestState": "current",
+      "capabilities": {
+        "apk-dex-and-elf-intake": {
+          "state": "source-reported",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "specialist-analyzer-adapters": {
+          "state": "source-reported",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "isolated-worker-sandbox": {
+          "state": "source-reported",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "evidence-store-and-replayable-reports": {
+          "state": "implemented",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "real-world-corpus-and-redistribution": {
+          "state": "not-tested",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        }
+      }
     },
     "voice-studio": {
       "sourceVisibility": "private",
       "sourceAccessible": true,
-      "lastPushAt": "2026-11-10T05:23:59Z",
-      "ciState": "no-runs",
-      "ciConclusion": null,
-      "ciUpdatedAt": null,
+      "lastPushAt": "2026-11-12T12:35:33Z",
+      "ciState": "success",
+      "ciConclusion": "success",
+      "ciUpdatedAt": "2026-11-12T12:44:13Z",
       "openPullRequests": 0,
       "local": {
         "checkoutPresent": true,
@@ -239,16 +550,42 @@
         "state": "healthy",
         "statusCode": 200
       },
-      "manifestState": "not-configured",
-      "capabilities": {}
+      "manifestState": "current",
+      "capabilities": {
+        "openai-compatible-voice-gateway": {
+          "state": "source-reported",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "five-mode-controller": {
+          "state": "implemented",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "shared-local-model-runtime": {
+          "state": "implemented",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "streaming-and-scene-context": {
+          "state": "implemented",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "production-rollout": {
+          "state": "not-tested",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        }
+      }
     },
     "xiaozhi-claw": {
       "sourceVisibility": "private",
       "sourceAccessible": true,
-      "lastPushAt": "2026-11-10T05:10:02Z",
+      "lastPushAt": "2026-11-12T12:35:39Z",
       "ciState": "success",
       "ciConclusion": "success",
-      "ciUpdatedAt": "2026-11-07T16:03:36Z",
+      "ciUpdatedAt": "2026-11-12T12:44:14Z",
       "openPullRequests": 21,
       "local": {
         "checkoutPresent": true,
@@ -259,16 +596,42 @@
         "state": "not-tested",
         "statusCode": null
       },
-      "manifestState": "not-configured",
-      "capabilities": {}
+      "manifestState": "current",
+      "capabilities": {
+        "structured-voice-to-tool-adapter": {
+          "state": "implemented",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "authoritative-agent-gateway": {
+          "state": "implemented",
+          "evidenceCount": 3,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "specialist-worker-integration": {
+          "state": "in-development",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "leases-fencing-and-terminal-states": {
+          "state": "in-development",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "production-voice-and-device-execution": {
+          "state": "not-tested",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        }
+      }
     },
     "simulation-engine": {
       "sourceVisibility": "private",
       "sourceAccessible": true,
-      "lastPushAt": "2026-11-12T03:55:27Z",
+      "lastPushAt": "2026-11-12T12:36:02Z",
       "ciState": "success",
       "ciConclusion": "success",
-      "ciUpdatedAt": "2026-11-12T03:55:46Z",
+      "ciUpdatedAt": "2026-11-12T12:44:14Z",
       "openPullRequests": 0,
       "local": {
         "checkoutPresent": true,
@@ -279,16 +642,42 @@
         "state": "not-tested",
         "statusCode": null
       },
-      "manifestState": "not-configured",
-      "capabilities": {}
+      "manifestState": "current",
+      "capabilities": {
+        "research-and-architecture": {
+          "state": "implemented",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "deterministic-simulation-core": {
+          "state": "planned",
+          "evidenceCount": 3,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "evidence-ingestion-and-provenance": {
+          "state": "planned",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "scenario-replay-and-reports": {
+          "state": "planned",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "distributed-worlds-and-prediction": {
+          "state": "not-implemented",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        }
+      }
     },
     "evidence-lens": {
       "sourceVisibility": "private",
       "sourceAccessible": true,
-      "lastPushAt": "2026-09-11T18:55:26Z",
-      "ciState": "stale",
+      "lastPushAt": "2026-11-12T12:36:07Z",
+      "ciState": "success",
       "ciConclusion": "success",
-      "ciUpdatedAt": "2026-09-11T18:58:46Z",
+      "ciUpdatedAt": "2026-11-12T12:44:20Z",
       "openPullRequests": 1,
       "local": {
         "checkoutPresent": true,
@@ -299,16 +688,42 @@
         "state": "not-tested",
         "statusCode": null
       },
-      "manifestState": "not-configured",
-      "capabilities": {}
+      "manifestState": "current",
+      "capabilities": {
+        "atomic-claim-extraction": {
+          "state": "implemented",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "source-backed-evidence-checks": {
+          "state": "implemented",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "bullshit-signals-extension": {
+          "state": "implemented",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "agent-fr3k-desktop-workspace": {
+          "state": "implemented",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "build-and-test-acceptance": {
+          "state": "not-tested",
+          "evidenceCount": 3,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        }
+      }
     },
     "content-foundry": {
       "sourceVisibility": "private",
       "sourceAccessible": true,
-      "lastPushAt": "2026-09-11T18:55:22Z",
-      "ciState": "stale",
-      "ciConclusion": "failure",
-      "ciUpdatedAt": "2026-09-11T19:00:55Z",
+      "lastPushAt": "2026-11-12T12:36:13Z",
+      "ciState": "success",
+      "ciConclusion": "success",
+      "ciUpdatedAt": "2026-11-12T12:44:18Z",
       "openPullRequests": 1,
       "local": {
         "checkoutPresent": true,
@@ -319,9 +734,35 @@
         "state": "not-tested",
         "statusCode": null
       },
-      "manifestState": "not-configured",
-      "capabilities": {}
+      "manifestState": "current",
+      "capabilities": {
+        "source-preservation-and-provenance": {
+          "state": "source-reported",
+          "evidenceCount": 3,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "extraction-and-lexical-indexing": {
+          "state": "implemented",
+          "evidenceCount": 3,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "knowledge-mapping-and-draft-generation": {
+          "state": "implemented",
+          "evidenceCount": 2,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "rights-and-publication-qc": {
+          "state": "implemented",
+          "evidenceCount": 3,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        },
+        "external-semantic-search-and-publishing": {
+          "state": "not-implemented",
+          "evidenceCount": 3,
+          "updatedAt": "2026-11-12T12:20:06Z"
+        }
+      }
     }
   },
-  "snapshotUpdatedAt": "2026-11-12T12:30:43.747Z"
+  "snapshotUpdatedAt": "2026-11-12T12:49:07.521Z"
 }

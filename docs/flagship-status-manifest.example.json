@@ -1,25 +1,111 @@
 {
   "schemaVersion": 1,
   "projectId": "fleet",
-  "updatedAt": "2026-11-12T00:00:00Z",
+  "updatedAt": "2026-11-12T12:20:06Z",
   "capabilities": [
     {
-      "id": "durable-jobs-and-leases",
+      "id": "authenticated-mcp-gateway",
+      "state": "source-reported",
+      "evidence": [
+        {
+          "type": "test",
+          "ref": "tests/test_mcp_session_contract.py",
+          "note": "Automated test coverage associated with this capability."
+        },
+        {
+          "type": "test",
+          "ref": "tests/test_mcp_request_id_contract.py",
+          "note": "Automated test coverage associated with this capability."
+        },
+        {
+          "type": "documentation",
+          "ref": "docs/CHATGPT-CONNECT.md",
+          "note": "Design, operating or acceptance documentation for this capability."
+        }
+      ]
+    },
+    {
+      "id": "outbound-device-agents",
       "state": "implemented",
       "evidence": [
         {
-          "type": "test-suite",
-          "ref": "docs/evidence/job-lease-regression.md"
+          "type": "test",
+          "ref": "tests/test_android_supervisor.py",
+          "note": "Automated test coverage associated with this capability."
+        },
+        {
+          "type": "documentation",
+          "ref": "docs/android/F011-TERMUX-STAGING.md",
+          "note": "Design, operating or acceptance documentation for this capability."
+        }
+      ]
+    },
+    {
+      "id": "durable-jobs-and-leases",
+      "state": "source-reported",
+      "evidence": [
+        {
+          "type": "test",
+          "ref": "tests/test_job_recovery.py",
+          "note": "Automated test coverage associated with this capability."
+        },
+        {
+          "type": "test",
+          "ref": "tests/test_fencing_conformance.py",
+          "note": "Automated test coverage associated with this capability."
+        },
+        {
+          "type": "documentation",
+          "ref": "docs/JOB-RECOVERY.md",
+          "note": "Design, operating or acceptance documentation for this capability."
         }
       ]
     },
     {
       "id": "approval-and-filesystem-policy",
-      "state": "blocked",
+      "state": "source-reported",
       "evidence": [
         {
-          "type": "acceptance-gate",
-          "ref": "docs/evidence/policy-acceptance.md"
+          "type": "test",
+          "ref": "tests/test_c009_approval_envelope.py",
+          "note": "Automated test coverage associated with this capability."
+        },
+        {
+          "type": "test",
+          "ref": "tests/test_f005_approval_readback.py",
+          "note": "Automated test coverage associated with this capability."
+        }
+      ]
+    },
+    {
+      "id": "device-and-android-operations",
+      "state": "implemented",
+      "evidence": [
+        {
+          "type": "test",
+          "ref": "tests/test_android_supervisor.py",
+          "note": "Automated test coverage associated with this capability."
+        },
+        {
+          "type": "test",
+          "ref": "tests/test_android_supervisor_stage.py",
+          "note": "Automated test coverage associated with this capability."
+        }
+      ]
+    },
+    {
+      "id": "chatgpt-connection-and-per-device-acceptance",
+      "state": "not-tested",
+      "evidence": [
+        {
+          "type": "documentation",
+          "ref": "docs/CHATGPT-CONNECT.md",
+          "note": "Design, operating or acceptance documentation for this capability."
+        },
+        {
+          "type": "acceptance",
+          "ref": "docs/android/F007-ONEPLUS7PRO-READINESS.md",
+          "note": "Acceptance or evidence record associated with this capability."
         }
       ]
     }
