@@ -205,11 +205,11 @@
     "reverse-engineering": {
       "sourceVisibility": "private",
       "sourceAccessible": true,
-      "lastPushAt": "2026-11-12T11:03:20Z",
+      "lastPushAt": "2026-11-12T11:43:56Z",
       "ciState": "success",
       "ciConclusion": "success",
-      "ciUpdatedAt": "2026-11-12T11:04:36Z",
-      "openPullRequests": 16,
+      "ciUpdatedAt": "2026-11-12T11:44:55Z",
+      "openPullRequests": 17,
       "local": {
         "checkoutPresent": true,
         "changesPending": false,
@@ -323,5 +323,5 @@
       "capabilities": {}
     }
   },
-  "snapshotUpdatedAt": "2026-11-12T11:08:40.333Z"
+  "snapshotUpdatedAt": "2026-11-12T11:45:40.610Z"
 }
