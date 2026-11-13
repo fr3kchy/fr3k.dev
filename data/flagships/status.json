@@ -195,10 +195,10 @@
       "sourceVisibility": "public",
       "sourceAccessible": true,
       "lastPushAt": "2026-11-13T11:30:32Z",
-      "ciState": "queued",
-      "ciConclusion": "queued",
-      "ciUpdatedAt": "2026-11-13T11:30:34Z",
-      "openPullRequests": 1,
+      "ciState": "success",
+      "ciConclusion": "success",
+      "ciUpdatedAt": "2026-11-13T11:30:57Z",
+      "openPullRequests": 2,
       "local": {
         "checkoutPresent": true,
         "changesPending": true,
@@ -764,5 +764,5 @@
       }
     }
   },
-  "snapshotUpdatedAt": "2026-11-13T11:31:27.858Z"
+  "snapshotUpdatedAt": "2026-11-13T11:46:13.605Z"
 }
