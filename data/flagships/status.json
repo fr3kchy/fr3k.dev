@@ -144,9 +144,9 @@
       "sourceVisibility": "private",
       "sourceAccessible": true,
       "lastPushAt": "2026-11-12T13:02:40Z",
-      "ciState": "unknown",
-      "ciConclusion": null,
-      "ciUpdatedAt": null,
+      "ciState": "success",
+      "ciConclusion": "success",
+      "ciUpdatedAt": "2026-11-12T13:03:01Z",
       "openPullRequests": 0,
       "local": {
         "checkoutPresent": true,
@@ -764,5 +764,5 @@
       }
     }
   },
-  "snapshotUpdatedAt": "2026-11-13T10:01:40.202Z"
+  "snapshotUpdatedAt": "2026-11-13T10:16:40.574Z"
 }
