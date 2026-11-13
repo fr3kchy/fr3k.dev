@@ -194,10 +194,10 @@
     "divine": {
       "sourceVisibility": "public",
       "sourceAccessible": true,
-      "lastPushAt": "2026-11-13T12:18:50Z",
-      "ciState": "success",
-      "ciConclusion": "success",
-      "ciUpdatedAt": "2026-11-13T12:19:15Z",
+      "lastPushAt": "2026-11-13T13:00:32Z",
+      "ciState": "queued",
+      "ciConclusion": "queued",
+      "ciUpdatedAt": "2026-11-13T13:00:34Z",
       "openPullRequests": 2,
       "local": {
         "checkoutPresent": true,
@@ -764,5 +764,5 @@
       }
     }
   },
-  "snapshotUpdatedAt": "2026-11-13T12:47:56.360Z"
+  "snapshotUpdatedAt": "2026-11-13T13:01:32.066Z"
 }
