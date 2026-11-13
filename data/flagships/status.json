@@ -202,7 +202,7 @@
       "local": {
         "checkoutPresent": true,
         "changesPending": true,
-        "headAt": "2026-11-13T23:12:12+10:00"
+        "headAt": "2026-11-14T00:40:31+10:00"
       },
       "runtime": {
         "state": "not-tested",
@@ -245,7 +245,7 @@
     "fieldops": {
       "sourceVisibility": "private",
       "sourceAccessible": true,
-      "lastPushAt": "2026-11-13T14:28:16Z",
+      "lastPushAt": "2026-11-13T14:40:49Z",
       "ciState": "blocked",
       "ciConclusion": "runner-not-started",
       "ciUpdatedAt": "2026-11-12T13:02:52Z",
@@ -307,8 +307,8 @@
         "headAt": "2026-11-13T01:46:52+10:00"
       },
       "runtime": {
-        "state": "healthy",
-        "statusCode": 200
+        "state": "unavailable",
+        "statusCode": null
       },
       "manifestState": "current",
       "capabilities": {
@@ -497,8 +497,8 @@
       "openPullRequests": 17,
       "local": {
         "checkoutPresent": true,
-        "changesPending": true,
-        "headAt": "2026-11-12T21:03:18+10:00"
+        "changesPending": false,
+        "headAt": "2026-11-14T00:40:31+10:00"
       },
       "runtime": {
         "state": "not-tested",
@@ -764,5 +764,5 @@
       }
     }
   },
-  "snapshotUpdatedAt": "2026-11-13T14:31:16.000Z"
+  "snapshotUpdatedAt": "2026-11-13T14:46:13.803Z"
 }
