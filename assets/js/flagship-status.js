@@ -241,5 +241,3 @@
   refresh();
   window.setInterval(refresh, REFRESH_MS);
 })();
-
-[executed on device: omarchy (8b91bd79-f3bd-4999-8388-402973aad27b)]

@@ -54,5 +54,3 @@
 .flagship-progress__track{height:9px;border-radius:999px;overflow:hidden;background:rgba(255,255,255,.13)}
 .flagship-progress__fill{height:100%;border-radius:inherit;background:var(--accent,#22d3ee);transition:width .3s ease}
 .flagship-progress small{opacity:.7;font-size:.75rem;line-height:1.35}
-
-[executed on device: omarchy (8b91bd79-f3bd-4999-8388-402973aad27b)]

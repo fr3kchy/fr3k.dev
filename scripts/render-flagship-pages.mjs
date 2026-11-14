@@ -94,5 +94,3 @@ for (const p of catalog.projects) {
 }
 writeFileSync(join(ROOT, "projects/index.html"), projectsIndex());
 console.log(`Rendered ${catalog.projects.length - 1} product pages and portfolio index.`);
-
-[executed on device: omarchy (8b91bd79-f3bd-4999-8388-402973aad27b)]
