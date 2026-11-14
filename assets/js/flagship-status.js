@@ -75,6 +75,40 @@
     }
   }
 
+  // Only independently verified capability gates count as complete.
+  // Unknown or source-reported work never becomes an invented percentage.
+  function progress(project) {
+    const capabilities = project.capabilities || [];
+    if (!capabilities.length) return null;
+    // Only the curated register can establish independent verification.
+    // Source manifests are displayed separately and must never change this score.
+    const verified = capabilities.filter(c => c.state === "verified").length;
+    return { percent: Math.round(100 * verified / capabilities.length), verified, total: capabilities.length };
+  }
+  function progressElement(project) {
+    const value = progress(project);
+    const wrap = el("div", "flagship-progress");
+    const heading = el("div", "flagship-progress__heading");
+    heading.append(el("span", "", "Verified capability gates"),
+      el("strong", "", value ? value.percent + "%" : "Unmeasured"));
+    wrap.append(heading);
+    const track = el("div", "flagship-progress__track");
+    const fill = el("div", "flagship-progress__fill");
+    fill.style.width = (value?.percent || 0) + "%";
+    track.append(fill);
+    track.setAttribute("role", "progressbar");
+    track.setAttribute("aria-label", project.name + " verified capability gates");
+    if (value) {
+      track.setAttribute("aria-valuenow", String(value.percent));
+      track.setAttribute("aria-valuemin", "0");
+      track.setAttribute("aria-valuemax", "100");
+    }
+    wrap.append(track, el("small", "", value
+      ? value.verified + " of " + value.total + " capability gates verified; not an estimate of total engineering effort"
+      : "No capability gates defined"));
+    return wrap;
+  }
+
   function renderStatus(target, project, snapshot) {
     target.replaceChildren();
     const readiness = project.readiness || {};
@@ -82,7 +116,7 @@
     const chip = el("span", "state-chip", readiness.label || label(readiness.state));
     chip.dataset.state = readiness.state || "unknown";
     summary.append(chip, el("p", "", readiness.detail || "No readiness note recorded."));
-    target.append(summary);
+    target.append(summary, progressElement(project));
 
     if (!snapshot) {
       target.append(el("p", "status-loading", "Automated snapshot unavailable. The audited static baseline remains visible."));
@@ -167,6 +201,8 @@
         else if (snapshot?.ciState === "failure") text = "CI failing";
         else if (snapshot?.ciState === "blocked") text = "CI blocked";
         else if (snapshot?.ciState === "stale") text = "CI stale";
+        card.querySelector(".flagship-progress")?.remove();
+        card.insertBefore(progressElement(project), card.querySelector("strong:last-child"));
         chip.textContent = text;
         chip.dataset.state = snapshot?.runtime?.state === "healthy" ? "verified" :
           (snapshot?.ciState === "failure" || snapshot?.ciState === "blocked") ? "blocked" : project.readiness?.state || "unknown";
@@ -205,3 +241,5 @@
   refresh();
   window.setInterval(refresh, REFRESH_MS);
 })();
+
+[executed on device: omarchy (8b91bd79-f3bd-4999-8388-402973aad27b)]

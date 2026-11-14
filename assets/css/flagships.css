@@ -46,3 +46,13 @@
 .state-chip[data-state="not-in-scope"]{border-color:#8fa6ad55;color:#aebdca;background:#8fa6ad0c}
 
 .status-metric__value[data-state="blocked"]{color:#ffd27a}
+
+/* Shared evidence-backed completion indicator for present and future flagships. */
+.flagship-progress{margin:1rem 0;display:grid;gap:.45rem}
+.flagship-progress__heading{display:flex;justify-content:space-between;gap:1rem;font-size:.9rem}
+.flagship-progress__heading strong{font-size:1.1rem;color:var(--accent,#22d3ee)}
+.flagship-progress__track{height:9px;border-radius:999px;overflow:hidden;background:rgba(255,255,255,.13)}
+.flagship-progress__fill{height:100%;border-radius:inherit;background:var(--accent,#22d3ee);transition:width .3s ease}
+.flagship-progress small{opacity:.7;font-size:.75rem;line-height:1.35}
+
+[executed on device: omarchy (8b91bd79-f3bd-4999-8388-402973aad27b)]
