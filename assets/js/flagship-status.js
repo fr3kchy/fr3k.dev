@@ -75,21 +75,34 @@
     }
   }
 
-  // Only independently verified capability gates count as complete.
-  // Unknown or source-reported work never becomes an invented percentage.
-  function progress(project) {
-    const capabilities = project.capabilities || [];
+  // A capability-state estimate is distinct from independent verification.
+  // Weights describe documented engineering maturity, not release acceptance.
+  const maturityWeights = {
+    verified: 1, implemented: 0.8, "in-development": 0.4,
+    "source-reported": 0.2, planned: 0, "not-tested": 0,
+    "not-implemented": 0, blocked: 0, "not-deployed": 0,
+    "not-in-scope": null
+  };
+  function progress(project, snapshot) {
+    const capabilities = (project.capabilities || []).filter(c => c.state !== "not-in-scope");
     if (!capabilities.length) return null;
-    // Only the curated register can establish independent verification.
-    // Source manifests are displayed separately and must never change this score.
+    const source = snapshot?.capabilities || {};
     const verified = capabilities.filter(c => c.state === "verified").length;
-    return { percent: Math.round(100 * verified / capabilities.length), verified, total: capabilities.length };
+    const total = capabilities.length;
+    const score = capabilities.reduce((sum, capability) => {
+      const sourceState = source[slug(capability.name)]?.state;
+      // Source claims may add visibility but never independently verify a gate.
+      const curated = maturityWeights[capability.state] ?? 0;
+      const reported = sourceState === "verified" ? 0 : (maturityWeights[sourceState] ?? 0);
+      return sum + Math.max(curated, Math.min(reported, 0.8));
+    }, 0);
+    return { percent: Math.round(100 * score / total), verified, total };
   }
-  function progressElement(project) {
-    const value = progress(project);
+  function progressElement(project, snapshot) {
+    const value = progress(project, snapshot);
     const wrap = el("div", "flagship-progress");
     const heading = el("div", "flagship-progress__heading");
-    heading.append(el("span", "", "Verified capability gates"),
+    heading.append(el("span", "", "Engineering progress estimate"),
       el("strong", "", value ? value.percent + "%" : "Unmeasured"));
     wrap.append(heading);
     const track = el("div", "flagship-progress__track");
@@ -97,15 +110,15 @@
     fill.style.width = (value?.percent || 0) + "%";
     track.append(fill);
     track.setAttribute("role", "progressbar");
-    track.setAttribute("aria-label", project.name + " verified capability gates");
+    track.setAttribute("aria-label", project.name + " engineering progress estimate");
     if (value) {
       track.setAttribute("aria-valuenow", String(value.percent));
       track.setAttribute("aria-valuemin", "0");
       track.setAttribute("aria-valuemax", "100");
     }
     wrap.append(track, el("small", "", value
-      ? value.verified + " of " + value.total + " capability gates verified; not an estimate of total engineering effort"
-      : "No capability gates defined"));
+      ? value.verified + " of " + value.total + " independently verified gates · weighted capability-state estimate, not release readiness"
+      : "No applicable capability gates defined"));
     return wrap;
   }
 
@@ -116,7 +129,7 @@
     const chip = el("span", "state-chip", readiness.label || label(readiness.state));
     chip.dataset.state = readiness.state || "unknown";
     summary.append(chip, el("p", "", readiness.detail || "No readiness note recorded."));
-    target.append(summary, progressElement(project));
+    target.append(summary, progressElement(project, snapshot));
 
     if (!snapshot) {
       target.append(el("p", "status-loading", "Automated snapshot unavailable. The audited static baseline remains visible."));
