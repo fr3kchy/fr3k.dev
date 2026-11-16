@@ -39,8 +39,40 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Validate manifest and evidence paths
-        run: node .fr3k-contract/scripts/validate-flagship-manifest.mjs
+      - name: Capture capability contract context
         env:
           FR3K_PROJECT_ID: ${{ inputs.project-id }}
           FR3K_CAPABILITY_IDS: ${{ inputs.capability-ids }}
+        run: |
+          set -euo pipefail
+          {
+            printf 'repository=%s\\n' "$GITHUB_REPOSITORY"
+            printf 'ref=%s\\n' "$GITHUB_REF"
+            printf 'sha=%s\\n' "$GITHUB_SHA"
+            printf 'project_id=%s\\n' "$FR3K_PROJECT_ID"
+            printf 'capability_ids=%s\\n' "$FR3K_CAPABILITY_IDS"
+            printf 'node=%s\\n' "$(node --version)"
+            printf 'validator_commit=%s\\n' "$(git -C .fr3k-contract rev-parse HEAD)"
+            if [[ -f .fr3k/flagship-status.json ]]; then echo 'manifest=present'; else echo 'manifest=missing'; fi
+          } | tee capability-context.log
+
+      - name: Validate manifest and evidence paths
+        env:
+          FR3K_PROJECT_ID: ${{ inputs.project-id }}
+          FR3K_CAPABILITY_IDS: ${{ inputs.capability-ids }}
+        shell: bash
+        run: |
+          set -o pipefail
+          node .fr3k-contract/scripts/validate-flagship-manifest.mjs 2>&1 | tee capability-validation.log
+
+      - name: Upload capability contract diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: capability-contract-${{ inputs.project-id }}
+          path: |
+            capability-context.log
+            capability-validation.log
+            .fr3k/flagship-status.json
+          if-no-files-found: warn
+          retention-days: 14
