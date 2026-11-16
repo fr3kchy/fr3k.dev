@@ -14,12 +14,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/approved-art.css" />
 </head>
 <body>
   <!-- Cinematic preloader -->
   <div id="preloader" class="preloader">
     <div class="preloader__core">
-      <div class="preloader__glyph">מִיכָאֵל</div>
+      <video class="fr3k-intro-art" autoplay muted playsinline preload="metadata" aria-hidden="true"><source src="assets/fr3k-intro.mp4" type="video/mp4"></video><div class="preloader__glyph">מִיכָאֵל</div><button class="fr3k-skip" type="button" onclick="document.getElementById('preloader').classList.add('hidden')">Skip intro</button>
       <div class="preloader__bar"><span></span></div>
       <div class="preloader__label">INITIALISING fR3K</div>
     </div>
@@ -88,6 +89,7 @@
       </div>
     </header>
 
+    <section class="fr3k-art-strip section" aria-label="FR3K visual identities"><div class="fr3k-art-grid"><div class="fr3k-art-card"><video muted loop playsinline preload="none" poster="assets/approved/posters/fr3k-core.webp" data-fr3k-src="assets/hero-loop.mp4"></video><span>FR3K // CORE</span></div><div class="fr3k-art-card"><video muted loop playsinline preload="none" poster="assets/approved/posters/blackwave-field.webp" data-fr3k-src="assets/campaign/blackwave/BW-FLAGSHIP-90s.mp4"></video><span>BLACKWAVE // FIELD</span></div><div class="fr3k-art-card"><video muted loop playsinline preload="none" poster="assets/approved/posters/fr3k-launch.webp" data-fr3k-src="assets/launch-film.mp4"></video><span>FR3K // LAUNCH</span></div></div></section>
     <!-- REEL -->
     <section id="reel" class="section reel">
       <div class="reel__frame glass">
@@ -241,5 +243,6 @@
   </footer>
 
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/approved-art.js" defer></script>
 </body>
 </html>

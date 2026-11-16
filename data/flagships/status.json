@@ -151,7 +151,7 @@
       "local": {
         "checkoutPresent": true,
         "changesPending": false,
-        "headAt": "2026-11-11T23:38:20+10:00"
+        "headAt": "2026-11-12T23:02:39+10:00"
       },
       "runtime": {
         "state": "not-tested",
@@ -296,15 +296,15 @@
     "fleet": {
       "sourceVisibility": "private",
       "sourceAccessible": true,
-      "lastPushAt": "2026-11-12T15:46:55Z",
+      "lastPushAt": "2026-11-16T06:04:18Z",
       "ciState": "blocked",
       "ciConclusion": "runner-not-started",
-      "ciUpdatedAt": "2026-11-12T15:47:06Z",
-      "openPullRequests": 273,
+      "ciUpdatedAt": "2026-11-16T06:04:27Z",
+      "openPullRequests": 274,
       "local": {
         "checkoutPresent": true,
         "changesPending": true,
-        "headAt": "2026-11-13T01:46:52+10:00"
+        "headAt": "2026-11-16T08:20:23+10:00"
       },
       "runtime": {
         "state": "healthy",
@@ -393,11 +393,11 @@
     "games": {
       "sourceVisibility": "private",
       "sourceAccessible": true,
-      "lastPushAt": "2026-11-12T13:02:55Z",
+      "lastPushAt": "2026-11-15T23:32:52Z",
       "ciState": "blocked",
       "ciConclusion": "runner-not-started",
-      "ciUpdatedAt": "2026-11-12T13:03:00Z",
-      "openPullRequests": 0,
+      "ciUpdatedAt": "2026-11-15T23:33:01Z",
+      "openPullRequests": 1,
       "local": {
         "checkoutPresent": false,
         "changesPending": null,
@@ -490,10 +490,10 @@
     "reverse-engineering": {
       "sourceVisibility": "private",
       "sourceAccessible": true,
-      "lastPushAt": "2026-11-12T13:03:02Z",
-      "ciState": "success",
-      "ciConclusion": "success",
-      "ciUpdatedAt": "2026-11-12T13:03:23Z",
+      "lastPushAt": "2026-11-14T03:35:29Z",
+      "ciState": "blocked",
+      "ciConclusion": "runner-not-started",
+      "ciUpdatedAt": "2026-11-14T03:35:35Z",
       "openPullRequests": 17,
       "local": {
         "checkoutPresent": true,
@@ -582,10 +582,10 @@
     "xiaozhi-claw": {
       "sourceVisibility": "private",
       "sourceAccessible": true,
-      "lastPushAt": "2026-11-12T13:03:08Z",
+      "lastPushAt": "2026-11-16T00:04:49Z",
       "ciState": "blocked",
       "ciConclusion": "runner-not-started",
-      "ciUpdatedAt": "2026-11-12T13:03:13Z",
+      "ciUpdatedAt": "2026-11-16T00:04:57Z",
       "openPullRequests": 21,
       "local": {
         "checkoutPresent": true,
@@ -764,5 +764,5 @@
       }
     }
   },
-  "snapshotUpdatedAt": "2026-11-14T01:28:46.808Z"
+  "snapshotUpdatedAt": "2026-11-16T06:16:26.027Z"
 }
