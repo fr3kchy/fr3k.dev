@@ -1,8 +1,29 @@
-// Preloader
-window.addEventListener('load', () => {
+// FR3K loading sequence: visible user-supplied video with an explicit skip and bounded timeout.
+(() => {
   const pre = document.getElementById('preloader');
-  setTimeout(() => pre && pre.classList.add('done'), 1700);
-});
+  if (!pre) return;
+  const video = pre.querySelector('video.fr3k-intro-art');
+  const skip = pre.querySelector('.fr3k-skip');
+  let closed = false;
+  const finish = () => {
+    if (closed) return;
+    closed = true;
+    pre.classList.add('done');
+    video?.pause();
+  };
+  skip?.addEventListener('click', finish);
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    finish();
+    return;
+  }
+  video?.addEventListener('ended', () => setTimeout(finish, 150), {once: true});
+  video?.addEventListener('error', () => setTimeout(finish, 900), {once: true});
+  // Never strand a visitor behind a loading animation.
+  setTimeout(finish, 6600);
+  window.addEventListener('load', () => {
+    video?.play().catch(() => setTimeout(finish, 1000));
+  }, {once: true});
+})();
 
 // Year
 const y = document.getElementById('year');

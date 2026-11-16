@@ -20,7 +20,11 @@
   <!-- Cinematic preloader -->
   <div id="preloader" class="preloader">
     <div class="preloader__core">
-      <video class="fr3k-intro-art" autoplay muted playsinline preload="metadata" aria-hidden="true"><source src="assets/fr3k-intro.mp4" type="video/mp4"></video><div class="preloader__glyph">מִיכָאֵל</div><button class="fr3k-skip" type="button" onclick="document.getElementById('preloader').classList.add('hidden')">Skip intro</button>
+      <div class="fr3k-loading-label" aria-hidden="true">FR3K // INIT</div>
+      <video class="fr3k-intro-art" autoplay muted playsinline preload="auto" poster="assets/brand/fr3k-1742.webp" aria-label="FR3K Inferno loading animation"><source src="assets/brand/fr3k-1742.mp4" type="video/mp4"></video>
+      <img class="fr3k-loading-still" src="assets/brand/fr3k-1742.webp" width="540" height="720" alt="FR3K Inferno emblem" />
+      <div class="preloader__glyph fr3k-loading-glyph">מִיכָאֵל</div>
+      <button class="fr3k-skip" type="button" aria-label="Skip FR3K intro animation">ENTER SITE</button>
       <div class="preloader__bar"><span></span></div>
       <div class="preloader__label">INITIALISING fR3K</div>
     </div>
@@ -89,19 +93,56 @@
       </div>
     </header>
 
-    <section class="fr3k-art-strip section" aria-label="FR3K visual identities"><div class="fr3k-art-grid"><div class="fr3k-art-card"><video muted loop playsinline preload="none" poster="assets/approved/posters/fr3k-core.webp" data-fr3k-src="assets/hero-loop.mp4"></video><span>FR3K // CORE</span></div><div class="fr3k-art-card"><video muted loop playsinline preload="none" poster="assets/approved/posters/blackwave-field.webp" data-fr3k-src="assets/campaign/blackwave/BW-FLAGSHIP-90s.mp4"></video><span>BLACKWAVE // FIELD</span></div><div class="fr3k-art-card"><video muted loop playsinline preload="none" poster="assets/approved/posters/fr3k-launch.webp" data-fr3k-src="assets/launch-film.mp4"></video><span>FR3K // LAUNCH</span></div></div></section>
-    <section class="section fr3k-effects" id="effects" aria-label="FR3K animated effects"><h2 class="section__title">FR3K // Motion identities</h2><p class="muted">Ten experimental six-second motion studies. Select play to preview each style.</p><div class="fr3k-effects-grid">
-      <figure class="fr3k-effects-card"><video controls muted loop playsinline preload="none" aria-label="Industrial Ember animation"><source src="/assets/approved/effects/01_industrial_ember.mp4" type="video/mp4"></video><figcaption>Industrial Ember</figcaption></figure>
-      <figure class="fr3k-effects-card"><video controls muted loop playsinline preload="none" aria-label="Molten Metal animation"><source src="/assets/approved/effects/02_molten_metal.mp4" type="video/mp4"></video><figcaption>Molten Metal</figcaption></figure>
-      <figure class="fr3k-effects-card"><video controls muted loop playsinline preload="none" aria-label="Electric Blue animation"><source src="/assets/approved/effects/03_electric_blue.mp4" type="video/mp4"></video><figcaption>Electric Blue</figcaption></figure>
-      <figure class="fr3k-effects-card"><video controls muted loop playsinline preload="none" aria-label="Solar Fire animation"><source src="/assets/approved/effects/04_solar_fire.mp4" type="video/mp4"></video><figcaption>Solar Fire</figcaption></figure>
-      <figure class="fr3k-effects-card"><video controls muted loop playsinline preload="none" aria-label="Energy Surge animation"><source src="/assets/approved/effects/05_energy_surge.mp4" type="video/mp4"></video><figcaption>Energy Surge</figcaption></figure>
-      <figure class="fr3k-effects-card"><video controls muted loop playsinline preload="none" aria-label="Stormfire animation"><source src="/assets/approved/effects/06_stormfire.mp4" type="video/mp4"></video><figcaption>Stormfire</figcaption></figure>
-      <figure class="fr3k-effects-card"><video controls muted loop playsinline preload="none" aria-label="Green Slime animation"><source src="/assets/approved/effects/07_green_slime.mp4" type="video/mp4"></video><figcaption>Green Slime</figcaption></figure>
-      <figure class="fr3k-effects-card"><video controls muted loop playsinline preload="none" aria-label="Frozen Crystal animation"><source src="/assets/approved/effects/08_frozen_crystal.mp4" type="video/mp4"></video><figcaption>Frozen Crystal</figcaption></figure>
-      <figure class="fr3k-effects-card"><video controls muted loop playsinline preload="none" aria-label="Water Vortex animation"><source src="/assets/approved/effects/09_water_vortex.mp4" type="video/mp4"></video><figcaption>Water Vortex</figcaption></figure>
-      <figure class="fr3k-effects-card"><video controls muted loop playsinline preload="none" aria-label="Aurora Flow animation"><source src="/assets/approved/effects/10_aurora_flow.mp4" type="video/mp4"></video><figcaption>Aurora Flow</figcaption></figure>
-</div></section>
+    <!-- User-supplied FR3K motion identities; five 6s H.264 clips -->
+    <section class="section fr3k-motion-section" id="identity" aria-labelledby="fr3k-motion-title">
+      <div class="fr3k-motion-heading">
+        <div>
+          <p class="fr3k-motion-overline">FIELD LAB // VISUAL IDENTITIES</p>
+          <h2 class="section__title" id="fr3k-motion-title">ONE SIGNAL. <span>FIVE STATES.</span></h2>
+          <p class="fr3k-motion-lead">The FR3K emblem, forged through five motion environments. Built to move, not sit still.</p>
+        </div>
+        <span class="fr3k-motion-meta">05 ORIGINAL MOTION STUDIES · 24 FPS</span>
+      </div>
+      <div class="fr3k-motion-grid" aria-label="FR3K motion logo variants">
+        <figure class="fr3k-motion-card" data-identity="inferno">
+          <div class="fr3k-motion-media">
+            <video class="fr3k-motion-video" muted loop playsinline preload="none" poster="assets/brand/fr3k-1742.webp" data-fr3k-src="assets/brand/fr3k-1742.mp4" aria-label="FR3K Inferno animated logo"></video>
+            <button class="fr3k-motion-toggle" type="button" aria-label="Pause Inferno animation" aria-pressed="false">PAUSE</button>
+          </div>
+          <figcaption><span class="fr3k-motion-index">01 / 05</span><strong>INFERNO</strong><span class="fr3k-motion-sub">FIRE / IGNITION</span></figcaption>
+        </figure>
+        <figure class="fr3k-motion-card" data-identity="cosmic">
+          <div class="fr3k-motion-media">
+            <video class="fr3k-motion-video" muted loop playsinline preload="none" poster="assets/brand/fr3k-1743.webp" data-fr3k-src="assets/brand/fr3k-1743.mp4" aria-label="FR3K Cosmic animated logo"></video>
+            <button class="fr3k-motion-toggle" type="button" aria-label="Pause Cosmic animation" aria-pressed="false">PAUSE</button>
+          </div>
+          <figcaption><span class="fr3k-motion-index">02 / 05</span><strong>COSMIC</strong><span class="fr3k-motion-sub">NEBULA / ENERGY</span></figcaption>
+        </figure>
+        <figure class="fr3k-motion-card" data-identity="plasma">
+          <div class="fr3k-motion-media">
+            <video class="fr3k-motion-video" muted loop playsinline preload="none" poster="assets/brand/fr3k-1744.webp" data-fr3k-src="assets/brand/fr3k-1744.mp4" aria-label="FR3K Plasma animated logo"></video>
+            <button class="fr3k-motion-toggle" type="button" aria-label="Pause Plasma animation" aria-pressed="false">PAUSE</button>
+          </div>
+          <figcaption><span class="fr3k-motion-index">03 / 05</span><strong>PLASMA</strong><span class="fr3k-motion-sub">ELECTRIC / PULSE</span></figcaption>
+        </figure>
+        <figure class="fr3k-motion-card" data-identity="magma">
+          <div class="fr3k-motion-media">
+            <video class="fr3k-motion-video" muted loop playsinline preload="none" poster="assets/brand/fr3k-1746.webp" data-fr3k-src="assets/brand/fr3k-1746.mp4" aria-label="FR3K Magma animated logo"></video>
+            <button class="fr3k-motion-toggle" type="button" aria-label="Pause Magma animation" aria-pressed="false">PAUSE</button>
+          </div>
+          <figcaption><span class="fr3k-motion-index">04 / 05</span><strong>MAGMA</strong><span class="fr3k-motion-sub">MOLTEN / POWER</span></figcaption>
+        </figure>
+        <figure class="fr3k-motion-card" data-identity="storm">
+          <div class="fr3k-motion-media">
+            <video class="fr3k-motion-video" muted loop playsinline preload="none" poster="assets/brand/fr3k-1747.webp" data-fr3k-src="assets/brand/fr3k-1747.mp4" aria-label="FR3K Storm animated logo"></video>
+            <button class="fr3k-motion-toggle" type="button" aria-label="Pause Storm animation" aria-pressed="false">PAUSE</button>
+          </div>
+          <figcaption><span class="fr3k-motion-index">05 / 05</span><strong>STORM</strong><span class="fr3k-motion-sub">LIGHTNING / SIGNAL</span></figcaption>
+        </figure>
+      </div>
+      <p class="fr3k-motion-footnote">Scroll to explore on mobile · Animations pause offscreen · Reduced-motion preferences respected</p>
+    </section>
+
     <!-- REEL -->
     <section id="reel" class="section reel">
       <div class="reel__frame glass">
