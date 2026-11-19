@@ -20,11 +20,18 @@ The binaries now live in GitHub Release [fr3k-films-120s-v1](https://github.com/
 
 - The permanent website links to versioned GitHub Release assets, not files copied only into one Vercel deployment.
 - `data/films-120s.json` is the canonical public metadata index and stores each source checksum.
-- `scripts/check-film-archive.mjs` checks all 17 slots, source URLs, posters and the previously excluded archive.
+- `scripts/validate-film-archive.mjs` checks all 17 slots, source URLs, posters and the previously excluded archive.
 - CI must check the film manifest and sitemap every time the site changes.
 - Public browser smoke tests must confirm playback access and byte-range support on representative film URLs before production promotion.
 - Do not replace the earlier films with unrelated launch shorts or call a 45-second reel an equivalent substitute.
 
 ## Authority and evidence limits
 
-The film masters are real and their bytes are verified. The narrative scenes are **generated cinematic media**, not hardware acceptance evidence. Their content must not be presented as proof that a device, OTA system or model workflow succeeded. Production deployment of a new website design remains unverified until its own release acceptance record exists.
+The film masters are real and their bytes are verified. The narrative scenes are **generated cinematic media**, not hardware acceptance evidence. Their content must not be presented as proof that a device, OTA system or model workflow succeeded. The Matrix redesign was deployed as Vercel production deployment `dpl_WNLdfg6quCMfv874XsCBBm5CHRkb` from Git commit `15d6d13e19f707ef92812cb19ba8e659985ab590`, then passed 116 live browser route/viewport checks and a 120.042-second real video metadata load. That does not imply every historical deep link was restored.
+
+## Compatibility repair for historical deep links
+
+- **OBSERVATION:** After the main Matrix revamp was live, `https://fr3k.dev/assets/films/blackwave-120.mp4` still returned HTTP 404. The new `/films/` experience correctly played the original master from a versioned GitHub Release URL, but legacy embeds and bookmarks remained broken.
+- **IMPROVE:** A nonpermanent Vercel redirect maps `/assets/films/:filename` to `https://github.com/fr3kchy/fr3k.dev/releases/download/fr3k-films-120s-v1/:filename`. This preserves the original filenames, covers the six caption/poster companions, and does not duplicate large binary files into Git history.
+- **TEST:** The repository film validator now requires the redirect rule. An actual Vercel preview and production smoke test must demonstrate that the old video URL resolves and supports byte-range requests. Until then, this is a **configured fix**, not a verified live repair.
+- **BOUNDARY:** Unrecognised filenames are not invented: they lead to the release's normal missing-asset response. Excluded portrait archives remain excluded.
