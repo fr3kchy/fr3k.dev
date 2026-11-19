@@ -59,3 +59,9 @@ Results observed on Omarchy on 2026-11-19:
 3. Review the Vercel preview and verify page rendering, links, asset loading, accessibility and evidence disclosure.
 4. Merge after acceptance, observe production deployment, then smoke `https://fr3k.dev/` and `/forge/`, `/blackwave/`, `/projects/`, `/invest/` on the actual production hostname.
 5. Record PR, commit, deployment ID and test URLs; only then mark the revamp VERIFIED LIVE.
+
+## CI runner correction (2026-11-19)
+
+- **OBSERVATION:** The first two GitHub Actions jobs for `8d8b8b6` failed at Chromium installation, before browser QA: the `ubuntu-latest` image resolved to Ubuntu 26.04, which Playwright 1.56.1 did not support. Job logs: `44495508694` and `44495508805`.
+- **RECONCILIATION:** The runner is now explicitly pinned to `ubuntu-24.04`, a supported OS for Playwright 1.56.1, and redundant push CI for the feature branch is removed (the PR event still checks it).
+- **UNKNOWN until observed:** This correction is not a CI PASS; collect the subsequent GitHub Actions job result before approving merge.
