@@ -11,6 +11,11 @@
 .lab-skip { position: absolute; z-index: 99; left: .5rem; top: .5rem; transform: translateY(-200%); padding: .65rem 1rem; color: #171713; background: #fff; }
 .lab-skip:focus { transform: none; }
 :focus-visible { outline: 3px solid #ffab83; outline-offset: 3px; }
+/* Let tablet navigation wrap before font metrics cause horizontal overflow. */
+@media(max-width: 52rem) {
+  .lab-bar { flex-wrap: wrap; }
+  .lab-links { width: 100%; justify-content: center; }
+}
 @media(max-width: 36rem) {
   .lab-bar { flex-wrap: wrap; gap: 0 .8rem; padding-block: .25rem; }
   .lab-brand { font-size: 1.2rem; }
