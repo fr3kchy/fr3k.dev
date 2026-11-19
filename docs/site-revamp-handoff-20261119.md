@@ -65,3 +65,10 @@ Results observed on Omarchy on 2026-11-19:
 - **OBSERVATION:** The first two GitHub Actions jobs for `8d8b8b6` failed at Chromium installation, before browser QA: the `ubuntu-latest` image resolved to Ubuntu 26.04, which Playwright 1.56.1 did not support. Job logs: `44495508694` and `44495508805`.
 - **RECONCILIATION:** The runner is now explicitly pinned to `ubuntu-24.04`, a supported OS for Playwright 1.56.1, and redundant push CI for the feature branch is removed (the PR event still checks it).
 - **UNKNOWN until observed:** This correction is not a CI PASS; collect the subsequent GitHub Actions job result before approving merge.
+
+## CI tablet viewport follow-up — 2026-11-19
+
+- **OBSERVATION:** CI run `44495996317` passed the Forge and static checks, Chromium installation, and all 320px and 390px browser routes, then reported `/hud/ overflows 16px at 768 ()`. Omarchy's local browser did not reproduce the failure.
+- **HYPOTHESIS:** Font metrics or header wrapping differ between Ubuntu CI Chromium and the locally installed browser.
+- **IMPROVE:** Add a scoped tablet navigation wrap at 52rem and expand browser diagnostics to record document/body/client and navigation widths. This is a testable correction, not proof of resolution.
+- **UNKNOWN:** Require an observed green CI result before approving any merge or production deployment.
