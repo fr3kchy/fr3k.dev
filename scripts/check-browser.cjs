@@ -19,12 +19,25 @@ const base = "http://127.0.0.1:8765";
       for (const path of paths) {
         const res = await page.goto(base + path, {waitUntil:"load"});
         assert.equal(res.status(), 200, path);
+        // Avoid testing pre-font / pre-layout transients in headless CI.
+        await page.evaluate(async () => {
+          await document.fonts.ready;
+          await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+        });
         const extra = await page.evaluate(() => document.documentElement.scrollWidth - innerWidth);
         if (extra > 1) {
           const elements = await page.locator("body *").evaluateAll(nodes => nodes.filter(node => node.getBoundingClientRect().right > innerWidth + 1).slice(0,6).map(node => node.tagName + "." + node.className));
           const dims = await page.evaluate(() => ({
             root: document.documentElement.scrollWidth, body: document.body.scrollWidth,
             client: document.documentElement.clientWidth,
+            suspects: [...document.querySelectorAll("body *")]
+              .filter(el => el.scrollWidth > el.clientWidth + 1)
+              .slice(0, 10)
+              .map(el => ({
+                node: el.tagName + "." + String(el.className).slice(0,40),
+                scroll: el.scrollWidth, client: el.clientWidth,
+                text: (el.textContent || "").trim().slice(0,50)
+              })),
             nav: [...document.querySelectorAll(".lab-nav,.lab-bar,.lab-links")].map(el => ({
               name: el.className,
               right: Math.round(el.getBoundingClientRect().right), scroll: el.scrollWidth
