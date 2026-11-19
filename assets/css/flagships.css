@@ -54,3 +54,46 @@
 .flagship-progress__track{height:9px;border-radius:999px;overflow:hidden;background:rgba(255,255,255,.13)}
 .flagship-progress__fill{height:100%;border-radius:inherit;background:var(--accent,#22d3ee);transition:width .3s ease}
 .flagship-progress small{opacity:.7;font-size:.75rem;line-height:1.35}
+
+/* Field lab product sheets */
+:root { --accent: #ff8069; }
+body { background: #141513; color: #f6f2e9; font: 1rem/1.55 system-ui, sans-serif; }
+body::before { content: none; }
+.shell { width: min(100%,1248px); padding-inline: clamp(1rem,4vw,3rem); }
+.hero, .indexhero { min-height: auto; padding-block: clamp(2.5rem,5.5vw,5rem); }
+.hero h1, .indexhero h1 { font: 850 clamp(2.5rem,6vw,5.8rem)/.98 system-ui,sans-serif; color: #f6f2e9; background: none; margin: .8rem 0; letter-spacing: -.065em; overflow-wrap: anywhere; }
+.eyebrow { font: 650 .8rem/1.5 ui-monospace, monospace; letter-spacing: .09em; }
+.product-subtitle { margin: 1rem 0 .5rem; font-size: clamp(1.25rem,2.5vw,1.85rem); line-height: 1.25; max-width: 42ch; }
+.lead { margin-block: .85rem; color: #c8c8bd; max-width: 67ch; font-size: 1.1rem; }
+.actions { gap: .6rem; margin-top: 1.3rem; }
+.btn { padding: .7rem 1rem; border-radius: 2px; font: 650 .91rem/1.45 system-ui,sans-serif; text-transform: none; letter-spacing: normal; }
+.btn:hover { border-color: var(--accent); }
+.section { padding-block: clamp(2.25rem,6vw,4.5rem); }
+.section h2 { font: 720 clamp(1.8rem,4vw,3rem)/1.08 system-ui,sans-serif; letter-spacing: -.05em; margin-block: .5rem 1.25rem; }
+.product-card h2 { font-size: 1.56rem; }
+.product-card strong:last-child { display:block; }
+.product-card small { font: .78rem/1.45 ui-monospace,monospace; }
+.tile, .evidence-item, .status-dashboard { background: #20221f; border-radius: 4px; }
+.status-section { background: #191b18; }
+.status-dashboard { box-shadow: none; }
+.tile p, .section p { color: #c8cdc7; }
+.state-chip { font-size: .75rem; white-space: normal; }
+.field-example { background: #e8e7dd; color: #181914; }
+.field-example p { color: #393c34; }
+.field-example .eyebrow { color: #79412f; }
+.field-example-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); align-items: start; gap: clamp(1.5rem,5vw,4rem); }
+.sample-figure { margin: 0; }
+.sample-figure img { width: 100%; height: auto; display: block; }
+.sample-figure figcaption { font: .85rem/1.5 ui-monospace,monospace; padding-top: .75rem; }
+.receipt-list { max-width: 52rem; margin: 1.25rem 0; border-top: 1px solid #a3a699; }
+.receipt-list div { display: grid; gap: 1rem; grid-template-columns: minmax(7rem,1fr) 2fr; padding: .55rem 0; border-bottom: 1px solid #b6b9ad; }
+.receipt-list dt { font-weight: 600; }
+.receipt-list dd { margin: 0; }
+.pilot-steps { max-width: 49rem; padding-inline-start: 1.5rem; }
+.pilot-steps li { padding: .6rem .4rem; }
+.sample-note { border-left: 3px solid #9a462b; padding-left: 1rem; }
+.field-example .btn { border-color: currentColor; }
+@media (max-width: 48rem) {
+  .field-example-grid { grid-template-columns: 1fr; }
+  .capability-card, .product-card { padding: 1.15rem; }
+}

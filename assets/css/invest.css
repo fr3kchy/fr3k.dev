@@ -124,3 +124,11 @@
 .invest-founder>span{font:700 .66rem var(--font-head);letter-spacing:.15em;color:var(--neon-2)}
 .invest-founder p{margin-top:.4rem;color:var(--muted);font-size:1rem}
 .invest-founder strong{color:#fff}
+
+#milestone { border-left: 3px solid #ff785d; }
+#milestone h2 { font: 700 clamp(1.75rem,3vw,2.7rem)/1.05 system-ui,sans-serif; margin: .65rem 0; }
+#milestone p, #milestone li { line-height: 1.6; margin-bottom: .7rem; }
+#milestone ul { padding-inline-start: 1.3rem; }
+.invest-contents { display: flex; flex-wrap: wrap; gap: 1rem; padding: 1.25rem 0; }
+.invest-contents a { text-decoration: underline; text-underline-offset: .25em; }
+.invest-hero { padding-block: clamp(2rem,6vw,5rem); }

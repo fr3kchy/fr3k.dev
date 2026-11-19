@@ -16,7 +16,7 @@
     .mv-tier{max-width:1100px;margin:3.5rem auto;padding:0 1.4rem}
     .mv-tier__h{font-family:var(--font-head);font-size:clamp(1.2rem,4vw,1.8rem);color:#fff;letter-spacing:.05em;margin-bottom:1.4rem;display:flex;align-items:baseline;gap:.7rem}
     .mv-tier__h .num{color:var(--neon-2);text-shadow:0 0 12px var(--neon-2)}
-    .mv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.4rem}
+    .mv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:1.4rem}
     .mv{display:flex;flex-direction:column;overflow:hidden}
     .mv__frame{position:relative;aspect-ratio:16/9;background:#05060a;border-radius:12px 12px 0 0;overflow:hidden}
     .mv__vid{width:100%;height:100%;object-fit:cover;display:block;background:#05060a}
@@ -26,23 +26,27 @@
     .mv-back{display:inline-block;margin-top:1rem;color:var(--neon);font-weight:700}
     .mv-cdn-note{color:var(--neon-3);font-size:.85rem;letter-spacing:.04em;margin-top:.4rem}
   </style>
+<link rel="canonical" href="https://fr3k.dev/media">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FR3K Field Lab">
+<meta property="og:title" content="BLACKWAV3 Media — fR3k.dev">
+<meta property="og:description" content="The BLACKWAV3 evidence-bound media system: device field-guides, architecture, systems, and honest validation films. Capability earned by evidence.">
+<meta property="og:url" content="https://fr3k.dev/media">
+<meta property="og:image" content="https://fr3k.dev/assets/brand/field-lab-share.jpg">
+<meta property="og:image:alt" content="FR3K field lab emblem">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BLACKWAV3 Media — fR3k.dev">
+<meta name="twitter:description" content="The BLACKWAV3 evidence-bound media system: device field-guides, architecture, systems, and honest validation films. Capability earned by evidence.">
+<meta name="twitter:image" content="https://fr3k.dev/assets/brand/field-lab-share.jpg">
+<link rel="stylesheet" href="/assets/css/lab.css">
 </head>
 <body>
   <div class="bg-grid" aria-hidden="true"></div>
   <div class="bg-glow" aria-hidden="true"></div>
   <div class="scanlines" aria-hidden="true"></div>
-  <nav class="nav glass">
-    <a href="index.html" class="nav__brand">fR3K<span class="nav__dot">.</span>DEV</a>
-    <ul class="nav__links" id="navLinks">
-      <li><a href="index.html#reel">Reel</a></li>
-      <li><a href="index.html#work">GitHub Work</a></li>
-      <li><a href="blackwave/">BLACKWAV3</a></li>
-      <li><a href="media.html">MEDIA</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
-    </ul>
-    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    <a href="https://github.com/fr3kchy" target="_blank" rel="noopener" class="nav__cta">GitHub ↗</a>
-  </nav>
+  <a class="lab-skip" href="#main-content">Skip to content</a>
+<nav class="lab-nav" aria-label="Primary"><div class="lab-bar"><a class="lab-brand" aria-label="FR3K Field Lab home" href="/">FR3K<span>/</span><b>FIELD LAB</b></a>
+<div class="lab-links"><a href="/projects/">Projects</a><a href="/media" aria-current="page">Media</a><a href="/invest/">Invest</a><a href="/#contact">Contact</a></div></div></nav>
 
   <header class="mv-hero">
     <h1>BLACKWAV3 // MEDIA</h1>
@@ -51,13 +55,13 @@
     <a class="mv-back" href="index.html">← back to fR3k.dev</a>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="mv-tier">
       <h2 class="mv-tier__h"><span class="num">◆</span> Flagship Series</h2>
       <div class="mv-grid">
       <article class="mv glass">
         <div class="mv__frame">
-          <video class="mv__vid" controls preload="metadata" playsinline poster="">
+          <video class="mv__vid" controls preload="none" playsinline>
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/what-it-is-16x9.mp4" type="video/mp4" media="(min-aspect-ratio:1/1)">
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/what-it-is-9x16.mp4" type="video/mp4" media="(max-aspect-ratio:1/1)">
           </video>
@@ -69,7 +73,7 @@
       </article>
       <article class="mv glass">
         <div class="mv__frame">
-          <video class="mv__vid" controls preload="metadata" playsinline poster="">
+          <video class="mv__vid" controls preload="none" playsinline>
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/one-fleet-many-machines-16x9.mp4" type="video/mp4" media="(min-aspect-ratio:1/1)">
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/one-fleet-many-machines-9x16.mp4" type="video/mp4" media="(max-aspect-ratio:1/1)">
           </video>
@@ -81,7 +85,7 @@
       </article>
       <article class="mv glass">
         <div class="mv__frame">
-          <video class="mv__vid" controls preload="metadata" playsinline poster="">
+          <video class="mv__vid" controls preload="none" playsinline>
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/how-it-communicates-16x9.mp4" type="video/mp4" media="(min-aspect-ratio:1/1)">
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/how-it-communicates-9x16.mp4" type="video/mp4" media="(max-aspect-ratio:1/1)">
           </video>
@@ -93,7 +97,7 @@
       </article>
       <article class="mv glass">
         <div class="mv__frame">
-          <video class="mv__vid" controls preload="metadata" playsinline poster="">
+          <video class="mv__vid" controls preload="none" playsinline>
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/evidence-before-claims-16x9.mp4" type="video/mp4" media="(min-aspect-ratio:1/1)">
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/evidence-before-claims-9x16.mp4" type="video/mp4" media="(max-aspect-ratio:1/1)">
           </video>
@@ -105,7 +109,7 @@
       </article>
       <article class="mv glass">
         <div class="mv__frame">
-          <video class="mv__vid" controls preload="metadata" playsinline poster="">
+          <video class="mv__vid" controls preload="none" playsinline>
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/fr3k-vision-16x9.mp4" type="video/mp4" media="(min-aspect-ratio:1/1)">
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/fr3k-vision-9x16.mp4" type="video/mp4" media="(max-aspect-ratio:1/1)">
           </video>
@@ -122,7 +126,7 @@
       <div class="mv-grid">
       <article class="mv glass">
         <div class="mv__frame">
-          <video class="mv__vid" controls preload="metadata" playsinline poster="">
+          <video class="mv__vid" controls preload="none" playsinline>
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/capability-model-16x9.mp4" type="video/mp4" media="(min-aspect-ratio:1/1)">
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/capability-model-9x16.mp4" type="video/mp4" media="(max-aspect-ratio:1/1)">
           </video>
@@ -134,7 +138,7 @@
       </article>
       <article class="mv glass">
         <div class="mv__frame">
-          <video class="mv__vid" controls preload="metadata" playsinline poster="">
+          <video class="mv__vid" controls preload="none" playsinline>
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/evidence-model-16x9.mp4" type="video/mp4" media="(min-aspect-ratio:1/1)">
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/evidence-model-9x16.mp4" type="video/mp4" media="(max-aspect-ratio:1/1)">
           </video>
@@ -146,7 +150,7 @@
       </article>
       <article class="mv glass">
         <div class="mv__frame">
-          <video class="mv__vid" controls preload="metadata" playsinline poster="">
+          <video class="mv__vid" controls preload="none" playsinline>
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/identity-authorization-16x9.mp4" type="video/mp4" media="(min-aspect-ratio:1/1)">
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/identity-authorization-9x16.mp4" type="video/mp4" media="(max-aspect-ratio:1/1)">
           </video>
@@ -158,7 +162,7 @@
       </article>
       <article class="mv glass">
         <div class="mv__frame">
-          <video class="mv__vid" controls preload="metadata" playsinline poster="">
+          <video class="mv__vid" controls preload="none" playsinline>
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/transport-qos-16x9.mp4" type="video/mp4" media="(min-aspect-ratio:1/1)">
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/transport-qos-9x16.mp4" type="video/mp4" media="(max-aspect-ratio:1/1)">
           </video>
@@ -170,7 +174,7 @@
       </article>
       <article class="mv glass">
         <div class="mv__frame">
-          <video class="mv__vid" controls preload="metadata" playsinline poster="">
+          <video class="mv__vid" controls preload="none" playsinline>
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/offline-dtn-16x9.mp4" type="video/mp4" media="(min-aspect-ratio:1/1)">
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/offline-dtn-9x16.mp4" type="video/mp4" media="(max-aspect-ratio:1/1)">
           </video>
@@ -182,7 +186,7 @@
       </article>
       <article class="mv glass">
         <div class="mv__frame">
-          <video class="mv__vid" controls preload="metadata" playsinline poster="">
+          <video class="mv__vid" controls preload="none" playsinline>
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/ota-recovery-16x9.mp4" type="video/mp4" media="(min-aspect-ratio:1/1)">
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/ota-recovery-9x16.mp4" type="video/mp4" media="(max-aspect-ratio:1/1)">
           </video>
@@ -199,7 +203,7 @@
       <div class="mv-grid">
       <article class="mv glass">
         <div class="mv__frame">
-          <video class="mv__vid" controls preload="metadata" playsinline poster="">
+          <video class="mv__vid" controls preload="none" playsinline>
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/rf-atlas-16x9.mp4" type="video/mp4" media="(min-aspect-ratio:1/1)">
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/rf-atlas-9x16.mp4" type="video/mp4" media="(max-aspect-ratio:1/1)">
           </video>
@@ -211,7 +215,7 @@
       </article>
       <article class="mv glass">
         <div class="mv__frame">
-          <video class="mv__vid" controls preload="metadata" playsinline poster="">
+          <video class="mv__vid" controls preload="none" playsinline>
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/reticulum-16x9.mp4" type="video/mp4" media="(min-aspect-ratio:1/1)">
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/reticulum-9x16.mp4" type="video/mp4" media="(max-aspect-ratio:1/1)">
           </video>
@@ -223,7 +227,7 @@
       </article>
       <article class="mv glass">
         <div class="mv__frame">
-          <video class="mv__vid" controls preload="metadata" playsinline poster="">
+          <video class="mv__vid" controls preload="none" playsinline>
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/android-companion-16x9.mp4" type="video/mp4" media="(min-aspect-ratio:1/1)">
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/android-companion-9x16.mp4" type="video/mp4" media="(max-aspect-ratio:1/1)">
           </video>
@@ -235,7 +239,7 @@
       </article>
       <article class="mv glass">
         <div class="mv__frame">
-          <video class="mv__vid" controls preload="metadata" playsinline poster="">
+          <video class="mv__vid" controls preload="none" playsinline>
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/hermes-mcp-16x9.mp4" type="video/mp4" media="(min-aspect-ratio:1/1)">
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/hermes-mcp-9x16.mp4" type="video/mp4" media="(max-aspect-ratio:1/1)">
           </video>
@@ -247,7 +251,7 @@
       </article>
       <article class="mv glass">
         <div class="mv__frame">
-          <video class="mv__vid" controls preload="metadata" playsinline poster="">
+          <video class="mv__vid" controls preload="none" playsinline>
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/physical-ai-16x9.mp4" type="video/mp4" media="(min-aspect-ratio:1/1)">
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/physical-ai-9x16.mp4" type="video/mp4" media="(max-aspect-ratio:1/1)">
           </video>
@@ -259,7 +263,7 @@
       </article>
       <article class="mv glass">
         <div class="mv__frame">
-          <video class="mv__vid" controls preload="metadata" playsinline poster="">
+          <video class="mv__vid" controls preload="none" playsinline>
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/infrastructure-16x9.mp4" type="video/mp4" media="(min-aspect-ratio:1/1)">
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/infrastructure-9x16.mp4" type="video/mp4" media="(max-aspect-ratio:1/1)">
           </video>
@@ -276,7 +280,7 @@
       <div class="mv-grid">
       <article class="mv glass">
         <div class="mv__frame">
-          <video class="mv__vid" controls preload="metadata" playsinline poster="">
+          <video class="mv__vid" controls preload="none" playsinline>
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/abyss-16x9.mp4" type="video/mp4" media="(min-aspect-ratio:1/1)">
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/abyss-9x16.mp4" type="video/mp4" media="(max-aspect-ratio:1/1)">
           </video>
@@ -288,7 +292,7 @@
       </article>
       <article class="mv glass">
         <div class="mv__frame">
-          <video class="mv__vid" controls preload="metadata" playsinline poster="">
+          <video class="mv__vid" controls preload="none" playsinline>
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/relay-16x9.mp4" type="video/mp4" media="(min-aspect-ratio:1/1)">
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/relay-9x16.mp4" type="video/mp4" media="(max-aspect-ratio:1/1)">
           </video>
@@ -300,7 +304,7 @@
       </article>
       <article class="mv glass">
         <div class="mv__frame">
-          <video class="mv__vid" controls preload="metadata" playsinline poster="">
+          <video class="mv__vid" controls preload="none" playsinline>
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/nexus-16x9.mp4" type="video/mp4" media="(min-aspect-ratio:1/1)">
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/nexus-9x16.mp4" type="video/mp4" media="(max-aspect-ratio:1/1)">
           </video>
@@ -312,7 +316,7 @@
       </article>
       <article class="mv glass">
         <div class="mv__frame">
-          <video class="mv__vid" controls preload="metadata" playsinline poster="">
+          <video class="mv__vid" controls preload="none" playsinline>
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/pulse-16x9.mp4" type="video/mp4" media="(min-aspect-ratio:1/1)">
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/pulse-9x16.mp4" type="video/mp4" media="(max-aspect-ratio:1/1)">
           </video>
@@ -324,7 +328,7 @@
       </article>
       <article class="mv glass">
         <div class="mv__frame">
-          <video class="mv__vid" controls preload="metadata" playsinline poster="">
+          <video class="mv__vid" controls preload="none" playsinline>
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/vigil-16x9.mp4" type="video/mp4" media="(min-aspect-ratio:1/1)">
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/vigil-9x16.mp4" type="video/mp4" media="(max-aspect-ratio:1/1)">
           </video>
@@ -336,7 +340,7 @@
       </article>
       <article class="mv glass">
         <div class="mv__frame">
-          <video class="mv__vid" controls preload="metadata" playsinline poster="">
+          <video class="mv__vid" controls preload="none" playsinline>
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/chronos-16x9.mp4" type="video/mp4" media="(min-aspect-ratio:1/1)">
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/chronos-9x16.mp4" type="video/mp4" media="(max-aspect-ratio:1/1)">
           </video>
@@ -348,7 +352,7 @@
       </article>
       <article class="mv glass">
         <div class="mv__frame">
-          <video class="mv__vid" controls preload="metadata" playsinline poster="">
+          <video class="mv__vid" controls preload="none" playsinline>
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/signal-16x9.mp4" type="video/mp4" media="(min-aspect-ratio:1/1)">
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/signal-9x16.mp4" type="video/mp4" media="(max-aspect-ratio:1/1)">
           </video>
@@ -360,7 +364,7 @@
       </article>
       <article class="mv glass">
         <div class="mv__frame">
-          <video class="mv__vid" controls preload="metadata" playsinline poster="">
+          <video class="mv__vid" controls preload="none" playsinline>
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/scout-16x9.mp4" type="video/mp4" media="(min-aspect-ratio:1/1)">
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/scout-9x16.mp4" type="video/mp4" media="(max-aspect-ratio:1/1)">
           </video>
@@ -372,7 +376,7 @@
       </article>
       <article class="mv glass">
         <div class="mv__frame">
-          <video class="mv__vid" controls preload="metadata" playsinline poster="">
+          <video class="mv__vid" controls preload="none" playsinline>
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/spectre-16x9.mp4" type="video/mp4" media="(min-aspect-ratio:1/1)">
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/spectre-9x16.mp4" type="video/mp4" media="(max-aspect-ratio:1/1)">
           </video>
@@ -384,7 +388,7 @@
       </article>
       <article class="mv glass">
         <div class="mv__frame">
-          <video class="mv__vid" controls preload="metadata" playsinline poster="">
+          <video class="mv__vid" controls preload="none" playsinline>
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/pathfinder-16x9.mp4" type="video/mp4" media="(min-aspect-ratio:1/1)">
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/pathfinder-9x16.mp4" type="video/mp4" media="(max-aspect-ratio:1/1)">
           </video>
@@ -396,7 +400,7 @@
       </article>
       <article class="mv glass">
         <div class="mv__frame">
-          <video class="mv__vid" controls preload="metadata" playsinline poster="">
+          <video class="mv__vid" controls preload="none" playsinline>
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/infra-16x9.mp4" type="video/mp4" media="(min-aspect-ratio:1/1)">
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/infra-9x16.mp4" type="video/mp4" media="(max-aspect-ratio:1/1)">
           </video>
@@ -413,7 +417,7 @@
       <div class="mv-grid">
       <article class="mv glass">
         <div class="mv__frame">
-          <video class="mv__vid" controls preload="metadata" playsinline poster="">
+          <video class="mv__vid" controls preload="none" playsinline>
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/build-to-hardware-16x9.mp4" type="video/mp4" media="(min-aspect-ratio:1/1)">
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/build-to-hardware-9x16.mp4" type="video/mp4" media="(max-aspect-ratio:1/1)">
           </video>
@@ -425,7 +429,7 @@
       </article>
       <article class="mv glass">
         <div class="mv__frame">
-          <video class="mv__vid" controls preload="metadata" playsinline poster="">
+          <video class="mv__vid" controls preload="none" playsinline>
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/first-flash-16x9.mp4" type="video/mp4" media="(min-aspect-ratio:1/1)">
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/first-flash-9x16.mp4" type="video/mp4" media="(max-aspect-ratio:1/1)">
           </video>
@@ -437,7 +441,7 @@
       </article>
       <article class="mv glass">
         <div class="mv__frame">
-          <video class="mv__vid" controls preload="metadata" playsinline poster="">
+          <video class="mv__vid" controls preload="none" playsinline>
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/first-reticulum-link-16x9.mp4" type="video/mp4" media="(min-aspect-ratio:1/1)">
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/first-reticulum-link-9x16.mp4" type="video/mp4" media="(max-aspect-ratio:1/1)">
           </video>
@@ -449,7 +453,7 @@
       </article>
       <article class="mv glass">
         <div class="mv__frame">
-          <video class="mv__vid" controls preload="metadata" playsinline poster="">
+          <video class="mv__vid" controls preload="none" playsinline>
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/first-rf-atlas-observation-16x9.mp4" type="video/mp4" media="(min-aspect-ratio:1/1)">
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/first-rf-atlas-observation-9x16.mp4" type="video/mp4" media="(max-aspect-ratio:1/1)">
           </video>
@@ -461,7 +465,7 @@
       </article>
       <article class="mv glass">
         <div class="mv__frame">
-          <video class="mv__vid" controls preload="metadata" playsinline poster="">
+          <video class="mv__vid" controls preload="none" playsinline>
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/first-k230-link-16x9.mp4" type="video/mp4" media="(min-aspect-ratio:1/1)">
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/first-k230-link-9x16.mp4" type="video/mp4" media="(max-aspect-ratio:1/1)">
           </video>
@@ -473,7 +477,7 @@
       </article>
       <article class="mv glass">
         <div class="mv__frame">
-          <video class="mv__vid" controls preload="metadata" playsinline poster="">
+          <video class="mv__vid" controls preload="none" playsinline>
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/first-k10-embodied-demo-16x9.mp4" type="video/mp4" media="(min-aspect-ratio:1/1)">
             <source src="https://github.com/fr3kchy/fr3k.dev/releases/download/blackwave-media-v1/first-k10-embodied-demo-9x16.mp4" type="video/mp4" media="(max-aspect-ratio:1/1)">
           </video>

@@ -1244,6 +1244,51 @@
       "source": {
         "visibility": "private"
       }
+    },
+    {
+      "id": "forge",
+      "route": "forge",
+      "name": "FR3K AI FORGE",
+      "category": "On-device AI · image generation",
+      "accent": "#ff8b70",
+      "headline": "Image generation on a handheld device.",
+      "summary": "AI Forge explores local image generation on Android. A RedMagic handset completed a measured render through Nightmare. The Forge interface still awaits its own end-to-end run.",
+      "readiness": {
+        "state": "experimental-validation",
+        "label": "Renderer measured · UI acceptance pending",
+        "detail": "The operator supplied a PNG and timing receipt for one external Nightmare API run."
+      },
+      "capabilities": [
+        {
+          "name": "External renderer evidence",
+          "state": "source-reported",
+          "description": "One on-device text-to-image run returned a PNG through Nightmare.",
+          "evidence": "Public run receipt and matching SHA-256 image digest."
+        },
+        {
+          "name": "End-to-end Forge interface",
+          "state": "not-tested",
+          "description": "Submit a prompt in Forge and retrieve the resulting image in the interface.",
+          "evidence": "A separate UI acceptance run is pending."
+        }
+      ],
+      "evidence": [
+        {
+          "label": "Public renderer artifact",
+          "value": "The original PNG and public run receipt are available above.",
+          "state": "source-reported"
+        },
+        {
+          "label": "UI acceptance",
+          "value": "An observed prompt-to-image return through Forge is still required.",
+          "state": "not-tested"
+        }
+      ],
+      "boundaries": [
+        "Timing covers a single render with the recorded model, seed and step count.",
+        "The installed Nightmare renderer handled this run independently of the Forge UI."
+      ],
+      "nextGate": "Record an end-to-end prompt submission through Forge and match the displayed image to the returned artifact."
     }
   ]
 }

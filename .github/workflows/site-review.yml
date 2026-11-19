@@ -1,0 +1,30 @@
+name: Public portfolio review
+
+# An existing daily workflow may call this job. Operators can also run it on demand.
+on:
+  workflow_call:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check operator evidence
+        run: node scripts/validate-forge-evidence.mjs
+      - name: Check generated pages and sitemap
+        run: node scripts/render-flagship-pages.mjs --check
+      - name: Check public routes, anchors, assets and metadata
+        run: python3 scripts/check-site.py

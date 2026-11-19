@@ -5,31 +5,55 @@
 <meta name="theme-color" content="#080b13">
 <title>FR3K FLEET | fR3k.dev</title>
 <meta name="description" content="A self-hosted, authenticated remote device-management gateway exposed through MCP. It coordinates outbound device agents, bounded jobs, leases, audit and operator approval without relying on a third-party relay.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="canonical" href="https://fr3k.dev/fleet/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FR3K Field Lab">
+<meta property="og:title" content="FR3K FLEET | FR3K Field Lab">
+<meta property="og:description" content="A self-hosted, authenticated remote device-management gateway exposed through MCP. It coordinates outbound device agents, bounded jobs, leases, audit and operator approval without relying on a third-party relay.">
+<meta property="og:url" content="https://fr3k.dev/fleet/">
+<meta property="og:image" content="https://fr3k.dev/assets/brand/field-lab-share.jpg">
+<meta property="og:image:alt" content="FR3K field lab emblem">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FR3K FLEET | FR3K Field Lab">
+<meta name="twitter:description" content="A self-hosted, authenticated remote device-management gateway exposed through MCP. It coordinates outbound device agents, bounded jobs, leases, audit and operator approval without relying on a third-party relay.">
+<meta name="twitter:image" content="https://fr3k.dev/assets/brand/field-lab-share.jpg">
 <link rel="stylesheet" href="/assets/css/flagships.css">
+<link rel="stylesheet" href="/assets/css/lab.css">
 <style>:root{--accent:#46d7ff}</style>
 <script defer src="/assets/js/flagship-status.js"></script>
 </head>
 <body data-flagship-id="fleet">
-<nav class="nav shell"><a class="brand" href="/">fR3k<span>.</span>DEV</a><div class="navlinks"><a href="/projects/">All projects</a><a href="/#contact">Contact</a></div></nav>
-<main>
-<section class="hero shell"><div>
-<div class="eyebrow">fR3k flagship / Remote device operations · MCP · authenticated control</div>
-<h1>One governed control plane for the entire device universe.</h1>
+<a class="lab-skip" href="#main-content">Skip to content</a>
+<nav class="lab-nav" aria-label="Primary"><div class="lab-bar"><a class="lab-brand" aria-label="FR3K Field Lab home" href="/">FR3K<span>/</span><b>FIELD LAB</b></a>
+<div class="lab-links"><a href="/projects/">Projects</a><a href="/media">Media</a><a href="/invest/">Invest</a><a href="/#contact">Contact</a></div></div></nav>
+<main id="main-content">
+<header class="hero shell"><div>
+<a class="eyebrow" href="/projects/">Flagship register</a>
+<h1>FR3K FLEET</h1>
+<p class="product-subtitle">One governed control plane for the entire device universe.</p>
 <p class="lead">A self-hosted, authenticated remote device-management gateway exposed through MCP. It coordinates outbound device agents, bounded jobs, leases, audit and operator approval without relying on a third-party relay.</p>
-<div class="actions"><a class="btn primary" href="#status">Inspect live status ↓</a><a class="btn" href="#capabilities">Capabilities ↓</a><a class="btn" href="https://fleet.fr3k.dev/healthz" target="_blank" rel="noopener noreferrer">Live service health ↗</a></div>
-</div></section>
+<div class="actions"><a class="btn primary" href="#field-example">Read a sample receipt</a><a class="btn" href="#status">Status</a><a class="btn" href="#capabilities">Capabilities</a><a class="btn" href="https://fleet.fr3k.dev/healthz" target="_blank" rel="noopener noreferrer">Live service health ↗</a></div>
+</div></header>
+<section id="field-example" class="section field-example"><div class="shell"><p class="eyebrow">Sanitized example receipt</p><h2>What came back from the device?</h2>
+<p>This fictional receipt illustrates how an operator could review a read-only check. The labels and values are illustrative.</p>
+<dl class="receipt-list">
+  <div><dt>Request</dt><dd>Inspect available storage</dd></div>
+  <div><dt>Target</dt><dd>Demo handset</dd></div>
+  <div><dt>Approval scope</dt><dd>One read-only inspection</dd></div>
+  <div><dt>Expected result</dt><dd>Return a storage reading with units</dd></div>
+  <div><dt>Example response</dt><dd>18 GiB available</dd></div>
+  <div><dt>Postcondition</dt><dd>Storage value and unit present</dd></div>
+</dl><p class="sample-note">A reviewer can compare the request, permission and returned measurement. This sample contains no live device data.</p></div></section>
 <section id="status" class="section status-section"><div class="shell">
-<div class="eyebrow">Evidence feed // auto-reconciled</div><h2>What exists. What is running. What remains open.</h2>
+<div class="eyebrow">Evidence feed // auto-reconciled</div><h2>System status</h2>
 <div class="status-dashboard" data-flagship-status>
   <div class="status-summary"><span class="state-chip">Live service · readiness healthy</span><p>The public Fleet health endpoint returned HTTP 200 and the readiness endpoint reported ready=true during this audit. The Omarchy test run passed 726 tests plus 77 subtests, with one Starlette/httpx deprecation warning.</p></div>
-  <p class="status-loading">Loading the latest source and runtime snapshot…</p>
+  <p class="status-loading">Source and runtime observations appear here when available.</p>
 </div>
 <p class="status-footnote">Repository, CI, review and runtime signals are checked every 15 minutes. This feed does not promote a commit into a verified capability or a running process into a successful outcome.</p>
 </div></section>
 <section id="capabilities" class="section"><div class="shell">
-<div class="eyebrow">Capability register</div><h2>What the system can actually do.</h2>
+<div class="eyebrow">Capability register</div><h2>Capabilities</h2>
 <div class="features"><article class="tile capability-card" data-capability-id="authenticated-mcp-gateway">
     <div class="capability-card__top"><b>Authenticated MCP gateway</b><span class="state-chip" data-capability-state>verified</span></div>
     <p>FastAPI gateway with OAuth 2.1 PKCE, protected resource metadata, dynamic client registration and MCP Streamable HTTP.</p>
@@ -57,11 +81,11 @@
   </article></div>
 </div></section>
 <section class="section"><div class="shell">
-<div class="eyebrow">Proof ledger</div><h2>Current evidence and acceptance state.</h2>
+<div class="eyebrow">Proof ledger</div><h2>Evidence on record</h2>
 <div class="evidence-list"><article class="evidence-item"><span class="state-chip state-chip--verified">verified</span><div><strong>Automated tests</strong><p>726 passed · 77 subtests passed</p></div></article><article class="evidence-item"><span class="state-chip state-chip--verified">verified</span><div><strong>Live health</strong><p>https://fleet.fr3k.dev/healthz · HTTP 200</p></div></article><article class="evidence-item"><span class="state-chip state-chip--verified">verified</span><div><strong>Readiness</strong><p>ready=true at audit time</p></div></article></div>
 </div></section>
 <section class="section"><div class="shell">
-<div class="eyebrow">Boundaries and open gates</div><h2>What we will not pretend is finished.</h2>
+<div class="eyebrow">Boundaries and open gates</div><h2>Open questions</h2>
 <ul class="boundary-list"><li>A heartbeat is not proof of useful work; each action needs a postcondition and evidence.</li><li>A healthy gateway does not mean every connected device is online or approved.</li><li>The ChatGPT OAuth registration path remains a separate acceptance gate.</li></ul>
 <div class="next-gate"><span class="eyebrow">NEXT ACCEPTANCE GATE</span><p>Complete operator app registration and a second-device ChatGPT-to-Fleet acceptance flow with independently observed postconditions.</p></div>
 <div class="actions"><a class="btn primary" href="mailto:fr3k@fr3k.dev?subject=FR3K%20FLEET%20technical%20discussion">Discuss this system</a><a class="btn" href="/projects/">Back to all flagships</a></div>
