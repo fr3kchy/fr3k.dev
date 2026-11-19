@@ -32,10 +32,10 @@ jobs:
         run: node scripts/render-flagship-pages.mjs --check
       - name: Check public routes, anchors, assets and metadata
         run: python3 scripts/check-site.py
-      - name: Install pinned browser test harness
+      - name: Prepare pinned browser test harness
         run: |
           npm install --no-save --no-package-lock playwright@1.65.1
-          npx playwright install --with-deps chromium
+          command -v google-chrome || command -v google-chrome-stable
       - name: Test every page at four viewport widths
         run: |
           python3 scripts/preview-site.py >/tmp/fr3k-preview.log 2>&1 &
@@ -46,4 +46,4 @@ jobs:
             sleep 1
           done
           curl --fail --silent http://127.0.0.1:8765/ >/dev/null
-          node scripts/check-browser.cjs
+          CHROMIUM_PATH="$(command -v google-chrome || command -v google-chrome-stable)" node scripts/check-browser.cjs
