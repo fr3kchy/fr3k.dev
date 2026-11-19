@@ -116,7 +116,7 @@ for (const project of catalog.projects) {
   if (project.id !== "blackwave") output(project.route + "/index.html", projectPage(project));
 }
 output("projects/index.html", projectsIndex());
-const routes = new Set(["/", "/media", "/projects/", "/invest/", ...catalog.projects.map(p => "/" + p.route + "/")]);
+const routes = new Set(["/", "/media", "/films/", "/projects/", "/invest/", ...catalog.projects.map(p => "/" + p.route + "/")]);
 for (const entry of readdirSync(join(ROOT, "blackwave"), {withFileTypes:true})) {
   if (entry.isDirectory() && existsSync(join(ROOT, "blackwave", entry.name, "index.html"))) {
     routes.add("/blackwave/" + entry.name + "/");

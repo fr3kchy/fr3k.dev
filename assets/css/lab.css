@@ -26,3 +26,14 @@
   html { scroll-behavior: auto !important; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+
+/* FR3KD3V Matrix nav — shared by the homepage, films and product register. */
+.lab-nav{background:rgba(2,10,6,.98);color:#dcffe5;border-color:#235a37}
+.lab-brand{color:#edffec;font-weight:950;letter-spacing:-.065em}
+.lab-brand span{color:#74ff8e;text-shadow:0 0 20px rgba(45,255,112,.4)}
+.lab-brand b{color:#9bdbab}
+.lab-links a{color:#aadab6;font:750 .8rem/1.4 ui-monospace,monospace;letter-spacing:.035em;text-transform:uppercase}
+.lab-links a:hover,.lab-links a[aria-current]{color:#78ff99;text-decoration-color:#72ff94}
+.lab-skip{background:#80ff98;color:#04120a}
+:focus-visible{outline-color:#81ffa1}

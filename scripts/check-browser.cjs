@@ -47,8 +47,16 @@ const base = "http://127.0.0.1:8765";
         }
         if (path === "/") {
           assert.deepEqual(videos, [], "Home fetched a video on entry");
+          assert.equal(await page.locator(".lab-skip").evaluate(el => el.getBoundingClientRect().bottom <= 0), true, "Skip to content should be hidden until focus");
           await page.keyboard.press("Tab");
           assert.equal(await page.locator(":focus").textContent(), "Skip to content");
+        }
+        if (path === "/films/") {
+          assert.equal(await page.locator(".film-card").count(), 17, "17 original film players required");
+          await page.locator('[data-filter="fleet"]').click();
+          assert.equal(await page.locator(".film-card:visible").count(), 4, "Fleet film filter must work");
+          await page.locator('[data-filter="all"]').click();
+          assert.equal(await page.locator(".film-card:visible").count(), 17, "All films must restore");
         }
         if (path === "/forge/") {
           await page.locator("#field-example img").evaluate(img => img.decode());
