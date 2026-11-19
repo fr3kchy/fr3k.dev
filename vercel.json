@@ -5,16 +5,35 @@
     {
       "source": "/data/flagships/status.json",
       "headers": [
-        { "key": "Cache-Control", "value": "no-store, max-age=0" }
+        {
+          "key": "Cache-Control",
+          "value": "no-store, max-age=0"
+        }
       ]
     },
     {
       "source": "(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "DENY" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
       ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/assets/films/:filename",
+      "destination": "https://github.com/fr3kchy/fr3k.dev/releases/download/fr3k-films-120s-v1/:filename",
+      "permanent": false
     }
   ]
 }
