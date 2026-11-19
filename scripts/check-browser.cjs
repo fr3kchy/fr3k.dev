@@ -22,7 +22,15 @@ const base = "http://127.0.0.1:8765";
         const extra = await page.evaluate(() => document.documentElement.scrollWidth - innerWidth);
         if (extra > 1) {
           const elements = await page.locator("body *").evaluateAll(nodes => nodes.filter(node => node.getBoundingClientRect().right > innerWidth + 1).slice(0,6).map(node => node.tagName + "." + node.className));
-          errors.push(path + " overflows " + extra + "px at " + width + " (" + elements.join(", ") + ")");
+          const dims = await page.evaluate(() => ({
+            root: document.documentElement.scrollWidth, body: document.body.scrollWidth,
+            client: document.documentElement.clientWidth,
+            nav: [...document.querySelectorAll(".lab-nav,.lab-bar,.lab-links")].map(el => ({
+              name: el.className,
+              right: Math.round(el.getBoundingClientRect().right), scroll: el.scrollWidth
+            }))
+          }));
+          errors.push(path + " overflows " + extra + "px at " + width + " (" + elements.join(", ") + ") " + JSON.stringify(dims));
         }
         if (path === "/") {
           assert.deepEqual(videos, [], "Home fetched a video on entry");
