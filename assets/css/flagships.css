@@ -22,7 +22,7 @@
 .state-chip[data-state="in-development"],.state-chip--in-development,.state-chip[data-state="source-reported"],.state-chip--source-reported{border-color:#f0c36b66;color:#f5d18b;background:#f0c36b10}
 .state-chip[data-state="blocked"],.state-chip--blocked,.state-chip[data-state="not-tested"],.state-chip--not-tested,.state-chip[data-state="not-implemented"],.state-chip--not-implemented{border-color:#ff718466;color:#ff9aa6;background:#ff718410}
 .state-chip[data-state="planned"],.state-chip--planned,.state-chip[data-state="not-deployed"],.state-chip--not-deployed{border-color:#9baac466;color:#aebbd0;background:#9baac410}
-.capability-card{min-height:230px}
+.capability-card{min-height:230px;min-width:0;overflow-wrap:anywhere}
 .capability-card__top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;flex-wrap:wrap}
 .capability-card__top b{font:700 18px Orbitron,system-ui;max-width:100%}
 .capability-evidence{border-top:1px solid #ffffff16;padding-top:10px;font-size:14px!important;color:#91a3bc!important}
