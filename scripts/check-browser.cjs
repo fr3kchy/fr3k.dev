@@ -47,6 +47,7 @@ const base = "http://127.0.0.1:8765";
         }
         if (path === "/") {
           assert.deepEqual(videos, [], "Home fetched a video on entry");
+          assert.equal(await page.locator(".lab-skip").evaluate(el => el.getBoundingClientRect().bottom <= 0), true, "Skip to content should be hidden until focus");
           await page.keyboard.press("Tab");
           assert.equal(await page.locator(":focus").textContent(), "Skip to content");
         }
