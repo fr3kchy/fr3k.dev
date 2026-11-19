@@ -28,6 +28,8 @@ jobs:
           python-version: '3.12'
       - name: Check operator evidence
         run: node scripts/validate-forge-evidence.mjs
+      - name: Check recovered 120-second film archive
+        run: node scripts/validate-film-archive.mjs
       - name: Check generated pages and sitemap
         run: node scripts/render-flagship-pages.mjs --check
       - name: Check public routes, anchors, assets and metadata
