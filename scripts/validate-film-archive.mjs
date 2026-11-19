@@ -9,6 +9,12 @@ const html = readFileSync(join(root,"films/index.html"),"utf8");
 const home = readFileSync(join(root,"index.html"),"utf8");
 const media = readFileSync(join(root,"media.html"),"utf8");
 const tag = "https://github.com/fr3kchy/fr3k.dev/releases/download/fr3k-films-120s-v1/";
+const vercel = JSON.parse(readFileSync(join(root, "vercel.json"), "utf8"));
+assert.ok(vercel.redirects?.some(rule =>
+  rule.source === "/assets/films/:filename" &&
+  rule.destination === tag + ":filename" &&
+  rule.permanent === false
+), "Vercel must redirect original /assets/films/* paths to the versioned media release");
 assert.equal(archive.schema_version,1);
 assert.equal(archive.count,17);
 assert.equal(archive.films.length,17);
