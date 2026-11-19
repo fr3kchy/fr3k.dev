@@ -9,7 +9,8 @@
  font:1rem/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;
 }
 .lab-home::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:repeating-linear-gradient(transparent 0 3px,#0003 3px 4px);opacity:.5}
-.lab-home>*{position:relative}
+.lab-home > :not(.lab-skip){position:relative}
+.lab-home > .lab-skip{position:absolute}
 .lab-home :focus-visible{outline:3px solid var(--acid);outline-offset:3px}
 .lab-home .lab-bar,.lab-home .home-shell{width:min(100% - 2rem,83rem)}
 .lab-home .lab-hero{grid-template-columns:minmax(0,1.12fr) minmax(0,.77fr);gap:clamp(1.3rem,5vw,5rem);align-items:center;padding-block:clamp(3rem,6vw,6rem)}
