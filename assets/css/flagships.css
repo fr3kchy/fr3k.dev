@@ -97,3 +97,6 @@ body::before { content: none; }
   .field-example-grid { grid-template-columns: 1fr; }
   .capability-card, .product-card { padding: 1.15rem; }
 }
+
+/* Narrow handset evidence cards stack their status chip instead of overflowing. */
+@media(max-width:420px){.evidence-item{flex-wrap:wrap}.evidence-item>div{min-width:0;flex:1 1 100%;overflow-wrap:anywhere}}

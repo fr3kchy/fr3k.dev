@@ -24,6 +24,16 @@
 <link rel="stylesheet" href="../../assets/css/style.css">
 <style>
 :root{--mono:'JetBrains Mono',monospace}.social{max-width:1180px;margin:auto;padding:4rem 1.4rem}.hero{text-align:center;margin:2rem auto 3rem;max-width:850px}.kicker,.meta,.tag{font:600 .68rem var(--mono);letter-spacing:.14em;color:var(--neon)}h1{font:900 clamp(2.5rem,8vw,6rem) var(--font-head);line-height:.95;color:#fff;text-shadow:0 0 26px rgba(0,240,255,.38);margin:1rem 0}.hero p{color:var(--muted);font-size:1.12rem;line-height:1.55}.actions{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;margin:1.4rem 0}.section{margin:3.5rem 0}.section h2{font:700 1.45rem var(--font-head);color:#fff;letter-spacing:.06em;margin-bottom:1rem}.feature{display:grid;grid-template-columns:1.55fr 1fr;gap:1rem}.panel{padding:1.3rem}.video{background:#030407;border:1px solid var(--glass-brd);border-radius:12px;overflow:hidden}.video video{display:block;width:100%;height:auto;max-height:620px;background:#030407}.feature .video video{aspect-ratio:16/9;object-fit:contain}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem}.clip{overflow:hidden;padding:0}.clip video{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;background:#030407}.clip__body{padding:.85rem}.clip h3{font:700 .88rem var(--font-head);color:#fff;letter-spacing:.03em;min-height:2.3em}.clip p{font-size:.8rem;color:var(--muted);margin:.45rem 0}.clip a{font:600 .65rem var(--mono);color:var(--neon);margin-right:.7rem}.tag{display:inline-block;border:1px solid rgba(255,174,0,.4);color:#ffcf70;border-radius:5px;padding:.2rem .4rem;font-size:.58rem}.resources{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.8rem}.resource{padding:1rem}.resource a{color:var(--neon);font-family:var(--mono);font-size:.75rem}.resource p{color:var(--muted);font-size:.85rem;margin-top:.35rem}.notice{border-color:rgba(255,174,0,.38);background:rgba(255,174,0,.06);color:#ffcf70}.notice p{color:#ffcf70}.small{font:.68rem var(--mono);color:var(--muted)}@media(max-width:760px){.feature{grid-template-columns:1fr}.social{padding-top:2rem}}
+/* These pages contain direct hero children, unlike the shared flex .hero layout. */
+.social > .hero{display:block;min-height:0;padding:0}
+/* Keep legacy BLACKWAV3 navigation reachable without the missing hamburger controller. */
+@media(max-width:900px){
+  .nav{flex-wrap:wrap;gap:.55rem;justify-content:space-between}
+  .nav__links{position:static;display:flex;order:3;width:100%;flex-direction:row;flex-wrap:wrap;justify-content:center;gap:.35rem;padding:.25rem 0;background:transparent;border:0;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+  .nav__links li{width:auto}
+  .nav__links a{display:inline-block;padding:.35rem .45rem}
+  .nav__cta{max-width:100%;overflow-wrap:anywhere}
+}
 </style>
 </head>
 <body>

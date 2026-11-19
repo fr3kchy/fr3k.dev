@@ -8,7 +8,7 @@ const base = "http://127.0.0.1:8765";
 (async () => {
   const browser = await chromium.launch({executablePath: process.env.CHROMIUM_PATH});
   try {
-    for (const [width,height] of [[390,844], [1440,900]]) {
+    for (const [width,height] of [[320,720], [390,844], [768,1024], [1440,900]]) {
       const page = await browser.newPage({viewport: {width,height}, reducedMotion:"reduce", serviceWorkers:"block"});
       const errors = [];
       const videos = [];
@@ -32,6 +32,9 @@ const base = "http://127.0.0.1:8765";
         if (path === "/forge/") {
           await page.locator("#field-example img").evaluate(img => img.decode());
           assert.equal(await page.locator("#field-example img").evaluate(img => img.naturalWidth),512);
+        }
+        if (["/blackwave/campaign/", "/blackwave/social/"].includes(path)) {
+          assert.equal(await page.locator(".nav__links").isVisible(), true, path + " must have reachable navigation");
         }
         if (path === "/projects/") {
           await page.waitForSelector(".flagship-progress");

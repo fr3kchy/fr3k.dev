@@ -4,6 +4,11 @@ name: Public portfolio review
 on:
   workflow_call:
   workflow_dispatch:
+  pull_request:
+  push:
+    branches:
+      - main
+      - feat/full-site-revamp-20261119
 
 permissions:
   contents: read
@@ -11,7 +16,7 @@ permissions:
 jobs:
   review:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
         with:
@@ -28,3 +33,18 @@ jobs:
         run: node scripts/render-flagship-pages.mjs --check
       - name: Check public routes, anchors, assets and metadata
         run: python3 scripts/check-site.py
+      - name: Install pinned browser test harness
+        run: |
+          npm install --no-save --no-package-lock playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Test every page at four viewport widths
+        run: |
+          python3 scripts/preview-site.py >/tmp/fr3k-preview.log 2>&1 &
+          preview_pid=$!
+          trap 'kill "$preview_pid" 2>/dev/null || true' EXIT
+          for attempt in $(seq 1 20); do
+            if curl --silent --fail http://127.0.0.1:8765/ >/dev/null; then break; fi
+            sleep 1
+          done
+          curl --fail --silent http://127.0.0.1:8765/ >/dev/null
+          node scripts/check-browser.cjs

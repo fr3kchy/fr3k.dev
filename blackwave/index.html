@@ -51,7 +51,7 @@
     .arch__desc{font-size:.82rem;color:var(--muted);margin-top:.5rem;display:none;line-height:1.5}
     .arch__layer:hover .arch__desc{display:block}
     /* fleet */
-    .fleet{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem}
+    .fleet{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:1rem}
     .fleet__card{padding:1.3rem 1.4rem;display:flex;flex-direction:column;gap:.5rem;position:relative;overflow:hidden}
     .fleet__card::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,240,255,.06),transparent 45%);opacity:0;transition:.2s}
     .fleet__card:hover::before{opacity:1}
