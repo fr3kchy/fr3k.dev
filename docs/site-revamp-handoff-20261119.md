@@ -72,3 +72,9 @@ Results observed on Omarchy on 2026-11-19:
 - **HYPOTHESIS:** Font metrics or header wrapping differ between Ubuntu CI Chromium and the locally installed browser.
 - **IMPROVE:** Add a scoped tablet navigation wrap at 52rem and expand browser diagnostics to record document/body/client and navigation widths. This is a testable correction, not proof of resolution.
 - **UNKNOWN:** Require an observed green CI result before approving any merge or production deployment.
+
+## CI browser engine parity
+
+- **OBSERVATION:** CI run `44497021715` again reported `/hud/ overflows 16px at 768`; document and body had 784px scroll width, while document client width and navigation were 768px. No element's bounding box crossed the viewport.
+- **RECONCILIATION:** The CI browser harness is updated from Playwright 1.56.1 to 1.65.1, matching the tested Omarchy Playwright version. The viewport test now waits for fonts and two animation frames before geometry checks. When overflow persists it records the first overflowing scroll containers and text snippets, rather than ignoring the failure.
+- **UNKNOWN:** Changes remain experimental until the new CI run passes.
