@@ -88,13 +88,13 @@
 .invest-status-metrics div{padding:.85rem;border:1px solid var(--invest-line);border-radius:10px;background:rgba(0,240,255,.035)}
 .invest-status-metrics strong{display:block;font:700 1.4rem var(--font-head);color:var(--neon)}
 .invest-status-metrics span{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em}
-.invest-status-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem}
-.invest-status-card{padding:.9rem 1rem;border:1px solid rgba(138,160,180,.16);border-radius:10px;background:rgba(5,8,15,.7)}
-.invest-status-card__top{display:flex;align-items:flex-start;justify-content:space-between;gap:.6rem}
+.invest-status-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem;min-width:0}
+.invest-status-card{min-width:0;padding:.9rem 1rem;border:1px solid rgba(138,160,180,.16);border-radius:10px;background:rgba(5,8,15,.7)}
+.invest-status-card__top{display:flex;align-items:flex-start;justify-content:space-between;gap:.6rem;flex-wrap:wrap}
 .invest-status-card h4{font:700 .9rem var(--font-head);color:#fff}
-.invest-status-chip{font-size:.67rem;color:var(--neon);border:1px solid var(--invest-line);border-radius:30px;padding:.18rem .45rem;white-space:nowrap}
+.invest-status-chip{font-size:.67rem;color:var(--neon);border:1px solid var(--invest-line);border-radius:30px;padding:.18rem .45rem;white-space:normal;overflow-wrap:anywhere;max-width:100%}
 .invest-status-meta{font-size:.75rem;color:var(--neon-3);margin:.35rem 0}
-.invest-status-card p{font-size:.86rem;color:var(--muted);line-height:1.45}
+.invest-status-card p{font-size:.86rem;color:var(--muted);line-height:1.45;overflow-wrap:anywhere}
 .invest-status-loading{color:var(--muted);padding:.7rem}
 .invest-status-foot{font-size:.8rem;color:var(--muted);margin-top:1rem;line-height:1.5}
 .invest-evidence-links{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1rem}
@@ -117,7 +117,7 @@
 .invest-footer{width:min(1180px,92vw);margin:0 auto;padding:1.3rem 0 2rem;border-top:1px solid var(--invest-line);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;color:var(--muted);font-size:.82rem}
 .invest-footer a{color:var(--neon);font-weight:700}
 @media(max-width:900px){.invest-nav{align-items:flex-start}.invest-nav__links{gap:.7rem}.invest-hero{grid-template-columns:1fr;padding-top:4rem}.invest-hero__panel{max-width:650px}.invest-flow{grid-template-columns:repeat(2,minmax(0,1fr))}.invest-capital-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:650px){.invest-nav{flex-wrap:wrap}.invest-nav__links{order:3;width:100%;overflow-x:auto;flex-wrap:nowrap;padding:.25rem 0}.invest-nav__links a{white-space:nowrap}.invest-nav__cta{margin-left:auto}.invest-shell{width:min(94vw,1180px)}.invest-hero{padding:3.2rem 0 2rem;gap:1.4rem}.invest-hero h1{font-size:clamp(2.5rem,13vw,4.2rem)}.invest-lead{font-size:1.08rem}.invest-section{padding-top:3.6rem}.invest-thesis-grid,.invest-detail-grid,.invest-architecture-grid,.invest-subscription-grid,.invest-roadmap,.invest-risk-list,.invest-contact{grid-template-columns:1fr}.invest-economics-grid{grid-template-columns:1fr}.invest-flow{grid-template-columns:1fr}.invest-capital-grid{grid-template-columns:1fr}.invest-status-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.invest-status-grid{grid-template-columns:1fr}.invest-contact{padding:1.2rem}.invest-footer{font-size:.76rem}.invest-contract{justify-content:flex-start}.invest-panel__top{align-items:flex-start}}
+@media(max-width:650px){.invest-nav{flex-wrap:wrap}.invest-nav__links{order:3;width:100%;overflow-x:auto;flex-wrap:nowrap;padding:.25rem 0}.invest-nav__links a{white-space:nowrap}.invest-nav__cta{margin-left:auto}.invest-shell{width:min(94vw,1180px)}.invest-hero{padding:3.2rem 0 2rem;gap:1.4rem}.invest-hero h1{font-size:clamp(2.5rem,13vw,4.2rem)}.invest-lead{font-size:1.08rem}.invest-section{padding-top:3.6rem}.invest-thesis-grid,.invest-detail-grid,.invest-architecture-grid,.invest-subscription-grid,.invest-roadmap,.invest-risk-list,.invest-contact{grid-template-columns:1fr}.invest-economics-grid{grid-template-columns:1fr}.invest-flow{grid-template-columns:1fr}.invest-capital-grid{grid-template-columns:1fr}.invest-status-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.invest-status-grid{grid-template-columns:minmax(0,1fr)}.invest-contact{padding:1.2rem}.invest-footer{font-size:.76rem}.invest-contract{justify-content:flex-start}.invest-panel__top{align-items:flex-start}}
 @media(prefers-reduced-motion:reduce){.invest-button{transition:none}.invest-button:hover{transform:none}}
 
 .invest-founder{margin:1rem 0;padding:1rem 1.25rem;border:1px solid rgba(157,75,255,.24);border-radius:12px;background:rgba(157,75,255,.045)}
