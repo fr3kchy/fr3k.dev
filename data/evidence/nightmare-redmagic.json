@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-19",
+  "device": "RedMagic 11S Pro",
+  "workload": "Single text-to-image generation",
+  "renderer": "Nightmare 1.6.307",
+  "model": "absolutereality",
+  "prompt": "A red cube on a matte black background, studio product photograph",
+  "seed": 42,
+  "steps": 8,
+  "width": 512,
+  "height": 512,
+  "run_response_seconds": 4.627,
+  "elapsed_including_fetch_seconds": 4.913,
+  "image": "/assets/evidence/nightmare-cube.png",
+  "png_sha256": "785f9caeb5d49f917be197084f16a2f542fa55248104975136ca9b8b76226c3f",
+  "scope": "One measured result through the installed Nightmare API. Timing includes receipt on the host. The Forge UI path is separately qualified."
+}

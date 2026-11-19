@@ -1,301 +1,126 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>fR3k.dev — AI Systems Architect &amp; Operator</title>
-  <meta name="description" content="fr3k — independent AI systems architect. Sovereign agent infrastructure, resilient Reticulum/LXMF comms, distributed control planes, local model engineering, and evidence-gated evaluation. North Queensland, Australia." />
-  <meta name="author" content="fr3k" />
-  <meta property="og:title" content="fr3k.dev" />
-  <meta property="og:description" content="AI systems architect & operator. Real repos, real tests, real evidence." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://fr3k.dev" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="stylesheet" href="assets/css/approved-art.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#161715">
+  <title>FR3K field lab | Independent systems engineering</title>
+  <meta name="description" content="Explore FR3K Operations, Fleet and AI Forge. Inspect pilot workflows, device receipts and a measured RedMagic image generation run from the North Queensland field lab.">
+  <link rel="stylesheet" href="/assets/css/home.css">
+  <link rel="stylesheet" href="/assets/css/lab.css">
+<link rel="canonical" href="https://fr3k.dev/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FR3K Field Lab">
+<meta property="og:title" content="FR3K field lab | Independent systems engineering">
+<meta property="og:description" content="Explore FR3K Operations, Fleet and AI Forge. Inspect pilot workflows, device receipts and a measured RedMagic image generation run from the North Queensland field lab.">
+<meta property="og:url" content="https://fr3k.dev/">
+<meta property="og:image" content="https://fr3k.dev/assets/brand/field-lab-share.jpg">
+<meta property="og:image:alt" content="FR3K field lab emblem">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FR3K field lab | Independent systems engineering">
+<meta name="twitter:description" content="Explore FR3K Operations, Fleet and AI Forge. Inspect pilot workflows, device receipts and a measured RedMagic image generation run from the North Queensland field lab.">
+<meta name="twitter:image" content="https://fr3k.dev/assets/brand/field-lab-share.jpg">
 </head>
-<body>
-  <!-- Cinematic preloader -->
-  <div id="preloader" class="preloader">
-    <div class="preloader__core">
-      <div class="fr3k-loading-label" aria-hidden="true">FR3K // INIT</div>
-      <video class="fr3k-intro-art" autoplay muted playsinline preload="auto" poster="assets/brand/fr3k-1742.webp" aria-label="FR3K Inferno loading animation"><source src="assets/brand/fr3k-1742.mp4" type="video/mp4"></video>
-      <img class="fr3k-loading-still" src="assets/brand/fr3k-1742.webp" width="540" height="720" alt="FR3K Inferno emblem" />
-      <div class="preloader__glyph fr3k-loading-glyph">מִיכָאֵל</div>
-      <button class="fr3k-skip" type="button" aria-label="Skip FR3K intro animation">ENTER SITE</button>
-      <div class="preloader__bar"><span></span></div>
-      <div class="preloader__label">INITIALISING fR3K</div>
-    </div>
-  </div>
-
-  <div class="bg-grid" aria-hidden="true"></div>
-  <div class="bg-glow" aria-hidden="true"></div>
-  <div class="scanlines" aria-hidden="true"></div>
-
-  <!-- Nav -->
-  <nav class="nav glass">
-    <a href="#top" class="nav__brand">fR3K<span class="nav__dot">.</span>DEV</a>
-    <ul class="nav__links" id="navLinks">
-      <li><a href="#reel">Reel</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#work">GitHub Work</a></li>
-      <li><a href="/projects/">Flagship Products</a></li>
-      <li><a href="blackwave/">BLACKWAV3</a></li>
-      <li><a href="/invest/">Invest</a></li>
-      <li><a href="media.html">MEDIA</a></li>
-      <li><a href="#principles">Principles</a></li>
-      <li><a href="#company">Company</a></li>
-      <li><a href="#launch">Launch</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-    <a href="https://github.com/fr3k-d3v" target="_blank" rel="noopener" class="nav__cta">GitHub ↗</a>
-  </nav>
-
-  <main id="top">
-    <!-- HERO -->
-    <header class="hero">
-      <div class="hero__inner">
-        <p class="hero__kicker">AI SYSTEMS ARCHITECT // NORTH QUEENSLAND, AUSTRALIA</p>
-        <h1 class="hero__title glitch" data-text="fR3k">fR3k</h1>
-        <p class="hero__sub">Independent AI systems architect &amp; operator. I build autonomous systems where <strong>models, tools, infrastructure, hardware, safety and operations have to agree</strong> — and I prove them with tests, not prose.</p>
-
-        <!-- Live operational telemetry -->
-        <div class="statusbar glass" id="statusbar">
-          <div class="statusbar__item">
-            <span class="status-dot" id="nodeDot"></span>
-            <span class="statusbar__n" id="nodeCount">—</span>
-            <span class="statusbar__l">live count unavailable</span>
-          </div>
-          <div class="statusbar__sep"></div>
-          <div class="statusbar__item">
-            <span class="statusbar__l">reticulum / lxmf mesh</span>
-            <span class="statusbar__n" id="meshQuality">—</span>
-            <span class="statusbar__l">live mesh quality unavailable</span>
-          </div>
-          <div class="statusbar__sep"></div>
-          <div class="statusbar__item">
-            <span class="status-dot status-dot--ok"></span>
-            <span class="statusbar__l">systems</span>
-            <span class="statusbar__n statusbar__n--sm">not verified</span>
-          </div>
-        </div>
-
-        <div class="hero__cta">
-          <a href="#work" class="btn btn--primary">See the Work</a>
-          <a href="https://github.com/fr3k-d3v" target="_blank" rel="noopener" class="btn btn--ghost">github.com/fr3k-d3v ↗</a>
-          <a href="/invest/" class="btn btn--ghost">Investment overview ↗</a>
-        </div>
+<body class="lab-home" id="top">
+  <a class="lab-skip" href="#main">Skip to content</a>
+<nav class="lab-nav" aria-label="Primary"><div class="lab-bar"><a class="lab-brand" aria-label="FR3K Field Lab home" href="/">FR3K<span>/</span><b>FIELD LAB</b></a>
+<div class="lab-links"><a href="/projects/">Projects</a><a href="/media">Media</a><a href="/invest/">Invest</a><a href="/#contact">Contact</a></div></div></nav>
+  <main id="main" class="home-shell">
+    <header class="lab-hero">
+      <div class="lab-intro">
+        <p class="lab-label location"><span aria-hidden="true"></span>North Queensland, Australia</p>
+        <h1>Field<br><em>lab.</em></h1>
+        <p class="intro-copy">Independent systems engineering for the field. I build workforce tools, governed device fleets and AI that runs on local hardware.</p>
+        <div class="hero-actions"><a class="home-button" href="#platform">Explore systems</a><a href="#reel" class="reel-link"><span aria-hidden="true">▷</span> Motion reel</a></div>
       </div>
+      <figure class="sample">
+        <div class="sample-head"><span>AI Forge</span><span>Render study</span></div>
+        <a class="sample-view" href="/forge/" aria-label="Inspect the AI Forge cube render">
+          <img fetchpriority="high" width="512" height="512" src="/assets/home/nightmare-preview.webp" alt="Red cube casting a shadow on a charcoal surface, generated on a RedMagic handset">
+        </a>
+        <figcaption><div><strong>Nightmare / AbsoluteReality</strong><span>RedMagic 11S Pro · External renderer</span></div><div class="timing"><strong>4.913 s</strong><span>including fetch</span></div></figcaption>
+      </figure>
     </header>
 
-    <!-- User-supplied FR3K motion identities; five 6s H.264 clips -->
-    <section class="section fr3k-motion-section" id="identity" aria-labelledby="fr3k-motion-title">
-      <div class="fr3k-motion-heading">
-        <div>
-          <p class="fr3k-motion-overline">FIELD LAB // VISUAL IDENTITIES</p>
-          <h2 class="section__title" id="fr3k-motion-title">ONE SIGNAL. <span>FIVE STATES.</span></h2>
-          <p class="fr3k-motion-lead">The FR3K emblem, forged through five motion environments. Built to move, not sit still.</p>
-        </div>
-        <span class="fr3k-motion-meta">05 ORIGINAL MOTION STUDIES · 24 FPS</span>
-      </div>
-      <div class="fr3k-motion-grid" aria-label="FR3K motion logo variants">
-        <figure class="fr3k-motion-card" data-identity="inferno">
-          <div class="fr3k-motion-media">
-            <video class="fr3k-motion-video" muted loop playsinline preload="none" poster="assets/brand/fr3k-1742.webp" data-fr3k-src="assets/brand/fr3k-1742.mp4" aria-label="FR3K Inferno animated logo"></video>
-            <button class="fr3k-motion-toggle" type="button" aria-label="Pause Inferno animation" aria-pressed="false">PAUSE</button>
-          </div>
-          <figcaption><span class="fr3k-motion-index">01 / 05</span><strong>INFERNO</strong><span class="fr3k-motion-sub">FIRE / IGNITION</span></figcaption>
-        </figure>
-        <figure class="fr3k-motion-card" data-identity="cosmic">
-          <div class="fr3k-motion-media">
-            <video class="fr3k-motion-video" muted loop playsinline preload="none" poster="assets/brand/fr3k-1743.webp" data-fr3k-src="assets/brand/fr3k-1743.mp4" aria-label="FR3K Cosmic animated logo"></video>
-            <button class="fr3k-motion-toggle" type="button" aria-label="Pause Cosmic animation" aria-pressed="false">PAUSE</button>
-          </div>
-          <figcaption><span class="fr3k-motion-index">02 / 05</span><strong>COSMIC</strong><span class="fr3k-motion-sub">NEBULA / ENERGY</span></figcaption>
-        </figure>
-        <figure class="fr3k-motion-card" data-identity="plasma">
-          <div class="fr3k-motion-media">
-            <video class="fr3k-motion-video" muted loop playsinline preload="none" poster="assets/brand/fr3k-1744.webp" data-fr3k-src="assets/brand/fr3k-1744.mp4" aria-label="FR3K Plasma animated logo"></video>
-            <button class="fr3k-motion-toggle" type="button" aria-label="Pause Plasma animation" aria-pressed="false">PAUSE</button>
-          </div>
-          <figcaption><span class="fr3k-motion-index">03 / 05</span><strong>PLASMA</strong><span class="fr3k-motion-sub">ELECTRIC / PULSE</span></figcaption>
-        </figure>
-        <figure class="fr3k-motion-card" data-identity="magma">
-          <div class="fr3k-motion-media">
-            <video class="fr3k-motion-video" muted loop playsinline preload="none" poster="assets/brand/fr3k-1746.webp" data-fr3k-src="assets/brand/fr3k-1746.mp4" aria-label="FR3K Magma animated logo"></video>
-            <button class="fr3k-motion-toggle" type="button" aria-label="Pause Magma animation" aria-pressed="false">PAUSE</button>
-          </div>
-          <figcaption><span class="fr3k-motion-index">04 / 05</span><strong>MAGMA</strong><span class="fr3k-motion-sub">MOLTEN / POWER</span></figcaption>
-        </figure>
-        <figure class="fr3k-motion-card" data-identity="storm">
-          <div class="fr3k-motion-media">
-            <video class="fr3k-motion-video" muted loop playsinline preload="none" poster="assets/brand/fr3k-1747.webp" data-fr3k-src="assets/brand/fr3k-1747.mp4" aria-label="FR3K Storm animated logo"></video>
-            <button class="fr3k-motion-toggle" type="button" aria-label="Pause Storm animation" aria-pressed="false">PAUSE</button>
-          </div>
-          <figcaption><span class="fr3k-motion-index">05 / 05</span><strong>STORM</strong><span class="fr3k-motion-sub">LIGHTNING / SIGNAL</span></figcaption>
-        </figure>
-      </div>
-      <p class="fr3k-motion-footnote">Scroll to explore on mobile · Animations pause offscreen · Reduced-motion preferences respected</p>
-    </section>
-
-    <!-- REEL -->
-    <section id="reel" class="section reel">
-      <div class="reel__frame glass">
-        <video class="reel__video" autoplay muted loop playsinline preload="auto">
-          <source src="assets/hero-loop.mp4" type="video/mp4" />
-        </video>
-        <div class="reel__overlay"><span class="reel__tag">// fR3k — system online (8s loop)</span></div>
+    <section class="home-section systems" id="platform" aria-labelledby="systems-heading">
+      <div class="section-heading"><h2 id="systems-heading">Featured systems</h2><a href="/projects/">Full project register</a></div>
+      <div class="system-grid">
+        <a class="system-card" href="/operations/#field-example">
+          <div class="system-image operations-art"><img loading="lazy" width="400" height="533" src="/assets/brand/fr3k-1746.webp" alt=""></div>
+          <div class="system-text"><p class="lab-label">Workforce</p><h3>Operations</h3><p>Follow a fictional shift through approval to a payroll handoff.</p><span>Walk through the pilot</span></div>
+        </a>
+        <a class="system-card" href="/fleet/#field-example">
+          <div class="system-image fleet-art"><img loading="lazy" width="400" height="533" src="/assets/brand/fr3k-1747.webp" alt=""></div>
+          <div class="system-text"><p class="lab-label">Device control</p><h3>Fleet</h3><p>See how a bounded device job records its outcome for review.</p><span>Read the example receipt</span></div>
+        </a>
+        <a class="system-card" href="/forge/">
+          <div class="system-image forge-art"><img loading="lazy" width="512" height="512" src="/assets/home/nightmare-preview.webp" alt=""></div>
+          <div class="system-text"><p class="lab-label">Local generation</p><h3>AI Forge</h3><p>Inspect the render, parameters and remaining Forge UI acceptance gate.</p><span>Inspect the render</span></div>
+        </a>
       </div>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="section">
-      <h2 class="section__title"><span class="num">00</span> About</h2>
-      <div class="card glass">
-        <p>Independent AI systems architect and operator — callsign <strong>fr3k</strong> — working out of North Queensland. My surface spans local-first agent infrastructure, resilient communications, distributed control planes, model evaluation and optimisation, RAG, multimodal generation, embodied AI, and evidence-gated field systems.</p>
-        <p class="muted">I do not count scaffolds as finished systems, and I do not report simulated passes as execution evidence. A blocked gate is a valid engineering result.</p>
+    <nav class="paths" aria-label="Portfolio paths">
+      <a href="/operations/#field-example"><b>For buyers</b><span>Review the workforce pilot</span></a>
+      <a href="#work"><b>For developers</b><span>Browse the source repositories</span></a>
+      <a href="/invest/#milestone"><b>For investors</b><span>See the first commercial milestone</span></a>
+    </nav>
+
+    <section class="home-section media-section" id="reel">
+      <div class="media-lead"><div><p class="lab-label">Motion archive</p><h2>Engineering reel</h2><p>A 45-second film from the lab. Explore the original identity studies and the campaign archive below.</p><a href="/media">Open the media library</a></div>
+        <video aria-label="FR3K engineering reel" width="1280" height="720" controls playsinline preload="none" poster="/assets/home/reel-poster.webp" src="/assets/main-reel.mp4"></video>
       </div>
+      <details id="identity"><summary id="fr3k-motion-title">Five motion identities <small>6 seconds each</small></summary><div class="motion-grid"><figure><video controls muted playsinline preload="none" width="540" height="720" poster="/assets/brand/fr3k-1742.webp" aria-label="Inferno emblem animation" src="/assets/brand/fr3k-1742.mp4"></video><figcaption>Inferno</figcaption></figure><figure><video controls muted playsinline preload="none" width="540" height="720" poster="/assets/brand/fr3k-1743.webp" aria-label="Cosmic emblem animation" src="/assets/brand/fr3k-1743.mp4"></video><figcaption>Cosmic</figcaption></figure><figure><video controls muted playsinline preload="none" width="540" height="720" poster="/assets/brand/fr3k-1744.webp" aria-label="Plasma emblem animation" src="/assets/brand/fr3k-1744.mp4"></video><figcaption>Plasma</figcaption></figure><figure><video controls muted playsinline preload="none" width="540" height="720" poster="/assets/brand/fr3k-1746.webp" aria-label="Magma emblem animation" src="/assets/brand/fr3k-1746.mp4"></video><figcaption>Magma</figcaption></figure><figure><video controls muted playsinline preload="none" width="540" height="720" poster="/assets/brand/fr3k-1747.webp" aria-label="Storm emblem animation" src="/assets/brand/fr3k-1747.mp4"></video><figcaption>Storm</figcaption></figure></div></details>
+      <details id="launch"><summary>Launch films and shorts</summary><div class="archive-list">
+        <a href="/assets/hero-loop.mp4">System loop</a><a href="/assets/fr3k-intro.mp4">FR3K intro</a><a href="/assets/launch-film.mp4">Launch film</a>
+        <a href="/assets/campaign/v01-teaser.mp4">Teaser</a>
+        <a href="/assets/campaign/v02-systems-hard.mp4">Systems Are Hard</a>
+        <a href="/assets/campaign/v03-proof-not-prose.mp4">Proof Not Prose</a>
+        <a href="/assets/campaign/v04-launch-film.mp4">Launch Film</a>
+        <a href="/assets/campaign/v05-35b-4gb.mp4">35B / 4GB</a>
+        <a href="/assets/campaign/v06-resilient-comms.mp4">Resilient Comms</a>
+        <a href="/assets/campaign/v07-agent-eval.mp4">Agent Eval</a>
+        <a href="/assets/campaign/v08-local-first.mp4">Local-First</a>
+        <a href="/assets/campaign/v09-blocked-is-result.mp4">Blocked Is A Result</a>
+        <a href="/assets/campaign/v10-inspect-work.mp4">Inspect The Work</a>
+        <a href="/assets/campaign/v11-mcp-intro.mp4">MCP Intelligence</a>
+        <a href="/assets/campaign/v12-goldfish.mp4">Goldfish</a>
+        <a href="/assets/campaign/v13-soul.mp4">SOUL.md</a>
+        <a href="/assets/campaign/v14-memory.mp4">Memory</a>
+        <a href="/assets/campaign/v15-business-outcome.mp4">Business Outcome</a>
+        <a href="/assets/campaign/v16-full-source.mp4">Full Source</a>
+        <a href="/assets/campaign/v17-two-week.mp4">Two-Week Build</a>
+        <a href="/assets/campaign/v18-founder-manifesto.mp4">Founder manifesto</a>
+        <a href="/assets/shorts/short-comms.mp4">Edge communications short</a>
+        <a href="/assets/shorts/short-eval.mp4">Agent evaluation short</a>
+        <a href="/assets/shorts/short-models.mp4">Model engineering short</a>
+        <a href="/assets/shorts/short-ops.mp4">Fleet operations short</a>
+        <a href="/assets/shorts/short-rag.mp4">Local retrieval short</a>
+        <a href="/assets/shorts/short-sting.mp4">Identity sting short</a>
+        <a href="/assets/shorts/short-teaser.mp4">Systems teaser short</a>
+        <a href="/blackwave/campaign/">BLACKWAV3 campaign</a>
+      </div></details>
     </section>
 
-    <!-- WORK — grouped by discipline -->
-    <section id="work" class="section">
-      <h2 class="section__title"><span class="num">01</span> Work on GitHub</h2>
-      <p class="section__lead">Real repositories, grouped by the kind of problem they solve. Repository availability is not proof of deployment. Check each project’s evidence, test results and current release notes.</p>
-
-      <div class="workgroup">
-        <h3 class="workgroup__h">Resilient Communications</h3>
-        <div class="grid">
-          <a class="tile glass" href="https://github.com/fr3kchy/hermes-reticulum-platform" target="_blank" rel="noopener"><h3>hermes-reticulum-platform</h3><p>Independent Reticulum/LXMF transport plus a fail-closed Hermes policy gateway. Transport survives gateway failure.</p><span class="tile__tag">38 tests</span></a>
-          <a class="tile glass" href="https://github.com/fr3kchy/hermes-fleet-control" target="_blank" rel="noopener"><h3>hermes-fleet-control</h3><p>Secure local-first control plane for distributed Hermes nodes — HMAC heartbeats, durable task queue, authenticated events.</p><span class="tile__tag">16 tests</span></a>
-        </div>
-      </div>
-
-      <div class="workgroup">
-        <h3 class="workgroup__h">Distributed Agent Operations</h3>
-        <div class="grid">
-          <a class="tile glass" href="https://github.com/fr3kchy/fr3k-infrastructure" target="_blank" rel="noopener"><h3>fr3k-infrastructure</h3><p>Executable governance and evidence gates for community communications infrastructure. Checksum-verified, blocked-state honest.</p><span class="tile__tag">evidence-gated</span></a>
-          <a class="tile glass" href="https://github.com/fr3kchy/trajectory-replay-demo" target="_blank" rel="noopener"><h3>trajectory-replay-demo</h3><p>Record and replay agent tool trajectories for model/prompt A/B testing. SQLite-backed comparative evaluation.</p><span class="tile__tag">replay A/B</span></a>
-        </div>
-      </div>
-
-      <div class="workgroup">
-        <h3 class="workgroup__h">Local Model Engineering</h3>
-        <div class="grid">
-          <a class="tile glass" href="https://github.com/fr3kchy/qwen36-bench" target="_blank" rel="noopener"><h3>qwen36-bench</h3><p>Reproducible Ollama optimisation on constrained hardware — 35B MoE on 4&nbsp;GB VRAM, 5.71 tok/s peak, all checks passed.</p><span class="tile__tag">35B MoE · 4GB</span></a>
-          <a class="tile glass" href="https://github.com/fr3kchy/ollama-local-rag-demo" target="_blank" rel="noopener"><h3>ollama-local-rag-demo</h3><p>Fully local RAG with Ollama and FAISS. Zero-cloud retrieval and generation path.</p><span class="tile__tag">zero-cloud RAG</span></a>
-          <a class="tile glass" href="https://github.com/fr3kchy/mcp-rag-pgvector-demo" target="_blank" rel="noopener"><h3>mcp-rag-pgvector-demo</h3><p>Production-shaped RAG with pgvector, embeddings, MMR and evaluation. Reproducible harness.</p><span class="tile__tag">pgvector RAG</span></a>
-        </div>
-      </div>
-
-      <div class="workgroup">
-        <h3 class="workgroup__h">Agent Evaluation</h3>
-        <div class="grid">
-          <a class="tile glass" href="https://github.com/fr3kchy/agent-eval-harness-demo" target="_blank" rel="noopener"><h3>agent-eval-harness-demo</h3><p>Golden-dataset agent evaluation and drift detection. 25-question baseline, local + hosted backends.</p><span class="tile__tag">golden dataset</span></a>
-          <a class="tile glass" href="https://github.com/fr3kchy/agent-cost-router-demo" target="_blank" rel="noopener"><h3>agent-cost-router-demo</h3><p>Route tasks to the cheapest viable model instead of defaulting to frontier inference. Measured baseline.</p><span class="tile__tag">cost routing</span></a>
-        </div>
-      </div>
-
-      <div class="workgroup">
-        <h3 class="workgroup__h">Domain Computation &amp; Education</h3>
-        <div class="grid">
-          <a class="tile glass" href="https://github.com/fr3kchy/divine-arsenal" target="_blank" rel="noopener"><h3>divine-arsenal</h3><p>Domain computation joining ephemeris data, planetary hours and operational rules — deterministic Python, not symbolic prose.</p><span class="tile__tag">deterministic</span></a>
-          <a class="tile glass" href="https://github.com/fr3kchy/openclaw-workshop" target="_blank" rel="noopener"><h3>openclaw-workshop</h3><p>Two-day hands-on curriculum for agents, MCP and AI coding tools. Structured labs + deployment material.</p><span class="tile__tag">2-day labs</span></a>
-        </div>
-      </div>
-
-      <p class="oss__note muted">The reference names <code>agent-core</code> / <code>reticulum-lxmf</code> from an earlier mock aren't published — links above point to the live, verified equivalents.</p>
+    <section class="home-section" id="work">
+      <div class="section-heading"><h2>Developer resources</h2><a href="https://github.com/fr3k-d3v">GitHub profile</a></div>
+      <details><summary>Browse source by discipline</summary><div class="source-library">
+<div><h3>Resilient Communications</h3><ul><li><a href="https://github.com/fr3kchy/hermes-reticulum-platform">hermes-reticulum-platform</a></li><li><a href="https://github.com/fr3kchy/hermes-fleet-control">hermes-fleet-control</a></li></ul></div>
+<div><h3>Distributed Agent Operations</h3><ul><li><a href="https://github.com/fr3kchy/fr3k-infrastructure">fr3k-infrastructure</a></li><li><a href="https://github.com/fr3kchy/trajectory-replay-demo">trajectory-replay-demo</a></li></ul></div>
+<div><h3>Local Model Engineering</h3><ul><li><a href="https://github.com/fr3kchy/qwen36-bench">qwen36-bench</a></li><li><a href="https://github.com/fr3kchy/ollama-local-rag-demo">ollama-local-rag-demo</a></li><li><a href="https://github.com/fr3kchy/mcp-rag-pgvector-demo">mcp-rag-pgvector-demo</a></li></ul></div>
+<div><h3>Agent Evaluation</h3><ul><li><a href="https://github.com/fr3kchy/agent-eval-harness-demo">agent-eval-harness-demo</a></li><li><a href="https://github.com/fr3kchy/agent-cost-router-demo">agent-cost-router-demo</a></li></ul></div>
+<div><h3>Domain Computation &amp; Education</h3><ul><li><a href="https://github.com/fr3kchy/divine-arsenal">divine-arsenal</a></li><li><a href="https://github.com/fr3kchy/openclaw-workshop">openclaw-workshop</a></li></ul></div>
+        <div><h3>Platform engineering</h3><ul><li><a href="https://github.com/fr3k-d3v/fr3k-fleet-mcp">Fleet MCP</a></li><li><a href="https://github.com/fr3k-d3v/fr3k-xiaozhi-claw">Xiaozhi × Claw</a></li><li><a href="/blackwave/">BLACKWAV3 field systems</a></li></ul></div>
+      </div></details>
     </section>
 
-    <section id="platform" class="section">
-<h2 class="section__title"><span class="num">02</span> FR3K Platform // Current Work</h2>
-<p class="section__lead">Connect machines. Measure reality. Delegate work. Verify results. Public project descriptions reflect engineering workstreams, not blanket claims of finished integration.</p>
-<div class="grid">
-<a class="tile glass" href="https://github.com/fr3k-d3v/fr3k-fleet-mcp" target="_blank" rel="noopener"><h3>Fleet MCP</h3><p>Authenticated device discovery, command execution, job tracking, evidence and operator approvals. Live fleet capabilities must be checked at execution time.</p><span class="tile__tag">active integration</span></a>
-<a class="tile glass" href="https://github.com/fr3k-d3v/fr3k-xiaozhi-claw" target="_blank" rel="noopener"><h3>Xiaozhi × Claw</h3><p>Voice-driven agent orchestration across ESP devices, Hermes and compatible agent frameworks; staged integration with safety boundaries.</p><span class="tile__tag">in development</span></a>
-<a class="tile glass" href="blackwave/"><h3>BLACKWAV3 2026</h3><p>Firmware, OTA, hardware targets, fleet management, radio systems and evidence-backed physical validation. August results preserved as historical snapshots.</p><span class="tile__tag">major rebuild</span></a>
-<a class="tile glass" href="https://github.com/fr3kchy/hermes-reticulum-platform" target="_blank" rel="noopener"><h3>Resilient Edge Communications</h3><p>Reticulum and LXMF work alongside heterogeneous device links, with transport independence and explicit security boundaries.</p><span class="tile__tag">research + integration</span></a>
-</div></section>
-    <!-- PRINCIPLES -->
-    <section id="principles" class="section">
-      <h2 class="section__title"><span class="num">02</span> How I Engineer</h2>
-      <div class="card glass">
-        <ul class="creed">
-          <li><span class="creed__k">⟁</span> <b>Operational truth outranks mythology.</b> Read the running system, not just its design document.</li>
-          <li><span class="creed__k">⟁</span> <b>Transport and control are separate failure domains.</b> Optional AI must not weaken the underlying system.</li>
-          <li><span class="creed__k">⟁</span> <b>Evidence is graded.</b> Observation, unit tests, integration tests and live acceptance are not interchangeable.</li>
-          <li><span class="creed__k">⟁</span> <b>Security boundaries are explicit.</b> Inputs untrusted, queues bounded, privileged audit fails closed, cloud egress gated.</li>
-          <li><span class="creed__k">⟁</span> <b>Hardware claims require hardware.</b> Virtual/LAN acceptance is never relabelled as RF, robotics or field acceptance.</li>
-          <li><span class="creed__k">⟁</span> <b>Useful failure reports beat polished fiction.</b> A blocked gate is a valid engineering result.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- COMPANY (clearly separated, minimal) -->
-    <section id="company" class="section">
-      <h2 class="section__title"><span class="num">03</span> Company</h2>
-      <div class="card glass card--accent">
-        <p>I also run <strong>MCP Intelligence</strong> — my company building psychology-first autonomous agent systems for clients (persistent memory, voice, orchestration, delivered as full source). That's the product side; this site is the engineering.</p>
-        <a href="https://mcpintelligence.com.au" target="_blank" rel="noopener" class="btn btn--ghost">mcpintelligence.com.au ↗</a>
-      </div>
-    </section>
-
-    <!-- LAUNCH BLITZ -->
-    <section id="launch" class="section">
-      <h2 class="section__title"><span class="num">05</span> Launch Blitz</h2>
-      <p class="section__lead">The fR3k launch series — a 2-minute film plus vertical shorts for YouTube, Reels and TikTok. All rendered locally with HyperFrames.</p>
-      <p><a href="blackwave/campaign/" class="btn btn--ghost">BLACKWAVE // FOLLOW THE EVIDENCE ↗</a></p>
-      <div class="reel__frame glass" style="margin-bottom:1.6rem">
-        <video class="reel__video" autoplay muted loop playsinline preload="auto">
-          <source src="assets/main-reel.mp4" type="video/mp4" />
-        </video>
-        <div class="reel__overlay"><span class="reel__tag">// fR3k — engineering reel (45s)</span></div>
-      </div>
-      <div class="shorts">
-        <a class="short" href="assets/campaign/v01-teaser.mp4" target="_blank" rel="noopener"><span class="short__t">Teaser</span><span class="short__d">coming online</span></a>
-        <a class="short" href="assets/campaign/v02-systems-hard.mp4" target="_blank" rel="noopener"><span class="short__t">Systems Are Hard</span><span class="short__d">model · tools · ops</span></a>
-        <a class="short" href="assets/campaign/v03-proof-not-prose.mp4" target="_blank" rel="noopener"><span class="short__t">Proof Not Prose</span><span class="short__d">test it</span></a>
-        <a class="short" href="assets/campaign/v04-launch-film.mp4" target="_blank" rel="noopener"><span class="short__t">Launch Film</span><span class="short__d">fr3k.dev live</span></a>
-        <a class="short" href="assets/campaign/v05-35b-4gb.mp4" target="_blank" rel="noopener"><span class="short__t">35B / 4GB</span><span class="short__d">constrained HW</span></a>
-        <a class="short" href="assets/campaign/v06-resilient-comms.mp4" target="_blank" rel="noopener"><span class="short__t">Resilient Comms</span><span class="short__d">Reticulum/LXMF</span></a>
-        <a class="short" href="assets/campaign/v07-agent-eval.mp4" target="_blank" rel="noopener"><span class="short__t">Agent Eval</span><span class="short__d">measure it</span></a>
-        <a class="short" href="assets/campaign/v08-local-first.mp4" target="_blank" rel="noopener"><span class="short__t">Local-First</span><span class="short__d">zero-cloud RAG</span></a>
-        <a class="short" href="assets/campaign/v09-blocked-is-result.mp4" target="_blank" rel="noopener"><span class="short__t">Blocked Is A Result</span><span class="short__d">evidence-gated</span></a>
-        <a class="short" href="assets/campaign/v10-inspect-work.mp4" target="_blank" rel="noopener"><span class="short__t">Inspect The Work</span><span class="short__d">read the code</span></a>
-        <a class="short" href="assets/campaign/v11-mcp-intro.mp4" target="_blank" rel="noopener"><span class="short__t">MCP Intelligence</span><span class="short__d">client systems</span></a>
-        <a class="short" href="assets/campaign/v12-goldfish.mp4" target="_blank" rel="noopener"><span class="short__t">Goldfish</span><span class="short__d">persistent memory</span></a>
-        <a class="short" href="assets/campaign/v13-soul.mp4" target="_blank" rel="noopener"><span class="short__t">SOUL.md</span><span class="short__d">behavior is architecture</span></a>
-        <a class="short" href="assets/campaign/v14-memory.mp4" target="_blank" rel="noopener"><span class="short__t">Memory</span><span class="short__d">not chat history</span></a>
-        <a class="short" href="assets/campaign/v15-business-outcome.mp4" target="_blank" rel="noopener"><span class="short__t">Business Outcome</span><span class="short__d">continuity</span></a>
-        <a class="short" href="assets/campaign/v16-full-source.mp4" target="_blank" rel="noopener"><span class="short__t">Full Source</span><span class="short__d">no lock-in</span></a>
-        <a class="short" href="assets/campaign/v17-two-week.mp4" target="_blank" rel="noopener"><span class="short__t">Two-Week Build</span><span class="short__d">custom agent systems</span></a>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section">
-      <h2 class="section__title"><span class="num">04</span> Contact</h2>
-      <div class="card glass">
-        <ul class="contact">
-          <li><span class="contact__k">email</span> <a href="mailto:fr3k@fr3k.dev">fr3k@fr3k.dev</a></li>
-          <li><span class="contact__k">github</span> <a href="https://github.com/fr3k-d3v" target="_blank" rel="noopener">@fr3kchy</a></li>
-          <li><span class="contact__k">company</span> <a href="https://mcpintelligence.com.au" target="_blank" rel="noopener">mcpintelligence.com.au</a></li>
-          <li><span class="contact__k">location</span> <span>North Queensland, Australia</span></li>
-        </ul>
-      </div>
+    <section class="home-section about" id="about">
+      <div><p class="lab-label">The operator</p><h2>About the lab</h2></div>
+      <div><p>I'm fr3k, an independent AI systems architect and operator in North Queensland. My work follows software out to the hardware and the people who use it.</p>
+      <h3 id="principles">Engineering principles</h3><p>Each project records what was observed, which tests ran and which gates remain open. Hardware claims need hardware evidence.</p>
+      <h3 id="company">MCP Intelligence</h3><p>I also build client agent systems through <a href="https://mcpintelligence.com.au">MCP Intelligence</a>, covering persistent memory, voice and orchestration.</p></div>
     </section>
   </main>
-
-  <footer class="footer">
-    <span>© <span id="year"></span> fR3k</span>
-    <span class="footer__sig">מִיכָאֵל · who is like God</span>
-  </footer>
-
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/approved-art.js" defer></script>
+  <footer id="contact" class="home-footer"><div class="home-shell"><div><p class="lab-label">Contact</p><h2>Talk to the lab.</h2></div><a href="mailto:fr3k@fr3k.dev">fr3k@fr3k.dev</a></div></footer>
 </body>
 </html>

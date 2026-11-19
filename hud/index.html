@@ -5,31 +5,46 @@
 <meta name="theme-color" content="#080b13">
 <title>FR3K HUD | fR3k.dev</title>
 <meta name="description" content="A capability-aware Android HUD, command surface and integration hub. It adapts to the available permission tier and partner services instead of showing actions that silently fail when a dependency is absent.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="canonical" href="https://fr3k.dev/hud/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FR3K Field Lab">
+<meta property="og:title" content="FR3K HUD | FR3K Field Lab">
+<meta property="og:description" content="A capability-aware Android HUD, command surface and integration hub. It adapts to the available permission tier and partner services instead of showing actions that silently fail when a dependency is absent.">
+<meta property="og:url" content="https://fr3k.dev/hud/">
+<meta property="og:image" content="https://fr3k.dev/assets/brand/field-lab-share.jpg">
+<meta property="og:image:alt" content="FR3K field lab emblem">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FR3K HUD | FR3K Field Lab">
+<meta name="twitter:description" content="A capability-aware Android HUD, command surface and integration hub. It adapts to the available permission tier and partner services instead of showing actions that silently fail when a dependency is absent.">
+<meta name="twitter:image" content="https://fr3k.dev/assets/brand/field-lab-share.jpg">
 <link rel="stylesheet" href="/assets/css/flagships.css">
+<link rel="stylesheet" href="/assets/css/lab.css">
 <style>:root{--accent:#8b83ff}</style>
 <script defer src="/assets/js/flagship-status.js"></script>
 </head>
 <body data-flagship-id="hud">
-<nav class="nav shell"><a class="brand" href="/">fR3k<span>.</span>DEV</a><div class="navlinks"><a href="/projects/">All projects</a><a href="/#contact">Contact</a></div></nav>
-<main>
-<section class="hero shell"><div>
-<div class="eyebrow">fR3k flagship / Android operator interface · capability router</div>
-<h1>An adaptive Android interface that exposes only what the device can do.</h1>
+<a class="lab-skip" href="#main-content">Skip to content</a>
+<nav class="lab-nav" aria-label="Primary"><div class="lab-bar"><a class="lab-brand" aria-label="FR3K Field Lab home" href="/">FR3K<span>/</span><b>FIELD LAB</b></a>
+<div class="lab-links"><a href="/projects/">Projects</a><a href="/media">Media</a><a href="/invest/">Invest</a><a href="/#contact">Contact</a></div></div></nav>
+<main id="main-content">
+<header class="hero shell"><div>
+<a class="eyebrow" href="/projects/">Flagship register</a>
+<h1>FR3K HUD</h1>
+<p class="product-subtitle">An adaptive Android interface that exposes only what the device can do.</p>
 <p class="lead">A capability-aware Android HUD, command surface and integration hub. It adapts to the available permission tier and partner services instead of showing actions that silently fail when a dependency is absent.</p>
-<div class="actions"><a class="btn primary" href="#status">Inspect live status ↓</a><a class="btn" href="#capabilities">Capabilities ↓</a><a class="btn" href="https://github.com/fr3k-d3v/fr3k-hud" target="_blank" rel="noopener noreferrer">Source repository ↗</a></div>
-</div></section>
+<div class="actions"><a class="btn" href="#status">Status</a><a class="btn" href="#capabilities">Capabilities</a><a class="btn" href="https://github.com/fr3k-d3v/fr3k-hud" target="_blank" rel="noopener noreferrer">Source repository ↗</a></div>
+</div></header>
+
 <section id="status" class="section status-section"><div class="shell">
-<div class="eyebrow">Evidence feed // auto-reconciled</div><h2>What exists. What is running. What remains open.</h2>
+<div class="eyebrow">Evidence feed // auto-reconciled</div><h2>System status</h2>
 <div class="status-dashboard" data-flagship-status>
   <div class="status-summary"><span class="state-chip">Integration hardening · draft PR</span><p>The source V1 acceptance matrix marks 14 criteria complete and four as partial/V2-V3. The current HUD × Voice Studio integration PR is draft and not deployed; Android build, device smoke and security review remain release gates.</p></div>
-  <p class="status-loading">Loading the latest source and runtime snapshot…</p>
+  <p class="status-loading">Source and runtime observations appear here when available.</p>
 </div>
 <p class="status-footnote">Repository, CI, review and runtime signals are checked every 15 minutes. This feed does not promote a commit into a verified capability or a running process into a successful outcome.</p>
 </div></section>
 <section id="capabilities" class="section"><div class="shell">
-<div class="eyebrow">Capability register</div><h2>What the system can actually do.</h2>
+<div class="eyebrow">Capability register</div><h2>Capabilities</h2>
 <div class="features"><article class="tile capability-card" data-capability-id="floating-hud-and-command-palette">
     <div class="capability-card__top"><b>Floating HUD and command palette</b><span class="state-chip" data-capability-state>source-reported</span></div>
     <p>Foreground overlay orb, quick panel, radial menu and command palette with share and Ask About This flows.</p>
@@ -57,11 +72,11 @@
   </article></div>
 </div></section>
 <section class="section"><div class="shell">
-<div class="eyebrow">Proof ledger</div><h2>Current evidence and acceptance state.</h2>
+<div class="eyebrow">Proof ledger</div><h2>Evidence on record</h2>
 <div class="evidence-list"><article class="evidence-item"><span class="state-chip state-chip--source-reported">source-reported</span><div><strong>V1 acceptance matrix</strong><p>14 complete · 4 partial (source-reported)</p></div></article><article class="evidence-item"><span class="state-chip state-chip--in-development">in-development</span><div><strong>Integration PR</strong><p>Open draft · not deployed</p></div></article><article class="evidence-item"><span class="state-chip state-chip--not-tested">not-tested</span><div><strong>Release acceptance</strong><p>Build, device smoke and security review pending</p></div></article></div>
 </div></section>
 <section class="section"><div class="shell">
-<div class="eyebrow">Boundaries and open gates</div><h2>What we will not pretend is finished.</h2>
+<div class="eyebrow">Boundaries and open gates</div><h2>Open questions</h2>
 <ul class="boundary-list"><li>An integration being installed is not proof that it is authorised or usable.</li><li>The draft integration PR does not implement all E01–E12 capabilities.</li><li>Release requires signed APK identity and independently observed postconditions.</li></ul>
 <div class="next-gate"><span class="eyebrow">NEXT ACCEPTANCE GATE</span><p>Run the debug unit-test and assemble tasks, perform Android smoke/regression tests, and complete independent security review before merge or release.</p></div>
 <div class="actions"><a class="btn primary" href="mailto:fr3k@fr3k.dev?subject=FR3K%20HUD%20technical%20discussion">Discuss this system</a><a class="btn" href="/projects/">Back to all flagships</a></div>

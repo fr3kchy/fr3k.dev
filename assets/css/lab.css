@@ -1,0 +1,28 @@
+.lab-nav, .lab-nav * { box-sizing: border-box; }
+.lab-nav { position: relative; z-index: 3; background: #141513; color: #f6f2e9; border-bottom: 1px solid #464742; }
+.lab-bar { max-width: 1248px; margin: auto; padding: .75rem clamp(1rem,4vw,3rem); display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.lab-brand, .lab-links a { color: inherit; text-decoration: none; display: inline-flex; min-height: 44px; align-items: center; }
+.lab-brand { gap: .52rem; font: 900 1.5rem/1 system-ui,sans-serif; letter-spacing: -.055em; white-space: nowrap; }
+.lab-brand span { color: #ff654e; font-weight: 500; }
+.lab-brand b { font: 600 .76rem/1 ui-monospace, monospace; letter-spacing: .1em; }
+.lab-links { display: flex; flex-wrap: wrap; gap: clamp(.75rem,3vw,2.5rem); }
+.lab-links a { font: 550 .92rem/1.3 system-ui,sans-serif; }
+.lab-links a:hover, .lab-links a[aria-current] { color: #ff9f8a; text-decoration: underline; text-underline-offset: .35em; }
+.lab-skip { position: absolute; z-index: 99; left: .5rem; top: .5rem; transform: translateY(-200%); padding: .65rem 1rem; color: #171713; background: #fff; }
+.lab-skip:focus { transform: none; }
+:focus-visible { outline: 3px solid #ffab83; outline-offset: 3px; }
+/* Let tablet navigation wrap before font metrics cause horizontal overflow. */
+@media(max-width: 52rem) {
+  .lab-bar { flex-wrap: wrap; }
+  .lab-links { width: 100%; justify-content: center; }
+}
+@media(max-width: 36rem) {
+  .lab-bar { flex-wrap: wrap; gap: 0 .8rem; padding-block: .25rem; }
+  .lab-brand { font-size: 1.2rem; }
+  .lab-links { gap: .85rem; }
+  .lab-links a { font-size: .875rem; }
+}
+@media(prefers-reduced-motion:reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080b13">
+<title>FR3K AI FORGE | fR3k.dev</title>
+<meta name="description" content="AI Forge explores local image generation on Android. A RedMagic handset completed a measured render through Nightmare. The Forge interface still awaits its own end-to-end run.">
+<link rel="canonical" href="https://fr3k.dev/forge/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FR3K Field Lab">
+<meta property="og:title" content="FR3K AI FORGE | FR3K Field Lab">
+<meta property="og:description" content="AI Forge explores local image generation on Android. A RedMagic handset completed a measured render through Nightmare. The Forge interface still awaits its own end-to-end run.">
+<meta property="og:url" content="https://fr3k.dev/forge/">
+<meta property="og:image" content="https://fr3k.dev/assets/evidence/nightmare-cube.png">
+<meta property="og:image:alt" content="Red cube from the measured Nightmare run">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FR3K AI FORGE | FR3K Field Lab">
+<meta name="twitter:description" content="AI Forge explores local image generation on Android. A RedMagic handset completed a measured render through Nightmare. The Forge interface still awaits its own end-to-end run.">
+<meta name="twitter:image" content="https://fr3k.dev/assets/evidence/nightmare-cube.png">
+<link rel="stylesheet" href="/assets/css/flagships.css">
+<link rel="stylesheet" href="/assets/css/lab.css">
+<style>:root{--accent:#ff8b70}</style>
+<script defer src="/assets/js/flagship-status.js"></script>
+</head>
+<body data-flagship-id="forge">
+<a class="lab-skip" href="#main-content">Skip to content</a>
+<nav class="lab-nav" aria-label="Primary"><div class="lab-bar"><a class="lab-brand" aria-label="FR3K Field Lab home" href="/">FR3K<span>/</span><b>FIELD LAB</b></a>
+<div class="lab-links"><a href="/projects/">Projects</a><a href="/media">Media</a><a href="/invest/">Invest</a><a href="/#contact">Contact</a></div></div></nav>
+<main id="main-content">
+<header class="hero shell"><div>
+<a class="eyebrow" href="/projects/">Flagship register</a>
+<h1>FR3K AI FORGE</h1>
+<p class="product-subtitle">Image generation on a handheld device.</p>
+<p class="lead">AI Forge explores local image generation on Android. A RedMagic handset completed a measured render through Nightmare. The Forge interface still awaits its own end-to-end run.</p>
+<div class="actions"><a class="btn primary" href="#field-example">Inspect the render</a><a class="btn" href="#status">Status</a><a class="btn" href="#capabilities">Capabilities</a></div>
+</div></header>
+<section id="field-example" class="section field-example"><div class="shell"><div class="field-example-grid">
+    <figure class="sample-figure">
+      <a href="/assets/evidence/nightmare-cube.png"><img src="/assets/evidence/nightmare-cube.png" width="512" height="512" alt="Red cube with a shadowed left face on a grey studio surface" decoding="async"></a>
+      <figcaption>Original PNG · external Nightmare renderer · <time datetime="2026-11-19">19 November 2026</time></figcaption>
+    </figure>
+    <div><p class="eyebrow">Measured on hardware</p><h2>One cube in 4.913 seconds.</h2>
+    <p>RedMagic 11S Pro generated this image through the installed Nightmare API. The elapsed time includes fetching the image on the host.</p>
+    <dl class="receipt-list">
+      <div><dt>Renderer</dt><dd>Nightmare 1.6.307</dd></div>
+      <div><dt>Model</dt><dd>AbsoluteReality</dd></div>
+      <div><dt>Output</dt><dd>512 × 512 px</dd></div>
+      <div><dt>Seed / steps</dt><dd>42 / 8</dd></div>
+      <div><dt>Run response</dt><dd>4.627 s</dd></div>
+      <div><dt>Including fetch</dt><dd>4.913 s</dd></div>
+    </dl>
+    <p><strong>Prompt</strong> “A red cube on a matte black background, studio product photograph”</p>
+    <p class="sample-note">End-to-end Forge UI acceptance is pending. The next run must start in Forge and return its image to the same interface.</p>
+    <a class="btn" href="/data/evidence/nightmare-redmagic.json">Inspect run receipt (JSON)</a></div>
+  </div></div></section>
+<section id="status" class="section status-section"><div class="shell">
+<div class="eyebrow">Evidence feed // auto-reconciled</div><h2>System status</h2>
+<div class="status-dashboard" data-flagship-status>
+  <div class="status-summary"><span class="state-chip">Renderer measured · UI acceptance pending</span><p>The operator supplied a PNG and timing receipt for one external Nightmare API run.</p></div>
+  <p class="status-loading">Source and runtime observations appear here when available.</p>
+</div>
+<p class="status-footnote">Repository, CI, review and runtime signals are checked every 15 minutes. This feed does not promote a commit into a verified capability or a running process into a successful outcome.</p>
+</div></section>
+<section id="capabilities" class="section"><div class="shell">
+<div class="eyebrow">Capability register</div><h2>Capabilities</h2>
+<div class="features"><article class="tile capability-card" data-capability-id="external-renderer-evidence">
+    <div class="capability-card__top"><b>External renderer evidence</b><span class="state-chip" data-capability-state>source-reported</span></div>
+    <p>One on-device text-to-image run returned a PNG through Nightmare.</p>
+    <p class="capability-evidence"><strong>Evidence:</strong> Public run receipt and matching SHA-256 image digest.</p>
+  </article><article class="tile capability-card" data-capability-id="end-to-end-forge-interface">
+    <div class="capability-card__top"><b>End-to-end Forge interface</b><span class="state-chip" data-capability-state>not-tested</span></div>
+    <p>Submit a prompt in Forge and retrieve the resulting image in the interface.</p>
+    <p class="capability-evidence"><strong>Evidence:</strong> A separate UI acceptance run is pending.</p>
+  </article></div>
+</div></section>
+<section class="section"><div class="shell">
+<div class="eyebrow">Proof ledger</div><h2>Evidence on record</h2>
+<div class="evidence-list"><article class="evidence-item"><span class="state-chip state-chip--source-reported">source-reported</span><div><strong>Public renderer artifact</strong><p>The original PNG and public run receipt are available above.</p></div></article><article class="evidence-item"><span class="state-chip state-chip--not-tested">not-tested</span><div><strong>UI acceptance</strong><p>An observed prompt-to-image return through Forge is still required.</p></div></article></div>
+</div></section>
+<section class="section"><div class="shell">
+<div class="eyebrow">Boundaries and open gates</div><h2>Open questions</h2>
+<ul class="boundary-list"><li>Timing covers a single render with the recorded model, seed and step count.</li><li>The installed Nightmare renderer handled this run independently of the Forge UI.</li></ul>
+<div class="next-gate"><span class="eyebrow">NEXT ACCEPTANCE GATE</span><p>Record an end-to-end prompt submission through Forge and match the displayed image to the returned artifact.</p></div>
+<div class="actions"><a class="btn primary" href="mailto:fr3k@fr3k.dev?subject=FR3K%20AI%20FORGE%20technical%20discussion">Discuss this system</a><a class="btn" href="/projects/">Back to all flagships</a></div>
+</div></section>
+</main>
+<footer class="foot"><div class="shell">© fR3k · Evidence before claims · <a href="mailto:fr3k@fr3k.dev">fr3k@fr3k.dev</a></div></footer>
+</body></html>

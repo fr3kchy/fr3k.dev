@@ -5,31 +5,53 @@
 <meta name="theme-color" content="#080b13">
 <title>FR3K OPERATIONS | fR3k.dev</title>
 <meta name="description" content="An industry-agnostic, self-hostable operations platform for people, workforce, projects and financial preparation. Built to reduce fragmented administration without automating away human authority over payroll, payments or compliance decisions.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="canonical" href="https://fr3k.dev/operations/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FR3K Field Lab">
+<meta property="og:title" content="FR3K OPERATIONS | FR3K Field Lab">
+<meta property="og:description" content="An industry-agnostic, self-hostable operations platform for people, workforce, projects and financial preparation. Built to reduce fragmented administration without automating away human authority over payroll, payments or compliance decisions.">
+<meta property="og:url" content="https://fr3k.dev/operations/">
+<meta property="og:image" content="https://fr3k.dev/assets/brand/field-lab-share.jpg">
+<meta property="og:image:alt" content="FR3K field lab emblem">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FR3K OPERATIONS | FR3K Field Lab">
+<meta name="twitter:description" content="An industry-agnostic, self-hostable operations platform for people, workforce, projects and financial preparation. Built to reduce fragmented administration without automating away human authority over payroll, payments or compliance decisions.">
+<meta name="twitter:image" content="https://fr3k.dev/assets/brand/field-lab-share.jpg">
 <link rel="stylesheet" href="/assets/css/flagships.css">
+<link rel="stylesheet" href="/assets/css/lab.css">
 <style>:root{--accent:#63e6a8}</style>
 <script defer src="/assets/js/flagship-status.js"></script>
 </head>
 <body data-flagship-id="operations">
-<nav class="nav shell"><a class="brand" href="/">fR3k<span>.</span>DEV</a><div class="navlinks"><a href="/projects/">All projects</a><a href="/#contact">Contact</a></div></nav>
-<main>
-<section class="hero shell"><div>
-<div class="eyebrow">fR3k flagship / Workforce · projects · finance · compliance</div>
-<h1>One operational system. Every decision traceable.</h1>
+<a class="lab-skip" href="#main-content">Skip to content</a>
+<nav class="lab-nav" aria-label="Primary"><div class="lab-bar"><a class="lab-brand" aria-label="FR3K Field Lab home" href="/">FR3K<span>/</span><b>FIELD LAB</b></a>
+<div class="lab-links"><a href="/projects/">Projects</a><a href="/media">Media</a><a href="/invest/">Invest</a><a href="/#contact">Contact</a></div></div></nav>
+<main id="main-content">
+<header class="hero shell"><div>
+<a class="eyebrow" href="/projects/">Flagship register</a>
+<h1>FR3K OPERATIONS</h1>
+<p class="product-subtitle">One operational system. Every decision traceable.</p>
 <p class="lead">An industry-agnostic, self-hostable operations platform for people, workforce, projects and financial preparation. Built to reduce fragmented administration without automating away human authority over payroll, payments or compliance decisions.</p>
-<div class="actions"><a class="btn primary" href="#status">Inspect live status ↓</a><a class="btn" href="#capabilities">Capabilities ↓</a><a class="btn" href="https://github.com/fr3k-d3v/fr3k-operations" target="_blank" rel="noopener noreferrer">Public architecture and progress brief ↗</a></div>
-</div></section>
+<div class="actions"><a class="btn primary" href="#field-example">Walk through a shift</a><a class="btn" href="#status">Status</a><a class="btn" href="#capabilities">Capabilities</a><a class="btn" href="https://github.com/fr3k-d3v/fr3k-operations" target="_blank" rel="noopener noreferrer">Public architecture and progress brief ↗</a></div>
+</div></header>
+<section id="field-example" class="section field-example"><div class="shell"><p class="eyebrow">Fictional pilot walkthrough</p><h2>Follow one shift into a payroll draft.</h2>
+<p>A fictional workshop uses one shift to rehearse a pay-period handoff. All times and records below are invented.</p>
+<ol class="pilot-steps">
+  <li><strong>Roster the shift.</strong> A coordinator assigns a workshop shift from 08:00 to 16:00 with a 30-minute unpaid break.</li>
+  <li><strong>Reconcile attendance.</strong> The worker records a 16:15 finish. The extra quarter-hour goes to a supervisor for review.</li>
+  <li><strong>Approve the timesheet.</strong> The supervisor checks the finish time and break, then approves 7 hours 45 minutes for the draft.</li>
+  <li><strong>Prepare the handoff.</strong> A payroll reviewer compares the draft hours with the approved shift record and checks the applicable pay rules before export.</li>
+</ol><p class="sample-note">The walkthrough ends at human review. Live tenant reconciliation, payroll sign-off and payment remain outside this pilot.</p></div></section>
 <section id="status" class="section status-section"><div class="shell">
-<div class="eyebrow">Evidence feed // auto-reconciled</div><h2>What exists. What is running. What remains open.</h2>
+<div class="eyebrow">Evidence feed // auto-reconciled</div><h2>System status</h2>
 <div class="status-dashboard" data-flagship-status>
   <div class="status-summary"><span class="state-chip">Development pilot · acceptance incomplete</span><p>The connected CREW CENTRAL workspace, role-scoped modules, versioned records, review queues and company actions are implemented. The source evidence records a 118-test PostgreSQL suite and a browser acceptance journey. It is not production payroll software and is not certified compliant.</p></div>
-  <p class="status-loading">Loading the latest source and runtime snapshot…</p>
+  <p class="status-loading">Source and runtime observations appear here when available.</p>
 </div>
 <p class="status-footnote">Repository, CI, review and runtime signals are checked every 15 minutes. This feed does not promote a commit into a verified capability or a running process into a successful outcome.</p>
 </div></section>
 <section id="capabilities" class="section"><div class="shell">
-<div class="eyebrow">Capability register</div><h2>What the system can actually do.</h2>
+<div class="eyebrow">Capability register</div><h2>Capabilities</h2>
 <div class="features"><article class="tile capability-card" data-capability-id="people-and-workforce">
     <div class="capability-card__top"><b>People and workforce</b><span class="state-chip" data-capability-state>implemented</span></div>
     <p>Employee and applicant records, effective-dated classification history, availability, rostering, attendance, leave and timesheets.</p>
@@ -57,11 +79,11 @@
   </article></div>
 </div></section>
 <section class="section"><div class="shell">
-<div class="eyebrow">Proof ledger</div><h2>Current evidence and acceptance state.</h2>
+<div class="eyebrow">Proof ledger</div><h2>Evidence on record</h2>
 <div class="evidence-list"><article class="evidence-item"><span class="state-chip state-chip--verified">verified</span><div><strong>Automated suite</strong><p>118 PostgreSQL tests passed in the 11 Nov source evidence</p></div></article><article class="evidence-item"><span class="state-chip state-chip--verified">verified</span><div><strong>Browser acceptance</strong><p>Authenticated desktop/mobile workflow passed in source evidence</p></div></article><article class="evidence-item"><span class="state-chip state-chip--blocked">blocked</span><div><strong>Production state</strong><p>Development pilot only · no production payroll</p></div></article></div>
 </div></section>
 <section class="section"><div class="shell">
-<div class="eyebrow">Boundaries and open gates</div><h2>What we will not pretend is finished.</h2>
+<div class="eyebrow">Boundaries and open gates</div><h2>Open questions</h2>
 <ul class="boundary-list"><li>Core is industry-agnostic; award and sector rules must be versioned, sourced and independently reviewed.</li><li>No payroll finalisation, payment or lodgement without human approval.</li><li>A modelled payslip or synthetic golden total is not a legally verified payroll result.</li></ul>
 <div class="next-gate"><span class="eyebrow">NEXT ACCEPTANCE GATE</span><p>Complete source-data completeness, legal rule and Xero tenant evidence, independent security/privacy review, production database controls and parallel payroll signoff.</p></div>
 <div class="actions"><a class="btn primary" href="mailto:fr3k@fr3k.dev?subject=FR3K%20OPERATIONS%20technical%20discussion">Discuss this system</a><a class="btn" href="/projects/">Back to all flagships</a></div>
